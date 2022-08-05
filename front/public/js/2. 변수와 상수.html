@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+		<script type="text/javascript">
+			/*
+				p.103
+					*하나의 값만 저장 가능
+					*상수명 혹은 변수명은 2개 이상 선언불가능 [이름이 중복]
+			
+					상수 : 고정된 수 [선언 시 상수에 대입된 값은 추후에 변경할 수 있다.]
+						1. const 변수명 = 값
+						
+					변수 : 변하는 수
+						1. let 변수명 = 값
+					
+						
+					대입 연산자
+						= 대입 [오른쪽애서 왼쪽에 대입(저장)]
+						+= [오른쪽 값을 왼쪽에 더한 후에 왼쪽에 대입]
+						-= *= /= %=
+					증감 연산자
+						단계적인 증감에서 사용 [엘베, 시간 등등 중간에 쩜프하지 않는 거]
+						++ : 1 증가
+							++변수 : 선위증가
+							변수++ : 후위증가
+						-- : 1 감소
+							--변수 : 선위감소
+							변수-- : 후위감소
+			*/
+		// 1. 상수의 선언
+		const pi = 3.141592
+		console.log( pi ) // 1. 상수 선언
+		/* pi = 10			  // 2. 싱수 출력
+		console.log( pi ) // 3. 상수의 값 변경 [오류 발생 : Assignment to constant variable. 상수는 고정된 값이니까 오류로 뜸] */
+		
+		// 2. 뱐수의 선언
+		let pi2 = 3.141592				 // 1. 변수 선언
+		console.log( "pi2: " + pi2 )	 // 2. 변수 출력
+		pi2 = 10						// 3. 변수의 값 변경
+		console.log("pi2변경후 : "+pi2)  //  4. 값 변경후 출력
+		
+		// 3. 대입연산자
+		let 변수1 = 3 // 변수의 선언과 3 대입 =초기값(처음에 들어가는 값)
+			console.log ('변수의 값 : ' + 변수1 )
+			변수1 = 변수1 + 2 // 연산자가 2개 이상일 경우 사칙연산이 됨?
+			//console.log('변수1의 2를 더한 후 : ' + 변수)
+				// 1. 변수1+2 : 5
+				// 2. 본수1=5	 : 대입
+		//* 활용 : JS 변수에 저장된 html 형식의 문자를 html에 출력
+		let list = ''          // 1. 변수의 선언과 ' ' 공백 대입 [초기값]
+		list = list + '<ul>'   // 2. qustndml snwjr rkqt wjwkdgksek.  list = list + '<ul>'	
+		list += '<li>Hello</li>'
+		list += '<li>javascript</li>'
+		list += '<ul>'
+			console.log(list)
+			
+		document.write(list)
+		
+		// 4. 증감 연산자
+		let 변수2 = 3
+		console.log( "변수2:" + 변수2)				//3	
+		console.log( "변수2 선위증가:" + (++변수2) )		//4	증가 후에 출력
+		console.log( "변수3 후위증가:" + (변수2++) )	// 4 출력 후에 증가
+		console.log( "변수2:" + 변수2 )				//5
+		console.log( "변수2:" + (--변수2) )       //4
+		console.log( "변수2:" + (변수2--) )       //4
+		console.log("변수2:" + 변수2)             //3
+		// 변수2 += 1 vs 변수2 += 1 vs 변수++   무슨소린지..? 내껀 왜 값이 안나오는지..? -> 오타였다..
+		
+		
+		
+		</script>
+</body>
+</html>

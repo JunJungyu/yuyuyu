@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+
+		/* css주석 */
+		/* 선택자 {속성 : 값 ;}  <- 이 모양을 꼭 지키기 */
+		/*웹폰트를 쓰면 됨 눈누에 상업용 폰트 있음.*/
+		*{
+		/*모든 곳에 적용*/
+			font-family: "궁서"; /*PC에 있는 폰트만 사용가능하고 사용자가 가지고 있지 않으면 폰트깨짐*/
+			color: blue; /*폰트색상*/
+		 }
+		/*특정 태그에 적용할 경우*/
+		@font-face
+		{
+		    font-family: 'ulsanjunggu';
+		    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/ulsanjunggu.woff2') format('woff2');
+		    font-weight: normal;
+		    font-style: normal;
+		}
+  
+  
+ 	h3{
+	 	font-family: "ulsanjunggu";
+			text-decoration: overline line-throught;
+	    
+	    text-align: center; /*폰트정렬*/
+	    text-shadow: 3px 3px 3px orange; /*그림자 x축 y축 깊이(굵기) 색상*/
+	    
+      }
+    
+  p   {
+	  	background-color: yellow; /*글자 배경색*/
+	  	line-height: 150%; /*줄간격 기본값이 100% 보통 120~150이 보기편함*/
+	     font-size: 30px ;
+	     font-style: italic; /*폰트 기울기*/
+	     font-weight: bold; /*폰트 굵기*/
+	     letter-spacing: 10px; /*자간-글자사이 간격*/
+	     word-spacing: 5px /*어간-단어사이 간격*/
+      }
+							
+	</style>
+</head>
+<body>
+
+		<!-- 
+			글자/폰트 관련 속성
+				1. font-family : 폰트명
+				2. color : 폰트 색상
+				3. backgrond-color : 배경색
+				4. font-size :폰트 크기
+				5. font-style : italic 폰트 기울기
+				6. font-weight : bold 폰트 굵기
+				7.text-ddecoration : 
+					overline		: 윗줄
+					underline		: 밑줄
+					line-though		: 취소선
+				8. text-align:
+					center			: 가운데 정렬
+					left			: 왼쪽 정렬
+					right			: 오른쪽 정렬
+				9. text-shadow		: 그림자
+				10. word-spacing	: 어간
+				11. letter-spacing	: 자간	
+		 -->
+		 
+		 
+	<h3>강아지</h3>
+	<p>강쥐와 비슷한 단어로는 강아지의 경상도 사투리로 간지라고 한다. 지금은 나이 지긋한 어르신들 사이에서도 이렇게 말하는 사람을 찾기 힘들다.
+	실제 사람들이 단어를 말할 때는 간→지↘. 이를 합쳐 간지 새끼로 부르기도 한다.
+	다른 지역의 방언과 마찬가지로 어르신들만 이 명칭으로 부른다.
+	</p>
+	
+	<a href="http://www.naver.com">네이버</a>
+	
+	<!-- 
+		<a> 는 링크쓸때 쓰는 코드
+		http: 하이퍼텍스트 전송 프로토콜 [html 전송 방식]
+		네이버 회사[웹서버]에 html 주세요 하는거..	
+		프로토콜[규약]
+		경기도 안산시 무슨구 무슨동같은 약속
+		도메인(DMS)
+		http://ip주소/port 인데 ip주소를 외우고 다니지않기 때문에 구매해서 사용하면 됨
+		<a>는 알아서 파란색 밑줄 생김 - 특정태그에 있는 ㅇ ㅓ쩌고 - 기본값 css
+     -->
+	<a{text-decoration: none; color: black}></a> /*하면 사라짐*/
+			 
+			 <a;visited{color: blue;}>/*한번이라도 방문한 적 있다면*/
+			 <a;active{color:green;}>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</body>
+</html>]

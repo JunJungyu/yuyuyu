@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+/*  		//문제1)
+		let 정수1 = Number(prompt('정수1:')) //1. 입력받기             넘버 들어가면 문자니까 또 괄호 열고 닫아줘야함. 넘버 넣어도되고 안넣어도됨 이유가 있음..
+		let 정수2 = prompt('정수2:')
+		
+		if (정수1 > 정수2) {
+			alert(정수1)
+		}else{
+				정수2
+		}
+		
+		//문제2
+		
+		let 정수3 = prompt ('정수3 : ')
+		let 정수4 = prompt ('정수4 : ')
+		let 정수5 = prompt ('정수5 : ')
+		let 최댓값 = 정수3		//가장 큰 수를 보관하는 변수 선언
+		if(최댓값<정수4) {최댓값=정수4}
+		if(최댓값<정수5) {최댓값=정수5}
+		alert(최댓값)
+		
+		//문제3
+		let 정수6 = prompt ('정수6:')
+		let 정수7 = prompt ('정수7:')
+		let 정수8 = prompt ('정수8:')
+		let 정수9 = prompt ('정수9:')
+		let 최대값 = 정수6
+		if(최대값<정수7) {최대값=정수7}
+		if(최대값<정수8) {최대값=정수8}
+		if(최대값<정수9) {최대값=정수9}
+		alert(최대값)
+		
+		
+		//문제4 내가 풀던 쓰레기
+		let 정수10 = prompt ('정수10')
+		let 정수11 = prompt ('정수11')
+		let 정수12 = prompt ('정수12')
+		*/
+		
+		
+		//강사님 문제4
+		let int1 = Number(prompt('정수1:'))
+		let int2 = Number(prompt('정수2:'))
+		let int3 = Number(prompt('정수3:'))
+		
+				//변수의 값 교환[임시 변수 선언]
+		
+		/*
+		let tmp = int1
+		int1 =int2
+		int2 = int3 
+		*/ 
+		
+		let tmp = 0 				//임시 교환 변수 선언   >오름차순		<내림차순
+		if( int1 > int2 )	{
+			tmp = int1
+			int1 = int2
+			int2 = tmp
+					    	}
+		if( int1 > int3 )	{
+			tmp = int1
+			int1 = int3
+			int3 = tmp
+							}
+		if(int2 > int3)		{
+			tmp = int2
+			int2 = int3
+			int3 = tmp
+							}
+		alert(int1 + " " + int2 + " " + int3 )
+		
+		
+	 
+		
+		//문제6 내가 푼
+		const a = Number(prompt ('점수입력:') )
+		if (a>=90){
+			alert('합격~')
+					}else if (a<=90){alert('탈락~')
+					}
+		
+		
+		//강사님이랑 푸는 문제6
+		const 점수 = prompt('점수입력:')	
+		if (점수 >= 90)	{	//if s
+			alert('합격')
+		} 					//if e
+			else{
+				alert('불합격')
+			}
+		
+		//문제7	내가 푼
+		const b = Number(prompt ('점수입력:') )
+		if(b>=90){
+			alert('A등급')
+				}else if (b>=80){
+					alert('B등급')
+				}else if('b>=70'){
+					alert('C등급')
+				}
+		
+		//강사님이랑 7번
+		
+		const 총점 = Number (prompt('점수입력:'))
+		if(총점 >= 90){alert ('A등급')}
+		else if(총점 >= 80){alert ('B등급')}
+		else {alert('재시험')}
+		 
+	// 강사님 8번
+		const 아이디 = prompt ('아이디 :')
+		const 비밀번호 = prompt ('비밀번호 :')
+		if(아이디=='admin'){			//만약에 아이디가 admin이면
+			//if중첩
+			if(비밀번호 == '1234' ){
+				alert('로그인 성공')
+			}else{				//아니면
+				alert('[로그인 실패] 비밀번호가 틀렸습니다.')		
+			}
+			}else{					//아니면
+			alert('[로그인 실패] 없는 아이디입니다.')
+			}
+		
+		
+		//문제8 내가 풀던거
+		const ID = (prompt( 'ID' ) )
+		const 비뮐번호 =(prompt( '비뮐번호' ) )
+		if(ID = admin) {
+				alert('정답입니다~')
+		}else if (ID = admin){
+			alert ('다시 시도해주세요~')
+		}
+	 	 	
+		
+		
+	</script>
+</body>
+</html>

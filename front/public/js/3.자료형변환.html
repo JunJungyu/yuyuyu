@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+	
+		/*
+		p.116
+			0.  경고창 :alert("메세지")
+			1. 문자열 입력 : promt ("메세지")
+			2. 불 입력 : conform("메시지")		: 확인(ture)	/		취소(false) 입력버튼 상자 띄우기
+		p.119~ : 자료형 변환
+			1. 문자열 -> 숫자형 : number (문자열)
+			2. 숫자형 ->  문자열 : string (숫자형)
+				숫자+문자 = 문자열 되버림
+				13+"" = "13"
+				
+			3. 불 변환-> booleam (데이터) 
+				Blooean( "true" ) -> true
+			
+			
+			*/
+		const input = prompt('문자 입력해주세요')	//1. 문자열 입력받기 -> input이라는 상수에 바로 저장이 됨
+		console.log('입력받은 문자 : ' + input )	//2. 입력받은 변수 출력 = 상수 출력
+	// 2. 
+		const input2 = confirm('동의 여부 확인')
+		console.log('입력받은 불 : ' + input2)
+	// 3. 숫자열 집력받기
+	const 숫자 = prompt('숫자입력')
+	console.log( '입력받은 수: ' + (숫자+10) )						// 1. 입력받으면 문자열 저장된다 -> 1010으로 나옴
+	console.log( '입력받은 수: ' + (Number(숫자) +10 ) )			//2. 문자열 -> 숫자열 변환 *20[숫자형]	
+	
+	
+	</script>
+
+</body>
+</html>
