@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+	
+	/* 	변수/상수 : let / const
+		배열 : []
+		제어문 : if / switch
+		반복문 :
+			*조건이 충족되면 실행 (ture)
+			*값을 1. 어디서부터 2. 어디까지 3. 몇개씩 증감반복할지 생각하
+			고 짜야됨~!~!
+			1. for (기초값; 조건문 ; 증감식) {실행문}
+			2. 
+				1.기초값
+				while (2.조건문){
+						3.증감식
+				} 
+	
+		// p.181
+	 	
+		let i = 0	//i라는 변수를 선언해서 0을 대입
+		while(ture) {//조건이 ture이면 실행인데 트루라는 상수를 넣으면 무조건 실행
+			alert (`&{i}번째 반복입니다.`)
+			i = i + 1 // vs i++ vs i += 1
+		}	//while 
+		
+			
+			// p .182
+				let i2 = 0
+				while (confirm ('계속 진행하겠습니까?')) {	//무한루프이긴 하지만 종료조건=취소버튼 누르면 취소됨
+						alert(`${i}번째 반복됩니다.`) 		//confirm(메시지) 확인(ture)취소(false) 선택 메시지 함수
+					i =i +1
+				}	//while end
+				
+				
+				
+				// p.183
+				
+				
+				
+				let i = 0
+				const array = [1, 2, 3, 4, 5]		//배열선언과 동시에 1~5 대입 배열이니까 대괄호 사용함
+				
+				while ( i < array.lenght){			//lenght 배열의 길이 = i <5
+					 
+					 [선언] const 배열명 = [rkqt1, rkqt2, rkqt3, 값4ㅔ
+					 [호출] 배열명 [인덱스]
+							 인덱스 : 배열에 저장된 순서번호 [ 0번 시작 ]
+					
+					*초기값이나 증감식이 필요없는 경우 -> 무한루프 : while 선호
+					
+					 
+					 braek	: 가장 가까운 반복문/switch 나가기
+					 continue: 가장 자까운 반복문으로 이동
+					
+					  
+					
+					console.log(`${i}인덱스 : ${array[i]}`)
+					i++
+				}	//while e
+				
+				
+				//vs				while문은 중첩문 들어가지면 복잡해지니까 for문이 편함
+				
+				for ( let i = 0 ; i<array.lenght ; i++ ){
+					console.log(`${i}인덱스 : ${array[i]}`)
+				}
+				
+				
+				
+		
+//for ( let i = 0; ture; i++){ } vs while(ture)
+	
+	for( let = 0 ; ture ; i++){
+			alert( i + '번째 번복입니다.')
+	
+	
+	//진행여부
+		const isContinue = confirm('계속 하시겠습니까?')
+		
+		// if (조건) {실행문}
+		if (!isContinue){break}		//취소를 눌렀을때 break( 가까운 반복문 종료 ) 실행
+		}	//	!연산자: 부정연산자 [ ture -> flaus / flaus -> ture ]
+	
+	while( ture ){
+			alert( i + '번째 반복입니다.' )
+			const isContinue = confirm('계속 하시겠습니까?')
+			if (!isContinue){break}	
+	
+	}	
+		
+		 
+		
+		 
+		 // p. 185
+		 
+		 for (let i = 0 ; i < 5 ; i++){
+			 continue
+			 alert(i)		//continue, break 아래 코드는 실행이 X 콘티뷰는 아래코드로 못내려가고 브레이크는 나가버리고 콘티뉴는 올려버리기때문에 얼로트 진행안됨 
+			 }
+		
+		 // p.185 2
+		 
+		 let  output = 0
+		 for (let i = 1 ; i<=10 ; i++)	{	//i는 1부터 10이상까지 1씩 증가
+			 if (i%2==1){continue}				//홀수 찾기 [값%2 ==1 홀수 /값%2==0]
+			 output += i						// 누적 더하기 : i 값을 output변수에 누적더하기 참만 실행?
+			 alert('1에서 10 사이의 짝수들끼리의 누적 합계: ' + output)
+		 }
+		
+		 array는 배열,,, 불러올때 사용하는건가??
+		 
+		*/
+
+		
+		
+		// p. 191 확인문제
+		
+				//1. for in 배열 : 인덱스 반복 for Of 배열  : 값 반복
+					/*
+				
+		// 2. 오류 -> for ( const i  ) [X] -> for ( let i )
+			/* 0+1*3 =3  /  (1+1)*3 = 6  /(2+1)*3 = 9 예상 [ 3, 6, 9 ] */
+			// 3. 1~100까지 곱한 값을
+			let output = 1
+			for( let i =1 ; i<100 ; i++ ){
+				output *= i		// vs output = output*i
+			}
+		console.log(`1~100이 숫자를 모두 곱하면, ${output}입니다.`)
+
+
+		</script>
+</body>
+</html>

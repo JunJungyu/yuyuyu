@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+		<link href="9.중간과제3.css" rel="stylesheet">
+</head>
+<body>
+	
+		<h3>회원가입 폼</h3>	<!-- 제목태그 -->
+		<form>	<!-- 폼 양식,테이블쓰거나 다른거써도 됨 -->
+			<ul class="signupbox"> <!-- 번호가 없는 글머리 리스트 이건 화면에 안보임 그냥 구역 나누는건가 이것도??	첫번째 리스트를 행처럼 쓰고 안에 있는 리스트를 열처럼 쓴다,,-->
+				<li><!-- 리스트 항목 -->
+					<ul class="cols">
+						<li class="col1">아이디</li>
+						<li class="col2"> <input type="text"> </li>
+					</ul>
+				</li> 
+				<li>
+					<ul class="cols">
+						<li class="col1"> 비밀번호 </li>
+						<li> <input type="password"> </li>
+					</ul>
+				</li>
+				<li>
+					<ul class="cols">
+						<li class="col1">비밀번호 확인 </li>
+						<li> <input type="password"> </li>
+					</ul>
+				</li>
+				<li>
+					<ul class="cols">
+						<li class="col1">이름</li>
+						<li> <input type="text"> </li>
+					</ul>
+				</li>
+				<li>
+					<ul class="cols">
+						<li class="col1">이메일</li>
+						
+						<li class="col1"> <select> 
+							<option> 직접입력 </option>
+							<option> naver.com </option>
+							<option> nate.com </option>
+							</select>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<ul class="cols">
+						<li class="col1">이메일수신</li>
+						<li class="col1"> <input type="radio" name="a"> 수신
+						<input type="radio" name="a"> 비수신</li>
+					</ul>
+				</li>
+				<li>
+					<ul class="cols">
+						<li class="col1"> 가입경로 </li>
+						<li class="col1"> <input type="checkbox" name="b"> 친구추천
+						 <input type="checkbox" name="b"> 인터넷 검색
+						 <input type="checkbox" checkd name="b"> 기타 
+						</li>
+					</ul>	
+				</li>
+				<li>
+					<ul class="cols">
+						<li class="col1 hrllo">인사말</li>
+							<li class="col1">
+							<textarea rows="10" cols="30"></textarea>
+							</li>
+							
+					</ul>
+				</li>
+				
+			</ul>
+			
+				
+				<div class="buttenbox">
+					<input type="submit" value="저장하기">
+					<input type="submit" value="다시쓰기">
+				</div>
+		</form>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+/* h3{auto: 0;} */
+h3{text-align: center;
+	text-decoration: bold;		/*일단 헤더 가운데 적용*/
+   }
+   
+table{
+		widows: 300px;
+		margin: 0 auto ;		/*가운데 정렬*/
+		}		
+	
+input{height: 25px;}
+button{padding: 22px 20px;}	
+	

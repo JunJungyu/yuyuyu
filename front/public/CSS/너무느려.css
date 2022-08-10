@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+*{ border: solid 2px black;}
+.전체{
+	width: 1280px;
+}
+
+.로고{
+	float: left; width: 200px; height: 50px;
+}
+
+ .테이블{
+ 		border: solid 1px green;
+ 		text-align: center;
+ 		width: 100px; height: 50px;
+ }
+ 
+ .기사님{width: 1280px; height: 200px;
+ 	   border: solid 2px blue;
+ 	   text-align: center;
+ }
+ 		
+ .검색창{
+	    width: 1280px; height: 200px;
+	 	border: solid 2px pink;
+	 	text-align: center;
+ }
