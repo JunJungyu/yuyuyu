@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+*{
+	border: solid 1px #eeeeee;
+}
+
+.a{
+	text-align: center;
+}
+
+.b{
+	width: 1280px;
+	background-color: red;
+	margin: 0 auto;
+}
+
+.c{
+	width: 1280px;
+	background-color: ornge;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.d{
+	margin: 0 auto;
+	background-color: orange;
+	height: 310px;
+	padding-left: 200px;
+	padding-right: 200px;
+}
+
+.box1{
+	float: left;
+	width: 300px;	height: 300px;
+	background-color: fuchsia;
+	
+}
+.box2{
+	float: left;
+	width: 300px;	height: 300px;
+	background-color: fuchsia;
+}
+.box3{
+	float: left;
+	width: 300px;	height: 300px;
+	background-color: fuchsia;
+}
+.box4{
+	float: right;
+	width: 300px;	height: 300px;
+	background-color: purple;
+}
+
+.gg{
+	margin: 0 auto;
+	width: 910px;
+	list-style: none;
+}
+
+
+
+.e{
+	width: 700px;	height: 100px;
+	float: left;
+}
+
+.f{
+	float: right;
+	background-color: aqua;
+	width: 200px;	height: 300px;
+}
+
+.g{
+	width: 700px;	height: 200px;
+	float: left;
+}
+
+
+/*물어볼거
+1.margin 0 auto랑 text-align가 어떻게 다른지
+2.list 그 없애는 none 했는데 왜 안사라지는지
+	감싸고 있는 리스트에 적용하는건지 개개인 적용하는건지
+	엥 이번엔 되네?
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

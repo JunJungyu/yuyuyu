@@ -1,0 +1,228 @@
+@charset "UTF-8";
+
+/* ------------- 기본 css 제거 및 설정 -------------- */
+*{ margin: 0px; padding: 0px; font-family: '굴림'; }
+a{ text-decoration: none; color: black;}
+a:hover { color: gray; }
+li{ list-style-type: none; }
+/* 웹 폰트 적용 = 눈누 , 구글 폰트 */
+@font-face {
+    font-family: 'ONE-Mobile-POP';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/* ------------------- 헤더 ----------------- */
+#hd{ height: 150px;  }
+
+.hd_box{ width: 1200px; margin: 0 auto; }
+
+.logobox{ float: left; margin: 30px 0px 0px 30px; }
+
+.menus{ float: right; text-align: right; }
+
+.top_menu{ margin: 30px 0px; }
+
+.menus li{ display: inline; }
+
+.main_menu li a{
+	font-family:"ONE-Mobile-POP";
+	font-size: 20px; margin-left: 100px;
+	display: inline;		/*왜 안누워~*/
+}
+
+.ab{
+	float: right;
+}
+
+/* ------------------- 메인이미지 ----------------- */
+
+#main_img{
+	clear: both;
+	height: 350px;
+	background-image: url("img/main_bg.png");
+	background-repeat: no-repeat;
+	background-position: top center;
+}
+
+
+/* ------------------- 본문 ----------------- */
+
+
+	
+	.sdb_t{
+		clear: both;
+		height: 950px;
+		background-image: url("img/main_bg");
+		background-repeat: no-repeat;
+		background-position: top center;
+	}
+	
+	.sdb_t h3{
+		padding: 15px;
+	}
+	
+		.서치박스{
+		padding: 15px;
+		
+	}
+	
+		.서치박스 butten{
+		padding: 8px;
+	}
+	
+	.sdb_t{
+		width: 200px;	
+	}
+	
+	
+	
+	.sb_ti{
+		background-color: aqua;
+		width: 200px;
+		padding: 10px;
+		font-size: 15px;
+		color: white;
+		border-top: solid 2px gray;
+		padding: 15px;
+		font-size: 15px;
+	}
+	
+	.hi{
+		line-height: 150%;
+		padding: 15px;	
+	}
+	
+
+	
+
+	
+	.sb_ti li{
+		padding: 15px;
+	}
+	
+	.sb_tittle{
+		background-color: fuchsia;
+	}
+	
+	
+	
+	
+	
+	
+	
+		/*----------------사이드바-----------------*/
+	
+	
+	
+	
+	
+	
+	
+	/*----------------메인 본문-----------------*/
+	
+	.main_content{
+		float: right;	width: 900px;
+	}
+
+.left_main main_tittle{
+	border-bottom: solid 2px black;
+}
+
+.left_main board_ul{
+	margin: 30px 20px;
+}
+
+.left_main board_ul item{
+	height: 30px;
+}
+
+.title{
+	float: left;
+}
+
+.date{
+	float: right;
+}
+
+
+.right_main , main_title{
+	border-bottom: solid 2px black;
+}
+
+.right_main , product_ul{
+	float: left;
+	width: 200px;
+	margin: 20px 0px 0px 10px;
+}
+
+#footer{
+	background-color: navy;
+	clear: both;
+	width: 3000px;
+}
+
+.ft_box{
+	margin: 0 auto;
+}
+
+.ft_box li{
+	list-style-type: none;
+	display: inline;
+}
+
+
+
+
+/* ------------------- 푸터 ----------------- */
+
+#footer{
+	clear: both;	/*앞전에 한 float 제거*/
+	color: white;
+	height: 300px;
+	background-color: navy;
+}
+
+.ft_box{
+	margin: 0 auto;
+	width: 1200px;
+}
+
+
+.ft_menu{
+	padding: 20px; font-weight: bold;
+}
+
+.ft_menu li{
+	display: inline;
+	margin-right: 30px;
+}
+
+
+.ft_box , items{
+	float: left;
+	margin: 20px 50px 20px 20px;
+}
+
+.ft_item_ul{
+	margin-top: 10px;
+}
+
+.ft_item_ul li{
+	margin: 5px;	width: 350px;
+}
+
+
+.ft_title{
+	color: olive;
+}
+
+
+
+
+
+
+
+
+
+

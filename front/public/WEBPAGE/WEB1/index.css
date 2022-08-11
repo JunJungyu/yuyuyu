@@ -1,0 +1,155 @@
+@charset "UTF-8";
+*{ padding: 0; margin: 0; }
+a{ text-decoration: none;
+	color: black;
+} /*하이퍼링크 줄 그어져있는거 없애기*/
+	
+a:hover{ color: olive; }	/*호버 = 마우스 올려뒀을때
+							이건 왜 에이{}안에 안넣고 따로 쓰지?*/
+	
+	/*
+		식별자 : 꾸미기 대상
+		1. *{} : 모든 대상
+		2.태그명{} : 해당태크
+		3. .clas : 해당 클래스명 [사용빈도가 많을때는 이거 예) 본문 내용 여러개 - 복수 적용이 가능하기 때문 / 잘씀]
+		4. #id : 해당 id 명 [페이지당 한번씩 사용할때 예)푸터 같은것 푸터는 하나니까]
+			우선순위 id > class > 태그 > *
+	*/
+	
+	#header{	/*왜 적용 안되지? -> 픽셀 안썼었음..ㅎ*/
+		width: 1200px;
+		height: 100px;
+		margin: 0 auto;	/*박스권 가운데 정렬*/
+	}
+	
+	.main_menu{
+		float: left;
+		margin-top: 20px;
+	}
+	
+	.logobox{
+		float: left;
+		margin-top: 20px;
+		margin-left: 20px;
+	}
+	
+	.menus{
+		float: right;
+	}
+	
+	.main_menu li{		/*다 안꾸며지게(스페이스바 치고)li 따로 씀*/
+		 display: inline;	/*쌓아지지 않고 옆으로 촤르륵*/
+		 padding-left: 80px;	/*각 리스트마다 왼쪽여백 적용됨*/
+	}
+	
+	.top_menu{
+		text-align: right;
+		margin-top: 20px;
+		font-size: 15px;
+	}
+	
+	
+	/*				헤더					*/
+	
+	
+	
+	
+	#main_img{
+		clear: both ;	/*앞쪽에서 사용되는 float 사라짐 안딸려올라가게*/
+		width: 100%;	height: 250px;	/*자동채우기가 기본으로 적용됨 여러개 좌르륵*/
+		background-image: url("img/main_img.png");
+		background-repeat: no-repeat;	/*자동채우기 없애는것*/
+		background-position: top center;	/*박스권 배경 이미지 정렬*/
+		margin: 20px;
+	}
+	
+	
+	
+	
+	/*=======================본문=======================*/
+	
+	
+	
+	#content{
+		width: 1200px;
+		margin: 0 auto;
+	}
+	
+	
+	.sub_menu{
+	float: left;
+	width: 250px;
+	}
+	
+	.sub_menu h3{
+		font-size: 20px;
+		color: fuchsia;
+		background-color: navy;
+		padding: 15px;
+	}
+	
+	#content li{
+		list-style-type: none;
+		border-bottom: dotted 1px #eeeeee;
+		padding: 10px;
+	}
+	
+	.main_content{
+	float: right;
+	width: 900px;
+	}
+	
+	.main_content h3{
+		font-size: 20px;
+		padding-bottom: 10px;
+		border-bottom: solid 1px #eeeeee;
+	}
+	
+	.main_content p {
+		line-height: 180%;	/*줄간격 100%이 기본이고 단위는 퍼센트*/
+		margin-top: 20px;
+	}
+	
+	.main_content{
+		padding: 20px;	/*리스트라서 라인높이 안먹힘*/
+		margin-bottom: 100px;
+	}
+	
+	#footer{
+		clear: both;
+	}
+	
+	
+	
+	.content_img img{
+		text-align: center;	/*엥?*/
+	}
+	
+	
+	
+	
+	/*========================푸터======================*/
+	
+#footer{ 
+	clear: both; 
+	background-color: #2c2a29; 
+	height: 150px;
+}
+.ft_box{ width: 1200px; height: 150px; margin: 0 auto; }
+.ft_logo{ float: left; margin: 50px 0 0 30px }
+.ft_address{ float: right; color: white; margin: 50px 30px 0 0 ; }
+
+	/* 뭔가 잘못건드려서 배치가 이상해졌다
+		컬러콥 어떻게쓰지?*/
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
