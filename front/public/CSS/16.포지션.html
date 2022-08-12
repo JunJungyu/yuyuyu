@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<style type="text/css">
+	
+	.box1{height: 60px; width: 100px;
+			border: solid red 1px;
+			background-color: yellow;}
+			
+	.box2{height: 60px; width: 100px;
+			border: solid red 1px;
+			background-color: yellow;
+			position: relative;
+			left: 50px; top: 50px;}
+	
+	
+	.box3{height: 60px; width: 100px;
+			border: solid red 1px;
+			background-color: yellow;}
+			
+	.box4{height: 60px; width: 100px;
+			border: solid red 1px;
+			background-color: yellow;}
+	
+	.box5{height: 60px; width: 100px;
+			border: solid red 1px;
+			background-color: yellow;
+			position: absolute;					/*이건 상위태그가 body니까 body 기준으로 왼쪽 50px 위 50px로 띄워짐*/
+			left: 50px; top: 50px;}
+	
+	.box6{height: 60px; width: 100px;
+			border: solid red 1px;
+			background-color: yellow;}
+		
+	.parent1{
+		position: relative;
+		left: 200px;	height: 200px;
+		width: 300px;
+		height: 90px;
+		border: solid 1px red;
+		}
+		
+	.box7{height: 60px; width: 100px;
+			border: solid red 1px;
+			background-color: yellow;}
+	
+		
+	.box8{height: 60px; width: 100px;
+			border: solid red 1px;
+			background-color: yellow;
+			position: absolute;
+			top: 30px;}
+	
+		
+	.box9{height: 60px; width: 100px;
+			border: solid red 1px;
+			background-color: yellow;}
+			
+	.parent2{
+		height: 200px; width: 300px;
+		border: solid 1px red;
+		
+		position: absolute;
+		top: 60px; left: 200px;
+	}		
+			
+	.box10{height: 60px; width: 100px;
+			border: solid red 1px;
+			background-color: yellow;}
+			
+	.box11{height: 60px; width: 100px;
+			border: solid red 1px;
+			background-color: yellow;
+			position: absolute;
+			left: 30px; top: 30px;}
+	
+	.box12{height: 60px; width: 100px;
+			border: solid red 1px;
+			background-color: yellow;
+			}
+	
+	.box13{
+		position: fixed;
+		right: 100px; top: 50px;
+		
+		height: 60px; width: 100px;
+		border: solid red 1px;
+		background-color: aqua;
+		}
+	
+	
+	</style>
+</head>
+<body>
+
+	<!-- 
+		박스모델
+			float left; right :	[왼쪽, 오른쪽 정렬] 
+			margin: 0 auto;[가운데 정렬]
+		박스모델 안 텍스트, 사진, 버튼
+			text_align : 
+		포지션
+			position: relative; : [상대위치로 *본래 있던 현 위치 기준*으로 왼쪽 상단 꼭짓점 기준으로 띄워짐 ]
+			position: absolute; : [*상위태그/부모태그* 기준으로 내가 포함된 소속 기준] 
+			position: fixed; : [위치고정! 스크롤 움직여도 제자리 고정이라 고정 장바구니 같은 곳에 사용됨 -디바이스 화면 고정-]
+	 -->
+	 	
+	 	
+	 	
+	 <h3> 상대위치 지정 </h3>
+	<div class="box1">박스 1</div>
+	<div class="box2">박스 2</div>
+	<div class="box3">박스 3</div>
+	
+	<h3>절대위치 지정</h3>
+	<div class="box4">박스 4</div>
+	<div class="box5">박스 5</div>
+	<div class="box6">박스 6</div>
+	
+	<h3>부모 : 상대위치 relative</h3>
+	<div class="parent1">	<!-- 상위태그, 부모태그 -->
+		<div class="box7">박스 7</div>	<!-- 하위태그, 자식태그 -->
+		<div class="box8">박스 8</div>
+		<div class="box9">박스 9</div>
+	</div>		
+	
+	
+	<h3>부모 : 절대위치 (absolute)</h3>
+	<div class="parent2">	<!-- 상위태그, 부모태그 -->
+		<div class="box10">박스 10</div>	<!-- 하위태그, 자식태그 -->
+		<div class="box11">박스 11</div>
+		<div class="box12">박스 12</div>
+	</div>		
+	
+	<div clas="box13">박스13</div>
+			
+			
+
+</body>
+</html>

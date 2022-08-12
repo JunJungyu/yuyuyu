@@ -1,0 +1,159 @@
+@charset "UTF-8";
+
+*{
+	margin: 0 auto;
+	padding: 0;
+	border: solid 1px olive ;
+	font-family: "맑은 고딕"
+	
+}
+
+.a{
+	text-decoration: none;
+	color: black;
+}
+
+.a:hover {
+	order: #eeeeee;
+}
+
+li{list-style-type: none;}
+
+@font-face {
+    font-family: 'PyeongChangPeace-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/PyeongChangPeace-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/*----------------------------------------------------------*/
+.main{
+	width: 1200px;
+}
+
+.hd{
+	margin: 0 auto;
+}
+
+.the1{
+	float: left;
+}
+
+.the{
+	font-family: 'PyeongChangPeace-Bold';
+	padding: 50px 100px 50px 200px;
+}
+
+
+
+.hd_left{
+	list-style-type: none;
+	float: right;
+	padding-top: 60px;
+	padding-right: 200px;
+	padding-left: 150px;
+}
+
+.hd_left li{
+	display: inline;
+}
+
+span{
+	color: navy;
+}
+
+/*----------------------------------------------------------*/
+
+.main2{
+	
+}
+
+.main_img{
+	width: 20px;
+	float: left;
+	background-image: url("../img/main.jpg");
+}
+
+/*---------------------------------------------------------
+
+.main_bn1{
+	
+}
+
+.bn1_text{
+	
+}
+
+/*----------------------------------------------------------*/
+
+.main_bn2{
+	
+}
+
+.bn2._text{
+	
+}
+
+/*---------------------------------------------------------*/
+
+.und{
+	
+}
+
+.box1{
+	
+}
+
+.box1_img{
+	
+}
+
+.box1_text{
+	
+}
+
+/*--------------------------------------------------------*/
+.footer{
+	clear: both;
+	float: right;
+	width: 100%;
+	background-color: navy;
+}
+
+.ft1{
+	float: left;
+	width: 370px;
+}
+
+.ft2{
+	float: left;
+	width: 370px;
+	display: inline;
+}
+
+.ft3{
+	float: left;
+	width: 370px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
