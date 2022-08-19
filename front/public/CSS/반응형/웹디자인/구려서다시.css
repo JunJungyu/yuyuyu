@@ -17,12 +17,13 @@
 	height: 50vh;
 }
 
-li{
-	list-style-type: none;
-}
-
 .apple1 , .apple2 , .apple3{
 scroll-snap-align : start;
+width: 100%;
+}
+
+section{
+	scroll-snap-align : start;
 }
 
 .apple1{
@@ -32,8 +33,9 @@ scroll-snap-align : start;
 	background-size: cover;
 }
 
-.text{
+.text1{
 	padding-top: 16vh;
+	text-align: center;
 }
 
 span{
@@ -42,33 +44,71 @@ span{
 
 /*----*/
 
-apple2{
-	border: solid 1px red;
+.c{
+	clear: both;
+	height: 60vh;
 }
 
+.b{
+	margin-top: 12vh;
+	float: left;
+}
 
+.text2{
+	margin-top: 12vh;
+	float: left;
+}
 
+.c{
+	width: 100%;
+	float: right;
+}
 
+.point{
+	color: red;
+}
 
+.img1{
+	float: right;
+	margin: 50px;
+}
 
+.text3{
+	float: right;
+	padding-right: 10vh;
+}
 
+li{
+	text-align: left;
+	line-height: 180%;
+}
 
+.list2{
+	padding-top: 10vh;
+	float: right;
+}
 
+li{
+	list-style-type: none;
+}
 
+.apple3{
+	padding-top: 12vh;
+	clear: both;
+	width: 100%;
+	height: 30vh;
+	background-color: white;
+	text-align: center;
+	margin: 0 auto;
+}
 
+.text4{
+	font-size: 30PX;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+.gif{
+	padding-bottom: 20vh;
+}
 
 
 
