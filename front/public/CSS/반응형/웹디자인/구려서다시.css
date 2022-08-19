@@ -1,1 +1,74 @@
 @charset "UTF-8";
+@font-face {
+    font-family: 'JSongMyung-Regular-KO';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/JSongMyung-Regular-KO.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+	font-family: 'JSongMyung-Regular-KO';
+	text-align: center;
+}
+
+.all{
+	overflow: auto;
+	scroll-snap-type : y mandatory;
+	height: 50vh;
+}
+
+li{
+	list-style-type: none;
+}
+
+.apple1 , .apple2 , .apple3{
+scroll-snap-align : start;
+}
+
+.apple1{
+	height: 50vh;
+	background-image: url("images/사곽.JPG");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.text{
+	padding-top: 16vh;
+}
+
+span{
+	color: yellow;
+}
+
+/*----*/
+
+apple2{
+	border: solid 1px red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
