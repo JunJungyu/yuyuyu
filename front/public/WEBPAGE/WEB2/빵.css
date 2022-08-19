@@ -1,7 +1,6 @@
 @charset "UTF-8";
 /* 기본 css 제거 및 설정*/
 *{margin: 0px; padding: 0px; font-family: '굴림;'}
-*{border: solid 1px olive;}
 a{text-decoration: none; color: black;}
 a:hover {
    color: gray;

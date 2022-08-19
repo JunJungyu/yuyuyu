@@ -11,80 +11,49 @@
     font-family: 'PyeongChangPeace-Bold';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/PyeongChangPeace-Bold.woff2') format('woff2');
     font-weight: 700;
-    font-style: normal;
-}
-
-
-
-/*-------------------------------------------------*/
+    font-style: normal;}
 
 *{
-	text-align: center;}
-	
-a{text-decoration: none;
-	color: black;}
-
-a:hover{color: #eeeeee;}
-
-.sub{
-	color: yellow;
-	width: 100%;
-	height: 300px;
-	background-image: url("../img/sub_intro.jpg");
-	padding-top: 130px;
+	padding: 0;
+	margin: 0;
 }
 
-.sub h1 , h2{
-	 line-height: 100%;
+li{
+	list-style-type: none;
 }
 
 
-.st h3 , h1{
-	text-align: center;
-}
-
-
-.aaa{
-	padding-left: 220px;
-	width: 10%;
-	margin: 0 auto;
-}
-
-.aaa td{
-	text-align: left;
-	padding: 10px;
-	z-index: 10;
-}
-
-.left_text p , h3{
-	text-align: left;
-}
-
-.left_pixture{
-	width: 150px;
-	height: 150px;
-}
-
-span{
-	font-weight: bold;
-	text-align: left;
-}
-
-.aaa{
-	width: 600px;
-	margin: 0 auto;
-}
-
-.aaaaaa{
-	background-color: #eeeeee;
+.text_0 li{
+	list-style-type: none;
+	}
+    
+.main{
+	text-align: center; 
 	width: 100%
 }
 
-/*-------------------------------------------------*/
-#footer{ 
+.bobo{
+	float: right;
+	
+}
+
+.dodo{
+	float: left;
+}
+ 
+.box{
+	margin: 0 auto;
+	width: 60%;
+	background-color: blue;
+	
+}  
+    
+/*     
+ #footer{ 
 	clear: both;  background-color:#292c32; color: white;   
 	padding: 20px; height: 250px;
-}
+	} */
+	
 .ft_item{ float: left; width: 380px; margin-top: 50px; }
 .ft_item li{ display: inline; }
 .ft_item ul{ margin-bottom: 20px; }

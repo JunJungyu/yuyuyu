@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+*{border: solid 1px red;}
+
+#header{
+	padding: 30px;
+}
+
+#menu{
+	float: left;
+	width: 29%
+}
+
+#main{
+	float: right;
+	width: 69%;
+}
+
+	/*
+	px이 아닌 %이기때문에 공간이 없어도 탑처럼 쌓이지 않고
+	비율 유지됨
+	
+	*/
+	
+	

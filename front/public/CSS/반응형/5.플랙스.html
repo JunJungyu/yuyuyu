@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width , inital-scale = 1.0">	<!-- 뷰포트 모바일 생각하면 항상 넣어줘야함 -->
+	<title>Insert title here</title>
+	
+	<style type="text/css">
+	
+	.container{
+		height: 200px;
+		display: flex;
+		flex-direction: row;
+			/* float: left; 랑 똑같음 */
+	}
+	
+	.container2{
+		height: 200px;
+		display: flex;
+		flex-direction: column;		/**/
+	}
+	
+	.container3{
+		height: 200px;
+		display: flex;
+		flex-direction: row-reverse;	/*오른쪽부터 배치됨*/
+	}
+	
+		.container4{
+		height: 200px;
+		display: flex;
+		flex-direction: column-reverse;		/*위로 배치됨*/
+		}
+	
+	.box{
+	    width: 100px;
+		height: 50px;
+		background-color: blue;
+		border: solid 1px white;
+	}
+	
+	</style>
+	
+</head>
+<body>
+	<h3> 플랙스 flex [display: flex;]<br>
+		flex-direction: row; 기본값
+	</h3>
+	<div class="container">
+		<div class="box"> box1 </div>
+		<div class="box"> box1 </div>
+		<div class="box"> box1 </div> 
+	</div>
+	
+	<div class="container2">
+		<div class="box"> box2 </div>
+		<div class="box"> box2 </div>
+		<div class="box"> box2 </div> 
+	</div>
+	
+	<div class="container3">
+		<div class="box"> box3 </div>
+		<div class="box"> box3 </div>
+		<div class="box"> box3 </div> 
+	</div>
+	
+	<div class="container4">
+		<div class="box"> box4 </div>
+		<div class="box"> box4 </div>
+		<div class="box"> box4 </div> 
+	</div>
+
+</body>
+</html>

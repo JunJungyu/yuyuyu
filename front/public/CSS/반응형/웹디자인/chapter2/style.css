@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+.container{
+	overflow: auto;
+	scroll-snap-type : y mandatory;
+	height: 100vh;
+}
+
+@media (max-width: 700px){
+	.title{
+	font-family: 'Dancing Script', cursive;
+	font-size: 7rem;
+	margin-bottom: 2rem;
+	color: red;
+	}
+}
+
+section{
+	scroll-snap-align : start;
+	height: 100vh;		/*viewport height 뷰포트 높이*/
+	background-size: cover;		/*화면비율을 유지한채 전체 화면 채우기*/
+	background-position: center;	/*글자가 넘었을때?*/
+						/* 가로 세로 정렬*/
+	background-repeat: no-repeat;	/*자동채우기 제거 - 바둑판말고 채우기*/
+}
+
+.hero{
+	background-image: url("../images/빵.jpg");	/* 배경이미지 */
+	text-align: center;
+	padding-top: 10vh;	/*뷰포트 기준이니까 vh*/
+}
+
+/*---------------------------2구역-------------------------------*/
+
+.menu{
+	background-image: url("../images/메론빵.jpg");
+	display: flex;
+	align-items: center;
+}
+
+.title{
+	font-family: 'Dancing Script', cursive;
+	padding-top: 10vh;
+}
+
+.wrapper{
+	width: 900px;
+	margin: 0 auto;		/* 모델 가로 배치 */
+}
+
+.menulist tr{
+	margin-bottom: 5px;		/*안되는거같은데*/
+	line-height: 150%;
+}
+
+/*-----------------------------3구역------------------------------*/
+
+
+.contact{
+	background-image: url("../images/카페.jpg");
+	text-align: center;
+}
+
+.contactsns{
+	display: flex;
+	justify-content: center;
+}
+
+.contactsns a{
+	margin-left: 20px;
+}
+
+
+
+
+/* 왜 title이 가운데로 안갈까??
+wrapper안에 있는데 다른 사람들은 왜 되지? 뭘 놓쳤지??*/
+
+
+

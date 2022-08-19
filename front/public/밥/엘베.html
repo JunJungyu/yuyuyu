@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.el{
+	width: 100px;
+	height: 60px;
+	background-color: blue;
+	border: solid 1px olive;
+	box-sizing: border-box;
+}
+
+.me{
+	width: 100px;
+	height: 60px;
+	background-color: fuchsia;
+	border: solid 1px olive;
+	box-sizing: border-box;
+	display: inline-block;
+}
+
+*{
+list-style-type: none;
+}
+
+#a{
+	clear: both;
+}
+</style>
+</head>
+<body>
+<!-- 
+조건
+1층부터 10층까지 있는 건물
+시작위치는 1층
+엘레베이터는 1층부터 7층까지 랜덤으로 이동함 - 타이머/랜덤?
+가고자하는 위치는 7층
+
+ -->
+ <li id="a"> 
+	  <div class="el">
+	 	7층
+	 </div>
+	  <div class="el">
+	 	6층
+	 </div>
+	  <div class="el">
+	 	5층
+	 </div>
+	  <div class="el">
+	 	4층
+	 </div>
+	  <div class="el">
+	 	3층
+	 </div>
+	  <div class="el">
+	 	2층
+	 </div>
+	  <div class="el">
+	 	1층
+	 </div>
+ </li>
+ <li class="me">
+ 	<div>
+ 	현재위치
+ 	</div>
+ </li>
+ <button onclick="">상승</button>
+ <button onclick="">하강</button>
+ 
+ <script type="text/javascript">
+ //엘베가 더 높은 층에 있을 때
+ let el = 0
+  for( let i = 1; i >= 7 ; i-- ){
+	  if( i == m){
+		  alert('문이 열립니다')
+	  }
+  }
+ 
+ 
+ 
+ 
+ </script>
+
+ 
+ 
+</body>
+</html>

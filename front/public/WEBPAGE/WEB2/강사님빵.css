@@ -40,7 +40,7 @@ li{ list-style-type: none; }
 #main_img{
 	clear: both;
 	height: 350px;
-	background-image: url("img/main_bg.png");
+	background-image: url("../img/main_bg.png");
 	background-repeat: no-repeat;
 	background-position: top center;
 }
@@ -53,7 +53,7 @@ li{ list-style-type: none; }
 	.sdb_t{
 		clear: both;
 		height: 950px;
-		background-image: url("img/main_bg");
+		background-image: url("../img/main_bg");
 		background-repeat: no-repeat;
 		background-position: top center;
 	}

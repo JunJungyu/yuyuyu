@@ -1,0 +1,78 @@
+@charset "UTF-8";
+body{
+ background:#222;
+ color:#fff;
+ padding:30px 20px 20px 30px;
+ line-height:1.4;
+ font-family: '나눔 고딕';
+}
+.tower{
+ display: inline-block;
+ background-color: grey;
+ left: 320px;
+ position: relative;
+}
+.floor {
+ width: 300px;
+ height: 100px;
+ background-color: pink;
+ margin:10px 10px 10px 10px;
+ font-size:2em;
+ font-weight:bold;
+ cursor: pointer;
+ position: relative;
+ text-align: right;
+ padding-right: 10px;
+}
+.elevator {
+ width: 300px;
+ height: 100px;
+ margin: 0px 10px 10px 10px;
+ background-color: skyblue;
+ position: absolute;
+ padding-left: 10px;
+ font-size:2em;
+ font-weight:bold;
+ cursor: default;
+}
+.peaple{
+ width: 300px;
+ height: 100px;
+ margin: 0px 10px 10px 10px;
+ background-color: black;
+ position: absolute;
+ padding-left: 10px;
+ font-size:2em;
+ font-weight:bold;
+ cursor: default;
+
+}
+#f1 , .elevator , .peaple{display: inline-block;}
+.elevator {position:absolute;
+		  top:680px; left:320px;}
+		  /* 
+		  1층 680
+		  2층 560
+		  3층 450
+		  4층 340
+		  5층 230
+		  6층 120
+		  7층 10
+		  */
+.peaple{position:absolute;
+		  top:680px; left:660px;}	
+		  	  
+.buttons{width: 400px;
+ margin: 10px;
+ background-color:skyblue;
+ position: absolute;
+ left: 440px;
+ padding: 10px;
+ font-weight:bold;
+ text-align: center;}
+ 
+ .buttons button{display:block; 
+ 				 width:200px;
+ 				 height:50px;
+ 				 margin: 0 auto;
+ 				 font-size:15px;}

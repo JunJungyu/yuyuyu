@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<link href="그리드.css" rel="stylesheet">
+	<style type="text/css">
+	
+		div{
+			background-color: blue;
+			color: white; text-align: center;
+			border: solid 1px red ;
+			box-sizing: border-box;
+			/*
+			보더가 포함된 width 로 적용됨
+			박스테두리를 width 포함된 크기
+			
+			*/
+		}
+	
+	</style>
+</head>
+<body>
+
+	<div>
+		<div class="col_3">3그리드</div>
+		<div class="col_9">9그리드</div>
+	</div>
+	<div>
+		<div class="col_6">6그리드</div>
+		<div class="col_3">3그리드</div>
+	</div>
+	<div>
+		<div class="col_4">4그리드</div>
+		<div class="col_4">4그리드</div>
+		<div class="col_4">4그리드</div>
+	</div>
+		<div>
+		<div class="col_3">3그리드</div>
+	    <div class="col_3">3그리드</div>
+	    <div class="col_3">3그리드</div>
+	    <div class="col_3">3그리드</div>
+	</div>
+	<div>
+		<div class="col_6" style="background-color: red;">
+			<div class="col_3">3그리드</div>
+			<div class="col_9">9그리드</div>
+		
+	    </div>
+	</div>
+	
+	
+	<!--
+	50% 그리드 안에 또 50% 그리드 넣으면 상위 그리드 기준으로 쪼개짐
+	만약 50%이가 1200px이면 여기에 또 그리드 넣으면 300px인거인듯?
+	-->
+
+</body>
+</html>

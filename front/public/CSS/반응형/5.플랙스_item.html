@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width , inital-scale = 1.0">
+	<title>Insert title here</title>
+	
+	<style type="text/css">
+	
+	/*
+		식별자
+			1.  *{} 2. 태그명 {} 3. .class명{} 4. #id명 {}
+		한번에 여러개 식별자일때
+			식별자 , 식별자 , 식별자 {}	//쉼표
+		하위 식별자일때
+			식별자 하위식별자 {}	//띄어쓰기
+		중복 이름의 식별자 선택 [ 인덱스 ]
+		식별자 : nth - child(5) //n번째 있는 식별자 찾는것
+		이건 스크립트랑 다르게 0번 없고 1번부터임
+	*/
+	
+	.box{
+		border: solid 1px olive;
+		background-color: blue;
+		margin: 10px;
+		}
+	
+	.container1{
+		display: flex;  /*가로배치*/
+		}
+		
+	.container2{
+		display: flex;
+	}
+	
+	.container3{
+		display: flex;
+	}
+	
+	.container4{
+		display: flex;
+	}
+	
+	.container5{
+		display: flex;
+	}
+	
+	.container1 .box:nth-child(5){
+		background-color: fuchsia;
+		
+		
+		
+		
+		/*
+		 배치순서 바꾸기 다섯번째 있던게 첫번째로 감 
+		 첫번째가 0이라고 치고 -1이니까 앞질러서 젤 앞으로 가있음
+		 */
+		 
+		 
+		 
+		 /*flex-grow 여백없이 가로로 꽉차게 배치해줌*/
+	}
+	
+	.container1 .box:nth-child(1){
+		order: 10;
+	}
+	
+	.container2{
+		flex-grow: 1;	/*전제조건 flex 써야됨*/
+	}
+	
+	.container2 .box:nth-child(3){
+		flex-grow: 2;
+	}
+	
+	
+	
+	.container4 .box:nth-child(4){
+		flex: 1 0 200px;
+		/*
+		따로 안쓰고 한꺼번에 쓰는 코드 순서는
+		flex : grow
+		flex-shrink
+		flex-basis
+		이렇게~
+		
+		*/
+	}
+	
+	.container2 .box:nth-child(5){
+		flex-grow: 4;
+	}
+	
+	.container3 , box{
+		flex-basis: 200px;
+	}
+	
+	.container3 .box:nth-child(3){
+		flex-shrink: 3;
+	}
+	
+	.container3 .box:nth-child(5){
+		flex-shrink: 6;
+		flex-basis: 200px;	/* 크기 제한 기본타입? */
+	}
+	
+	
+	.container5 ,box{
+		height: 50px;
+		
+	}
+	
+	.container5{
+		height: 200px;
+		border: solid 1px red;
+	}
+	
+	.container5 .box:nth-child(4){
+	align-self: center;	
+}
+
+	.container5 .box:nth-child(2){
+	align-self: flex-start;
+
+}
+
+	.container5 .box:nth-child(3){
+	align-self: flex-end;
+ }
+	
+	
+	/*
+	align-self: flex-start			젤 위
+	align-self: center; 			중간
+	align-self: baseline; 			글자 기준으로 가운데
+	align-self: flex-end; 			바닥에 붙음	
+	*/
+	</style>
+
+</head>
+<body>
+	<h3> flex와 관련된 속성들 </h3>
+	<h5> order </h5>
+	<div class="container1">
+		<div class="box"> box1 </div>
+		<div class="box"> box2 </div>
+		<div class="box"> box3 </div>
+		<div class="box"> box4 </div>
+		<div class="box"> box5 </div>
+		<div class="box"> box6 </div>
+	</div>
+	
+	<h3> flex-grow : 양쪽 여백없이 자동 배치 </h3>
+	<h5> [화면 내 여백 있을 경우 여백 사이즈 나눠서 사이즈 증가] </h5>
+	<!-- 그니깐 어떻게던 꾸겨서 화면에 넣어준다는 말인듯 -->
+	
+	<div class="container2">
+		<div class="box"> box1 </div>
+		<div class="box"> box2 </div>
+		<div class="box"> box3 </div>
+		<div class="box"> box4 </div>
+		<div class="box"> box5 </div>
+		<div class="box"> box6 </div>
+	</div>
+	
+	<h3> flex-shrink : 양쪽 여백없이 자동 배치 </h3>
+	<h5> [ 화면 밖으로 튀어 나간 박스가 있을 경우<br>
+		   밖으로 나간 사이즈만큼 나눠서 사이즈 감소]
+	</h5>
+		   
+		   
+	<div class="container3">
+		<div class="box"> box1 </div>
+		<div class="box"> box2 </div>
+		<div class="box"> box3 </div>
+		<div class="box"> box4 </div>
+		<div class="box"> box5 </div>
+		<div class="box"> box6 </div>
+	</div>
+	
+	<div class="container4">
+	<h3> flex: grow , shrink , basic </h3>
+		<div class="box"> box1 </div>
+		<div class="box"> box2 </div>
+		<div class="box"> box3 </div>
+		<div class="box"> box4 </div>
+		<div class="box"> box5 </div>
+		<div class="box"> box6 </div>
+	</div>
+	
+	<div class="container5">
+	<h3> 5번 입니다. </h3>
+		<div class="box"> box1 </div>
+		<div class="box"> box2 </div>
+		<div class="box"> box3 </div>
+		<div class="box"> box4 </div>
+		<div class="box"> box5 </div>
+		<div class="box"> box6 </div>
+	</div>
+	
+	
+	<!-- flex-basis 최소 사이즈인데 width랑 다르게 배율이기 때문에 맞춰짐 -->
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

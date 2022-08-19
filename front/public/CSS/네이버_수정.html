@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>네이버 : 회원가입</title>
+<link href="네이버_회원가입.css" rel="stylesheet">
+</head>
+<body>
+	<div class="main_signup">
+		<header>	<!-- 헤더 -->
+			<div class="logo">
+				<a href="https://www.naver.com/">
+					<img class="image" alt="로고" src="../img/네이버.png">
+				</a>
+			</div>
+		</header>
+		<section class="signup_box">		<!-- 회원가입 본문 -->
+			<div>
+				<h3>아이디</h3>
+				<span class="signup_input">
+					<input id="signup_id" type="text">
+					<span class="signup_at">@naver.com</span>
+				</span>	
+				
+				<h3>비밀번호</h3>
+				<span class="signup_input">
+					<input id="signup_pw" type="password">
+					<span class="signup_lock"></span>
+				</span>
+				
+				<h3>비밀번호 재확인</h3>
+				<span class="signup_input">
+					<input id="signup_rpw" type="password">
+					<span class="signup_lock2"></span>
+				</span>	
+			<div>	<!-- 이름 , 생년월일 , 성별 , 이메일 -->
+				<h3>이름</h3>
+				<span class="signup_input">
+				<input id="signup_name" type="text">	
+				</span>
+			<div>	<!-- 생년월일 -->
+				<h3>생년월일</h3>
+				<span claa="birth_box">
+					<span class="signup_input_birth">
+						<input id="signup_input_yy" type="text" placeholder="년(4자)">
+					</span>
+					
+					<span class="signup_input_birth" style="margin-left: 10px;">
+						<select id="signup_input_mm">
+							<option>1월</option>
+							<option>2월</option>
+							<option>3월</option>
+							<option>4월</option>
+							<option>5월</option>
+							<option>6월</option>
+							<option>7월</option>
+							<option>8월</option>
+							<option>9월</option>
+							<option>10월</option>
+							<option>11월</option>
+							<option>12월</option>
+						</select>
+					</span>
+					<span>
+						<input id="signup_input_dd" type="text" placeholder="일" style="margin-left: 10px;">
+					</span>
+				</span>
+			</div>
+			<div>
+				<h3>성별</h3>
+				<span class="signup_input">
+				<select id="signup_gender">
+					<option>성별</option>
+					<option>남자</option>
+					<option>여자</option>
+					<option>선택안함</option>
+				</select>
+				</span>			
+				<span class="choice">
+					<h3>본인확인 이메일</h3>	<span>(선택)</span>
+				</span>
+				<span class="signup_input">
+					<input id="signup_email" type="text">
+				</span>
+		</div>
+			<div>	<!-- 가입버튼 -->
+			
+			</div>	
+			</div>
+	</section>
+		<footer>		<!-- 푸터 -->
+		</footer>
+	</div>
+</body>
+</html>
+
+<!-- placeholder="년()" 뭐 입력할지 미리 가이드 -->

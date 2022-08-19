@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+/*
+css 기본값 항상 세팅 해두고 시작하기
+*/
+
+*{ margin: 0;	padding: 0;	  box-sizing: border-box; 
+	border: solid 1px red;
+	}
+
+li{ list-style: none; }
+
+/*박스권*/
+
+.box{
+	clear: both;	/*앞에 설정해둔 플로팅 안따라가게 제거*/
+	width: 80%;
+	height: 50%;
+	margin: 0 auto;
+	background-color: gray;
+}
+
+
+
+
+
+
+
+
+
+
+

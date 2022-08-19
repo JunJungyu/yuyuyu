@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+.container{
+	overflow: auto;
+	/*scroll-snap-type : y mandatory;	부모요소 스크롤스냅을 y축으로*/
+	/*scroll-snap-type : y mandatory; 어느 지점에서든 다음 영역으로 빠르게 움직인다.*/
+	/*scroll-snap-type : proximity;	부드럽게 이동하는 느낌이래*/
+	height: 100vh;
+}
+
+/*스크롤이 더 빠르게 mandatory*/
+
+.area{
+	/*scroll-snap-align : start;	start영역의 시작하는 지점에서 스크롤  자식요소에서 사용 / 자식요소 멈추는 기준점 */
+	/*scroll-snap-align : end;		 영역의 끝나는 지점에 스크롤 멈춤 */
+	scroll-snap-align : center;
+	height: 70vh;
+}
+
+/*
+.상위클래스:nth-child(순서)
+순서에 even / odd 치면 홀짝으로 적용됨
+*/
+
+
+.area:nth-child(1) {
+	background-color: red;
+}
+
+.area:nth-child(2) {
+	background-color: orange;
+}
+
+.area:nth-child(3) {
+	background-color: yellow;
+}
+
+.area:nth-child(4) {
+	background-color: green;
+}
+
+.area:nth-child(5) {
+	background-color: blue;
+}

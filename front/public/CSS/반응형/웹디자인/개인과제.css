@@ -1,0 +1,117 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'HSGyeoulNoonkott20';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/HSGyeoulNoonkott20.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MYYeongnamnu';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/MYYeongnamnu.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'EarlyFontDiary';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_220508@1.0/EarlyFontDiary.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+	font-family: 'MYYeongnamnu';
+}
+
+.body{
+	overflow: auto;
+	scroll-snap-type : y mandatory;
+	height: 100vh;
+}
+
+.section{
+	scroll-snap-align : start;
+}
+
+.ansan1{
+	background-image: url("images/자연.jpg");	
+	background-size: cover;
+	background-repeat: no-repeat;
+	text-align: center;	
+	height: 700px;
+	}
+
+.text1{
+	padding-top: 300px;
+	font-family: 'HSGyeoulNoonkott20';
+	font-size: 50px;
+}
+
+.text2{
+	font-family: 'MYYeongnamnu';
+	font-size: 20px;
+}
+
+	
+/*----------------------------------*/
+
+.ansan2{
+	background-image: url("images/하늘.JPG");
+	background-repeat: no-repeat;	
+	background-size: cover;		/*비율유지*/
+	background-position: center;
+	text-align: center;
+	height: 300vh;
+}
+
+.text3{
+	float: right;
+	padding-right: 200px;
+	padding-top: 600px;
+	font-size: 8vh;
+}
+
+.text4{
+	padding-bottom: 70px;
+}
+
+.text5{
+	padding-top: 200px;
+	float: left;
+}
+
+.text5 h3{
+	font-size: 6vh;
+}
+
+.text6{
+	position: absolute;
+	left: 500px;
+	top: 700px;
+}
+
+.ansan3{
+	padding-top: 2000px;
+	background-image: url("images/만족.JPG");
+	background-repeat: no-repeat;
+	background-position: center;
+	text-align: center;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
