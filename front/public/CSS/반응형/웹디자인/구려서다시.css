@@ -14,6 +14,7 @@
 .all{
 	overflow: auto;
 	scroll-snap-type : y mandatory;
+	scroll-snap-type : proximity;
 	height: 50vh;
 }
 
