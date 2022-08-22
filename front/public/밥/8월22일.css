@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+.post_title{
+	padding-bottom: 2px;
+	background-image: linear-gradient( 45deg , #fff 30%, #ccc 30%, #ccc 50%, #fff 50%, #fff 80%, #ccc 80%, #ccc 100% );
+	background-size: 6px 6px;
+	margin-bottom: 1.5rem
+}
+
+.post_title h2{
+	background-color: white;
+	padding: 0 0.5rem .875rem;
+	font-size: 1.5rem;
+	font-family: '궁서';
+	font-weight: 500;
+	line-height: 1.5;
+}
+
+.post_title h2{
+	color:  #949087;
+	text-decoration: none;
+}
+
+/**/
+
+article ul li::before{
+	content: '';
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background-color:  #93d8d0;
+	display: inline-block;
+	margin: 0 8px 2px 0;
+	list-style: none;
+}
+
+.post_img{
+	width: 100%;
+	height: 260px;
+	object-fit : cover;
+	border-radius: 40% 70% 50% 30% / 50%
+}
+
+.post_thumb{
+	margin: 0 3rem 1rem 0;
+	shape-outside: circle();
+	float: left;
+}
+
+/* 미디어쿼리 : 디바이스 크기에 따라 css 설정 */
+@media(min-width: 600px){
+	
+}
+
+.container{
+	display: flex;
+	justify-content: space-between;
+}
+
+main{
+	width: 68%
+}
+
+aside{
+	width: 26%
+}
+
+.post_img{
+	width: 220px;
+	height: 180px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
