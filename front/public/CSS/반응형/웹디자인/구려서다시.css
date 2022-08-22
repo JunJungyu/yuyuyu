@@ -6,21 +6,23 @@
     font-style: normal;
 }
 
+.container{
+	scroll-snap-type : y mandatory;
+	overflow: auto;
+}
+
 *{
 	font-family: 'JSongMyung-Regular-KO';
 	text-align: center;
 }
 
-.all{
-	overflow: auto;
-	scroll-snap-type : y mandatory;
-	scroll-snap-type : proximity;
-	height: 50vh;
+.c{
+	scroll-snap-align : start;
+	width: 100%;
 }
 
-.apple1 , .apple2 , .apple3{
-scroll-snap-align : start;
-width: 100%;
+section{
+	scroll-snap-align : start;
 }
 
 section{
@@ -82,6 +84,7 @@ span{
 li{
 	text-align: left;
 	line-height: 180%;
+	list-style-type: none;
 }
 
 .list2{
@@ -89,9 +92,6 @@ li{
 	float: right;
 }
 
-li{
-	list-style-type: none;
-}
 
 .apple3{
 	padding-top: 12vh;
@@ -109,7 +109,23 @@ li{
 
 .gif{
 	padding-bottom: 20vh;
+	width: 100%;
+	background-color: white;
 }
 
+.icon{
+	display: flex;
+	width: 15%;
+	margin: 0 auto;
+	text-align: center;
+	background-color: white;
+	padding-bottom: 80px;
+	
+}
 
-
+.icon1{
+	justify-content: center;
+	margin: 0 auto;
+	text-align: center;
+	color: green;
+}

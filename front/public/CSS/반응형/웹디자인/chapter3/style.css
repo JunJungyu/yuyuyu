@@ -1,0 +1,127 @@
+@charset "UTF-8";
+
+.post_title{
+	/*deg : 각도*/
+	padding-bottom: 2px;		/* 아래 안쪽 여백 : 선 굵기 조절 */
+	
+	background-image: linear-gradient( 45deg , #fff 30%, #ccc 30%, #ccc 50%, #fff 50%, #fff 80%, #ccc 80%, #ccc 100% );
+	
+	
+	background-size: 6px 6px;
+	margin-bottom: 1.5rem;
+}
+
+.post_title h2{
+	background-color: #ffffff;	/*뒷배경(post_title)에 빗금 있으니까 h2는 하얗게 가려서 아래에만 빗금 보이게 가리려고 흰색으로 설정*/
+	padding: 0 0.5rem .875rem;
+	font-size: 1.5rem;	/*폰트 사이즈*/
+	font-family: '굴림';	/*폰트*/
+	font-weight: 500;	/*폰트 굵기*/
+	line-height: 1.5;	/*줄 간격*/
+}
+
+.post_title a{
+	color: #949087;
+	text-decoration: none;
+}
+
+/*``````````````````````````````````````````````````````````*/
+
+article ul li::before{
+	content: '';
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: #93d8d0;
+	display: inline-block;
+	margin: 0 8px 2px 0;
+	list-style: none;	/* 이걸 쓰거나 css초기화 링크 복붙하기 */
+}
+
+
+.post_img{
+	width: 100%;
+	height: 260px;
+	object-fit : cover;		/* 화질 깨지지 않게 */
+	border-radius: 40% 70% 50% 30% / 50%;
+				/*각각의 가로 사이즈 / 세로값은 50%로 통일  */
+	
+}
+
+.post_thumb{
+	margin: 0 3rem 1rem 0;
+	shape-outside: circle();	/* 이게 둥글게 해주는 코드 */
+	float: left;	/* 없으면 디스플레이 블럭이라 탑처럼 쌓임 */
+}
+
+/* 미디어쿼리 : 디바이스 크기에 따라 css 설정 */
+@media(min-width : 600px){
+	/*
+	<높이>
+	min-width : 600px = 최소 가로 사이즈가 600px
+	[600px 이상에서 사용되는 css]
+	
+	max-width : 600px 최대 가로사이즈 600px;
+	[600px 이하에서 사용되는 css]
+	
+	min-height : 600px; :최대 세로사이즈
+	[높이가 600px 이상에서 사용되는 css]
+	
+	max-height : 600px; :최대 세로사이즈
+	[높이가 600px 이하에서 사용되는 css]
+	
+	브레이크 포인트
+	*/
+	
+	.container{		/*미디어쿼리 시작*/
+		display: flex;
+		justify-content: space-between;	/*양쪽 균등배치*/
+	}
+	
+	main{
+		width: 68%
+	}
+	
+	aside{
+		width: 26%	/*도합 100이면 여백 없어서 별로?*/
+	}
+	
+	.post_img{	/* 이미지 고정 사이즈 -> 비율이 커짐 */
+		width: 220px;
+		height: 180px;
+	}
+	
+}		/*미디어쿼리 끝*/
+
+/*``````````````````````````````````````````````````````````*/
+
+.btn a{
+	color: #fff;
+	padding: 10px 20px;	/* 가로세로 안쪽여백 */
+	background-color: #eda1a1;
+	
+	
+	box-shadow: 0 0 0 5px #eda1a1; /* 그림자 */
+	
+	/* x축 y축 흐림정도 , 확대/축소 정도 , 색상 */
+	
+	border: 2px dashed #e38787;
+	border-radius: 5px;
+	text-decoration: none;
+	display: inline-block;
+}
+
+.btn a:hover {	/* 마우스 올렸을 때 */
+	color: white;
+	background-color: #e38787;
+	box-shadow: 0 0 0 5px #e38787;
+	border: 2px dashed #eda1a1; 
+}
+
+
+
+
+
+
+
+
