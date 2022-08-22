@@ -7,7 +7,7 @@
 }
 
 .container{
-	scroll-snap-type : y mandatory;
+	scroll-snap-type: y mandatory;
 	overflow: auto;
 }
 
@@ -16,17 +16,9 @@
 	text-align: center;
 }
 
-.c{
-	scroll-snap-align : start;
-	width: 100%;
-}
-
 section{
-	scroll-snap-align : start;
-}
-
-section{
-	scroll-snap-align : start;
+	scroll-snap-align: start;
+	height: 50vh;
 }
 
 .apple1{
@@ -50,6 +42,7 @@ span{
 .c{
 	clear: both;
 	height: 60vh;
+	scroll-snap-align: center;
 }
 
 .b{
@@ -94,6 +87,7 @@ li{
 
 
 .apple3{
+	height: 50vh;
 	padding-top: 12vh;
 	clear: both;
 	width: 100%;
@@ -114,12 +108,14 @@ li{
 }
 
 .icon{
+	padding-top: 20vh;
 	display: flex;
 	width: 15%;
 	margin: 0 auto;
 	text-align: center;
 	background-color: white;
 	padding-bottom: 80px;
+	scroll-snap-align: end;
 	
 }
 
