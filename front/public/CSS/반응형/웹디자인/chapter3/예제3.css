@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+ul li::before {
+	font-family: "Font awesome 5 Pro";
+	font-weight: 900;
+	content: "\f004";
+	color: #f66;
+	font-weight: bold;
+}
+
+/*
+	list-style-type: 이걸로 글머리 기본제공되는걸로 바꿔도 됨
+*/
