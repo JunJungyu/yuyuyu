@@ -10,7 +10,7 @@
 }
 
 .back_img{
-	width: 100%;
+	width: 100vh;
 	height: 60vh;
 	background-image: url("이미지/섬타르영상.mp4");
 	background-repeat: no-repeat;
