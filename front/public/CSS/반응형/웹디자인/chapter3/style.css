@@ -1,5 +1,46 @@
 @charset "UTF-8";
 
+/*헤더*/
+
+body{
+	color: #949087;
+	font-family: '굴림';
+	background-image: url("../../../images/헤더.png");
+}
+
+header{
+	max-width: 1000px;
+	margin: 2.5rem auto;
+	background-image: url("../../../images/header.svg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: 170px;
+}
+
+.page_title{
+	font-size: 30px;
+	font-family: "굴림";
+	text-align: center;
+	margin: 50px 0px;
+}
+
+.page_desc{
+	font-size: 10px;
+	text-align: center;
+	
+}
+
+/**/
+.container{
+	margin: 0 auto;
+	max-width: 1000px;
+	background-color: white;
+	border-radius: 0 0 10px 10px;
+}
+
+
+
 .post_title{
 	/*deg : 각도*/
 	padding-bottom: 2px;		/* 아래 안쪽 여백 : 선 굵기 조절 */

@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+*{
+	box-sizing: border-box;
+	text-align: center;
+}
+
+#view1, #view2, #view3, #view4{
+	width: 100%;
+}
+
+.back_img{
+	width: 100%;
+	height: 60vh;
+	background-image: url("이미지/섬타르영상.mp4");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.big_box{
+	width: 100vh;
+	height: 80vh;
+	display: flex;
+	text-align: center;
+}
+
+.view3_img{
+	float: left;
+	padding: 7px;
+}
+
+
+

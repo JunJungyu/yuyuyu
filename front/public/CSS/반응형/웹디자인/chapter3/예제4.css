@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+.main_menu{
+	display: flex;	/* 하위 태그들이 가로배치 - inline해도 누음*/
+	justify-content: center; /* 플랙스 하위태그들 가로 정렬할 때 사용 */
+}
+
+.main_menu a{
+	padding: 1rem;
+	margin: 1rem;
+}
+
+.has_menu{
+	position: relative;		/*부모*/
+}
+
+.sub_menu{
+	position:absolute;		/* 자식 */
+	top : 2rem;
+	left : 1 rem;
+	display: none; /* 숨기기 */
+}
+
+.sub_menu a{
+	margin: 1px;
+	width: 180px;
+}
+
+.has_menu:hover .sub_menu{	/* 해당 메뉴에 마우스를 올렸을 때 */
+	display: block;}
