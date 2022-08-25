@@ -233,7 +233,7 @@ const output = document.querySelector('output')		//자동으로.. 인식되나�
 		*/
 		
 		
-radios.forEach( ( i )=>{
+radios.forEach( ( i ) => {
 	//어디에 저장할지↑ 아무거나 써도 됨
 	radios.addEventListener('chage' , (event) => {
 		const current = event.currentTarget
