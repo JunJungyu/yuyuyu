@@ -61,11 +61,11 @@ const ismail = ( value ) => {							//뒷부분
 
 
 // 다른 방법 [ 기본함수 ]
-/*
+
 function 함수(){
 	return ( value.indexOf('@') > 1 ) && (value.split('@')[1].indexOf(".") > 1 )
 }			
-*/
+
 
 //이메일 입력상자에서 키보드를 입력할때마다 이벤트 발생
 email_box.addEventListener('keyup' , (event) => {
