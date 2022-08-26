@@ -28,7 +28,9 @@ header{
 .page_desc{
 	font-size: 10px;
 	text-align: center;
-	
+}
+
+
 }
 
 /**/
@@ -165,6 +167,13 @@ blockquote blockquote::after{
 	float: left;	/* 없으면 디스플레이 블럭이라 탑처럼 쌓임 */
 }
 
+
+.popular_post{
+	position: sticky;
+	top : 1rem;
+
+
+
 /* 미디어쿼리 : 디바이스 크기에 따라 css 설정 */
 @media(min-width : 600px){
 	/*
@@ -286,13 +295,35 @@ blockquote blockquote::after{
 	color: #949087;
 }
 
+/*푸터*/
+footer{
+	background-color: #949087;
+	text-align: center;
+	padding: 3rem;
+}
 
+footer ul{
+	display: flex;
+	justify-content: center;
+	margin-bottom: 2rem;
+}
 
+footer li{
+	margin: 0 12px;
+}
 
+footer a{
+	color: #fff;
+}
 
+footer a::hover {
+	color: #c7c3ba;
+}
 
-
-
+footer small{
+	color: #c7c3ba;
+	font-size: 0.875rem;
+}
 
 
 

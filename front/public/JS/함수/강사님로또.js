@@ -94,10 +94,10 @@ function lotto_result(){
 		else if(count == 1){msg += '4개 맞았습니다. [3등]'}
 		else if(count == 1){msg += '5개 맞았습니다. [2등]'}
 		else if(count == 1){msg += '6개 맞았습니다. [1등]'}		
-		}
-	}	
+		
+	
 	alert(count)
-}
+
 
 
 /*
