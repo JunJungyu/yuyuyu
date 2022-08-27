@@ -5,29 +5,53 @@
 	text-align: center;
 }
 
-#view1, #view2, #view3, #view4{
+body{
+	background-color: black;
+}
+
+section{
+	text-align: center;
+	margin: 0 auto;
 	width: 100%;
 }
 
-.back_img{
-	width: 100vh;
-	height: 60vh;
-	background-image: url("이미지/섬타르영상.mp4");
-	background-repeat: no-repeat;
-	background-position: center;
+#sec1{
+	height: 100px;
 }
 
-.big_box{
-	width: 100vh;
-	height: 80vh;
+.sec1_textbox{
+	float: right;
+}
+
+.sec1_text{
+	color: #996b5c;
+	font-size: 80px;
+	padding-right: 30px;
+}
+
+
+/**/
+#sec2{
+	text-align: left;
+}
+
+.sec2box{
 	display: flex;
-	text-align: center;
 }
 
-.view3_img{
+.sec2_imgbox{
 	float: left;
-	padding: 7px;
 }
+
+.sec2_imgbox{
+	float: left;
+	padding-left: 30px;
+}
+
+.sec2_img2{
+	border-radius: 0 50% 50% 0;	
+}
+
 
 
 
