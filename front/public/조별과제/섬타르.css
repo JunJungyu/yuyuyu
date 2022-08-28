@@ -35,23 +35,36 @@ section{
 	text-align: left;
 }
 
-.sec2box{
+sec2_imgbox{
 	display: flex;
 }
 
-.sec2_imgbox{
-	float: left;
+.sec2_img1{
+	padding-left: 50px;
 }
 
-.sec2_imgbox{
+.sec2_img1 , .sec2_img2{
 	float: left;
-	padding-left: 30px;
 }
 
 .sec2_img2{
 	border-radius: 0 50% 50% 0;	
+	padding-left: 2px;
 }
 
+.sec2_text{
+	color: #996b5c;
+	font-size: 30px;
+	text-align: left;
+	float: left;
+	padding-left: 100px;
+}
 
+ul{
+	color: #996b5c;
+	text-align: left;
+	float: left;
+	padding-left: 100px;
+}
 
 
