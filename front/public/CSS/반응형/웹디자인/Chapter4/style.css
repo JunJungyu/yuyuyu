@@ -1,0 +1,466 @@
+@charset "UTF-8";
+
+/* cdn... 가져다쓰는거? */
+
+/*----------------------------------- 레이아웃 -----------------------------------*/
+.wrapper{
+	max-width: 1200px;
+	margin: 0 auto;
+	width: 100%;
+}
+
+.main{
+	max-width: 900px;
+	margin: 100px auto;
+	padding: 20px;								/* 박스안쪽과 글씨박스 사이 여유분 */
+	background-color: white;					/* 배경 가림 */
+	box-shadow: 0 0 6px #cccccc;				/* 그림자로 태두리 - 배경이미지랑 경계선 */
+	width: 90%;									/* 모바일 기준으로 가로 길이 10% 여백 사용 */
+}
+
+/*----------------------------------- 헤더 -----------------------------------*/
+header .wrapper{
+	display: flex;
+	justify-content: space-between;		/* 가로정렬 */
+	align-items: center;				/* 세로정렬 */
+	padding: 25px 10px;
+}
+
+.logo{
+	width: 200px;
+}
+
+.main_nav{
+	display: flex;	/* 가로배치 */
+}
+
+.main_nav li{
+	text-align: center; font-size: 20px;
+}
+
+.main_nav a{
+	padding: 10px; width: 50px;
+}
+
+/* 가상요소로 아이콘 추가 */
+.main_nav a::before{
+	display: block;
+	margin-bottom: 5px;
+	font-family: 'Font Awesome 5 PRO';
+	font-weight: 900;
+}
+
+.current::before{
+	content: '\f015'
+}
+
+.menu_job::before{
+	content: '\f0ca'	/* 클래스 이름 오타 */
+}
+
+.menu_form::before{
+	content: '\f56e'		/* 아이콘 오타 */
+}
+
+
+
+/*----------------------------------- 버튼 -----------------------------------*/
+	
+.btn{	/* 모든 버튼에 적용할 css */
+	padding: 15px 50px;
+	text-align: center;
+	font-size: 16px;
+}
+
+.btm_primary{	/* 특정 버튼에 적용할 css */
+	background-color: navy;
+	color: white;
+}
+
+
+/* class가 왜 쪼개지지? 무슨 기준으로?? 띄어쓰기?
+   이미지 경로가 틀렸나? - 밖에다 안쓰고 미디어쿼리에 클래스 잘못씀
+*/
+
+/*----------------------------------- 메인이미지 -----------------------------------*/
+
+	/* 모바일 퍼스트 : 모바일 기준으로 css 우선 작성 / 데스크톱 : 미디어쿼리 */
+	
+.home_hero{
+   background-image: url("img/bg-hero.jpg");
+   background-repeat: no-repeat;
+   background-position: right top;
+   background-size: 70vw auto;
+   padding: 5.5rem 1rem 3rem;
+}
+
+.home_hero h2{
+	font-family: '굴림';
+	font-size: 1.5rem;
+	background: rgba (255, 255, 255, 0.8);		/*0.8 은 투명도*/
+	margin: 8vw 0 12vw;
+	padding: 1rem;
+	display: inline-block;
+}
+
+.home_hero p{
+	font-size: 1.125rem;
+	margin-bottom: 2rem;
+}
+
+/*chartist.css [ F12 개발자도구에서 클래스 확인 ]*/
+
+.ct-label{
+	font-size: 1rem;
+	fill : #fff
+}
+
+.ct-series-a .ct-slice-pie{ fill : #2d3374; }
+.ct-series-b .ct-slice-pie{ fill : #3a7edf; }
+.ct-series-c .ct-slice-pie{ fill : #9bcbf8; }
+.ct-series-d .ct-slice-pie{ fill : #bbbbbb; }
+	
+.ct-series-a .ct-bar{
+	stroke : #3a7edf;	
+}
+
+.ct-bar{
+	strock-width : 16%;		/*★★ 이건 뭐고 왜 안먹히는지 좌표?? ★★*/
+}
+	
+.title{
+	line-height: 150%;
+	font-size: 30px;	
+}
+
+.title::after {			/* 가상요소 로 하단에 테두리 만들기*/
+	content: '';		/* 내용물X */
+	display: block;		/* 한줄 차지 */
+	height: 5px;		/* 높이 -> 테두리 굵기 */
+	width: 10rem;		/* 너비  -> 테두리 길이*/
+	background-color: #cccccc;
+	margin: 2rem 0 2.5rem;
+}
+
+/*--------------------------------- 메인이미지 ---------------------------------*/
+.job_page{
+	background-image: url("img/bg-job.jpg");
+	background-repeat: no-repeat;
+	background-position: left 120px;	/* 헤더보이게 내려온것 */
+	background-size: 70vw;		/* view port width : 반응형 가로 사이즈 */
+}
+
+/*본문*/
+.text_center{
+	text-align: center;
+}
+
+.text_center:after{
+	margin: 30px auto;
+}
+
+/*--------------------------------- job.html 테이블 ---------------------------------*/
+table{
+	margin: 3.5rem 0;
+	width: 100%;
+}
+
+th{
+	background-color: #f8f6f2;
+	padding: 1rem;
+	vertical-align: middle; /* 텍스트 세로 정렬 세로축에서 중간에 위나 아래에 붙지 않고 --- text-align : 텍스트 가로정렬 */
+	font-weight: normal;	/* th라 기본값으로 글씨 진하게가 있는데 그거 제거해주는것임 */
+}
+
+td{
+	padding: 0.75rem 1rem 1.75rem;
+	vertical-align: middle;
+}
+
+th,td{			/* 모바일 기준 [ block : 한줄 차지  / 탑처럼 쌓임] */
+	display:block; 
+}
+
+/*-------------------------------------타임라인-------------------------------------*/
+.timeline{
+	list-style: decimal;		/*css초기화로 없어졌으니 숫자 넣어줌*/
+	padding: 30px;		/*★★★내가 놓친건지 잘못쓴건지 모르겠다★★★*/
+}
+
+.timeline_item{
+	margin-bottom: 2rem;
+}
+
+.timeline_title{
+	display: inline-block;		/* <h3>은 기본 값이 블럭이라 inline-block줘서 줄글로 만들어줌 */
+	font-size: 20px;
+	margin-bottom: 1rem;
+}
+
+/*-----------------------------------푸터-----------------------------------*/
+
+footer{
+	background-color: #000080;
+	text-align: center;
+	padding: 50px 15px;
+	color: white;
+}
+
+footer_nav{
+	margin: 50px;
+}
+
+footer_nav li{
+	margin: 30px 0px;
+	list-style-type: none;
+}
+
+
+.btn_secondary{
+	background-color: #2d3374;
+	color: white;
+}
+
+/*----------------------------------- 미디어쿼리 -----------------------------------*/
+@media (min-width : 600px) {	/*600px 이상일때 적용되는 css*/
+/*-----------------------------------타임라인-----------------------------------*/
+	.timeline_item{
+		display: flex;
+		margin-bottom: 0;	/* 이걸안하면 콘텐츠 보더가 끊김 왜? 원래도 마진 없었자나*/
+	}
+	
+	.timeline_title{
+		width: 24%;
+		text-align: right;
+		padding: 2rem 2.5rem 2rem 0;
+	}
+
+	.timeline_content{
+		width: 76%;
+		border-left: solid 5px #f8f6f2;		/* 아이템이랑 타이틀 구분선 */
+		position: relative;					/* 가상요소를 절대위치에 배치 */
+		padding: 1.5rem 0rem 1.5rem 2.5rem;
+	}
+	
+	.timeline_content::before{				/* 가상요소 -> 아이콘 */
+		position: absolute;					/* 절대위치 */
+		top: 1.5rem; left: -1.25rem;		/* 부모요소 기준으로  ★★큰글씨 오른쪽에.. 아이콘 붙어야 되니까?★★ */
+		
+		/* 가상요소의 크기/배경색/정렬/여백 */
+		display: block; width: 2.25rem; height: 2.25rem; background-color: #d0bea2;
+		text-align: center; padding: 0.1rem;
+		/* 폰트어썸 아이콘 */
+		font-family: 'Font Awesome 5 PRO';
+		color: white;
+		font-weight: 900;
+		font-size: 1.25rem;
+	}
+
+	.icon_file::before{			/*★★위치 왜이래★★*/
+		content: '\f56e';		
+	}
+	
+	.icon_code::before{			/*잘되다가 왜이래.. 중괄호 지워버림...*/	
+		content: '\f121';
+	}
+	
+	.icon_chat::before{			
+		content: '\f086';
+	}
+	
+	.icon_hands::before{
+		content: '\f2b5';
+	}
+/*----------------------------------------------------------------------*/
+	.main{
+		padding: 4rem;		/* pc에선 꽉차게 들어가면 안예쁘니까 패딩 줌*/
+	}
+
+/*------------------table--------------------*/
+	th,td{
+		display: table-cell;	/* 이게 원래 기본값인데 위에서 블럭으로 해뒀으니까 */
+	}
+	
+/*----------가상클래스-동일한 식별자가 있을 경우 홀/짝/n번째 선택----------*/
+	tr:nth-child(odd) th{		/*홀수번째 tr*/
+		background-color: #f8f6f2;
+	}
+	
+	tr:nth-child(even) th{		/*짝수번째 tr*/
+		background-color: white;
+	}
+	
+	th{
+		width: 25%;
+	}
+	
+	td{
+		width: 75%;
+	}
+	
+/*-------------------------------------------form.html page-------------------------------------------*/
+	.form_page{
+		background-image: url("img/bg-form.jpg");
+		background-repeat: no-repeat;
+		background-position: right 120px;	/* 헤더보이게 내려온것 */
+		background-size: 70vw;		/* view port width : 반응형 가로 사이즈 */
+	}
+/*------------------------ 플레이스 홀더 셀렉터 (속성을 이용한 셀렉터) ------------------------*/
+input[type='text']::placeholder,		/* 이렇게 선택이 가능~ */
+input[type='email']::placeholder,
+input[type='url']::placeholder,
+textarea::placeholder{
+	
+	color: #bbbbbb;
+}
+
+input[type='checkbox'] {		/* 타입으로 셀렉토가 됨 */
+	opacity: 0;		/* 투명도를 이용해서 숨김 */
+	-webkit-appearance: none;	/* 기본 스타일 제거 */
+	appearance: none;			
+	position: absolute;			
+}
+
+input[type='checkbox'] + span::before{		/* +를 사용해서 인접형제 셀렉터를 가져옴? 그것의 가상요소.. */
+	display: inline-block;
+	content: '';
+	width: 1.5rem;
+	height: 1.5rem;
+	border: solid 1px #bbb;
+	background: #fff;
+	margin: -.125rem 0.5rem 0 0;
+	vertical-align: middle;	
+	font-family: 'Font Awesome 5 PRO';
+	font-weight: 900;
+	padding: 0 2px;
+	line-height: 1.5;
+}
+
+/* ★★체크 했을때 이벤트 이해 안감~★★ */
+input[type="checkbox"]:checked + span::before{
+	content: '\f00c';
+}
+
+
+/* 목록상자 */
+.select_box{
+	position: relative;
+}
+
+.select_box::after{
+	display: inline-block;
+	position:absolute;
+	top: .625rem;
+	right: 1rem;
+	font-family: 'Font Awesome 5 PRO';
+	font-weight: 900;
+	content: '\f078';	
+	color: #bbb;
+}
+
+/*  */
+input[type='text'],
+input[type='email'],
+input[type='url'],
+select,
+textarea{				/* css초기화돼있으니까 사이즈 줌 */
+	width: 100%;
+	border: solid 1px #bbbbbb;
+	background-color: white;
+	padding: 10px;
+}
+
+textarea{
+	height: 200px;
+}
+
+
+/*------------------------푸터------------------------*/
+	
+	.footer_nav{
+	display: flex;
+	justify-content: center;
+	margin: 50px;
+	}
+	
+	
+	.footer_nav li{
+	margin: 0 20px;
+	}
+	
+	.content{	
+	display: flex;					/* 하위식별자 가로배치 기본값이 row이고*/
+	justify-content: space-between; /* 양쪽 긑 기준으로 균등배치 */
+	align-items: center;			/* 가로정렬 */
+	padding: 4rem 1rem;
+	}
+	
+	.flex_reverse{
+		flex-direction: row-reverse;/* 오른쪽 배치 */
+	}
+	
+	
+	
+	.home_text{
+		width: 50vw;
+		margin-bottom: 0;
+	}
+	
+	.home_chart{
+		width: 35vw;		/* viewport width : 반응형 크기 */
+	}
+
+	
+	.home_hero{
+	padding: 16vw 1rem;
+	}
+	
+	.home_hero h2{
+	font-size: 2.5rem;
+	margin: 0 0 2rem;
+	background: none;	
+	padding: 0;
+	}
+
+	.home_hero p{
+	width: 38vw;
+	}
+
+/* 헤더 메누 선택했을 때 */
+.main_nav .current{
+		padding: 5px;
+		border-bottom: 3px solid #000000;
+	}
+	
+/* 메뉴에 있는 아이콘 제거 */
+.main_nav a::before {
+	content: '';	
+	
+}/* media e */	
+	
+/*Chartist css*/
+
+.ct-label{
+	font-size: 1rem;
+	fill: #fff;
+}
+
+/* 원그래프 */
+.ct-slice-pie{
+	fill : #2d3374; 
+}
+
+.ct-series-a .ct-bar{
+	stroke : #3a7edf;
+}
+
+.ct-bar{
+	stroke-width : 16%;
+}
+
+/* 본문2 */
+
+.brown_bg{
+	background-color: #f8f8f8;
+}
+

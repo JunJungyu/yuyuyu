@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+
+.bigbox{
+	position: relative;
+}
+
+.이미지1 ,이미지2{
+	position: absolute;
+}
+
+.제목{
+	font-size: 100px;
+	-webkit-text-stroke: 1px #db0215;
+}
+
+.위치{
+	width: 300px;
+	height: 140px;
+	background-image: url("../img/유정/체크.jpg");
+	box-shadow: 0 0 0 2px #dccbc5;
+}
