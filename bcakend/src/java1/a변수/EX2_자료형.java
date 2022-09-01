@@ -36,9 +36,21 @@ public class EX2_자료형 {//class s
 			long 롱변수1 = 1000000000; System.out.println("롱변수1 :" + 롱변수1);
 			long 롱변수2 = 1000000000L; System.out.println("롱변수1 :" + 롱변수2);
 
+		// 실수타입
+			// 1.float		[소수점 7자리]
+			// 2.double 	[ *실수 기본 자료형 ]	[소수점 15자리]
+			float 실수1 = 3.14F; System.out.println("실수1 :" + 실수1); //기본형이 double이니까 뒤에 f 써주기
+			double 실수2 = 3.14; System.out.println("실수2 : " + 실수2);
 			
+			double 실수3 = 0.523456225568923898745623365879854654;
+			System.out.println("실수3 :" + 실수3);
+			float 실수4 = 0.4657855125441255744125454549F;
+			System.out.println("실수4 :" + 실수4);
 			
-			
+			//논리 타입
+				// 1. bolean " ture 혹은 false
+			boolean 논리변수1 = ture; System.out.println("논리변수1 : " + 논리변수1);
+			//boolean 논리변수1 = 10;	/오류발생 [  ]
 			
 			
 			
@@ -66,6 +78,45 @@ public class EX2_자료형 {//class s
  		10진수		0,1,2,3,4,5,6,7,8,9		[ 사람이 사용하는 일상 숫자단위 ]
  		16진수		0,1,2,3,4,5,6,7,8,9,a(10),b(11),c(12),d(13),e(14),f(15)
  					10 ---> 16
+ 
+ 	용량
+ 		bit : 0 혹은 1				[ 1bit -> 0 혹은 1 ] 
+ 		byte " bit의 8자리 -> 1byte	[ 1byte -> 01010101 -> 8bit ]
+ 		Kbrte : 1024byte -> 1kbyte
+ 		Mbyte : 1024kb -> 1mb
+ 		GB : 1024MB -> 1GB
+ 	
+ 	자료형
+ 		* 미리 만들어진 변수의 크기[상자]
+ 		* * 효율적으로 저장할 데이터의 변수크기 선택해서 사용하기
+ 		1. 정수타입
+ 			1. byte		1바이트	+-100정도
+ 			2. char		2바이트	유니코드 [영/한글] 한문자
+ 			3. short	2바이트	+-3만 정도
+ 			4. int		4바이트	+-20억 정도
+ 			5. long		8바이트	+-20억 이상 정도
+ 		2. 실수타입
+ 			1. float	소수점 8자리 표현
+ 			2. double	소수점 15자리 표현
+ 		3. 논리타입
+ 			1. boolean	true.false
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  
  
