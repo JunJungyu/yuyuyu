@@ -1,4 +1,4 @@
-package java1.b연산자;
+package java1.ch_2연산자;
 
 import java.awt.print.Printable;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package java1.a변수;	//패키지명
+package java1.ch1_변수;	//패키지명
 
 //1. 클래스 선언[ 모든 코드는 클래스에서 작성된다. ]  
 public class EX1_변수 {	//class s

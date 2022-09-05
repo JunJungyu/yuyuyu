@@ -1,4 +1,4 @@
-package java1.b연산자;
+package java1.ch_2연산자;
 
 public class EX3_for {//class s
 
