@@ -13,6 +13,28 @@ public class EX3_틱택토게임 {//class s
 		String[ ] 게임판 = { "[ ]" , "[ ]" , "[ ]" , "[ ]" , "[ ]" , "[ ]" , "[ ]" , "[ ]" , "[ ]" };
 		int 컴퓨터;
 		
+		if( 게임판[0] .equals("[●]") && 게임판[1] .equals("[●]") && 게임판[2] .equals("[●]") ) {
+			System.out.println("안내) 흑돌 가로 승리");
+		}if( 게임판[3] .equals("[●]") && 게임판[4] .equals("[●]") && 게임판[5] .equals("[●]") ){
+			System.out.println("안내) 흑돌 가로 승리");
+		}if( 게임판[6] .equals("[●]") && 게임판[7] .equals("[●]") && 게임판[8] .equals("[●]") ) {
+			System.out.println("안내) 흑돌 가로 승리");
+		}
+		
+		
+		
+		/*
+		while(true) {
+			if( 게임판[0] .equals("[●]") && 게임판[1] .equals("[●]") && 게임판[2] .equals("[●]") ) {
+				System.out.println("안내) 흑돌 가로 승리");
+			}if( 게임판[3] .equals("[●]") && 게임판[4] .equals("[●]") && 게임판[5] .equals("[●]") ){
+				
+			}
+				
+		
+			}
+*/
+		
 		// 2. 사용자에게 위치 입력받기
 		while(true) {
 			// 1. 게임판 출력 = 배열 내 모든 데이터 출력
@@ -34,16 +56,11 @@ public class EX3_틱택토게임 {//class s
 			Random random = new Random();
 			컴퓨터 = random.nextInt( 9 );
 			if( 게임판[컴퓨터] .equals("[ ]") ) { 게임판[컴퓨터] = "[○]"; break;}
-			}
-			
-			while(true) {
-				if( 게임판[0] .equals("[●]") && 게임판[1] .equals("[●]") && 게임판[2] .equals("[●]") ) {
-					System.out.println("안내) 흑돌 가로 승리");
-			
-				}
-			}
+					}
+		
+		
+		
 		}//main e
-	
 	}//class e
 
 
