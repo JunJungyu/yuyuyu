@@ -73,7 +73,7 @@ public class A과제_도서대여 {//class s
 				System.out.println("안내) 보기에 존재하는 숫자를 입력해주세요."); }
 				System.out.println("\t\t.......................\n");
 			
-		}
+		}//아무망
 		
 	}//main e
 	
