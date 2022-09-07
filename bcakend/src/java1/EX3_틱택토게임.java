@@ -1,6 +1,6 @@
 package java1;
 
-import java.util.Random;
+import java.util.*;
 import java.util.Scanner;
 
 public class EX3_틱택토게임 {//class s
@@ -10,46 +10,38 @@ public class EX3_틱택토게임 {//class s
 	      
 	      String[] 게임판 = { "[ ]","[ ]","[ ]","[ ]","[ ]","[ ]","[ ]","[ ]","[ ]" };
 	      boolean game = true;
-	         while(game) {
-	                     // 1. 게임판 출력 - 배열내 모든 데이터 출력 
-	               for( int i=0; i<게임판.length; i++ ) {
-	                  if( i%3==0 ) {
-	                     
-	                     System.out.println();
-	                  }
-	                  System.out.print(게임판[i]);
-	               }
-	               System.out.println("\n안내) 플레이어(흑돌) 위치를 입력해주세요."); int 흑돌 = scanner.nextInt();
-	             
-	               // 2. 사용자 에게 위치 입력받기 
-	               if( 흑돌>=0 || 흑돌<=8 ) {
-	                  for( int i=0; i<게임판.length; i++ ) {
-	                     if( i == 흑돌 ) {
-	                        게임판[흑돌] = "[●]";                  
-	                Random random = new Random();
-	                        int 백돌 = random.nextInt(9);
-	                        게임판[백돌] = "[○]";	            	   
-	                   }if( 흑돌 < 0 || 흑돌 >=9 ) {
-	                           System.out.println("안내) 0~8 범위내의 숫자를 입력해주세요."); //왜 반복되지..? 여기 아니면 어디두지
-	                     
-	                     }//while e     
-	                        // 3. 컴퓨터 에게 위치 난수 생성
-	                     
-	                        
+         while(game) {
+                     // 1. 게임판 출력 - 배열내 모든 데이터 출력 
+               for( int i=0; i<9; i++ ) {
+                      System.out.print(게임판[i]);
+                      if( i%3==2 ) {
+                    	  System.out.println();
+                      }
+	           }
+	           while (true) {
+				   System.out.println("돌 위치를 선택해주세요."); 
+				   int 위치 = scanner.nextInt();   
+				   if( 게임판[위치].equals("[ ]") ) {
+				   게임판[위치] = "[●]";
+		           }
+		           else {
+		           System.out.println("이미 돌이 있는 자리입니다.");
+		           }
+			  }
+	           
 
-	                        
-	                    }//if e
 	         
-	                  }//for e
 
-	                  }//if e
-	               
 	   
-	                  // 4. 승리 판단 [ 과제 ] 
-	                  
-	            
-	         
-
+               
+               
+               
+               
+               
+               
+	     }  
+	}//main e
+}//calss e
 	      
 	      
 	         /*
@@ -70,6 +62,3 @@ public class EX3_틱택토게임 {//class s
 	                   [ ] [ ] [ ] 
 	          */
 	      
-	   }//main e
-
-	}//calss e
