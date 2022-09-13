@@ -1,4 +1,4 @@
-package ex1변수;
+package java1ch4_배열;
 
 import java.util.Scanner;
 
@@ -9,7 +9,7 @@ public class A과제_도서대여 {//class s
       boolean 유정 = true;
       
       String[][] 회원 = new String[50][2];      //[0] 아이디 [1] 비밀번호
-      String[][] 도서 = new String[20][3];      //[0] 도서명 [1] 도서대여여부 [2] 대여인
+      String[][] 도서 = new String[5][3];      //[0] 도서명 [1] 도서대여여부 [2] 대여인 근데 이게 인덱스처럼 0부터인지 1부터 갯수인지 모르겠네
       
       도서 [0][0] = "아무값"; 회원 [0][0] = "아무값";   회원 [0][1] = "아무값";
       도서 [1][0] = "엄지공주";   도서 [1][1] = "미대여";   
@@ -54,15 +54,15 @@ public class A과제_도서대여 {//class s
                System.out.println("\t§1. 도서등록 2.도서목록 3.도서삭제(도전) 4.로그아웃§");   int 선택 = scanner.nextInt();
                if( 선택 == 1 ) {
                   System.out.println("\t\t§도서등록 페이지입니다.§");
-                  System.out.println("\t\t§추가할 도서명을 입력해주세요.§");   String 추가도서 = scanner.next();
+                  System.out.println("\t\t§추가할 도서명을 입력해주세요.§");   String 추가도서 = scanner.next();		
                   for( int f = 0 ; f<도서.length; f++ ) {
                      if( 도서[f][0] == null ) {
                         도서[f][0] = 추가도서;
                         도서[f][1] = "미대여";
-                        
                      }
                   }
-                  System.out.println(추가도서+"이/가 추가 되었습니다.");
+                  
+                  System.out.println("\t\t§"+추가도서+"이/가 추가 되었습니다.§");		//추가 됐다고는 뜨는데 목록에는 추가안된채로 뜸
                   System.out.println("현재 도서목록");
                   for( int d = 1; d < 도서.length; d++ ) {
                      if( 도서[d][0] != null ) {
@@ -73,7 +73,7 @@ public class A과제_도서대여 {//class s
                
                   
             if( 선택 == 2 ) {
-               System.out.println("\t\t§도서목록 페이지입니다.§");      //Index 20 out of bounds for length 20 왜?★
+               System.out.println("\t\t§도서목록 페이지입니다.§");      //Index 20 out of bounds for length 20 왜?★ 
                System.out.println("\t\t§도서목록 페이지입니다.§");      
                for( int j = 1; j < 도서.length; j++ ) {
                   if( 도서[j][0] != null ) {      
@@ -97,7 +97,7 @@ public class A과제_도서대여 {//class s
                      도서[d][1] = null;
                      도서[d][2] = null;
                   }else if( !도서[d][0].equals(삭제도서) && 도서[d][0] != null ){
-                     System.out.println("§"+삭제도서+" 은/는 존재하지 않습니다.§");
+                     System.out.println("§"+삭제도서+" 은/는 존재하지 않습니다.§");		//삭제한 담에 이 멘트 뜸.. / 삭제는 잘 되는듯
                      break;
                   }
             }System.out.println("§"+삭제도서+"가 삭제되었습니다.§");
@@ -120,13 +120,14 @@ public class A과제_도서대여 {//class s
                   회원[i][0] = 아이디;
                   회원[i][1] = 비밀번호;
                   System.out.println("\t\t§로그인 성공§");
+                
                   System.out.println("\t1. 도서검색 2. 도서목록 3. 도서대여 4.도서반납 5. 로그아웃");   int 선택2 = scanner.nextInt();
                   
          if( 선택2 == 1 ) {
             System.out.println("\t\t§도서검색 페이지입니다.§");
             System.out.println("\t\t검색할 도서명을 입력해주세요."); String 도서명 = scanner.next();
             for( i = 1; i<도서.length; i++ ) {
-               if( 도서[i][0].equals(도서명) && 도서[i][0] != null ) {         //★★어째서 엄지공주만 검색될까★★               
+               if( 도서[i][0].equals(도서명) && 도서[i][0] != null ) {//★★어째서 엄지공주만 검색될까★★           
                   System.out.println("\t\t§ "+도서[i][0]+" 을/를 대여하시겠습니까?§");
                   System.out.println("\t\t1.예\t2.아니오");   int 선택3 = scanner.nextInt();
                   if( 도서[i][1].equals("미대여") && 선택3 == 1 ) {
@@ -155,8 +156,8 @@ public class A과제_도서대여 {//class s
          }
                   
                   if( 선택2 == 2 ) {
-                     System.out.println("\t\t§도서목록 페이지입니다.§");      
-                     for( int j = 1; j < 도서.length; j++ ) {
+                     System.out.println("\t\t§도서목록 페이지입니다.§");      //도서 인덱스 맥스르르 지금 책 수만큼 수정하니까 해결됨 
+                     for( int j = 1; j < 도서.length; j++ ) {			//근데 대여인에 내 아이디가 안뜨고 NULL뜸 대여중은 뜸
                         if( 도서[j][0] != null ) {      
                            System.out.println("\t도서명\t대출여부\t대여인" );
                            System.out.println("\t"+도서[j][0]+"\t"+도서[j][1]+"\t"+도서[j][2] );
@@ -184,8 +185,8 @@ public class A과제_도서대여 {//class s
                   if( 선택2 == 4 ) {
                      System.out.println("\t\t§도서반납 페이지입니다.§");
                         for( int d = 1 ; d < 도서.length; d++ ) {
-                              if( 도서[d][1].equals("대여중") && 도서[d][2].equals(아이디) ) {      //because "도서[d][1]" is null
-                                 System.out.println("\t\t§현재 대여중인 도서목록§");             
+                              if( 도서[d][1].equals("대여중") && 도서[d][2].equals(아이디) ) {//because "도서[d][1]" is null
+                                 System.out.println("\t\t§현재 대여중인 도서목록§");//도서 배열 줄여서 널 없애니까 이번엔 반납이 됨  because "도서[d][2]" is null 
                                  System.out.println("\t\t"+도서[d][0]);
                                  System.out.println("반납하실 도서명을 입력해주세요.");   String 반납도서 = scanner.next();
                                  if( 도서[d][0].equals(반납도서) ) {
@@ -214,8 +215,8 @@ public class A과제_도서대여 {//class s
                   
                   break;
                }if( !회원[i][0].equals(아이디) ){
-                  System.out.println("\t\t§없는 아이디입니다.§");      //이건 또 왜 잘되다가 안되고.. 
-                  유정 = false;
+                  System.out.println("\t\t§없는 아이디입니다.§");      //이건 또 왜 잘되다가 안되고..  / 관리자 로그인한담에 도서등록하면 이거 뜸
+                  유정 = false;			
                }else {System.out.println("\t\t§비밀번호가 틀렸습니다.§");}      //
                유정 = false;
             }            
