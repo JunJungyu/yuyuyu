@@ -27,18 +27,7 @@ public class EX3_틱택토게임 {//class s
 		           else {
 		           System.out.println("이미 돌이 있는 자리입니다.");
 		           }
-			  }
-	           
-
-	         
-
-	   
-               
-               
-               
-               
-               
-               
+			  }   
 	     }  
 	}//main e
 }//calss e
