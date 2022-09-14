@@ -26,6 +26,5 @@ public class Board {
 		
 	}
 	
-	// 3. ¸Þ¼Òµå
 	
 }
