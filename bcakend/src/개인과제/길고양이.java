@@ -135,6 +135,8 @@ public class 길고양이 {
 						+ "┳┻┳┻┳┻┳┻┳\r\n"
 						+ "");
 				if( 츄르 >= 1 && 호감도 >= 30){
+					System.out.println("\t\t\t[현재 호감도 : "+호감도+"]");
+					System.out.println("\t\t\t[현재 가지고있는 츄르 :"+츄르+"개]\n");
 					System.out.println("  "
 							+ "　　 \r\n"
 							+ "　　  \r\n"
