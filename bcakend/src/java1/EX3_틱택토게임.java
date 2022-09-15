@@ -8,11 +8,55 @@ public class EX3_틱택토게임 {//class s
 	public static void main(String[] args) {//main s
 		Scanner scanner = new Scanner(System.in);   
 	      
+		// 미완 안됨
+		
 	      String[] 게임판 = { "[ ]","[ ]","[ ]","[ ]","[ ]","[ ]","[ ]","[ ]","[ ]" };
 	      boolean game = true;
 	      int 승리 = 0; 
-	      while(game) {
-        	
+	      while(game) {	
+                     // 1. 게임판 출력 - 배열내 모든 데이터 출력 
+               for( int i=0; i<9; i++ ) {
+                      System.out.print(게임판[i]);
+                      if( i%3==2 ) {
+                    	  System.out.println();
+                      }
+	           }
+	           while (true) {
+
+				   System.out.println("흑돌 위치를 선택해주세요."+승리); 
+				   int 흑돌 = scanner.nextInt();
+				   if( 흑돌<9 || 흑돌>=0 ) {
+					   if( 게임판[흑돌].equals("[ ]") ) { 
+						   게임판[흑돌] = "[●]";
+						   승리++;
+				   		   if( 승리 == 9 ) {
+				   			   System.out.println("무승부입니다.");
+				   		   }
+						   break;
+					  }else {System.out.println("이미 돌이 존재하는 자리입니다.");}
+				   	}else {System.out.println("0~8 사이의 값을 입력해주세요."); break;}
+		       }//while e
+				   
+			   while (true) {
+				
+				Random 랜덤 = new Random(); 
+				    int 백 = 랜덤.nextInt(9); 
+				    if( 게임판[백].equals("[ ]")) {
+					   게임판[백] = "[○]";
+					   승리++;
+					   System.out.println("백돌차례끝"+승리);
+					   break;  
+				   }
+			   }
+			   
+				
+				   
+				 
+				
+
+	           
+
+	        	
 			   for( int j = 0; j < 7 ; j += 3 ) {//012 345 678  
 				   if( 게임판[j].equals(게임판[j+1]) && 게임판[j+1].equals(게임판[j+2]) && !게임판[j].equals("[ ]") && !게임판[j+1].equals("[ ]") && !게임판[j+2].equals("[ ]") ) {
 					  if( 승리 % 2 == 1 ) {
@@ -47,60 +91,7 @@ public class EX3_틱택토게임 {//class s
 						   return; 
 						  }else if( 승리 % 2 == 0 ){System.out.println("8백돌 승리입니다.");}
 				   return;
-			   }		
-			   
-			   	   
-			   		   if( 승리 == 9 ) {
-			   			   System.out.println("무승부입니다.");
-			   		   }
-			   	   
-				   
-			   
-                     // 1. 게임판 출력 - 배열내 모든 데이터 출력 
-               for( int i=0; i<9; i++ ) {
-                      System.out.print(게임판[i]);
-                      if( i%3==2 ) {
-                    	  System.out.println();
-                      }
-	           }
-	           while (true) {
-	        	   
-				   System.out.println("흑돌 위치를 선택해주세요."+승리); 
-				   int 흑돌 = scanner.nextInt();
-				   if( 흑돌<8 || 흑돌>0 ) {
-					   if( 게임판[흑돌].equals("[ ]") && !게임판[흑돌].equals("[○]") && !게임판[흑돌].equals("[●]") ) 
-					   게임판[흑돌] = "[●]";
-					   승리++;
-					   System.out.println("혹시 여기니");
-					   break;
-					   }
-				   if( 게임판[흑돌].equals("[○]") || 게임판[흑돌].equals("[●]") ) {
-					   System.out.println("이미 돌이 존재하는 자리입니다.");
-				   
-				   }else {System.out.println("0~8 사이의 값을 입력해주세요."); break;}
-	           	}//while e
-				   
-				   while (true) {
-					
-					Random 랜덤 = new Random(); 
-				    int 백 = 랜덤.nextInt(9); 
-				    if( 게임판[백].equals("[ ]") && !게임판[백].equals("[●]") && !게임판[백].equals("[○]") ) {
-					   
-					   게임판[백] = "[○]";
-					   승리++;
-					   System.out.println("백돌차례끝"+승리);
-					   break;  
-				   }
-				     
-				   }
-				   
-				
-				   
-				 
-				
-
-	           
-			     
+			   }  
 	     }//while e
 	}//main e
 }//calss e

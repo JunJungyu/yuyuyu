@@ -20,33 +20,33 @@ public class 티키태키톡 {
 				 }
 				  System.out.print(게임판[i]);
 			  }
-			  while (true) {
-			  System.out.println("\n돌을 놓을 곳을 입력해주세요.");	 	int 돌 = scanner.nextInt();
-				  if( 돌>=0 || 돌<9 ) {
-					  if( 게임판[돌].equals("[ ]") ) {
-						  게임판[돌] = "[●]";
-						  승리++;
-						  break;  
-					  }else {System.out.println("이미 돌이 존재하는 자리입니다.");}
-					  
+				  while (true) {
+				  System.out.println("\n돌을 놓을 곳을 입력해주세요.");	 	int 돌 = scanner.nextInt();
+					  if( 돌>=0 || 돌<9 ) {
+						  if( 게임판[돌].equals("[ ]") ) {
+							  게임판[돌] = "[●]";
+							  승리++;
+							  break;  
+						  }else {System.out.println("이미 돌이 존재하는 자리입니다.");}
+						  
+					  }
+					  else {System.out.println("0~8 사이의 숫자를 입력해주세요.");}
 				  }
-				  else {System.out.println("0~8 사이의 숫자를 입력해주세요.");}
-			  }
-			 
-			  while (true) {
-			  Random 백 = new Random();
-			  int 랜덤 = 백.nextInt(9);
-			  if( 게임판[랜덤].equals("[ ]") ) {
+				 
+				  while (true) {
+				  Random 백 = new Random();
+				  int 랜덤 = 백.nextInt(9);
 				  if( 게임판[랜덤].equals("[ ]") ) {
-					  게임판[랜덤] = "[○]";
-					  승리++;
-					  break;					  
+					  if( 게임판[랜덤].equals("[ ]") ) {
+						  게임판[랜덤] = "[○]";
+						  승리++;
+						  break;					  
+					  }
+	
 				  }
-
-			  }
-			  
-			  
-			  }
+				  
+				  
+				  }
 			  
 			  
 			  
