@@ -80,6 +80,7 @@ function lotto_number(){
 
 //4. 추첨번호 비교 결과 함수
 function lotto_result(){
-	
+	let ciunt = 0;
+	let result_numbers = select_numbers.filter
 }
 
