@@ -59,6 +59,7 @@ public class 실행 {
 						 System.out.println( dto.height 		+ "\t");
 						 System.out.println( dto.debut_data 	+ "\t");			   
 		   }//if e
+		   // -------------------------여기부터 안됨.. 왜?
 		   if( ch == 4 ) {
 			   ArrayList<MemberDto> list = dao.예제4결과();
 			   System.out.println("--------------------예제 "+ch+" 결과물--------------------");
@@ -86,7 +87,7 @@ public class 실행 {
 			   }
 			   
 			   
-		   if( ch > 13 ) {
+		   if( ch >= 13 ) {
 				  System.out.println("범위 내의 숫자를 입력해주세요.");
 			  }
 			   

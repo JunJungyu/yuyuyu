@@ -122,7 +122,7 @@ public class DAO {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while( rs.next() ) {
-				MemberDto dto = new MemberDto();	// 빈 객체 선언
+				MemberDto dto = new MemberDto();	// 빈 객체 선언			//왜 MemberDto 마다 빨간줄일까
 						dto.mem_id = rs.getString(1);
 						// 검색된 레포트의 첫번째 필드 -> 객체 필드에 대입
 						dto.mem_name = rs.getString(2);
