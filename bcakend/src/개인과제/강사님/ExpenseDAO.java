@@ -29,7 +29,7 @@ public class ExpenseDAO {
 	}
 	
 	
-	// 3. 메소드				// 강사님은 getinstance 사용하셨는데 이건 뭐지 지어준 이름일까 자동완성이 되는걸까...
+	// 3. 메소드				// 강사님은 getinstance 사용하셨는데 이건 뭐지 지어준 이름일까 자동완성이 되는걸까... 왜 난 안뜨지
 	public static ExpenseDAO getExpenseDAO() {return dao;}
 	
 	
