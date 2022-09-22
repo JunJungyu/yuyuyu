@@ -4,27 +4,24 @@ import java.util.ArrayList;
 
 public class AdminController {
 
+	// 2. 메뉴 추가 로직
+	boolean inMenu( String menuname ) {
+		// 싱글톤객체 메소드 호출 
+		return AdminDAO.getInstance().inMenu(menuname); 
+	}
 	
-
-	// 2. 메뉴추가 로직
-		boolean inMenu ( String menuname ) {
-			return AdminDao.getInstance().inMenu(menuname); //
-		}
-		
-	// 3. 메뉴 호출 로직●        
-		ArrayList< MenuDto > getMenu() {
-			return AdminDao.getInstance().getMenu();
-		}
-		
-	// 3. 제품추가로직
-		boolean inproduct( String pname , int pprice , String pcoment , int pamount ) {
-			ProductDto dto = new ProductDto(pamount, pname, pprice, pcoment, 0, pamount)
-		}
-
-		
-	// 4. 주문 확인 로직
-		void getOrder() {}
-	
+	// 2. 메뉴 호출 로직 
+	ArrayList< MenuDTO > getMenu() {
+		return AdminDAO.getInstance().getMenu();
+	}
+	// 3. 제품 추가 로직 
+	boolean inProduct( String pname , int pprice , String pcomment 
+			, short pamount , byte mno  ) {
+		ProductDTO dto = new ProductDTO( 0 , pname, pprice, pcomment, pamount, mno);
+		return AdminDAO.getInstance().inProduct( dto  );
+	}
+	// 4. 주문 확인 로직 
+	void getOrder( ) { }
 	
 	
 }
