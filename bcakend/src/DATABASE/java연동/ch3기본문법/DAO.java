@@ -171,7 +171,7 @@ public class DAO { // mysql 라이브러리가 프로젝트 build 포함
 				list.add(dto);
 			return dto;
 		}catch (Exception e) { System.out.println(" 예제7 오류 : " + e); }
-		return 예제7결과();
+		return 예제7결과();													// 실행이 안되는 이유.. 리턴값이 이상하기 때문 아닐까?!
 	}
 	
 	// 8.
@@ -194,6 +194,8 @@ public class DAO { // mysql 라이브러리가 프로젝트 build 포함
 		}catch (Exception e) { System.out.println(" 예제8 오류 : " + e); }
 		return list;
 	}
+	
+	
 	
 	// 9~19 : 과제
 		// 9 ~ 13  : 1~8 와 같은 방식

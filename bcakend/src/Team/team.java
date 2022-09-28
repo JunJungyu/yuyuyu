@@ -38,8 +38,6 @@ public class team {
          System.out.println(r_side+"|");
          System.out.printf( "띠용" + bottom );      // 왜.. [[ 이게 출력 되지?!
          
-         
-         
          //이차원배열로 시도
          //String [][] board;
          //String[][] board = new String[6][6];
@@ -110,9 +108,18 @@ public class team {
            }
           
            
+
+           
+           
+           
+           // 아 근데 틱택토는 [ ] 한 칸이 한판이였으니 \r \n 으로 나눠지지만 이건 한칸 출력할땐 몰라도 여러칸 출력하면 깨지는게 당연한거 아닌가?!
+           //아님 한줄한줄 변수변수변수 로 만들어서 누구 땅이 될때마다 변수 값만 변경해주는건? 말도안되는 노가다에 원하는데로 나오지도 않는다..
+           
+
+           
+           System.out.println("----------------------------------매옹 시작----------------------------------");
            // 될거같은데.. 왜 안될까 \r \n 소용없는듯ㅠ
-           String 나라 = "네글자임";
-           System.out.println("오이 등장");
+         String 나라 = "네글자임";
          String 머리 =   "╭─────────╮";				String 막줄머리 = "╭─────────╮\n";
          String 원 =    "           ";        	     String 막줄원 = "           \n";
          String 투 =    " "+나라+"  ";                 String 막줄투 = "    "+나라+" \n";
@@ -120,29 +127,12 @@ public class team {
          String 포 =    "     ●     ";                String 막줄포 = "     ●     \n";
          String 파이브 = "           ";              String 막줄파이브 = "           \n";
          String 발 =   "╰─────────╯";    		      String 막줄발 = "╰─────────╯\n";
-           String 판 = top +원+투+쓰리+포+파이브+ bottom;
+         
            
 
            
            // 만약 이차원배열 6/6이 아니라 42/6 이면 가능하지 않나? [][6] 만 /n 쓰고...
            String[][] 사삼 = new String[42][6];
-           
-           
-           
-           System.out.print(판 + 판);
-           
-           // 아 근데 틱택토는 [ ] 한 칸이 한판이였으니 \r \n 으로 나눠지지만 이건 한칸 출력할땐 몰라도 여러칸 출력하면 깨지는게 당연한거 아닌가?!
-           //아님 한줄한줄 변수변수변수 로 만들어서 누구 땅이 될때마다 변수 값만 변경해주는건? 말도안되는 노가다에 원하는데로 나오지도 않는다..
-           
-           // 예시
-           String 노가다탑 = top + top + top + top + top;
-           String 노가다공백 = 원 + 원 + 원 + 원 + 원;
-           String 노가다나라 = 투 + 투 + 투 + 투 + 투;
-           String 노가다바텀 = bottom + bottom + bottom + bottom + bottom ;
-           
-           System.out.print( "\r"+ 노가다탑  +"\n\r"+ 노가다공백 +"\n\r"+ 노가다나라 +"\n\r"+ 노가다공백 +"\n\r"+ 노가다바텀);
-           
-           System.out.println("----------------------------------매옹 시작----------------------------------");
            for (int i = 0; i < 사삼.length; i++) {
                for (int k = 0; k < 사삼[i].length; k++) {
             	   // [][5] 제외한 모든 칸
@@ -192,6 +182,14 @@ public class team {
                }
            }
            System.out.println("----------------------------------매옹 끝----------------------------------");
+           // 예시
+           String 노가다탑 = top + top + top + top + top;
+           String 노가다공백 = 원 + 원 + 원 + 원 + 원;
+           String 노가다나라 = 투 + 투 + 투 + 투 + 투;
+           String 노가다바텀 = bottom + bottom + bottom + bottom + bottom ;
+           
+           System.out.print( "\r"+ 노가다탑  +"\n\r"+ 노가다공백 +"\n\r"+ 노가다나라 +"\n\r"+ 노가다공백 +"\n\r"+ 노가다바텀);
+         //String 판 = top +원+투+쓰리+포+파이브+ bottom;
 
       
       

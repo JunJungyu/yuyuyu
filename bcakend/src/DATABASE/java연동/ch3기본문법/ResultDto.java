@@ -12,5 +12,5 @@ public class ResultDto {
 		this.mem_id = mem_id;
 		this.value = value;
 	}
-	
+	// 이건 왜 있는걸까?? 왜 두개만 있지??
 }
