@@ -28,4 +28,6 @@ public class MemberDto {
 		this.debut_date = debut_date;
 	}
 	
+
+	
 }

@@ -195,7 +195,25 @@ public class DAO { // mysql 라이브러리가 프로젝트 build 포함
 		return list;
 	}
 	
+	// 9.
 	
+	void 예제9결과() {
+					// 아이디 , 이름 , 데뷔일자를 데뷔일자 내림차순으로 출력
+		String sql = "select mem_id , mem_name , debut_date from member order by debut_date desc";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while ( rs.next() ) {
+				rs.getString(1),
+				rs.getString(2),
+				rs.getString(8)
+			}
+			
+		} catch (Exception e) {System.out.println("예제 9 오류" + e);}
+	}
+	
+	
+
 	
 	// 9~19 : 과제
 		// 9 ~ 13  : 1~8 와 같은 방식
