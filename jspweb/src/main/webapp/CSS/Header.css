@@ -1,0 +1,84 @@
+@charset "UTF-8";
+@font-face {
+    font-family: 'Happiness-Sans-Title';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+/*
+	식별자{ 속성 = 값 }
+		1.  class	.클래스명{}
+		2. id		#id{}
+		3. name
+		4. 태그명
+	하위 식별자 [ 띄어쓰기 ]
+		식별자 하위식별자
+	복수 식별자
+		식별자 , 식별자 , 식별자 {}
+	하위 식별자 선택
+		식별자 : nth-child(n) : 복수 하위 식별자중 n번째 식별자 선택
+
+*/
+
+/* 기본값 제거 - CSS 초기화하면 인풋박스 사라져서 이렇게 해야됨*/
+*{
+	margin: 0;
+	padding: 0;
+	text-decoration: none;	
+	list-style: none;								/* 글머리 제거 */
+	color: black;
+	font-family: '맑은 고딕';
+}
+
+.webbox{
+	width: 1200px;									/* 가로 길이 */
+	margin: 0 auto;									/* 박스 가운데정렬 */
+}
+
+/* -------------------------------------------- 상단헤더 ---------------------------------------- */
+
+.hd_top{
+	display: flex;									/* 자식 요소들이 가로배치 */
+	justify-content: space-between;					/* 양 사이드 배치 */
+	margin: 10px 0px 20px 0px;						/* 시계방향으로 위 오른쪽 아래 왼쪽 */
+}
+
+.hd_sub{
+	display: flex;									/* 자식 요소들이 가로배치니까 리스트 무너짐 */
+	font-size: 12px;
+}
+
+.hd_sub li{
+	margin-left: 20px;
+}
+
+.hd_title a{
+	font-family: 'Happiness-Sans-Title';
+	font-size: 40px;
+}
+
+/* ---------------------------------------------- 하단헤더 --------------------------------------- */
+.hd_menu{
+	display: flex;
+	justify-content: space-between;
+}
+
+.sersh_box input{
+	border: none;	
+}
+
+.sersh_box span{
+	border-bottom: solid 2px black;
+	margin: 0px 20px 0px 100px;
+}
+
+.hd_menu li:nth-child(1) a{
+	color: red;
+	font-weight: bold;
+}
+
+.hd_menu li:nth-child(2) a{
+	color: blue;
+	font-weight: bold;
+}
+
