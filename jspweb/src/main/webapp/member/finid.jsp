@@ -13,7 +13,7 @@
 		이름 : <input type="text" id="mname"><br>
 		이메일 : <input type="text" id="memail"><br>
 		<div id="findidconfirmbox"></div>
-		<button type="button" onclick="findid()"> 아이디 찾기</button>
+		<button type="button" onclick="findid()">아이디 찾기</button>
 		
 	</div>
 	
