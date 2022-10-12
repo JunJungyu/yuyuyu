@@ -21,18 +21,16 @@ public class findpasword extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("왜안돼1");
 		// 1. ajax 변수 요청
 		String mid = request.getParameter("mid");
 		String memail = request.getParameter("memail");		
 		
-		System.out.println("왜안돼2");
 		// 2. DB 메소드 호출
 		boolean result = MemberDao.getInstance().findpassword( mid, memail );
 		String randstr = "";	// 랜덤 문자를 저장할 문자열
 		// 3. 제어
 		// 아이디와 이메일이 동일할 경우 [true]에만 임시비밀번호 생성
-		System.out.println("왜안돼3");
+
 		if(result) {// 문자 난수 15자리 : 랜덤클래스 [임시비밀번호]
 			Random random = new Random();	// 1. 랜덤 객체 선언
 			for( int i = 0; i<15; i++ ) {
@@ -43,12 +41,12 @@ public class findpasword extends HttpServlet {
 									// (char)강제 형변환 : a ~ z
 			}
 			// 해당 회원의 비밀번호를 임시 비밀번호 교체[업데이트]
-			System.out.println("왜안돼4");
+
 			MemberDao.getInstance().passwordchange(mid, randstr);
 			
 		}
 		// 4. 반환 
-		System.out.println("왜안돼5");
+
 		response.getWriter().print(randstr);
 	}
 
