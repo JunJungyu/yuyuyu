@@ -22,15 +22,18 @@ public class b extends HttpServlet {
        
 		ArrayList<BoardDto> list = 
 				ddao.getInstance().gettext();
-		JSONArray array = new JSONArray();
+		JSONArray array = new JSONArray()
 		for( BoardDto dto : list ) {
 			JSONObject object = new JSONObject();
 			
+			object.put(object, dto.getBno() );
 			object.put(object, object);
+			object.put(object, object);
+			
 			array.add(object);
 		}
 		
-		Response.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		response.getWriter().print( array );
 	
     public b() {
