@@ -25,30 +25,34 @@ public class b extends HttpServlet {
 		JSONArray array = new JSONArray()
 		for( BoardDto dto : list ) {
 			JSONObject object = new JSONObject();
-			
-			object.put(object, dto.getBno() );
-			object.put(object, object);
-			object.put(object, object);
+		
+			object.put( "bno" , dto.getBno() );
+			object.put( "btitle" , dto.getBtitle() );
+			object.put( "bcontent" , dto.getBcontent() );
+			object.put( "bwriter" , dto.getBwriter() );
+			object.put( "bpassword" , dto.getBpassword());
+			object.put( "bdate" , dto.getBdate() );
+			object.put( "bview" , dto.getBview() );
 			
 			array.add(object);
 		}
 		
 		response.setCharacterEncoding("UTF-8");
-		response.getWriter().print( array );
-	
+		response.getWriter().print( array )
+
     public b() {
         super();
-        // TODO Auto-generated constructor stub
+   
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		doGet(request, response);
 	}
 

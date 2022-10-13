@@ -1,4 +1,4 @@
-package controller;
+package controller.member;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 import model.dao.MemberDao;
 
 /**
- * Servlet implementation class memberdelete
+ * Servlet implementation class findid
  */
-@WebServlet("/memberdelete")
-public class memberdelete extends HttpServlet {
+@WebServlet("/member/finid") //  서블릿 경로 만드는거 url
+public class findid extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public memberdelete() {
+    public findid() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,21 +28,17 @@ public class memberdelete extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	
 		// 1. 변수 요청
-		String mpassword = request.getParameter("mpassword");
+		request.setCharacterEncoding("UTF-8");		// 요청 시 한글 인코등
+		String mname = request.getParameter("mname");
+		String memail = request.getParameter("memail");
 		
-		// 2. 세션호출
-		String mid = (String)request.getSession().getAttribute("mid");
+		// 2. DB처리
+		String result = MemberDao.getInstance().findid(mname, memail);
 		
-		// 3. dao
-		boolean result = MemberDao.getInstance().delete(mid, mpassword);
-		
-		// 4. 반환
+		// 3. 응답
 		response.getWriter().print(result);
-		
-		
-		
 	}
 
 	/**

@@ -46,8 +46,8 @@
 				<li><a href="/jspweb/member/logout.jsp">로그아웃</a></li>			
 			<%}%>
 			<!-- 로그인 하던 안하던 공통메뉴 -->
-				<li><a href="/jspweb/member/info.jsp">마이쇼핑</a></li>
-				<li><a href="">고객센터</a></li>
+				<li><a href="http://localhost:8080/jspweb/member/info.jsp">마이쇼핑</a></li>
+				<li><a href="http://localhost:8080/jspweb/board/write.jsp">고객센터</a></li>
 			</ul>
 		</div>
 			<ul class="hd_menu">								<!-- 하단 헤더 -->

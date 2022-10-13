@@ -92,9 +92,9 @@ function mdelete(){
 
 
 let buttons =  document.querySelectorAll('button')  // 현재 페이지의 모든 버튼 호출
-
 function updateaction(){
 	let mname  = document.querySelector('#mname')
+	
 	if( buttons[1].innerHTML === '확인' ){
 		$.ajax({
 			url : "http://localhost:8080/jspweb/member/update" ,
@@ -107,6 +107,7 @@ function updateaction(){
 				}
 			}
 		})
+		console.log('여기2');
 		buttons[1].innerHTML = '수정'
 		mname.readOnly = true;			// 수정모드 설정 
 		//location.href = 'url' ; 		// 페이지 이동

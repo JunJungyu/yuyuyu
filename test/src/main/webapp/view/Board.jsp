@@ -11,6 +11,10 @@
 		padding: 20px;
 	}
 	
+	body{
+		display: flex;
+	}
+		
 </style>
 </head>
 <body>
@@ -29,8 +33,14 @@
 		</form>
 	</div>
 	<div>
-		<h3>글 목록</h3>
-		
+		<h3 onclick="gettext()">글 목록</h3><br>
+		<h6>int bno</h6><br>
+		<h6>btitle</h6><br>
+	    <h6>bcontent</h6><br>
+	    <h6>bwriter</h6><br>
+	    <h6>bpassword</h6><br>
+	    <h6>bdate</h6><br>
+	    <h6>bview</h6><br>
 	</div>
 </body>
 </html>

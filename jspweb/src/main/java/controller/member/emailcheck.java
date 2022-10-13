@@ -1,4 +1,4 @@
-package controller;
+package controller.member;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -9,30 +9,32 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.dao.MemberDao;
 
-/**
- * Servlet implementation class idcheck
- */
-@WebServlet("/member/idcheck")
-public class idcheck extends HttpServlet {
+
+@WebServlet("/member/emailcheck")
+public class emailcheck extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
-    public idcheck() {
-
+    public emailcheck() {
+        super();
+        // TODO Auto-generated constructor stub
     }
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		String mid = request.getParameter("mid");					// 1. 변수요청
-		boolean result = MemberDao.getInstance().idcheck(mid);		// 2, DAO 처리
-		response.getWriter().print(result);							// 3. DAO 결과 응답
+		
+		String memail = request.getParameter("memail");
+		boolean result = MemberDao.getInstance().emailcheck( memail );
+		response.getWriter().print(result);
+		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

@@ -26,14 +26,12 @@ function findpassword(){
 	let mid = document.querySelector("#mid").value			// JSP파일의 id="mid"를 변수 mid에 저장
 	let memail = document.querySelector("#memail").value
 	let resultbox = document.querySelector("#findpsconfirmbox")
-	alert( "아이디 : "+mid +"이메일 : " + memail );
 	// 2. ajax
 	$.ajax({
-		url : "http://localhost:8080/jspweb/member/findpassword.jsp" , 			/* 호출 */
-		data : { "mid" : mid , "memail" : memail },		// 아마 여기서 디비 mid랑 여기서 선언한 변수 mid랑 비교하는거 아닐까
-		success : function( result ){					// 근데 만약 값이
-	 	alert( "나와라 : "+result );
-	 	alert( "아이디 : "+mid +"이메일 : " + memail );
+		url : "http://localhost:8080/jspweb/member/findpasword" , 			/* 호출 */
+		data : { "mid" : mid , "memail" : memail },			// 아마 여기서 디비 mid랑 여기서 선언한 변수 mid랑 비교하는거 아닐까
+		success : function( result ){						// 근데 만약 값이
+	 	console.log( "나와라 : "+result );
 			if( result === '' ){resultbox.innerHTML = '동일한 회원정보가 없습니다.';}
 			else{ resultbox.innerHTML = '임시비밀번호 : '+ result; }
 		}

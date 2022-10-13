@@ -35,17 +35,10 @@ public class w extends HttpServlet {
 		boolean result = ddao.getInstance().write( btitle , bcontent , bwriter , bpassword );
 		
 		if(result) {
-			response.getWriter().print(result); 	// 이게 뭐지?
+			response.getWriter().print(result); 	// print 딱히..? 의미없음~
 			System.out.println("글 작성 완료");
 		}else {System.out.println("글 작성 실패");}
 		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		doGet(request, response);
 	}
 
 }

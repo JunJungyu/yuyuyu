@@ -118,22 +118,22 @@
 			</tr>
 			<tr>
 				<td class="col1" > 비밀번호  </td>
-				<td class="col2"> <input readonly="readonly" type="password" 	name="mpassword" 		id="mpassword" 			onkeyup="mevent2()"> </td>
+				<td class="col2"> <input readonly="readonly" type="password" 	name="mpassword" 		id="mpassword" 			> </td>
 				<td class="col3"> <button type="button" > 수정 </button></td>
 			</tr>
 			<tr>
 				<td class="col1" > 이름  </td>
-				<td class="col2"><input readonly="readonly" type="text" 		name="mname" 			id="mname" 				onkeyup="mevent4()"> </td>
+				<td class="col2"><input readonly="readonly" type="text" 		name="mname" 			id="mname" 				> </td>
 				<td class="col3"><button type="button" onclick="updateaction()"> 수정 </button></td>
 			</tr>
 			<tr>
 				<td class="col1" > 전화번호  </td>
-				<td class="col2"> <input readonly="readonly" type="text" 		name="mphone" 			id="mphone" 			onkeyup="mevent5()"> </td>
+				<td class="col2"> <input readonly="readonly" type="text" 		name="mphone" 			id="mphone" 			> </td>
 				<td class="col3"><button type="button"> 수정 </button></td>
 			</tr>
 			<tr>
 				<td class="col1" > 이메일  </td>
-				<td class="col2"> <input readonly="readonly" type="text" 		name="memail" 			id="memail" 			onkeyup="mevent6()"> </td>
+				<td class="col2"> <input readonly="readonly" type="text" 		name="memail" 			id="memail" 			> </td>
 				<td class="col3"><button type="button"> 수정 </button></td>
 			</tr>
 			<tr>

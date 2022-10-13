@@ -190,7 +190,7 @@ public class MemberDao extends Dao {
 	// 11. 회원정보 수정
 	public boolean update( String mid , String mname ) {
 		String sql = "update member set mname = ? where mid = ?";
-		
+
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, mname);
@@ -201,7 +201,18 @@ public class MemberDao extends Dao {
 	
 	}
 	
-	
+	// 12. 회원아이디를 가지고 회원번호를 반환해주는..
+	public int getMno ( String mid ) {
+		String sql = "select mno from member where mid =?";
+		try {
+				ps = con.prepareStatement(sql);
+				ps.setString(1, mid);
+				rs = ps.executeQuery();
+				// if (1개) vs while (여러개)
+				if( rs.next() ) return rs.getInt(1);
+		} catch (Exception e) {System.out.println(e);}
+		return 0;
+	}
 	
 	
 	
