@@ -36,10 +36,9 @@ public class list extends HttpServlet {
 					JSONObject object = new JSONObject();
 					object.put( "bno" , list.get(i).getBno() );
 					object.put( "btitle" , list.get(i).getBtitle() );
-					object.put( "bcontent" , list.get(i).getBcontent() );
+					object.put( "Bdate" , list.get(i).getBdate() );
 					object.put( "bview" , list.get(i).getBview() );
 					object.put( "mid" , list.get(i).getMid() );
-					object.put( "mno" , list.get(i).getMno() );
 					array.add(object);
 			}
 		// 3. 응답o

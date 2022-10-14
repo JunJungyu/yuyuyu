@@ -30,7 +30,6 @@ function login(){
 			// 데이터 변수명 
 		data : { "mid" : mid , "mpassword" : mpassword } ,
 		success : function( re ){
-			alert(re)
 			if( re === '1' ){ location.href="/jspweb/index.jsp"; }  // javascript 하이퍼링크
 			else if( re === '2' ){loginconfirmbox.innerHTML = '패스워드가 다릅니다.'}
 			else if( re === '3' ){loginconfirmbox.innerHTML = '데이터베이스 오류[관리자에게 문의]'}

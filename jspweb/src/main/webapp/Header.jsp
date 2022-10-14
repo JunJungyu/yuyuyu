@@ -5,13 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>최유정 이젠 쇼핑몰</title>
-
 <!-- font Awesome -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
-
 <!-- view port -->
 <meta name="viewport" content="width=device-width , inital-scale = 1.0">
-
 <!-- 사용자 정의 css 호출 -->
 <link rel="stylesheet" href="/jspweb/CSS/Header.css">
 </head>

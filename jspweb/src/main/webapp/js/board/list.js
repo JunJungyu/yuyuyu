@@ -6,7 +6,6 @@ function list(){	// 1. 정의하고
 		
 		url : "http://localhost:8080/jspweb/board/list" , 
 		success : function(re){
-			soncole.log( re )
 			let boardlist = JSON.parse( re )
 			console.log( boardlist )					// 출력을 하려면 객체가 있어야됨
 			let html = ""
@@ -19,7 +18,7 @@ function list(){	// 1. 정의하고
 						'<tr>'+
 				'<td>'+board.bno+'</td>'+								// 내가 클릭한 보드 넘버 변수로 줌 변수는 ''이고 링크는 ""니까  '"로 끝남
 				//'<td><a htef="http://localhost:8080/jspweb/js/board/view.jsp?bno='+b.bno+'">'+board.btitle+'</td>'+
-				'<td onclick="bview('+b.bno+')">'+board.btitle+'</td>'+
+				'<td onclick="viewload('+board.bno+')">'+board.btitle+'</td>'+
 				'<td>'+board.mid+'</td>'+
 				'<td>'+board.bdate+'</td>'+
 				'<td>'+board.bview+'</td>'+
@@ -27,31 +26,21 @@ function list(){	// 1. 정의하고
 			}//FOR END	
 				console.log( html )						// 중간중간 console.log 찍어서 확인해보기
 				
-			document.querySelector('btable').innerHTML += html	// 누적더하기 안하면 헤더 사라지나봄?	
+			document.querySelector('.btable').innerHTML += html	// 누적더하기 안하면 헤더 사라지나봄?	
 		}
 		
 	})
 	
 }
 
-function bview( bno ){
-	
+function viewload( bno ){			// 상세페이지로 이동
 	$.ajax({
-		url : "",
+		url : "http://localhost:8080/jspweb/board/viewload" ,
 		data : { "bno" : bno },
 		success : function( re ){
-			
+			location.href = "http://localhost:8080/jspweb/board/view.jsp"
 		}
 	})
-	
 }
 
-function viewload( bno ){
-	$.ajax({
-		url : "http://localhost:8080/jspweb/board/view" ,
-		data : { "bno" : bno },
-		success : function( re ){
-			let board = JSON.parse( re )
-		}
-	})
-}
+

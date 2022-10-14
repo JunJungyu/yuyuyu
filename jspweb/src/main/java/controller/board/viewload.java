@@ -29,9 +29,8 @@ public class viewload extends HttpServlet {
 		int bno = Integer.parseInt(request.getParameter("bno") );
 		
 		request.getSession().setAttribute("bno", bno);
+		System.out.println(bno+"애오");
 		
-		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
