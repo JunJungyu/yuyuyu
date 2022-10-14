@@ -23,19 +23,21 @@ drop table if exists board;
 create table board(
 	bno	int auto_increment primary key ,	-- 글번호
     btitle varchar(1000) ,					-- 제목
-    bcontent longtext ,						-- 내용
+    bcontent longtext ,						-- 내용 [  ]
     bfile longtext ,						-- 파일
     bdate datetime default now() ,					-- 작성일
     bview int default 0 ,
     cno int ,								-- 카테고리번호 fk
-    mno int ,								-- 작성자
-    mid varchar(50) ,
+    mno int , 								-- 작성자
+    constraint bcno_fk foreign key (cno) references bcategory(cno) ,
 	constraint bmno_fk foreign key (mno) references member(mno)
 );
+select * from member m , board b where m.mno = b.mno and bno = 7;
+insert into board(btitle , bcontent , mno , bfile) values('rr','ee','ww','qq');
 select * from board;
 
 -- 1. 두개 이상의 테이블 검색 [ 1번 테이블 레코드수 * 2번테이블 레코드 수 ]
-select * from member , board;
+select * from member board;
 
 -- 2. 조건 [ pk와 fk가 일치한 경우만 표시 ]
 select * from member , board where member.mno = board.mno;
@@ -62,7 +64,10 @@ select * from member;
 -- 로그인 [ 해당 테이블에 동일한 아이디와 패스워드가 존재하는 검색 ]
 	-- select 
 	-- select * from 테이블명 where 아이디 = ? and 비밀번호 = ?
-insert into member values( null , 'a','a','a','a','a','a',null,2 );
+insert into member values( null , 'yujung','yuyuyu','e','b','c','d',null,2 );
+insert into member values( null , 'dbwjd','dbwjd1234','dd','d','d','d',null,2 );
+insert into member values( null , 'thisisid','password','yujung','010-1234-5678','d','d',null,2 );
+select b.* , m.mid from member m , board b
 	-- 존재하면 레코드 1개 검색 
 	-- 존재하지 않으면 레코드 x 
 select * from member;
