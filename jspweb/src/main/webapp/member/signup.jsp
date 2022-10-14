@@ -118,18 +118,18 @@
 			<tr>
 				<td class="col1"> 이름 </td>
 				<td class="col2"> <input type="text" id="mname" name="mname" onkeyup="mevent4()"> </td>
-				<td class="col3"> ㅇ</td>
+				<td class="col3"> </td>
 			</tr>
 			<tr>
 				<td class="col1"> 전화번호 </td>
-				<td class="col2"> <input type="text" id="mphone" name="mphone" onkeyup="mevent5()"> </td>
-				<td class="col3"> ㅇ</td>
+				<td class="col2"> <input type="text" id="mphon" name="mphon" onkeyup="mevent5()"> </td>
+				<td class="col3"> </td>
 			</tr>
 			
 			<tr>
 				<td class="col1"> 이메일 </td>
 				<td class="col2"> <input type="text" id="memail" name="memail" onkeyup="mevent6()"> </td>
-				<td class="col3">ㅇ </td>
+				<td class="col3"> </td>
 			</tr>			
 			<tr>
 				<td class="col1"> 주소 </td>
@@ -147,7 +147,7 @@
 				<td>
 					<input type="text" id="sample4_detailAddress" placeholder="상세주소" name="maddress6">
 				</td>
-				<td class="col3"> 여기</td>				
+				<td class="col3"> </td>				
 			</tr>				
 
 
@@ -356,7 +356,7 @@
 	
 			<div class="signupbtnbox">
 				<button type="reset">취소하기</button>
-				<button type="button" onclick="formsubmit()">회원가입</button>
+				<button onclick="formsubmit()">회원가입</button>
 			</div>
 		</form>	
 	</div>	

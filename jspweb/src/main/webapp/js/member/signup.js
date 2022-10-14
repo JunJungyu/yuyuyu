@@ -31,24 +31,25 @@
 
 // 1. col3 div 모두 가져오기
 let col3 = document.querySelectorAll('.col3')	// class가 col3이면 모두 호출 [ ALL->배열 ]
-let sicon = '<i class="fas fa-check-circle"></i>'
-let bicon = '<i class="fas fa-ban"></i>'
-/* ----------------------- 아이디 -----------------------*/
+let sicon = '<i class="fas fa-check-circle"></i>'	// 긍정
+let bicon = '<i class="fas fa-ban"></i>'			// 부정
+/* ----------------------- 아이디 -----------------------*/		// 계속 !midj.test(mid) 이거만 나옴..★★★
 function mevent1(){
 	let mid = document.querySelector("#mid").value;				// 1. 입력받은 아이디 호출
 	let midj = /^[a-z0-9]{5,20}$/								// 2. 정규표현식 작성 / 띄어쓰기 하면 안됨..
-	
+
 	if( midj.test(mid) ){										// 3. 정규표현식이 동일하면
+		
 		$.ajax({												// 4. 아이디 중복체크 [ 비동기식 - ajax ]
-			url : "http://localhost:8080/jspweb/idcheck" ,
+			url : "http://localhost:8080/jspweb/member/idcheck" ,
 			data : { "mid" : mid } , 
-			success : function( re ){alert( re );				// 5. 중복체크 결과(re) / re : 서블릿으로부터 받은 데이터 이름 암거나 됨
-				alert("안됨!!");
-				if( re === 'true' ){ col3[0].innerHTML = bicon+'사용중인 아이디' }
-				else{ col3[0].innerHTML = sicon+'사용가능한 아이디' }
+			success : function( re ){							// 5. 중복체크 결과(re) / re : 서블릿으로부터 받은 데이터 이름 암거나 됨
+				if( re === 'true' ){ col3[0].innerHTML = bicon+'이미 사용중인 아이디입니다.' }	// 입력받은 아이디가 레코드가 존재하면 사용중인거니까
+				else{ col3[0].innerHTML = sicon }
 			}
 		})//ajax end
-	}else{alert("X");}											// 정규표현식이 다르면	
+		
+	}else if( !midj.test(mid) ){ col3[0].innerHTML = bicon + '소문자/숫자 5~20글자 사이로 작성해주세요.' }											// 정규표현식이 다르면	
 	
 }
 /* ----------------------- 비밀번호 -----------------------*/
@@ -62,29 +63,28 @@ function mevent2(){
 }	
 
 function mevent3(){
-	let mpasswordconfirm = document.querySelector("#mpasswordconfirm").vlaue
-	let mpasswordj = /^[a-zA-Z0-9]{8,20}$/
-	if( !mpasswordj.test(mpasswordconfirm) ){						// 정규표현식이 다르면
-		col3[1].innerHTML = bicon+'영대소문자/숫자 조합 8~20'
-	}else if( mpasswordconfirm != mpassword ){						// 두 비밀번호가 다르면
+	let mpasswordconfirm = document.querySelector("#mpasswordconfirm").value
+	let mpassword = document.querySelector("#mpassword").value 
+	// let mpasswordj = /^[a-zA-Z0-9]{8,20}$/ 어차피 위 함수랑 같이 실행되니까 없어도 되지 않나?
+	if( mpasswordconfirm != mpassword ){						// 두 비밀번호가 다르면
 		col3[1].innerHTML = bicon+'비밀번호가 서로 다릅니다.'
-	}else{ col3[1].innerHTML = sicon }								// 정규표현식 맞고 두 비밀번호가 맞으면
+	}else{ col3[1].innerHTML = sicon; mevent2(); }								// 정규표현식 맞고 두 비밀번호가 맞으면
 }
 /* ----------------------- 이름 -----------------------*/
 function mevent4(){
 	let mname = document.querySelector("#mname").value
 	let mnamej = /^[a-zA-Z가-힣]{2,20}$/
-	if( mnamej.test(mname) ){ col3[2].innerHTML = sicon; }			// 위치가 안맞다...
-	else{ col3[2].innerHTML = bicon + '영/대소문자 조합 2~20' }
+	if( mnamej.test(mname) ){ col3[3].innerHTML = sicon; }			
+	else{ col3[3].innerHTML = bicon + '영/대소문자 조합 2~20' }
 }
 /* ----------------------- 전화번호 -----------------------*/
 function mevent5(){
 	let mphon = document.querySelector("#mphon").value
-	let mphonj = /^([0-9]{2,3})-([0-9]{3,4})-([0-9],{3,4})$/	
-	if( mphonj.test(mphon) ){ col3[3].innerHTML = sicon; }			// 안보임!
-	else{ col3[3].innerHTML = bicon;+'지역번호-xxxx-xxxx 형식' }
+	let mphonj = /^([0-9]{2,3})-([0-9]{3,4})-([0-9]{3,4})$/	
+	if( mphonj.test(mphon) ){ col3[4].innerHTML = sicon; }			
+	else{ col3[4].innerHTML = bicon +'지역번호-xxxx-xxxx 형식' }
 }
-/* ----------------------- 이메일 -----------------------*/
+/* ----------------------- 이메일 -----------------------*/				// 계속 이메일 형식으로 입력하라 나옴★★★
 function mevent6(){
 	let memail = document.querySelector("#memail").value
 	let memailj = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+$/
@@ -95,13 +95,13 @@ function mevent6(){
 			data : { "memail" : memail } , 
 			success : function( re ){ 
 				if( re === 'true'){ 
-					col3[4].innerHTML = bicon+' 사용중인 이메일 입니다. '  
+					col3[5].innerHTML = bicon+' 사용중인 이메일 입니다. '  
 				}
-				else{ col3[4].innerHTML = sicon;  }
+				else{ col3[5].innerHTML = sicon;  }
 			 }		
 		})
 	}
-	else{ col3[4].innerHTML = bicon+' 이메일 형식으로 입력해주세요 ' }
+	else{ col3[5].innerHTML = bicon+' 이메일 형식으로 입력해주세요 ' }
 }
 /* ----------------------- 주소 -----------------------*/
 
@@ -110,10 +110,10 @@ function mevent6(){
 	let sample4_jibunAddress = document.querySelector("#sample4_jibunAddress")
 	let sample4_detailAddress = document.querySelector("#sample4_detailAddress")
 	
-	function addresscheck( e ){	// e : 아무거나 써도 됨 이벤트..
-		let value = e.currentTarget.value;
-		if( a.indexOf(',') != -1 ){ col3[5].innerHTML = bicon+'주소에 ,[쉼표] 입력 불가능' }
-	else{ col3[5].innerHTML = sicon; }
+	function addresscheck( re ){	// e : 아무거나 써도 됨 이벤트..
+		let value = re.currentTarget.value;
+		if( value.indexOf(',') != -1 ){ col3[6].innerHTML = bicon+'주소에 ,[쉼표] 입력 불가능' }
+	else{ col3[6].innerHTML = sicon; }
 		
 	sample4_postcode.addEventListener( 'change' , addresscheck )	// change(이벤트)가 된 객체의 정보를 addresscheck 함수
 	sample4_roadAddress.addEventListener( 'change' , addresscheck )
@@ -130,6 +130,7 @@ function mevent6(){
 /* ----------------------- 회원가입 전송확인 -----------------------*/
 
 function formsubmit(){
+	alert("클릿");
 	// 1.아이디 ~ 주소 모두 유효성검사 검토 
 	for( let i = 0 ; i <= 5 ; i++ ){	//  col3[0] : 아이디  , col3[1] : 비밀번호  ~~~    col3[5] : 주소
 		if( col3[i].innerHTML !== sicon ){ alert('입력이 안된 정보가 있습니다.'); return false; }

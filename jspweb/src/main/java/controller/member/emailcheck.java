@@ -25,6 +25,7 @@ public class emailcheck extends HttpServlet {
 		
 		String memail = request.getParameter("memail");
 		boolean result = MemberDao.getInstance().emailcheck( memail );
+		
 		response.getWriter().print(result);
 		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
