@@ -1,0 +1,15 @@
+drop database if exists board;
+create database board;
+use board;
+
+create table board(
+	bno int primary key auto_increment, 
+    btitle varchar(100) , 
+    bcontent varchar(100) ,
+    bwriter varchar(100) ,
+    bpassword varchar(100) , 
+    bdate datetime default now() ,
+    bview int default 0
+);
+insert into board ( btitle , bcontent ,bwriter ,bpassword ) values( 'a' , 'a' , 'a' , 'a');
+select * from board;

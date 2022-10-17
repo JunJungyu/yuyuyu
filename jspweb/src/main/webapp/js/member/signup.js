@@ -33,7 +33,10 @@
 let col3 = document.querySelectorAll('.col3')	// class가 col3이면 모두 호출 [ ALL->배열 ]
 let sicon = '<i class="fas fa-check-circle"></i>'	// 긍정
 let bicon = '<i class="fas fa-ban"></i>'			// 부정
-/* ----------------------- 아이디 -----------------------*/		// 계속 !midj.test(mid) 이거만 나옴..★★★
+
+//alert(col3[6].value); 둘이 똑같이 나와서 얘가 col3[6] 을 제대로 찾은건지 아닌지 모르겠다..
+//alert(col3[2].value);
+/* ----------------------- 아이디 -----------------------*/		// 계속 !midj.test(mid) 이거만 나옴..★★★ 이였는데? 학원컴에서 하니까 정상작동
 function mevent1(){
 	let mid = document.querySelector("#mid").value;				// 1. 입력받은 아이디 호출
 	let midj = /^[a-z0-9]{5,20}$/								// 2. 정규표현식 작성 / 띄어쓰기 하면 안됨..
@@ -53,15 +56,7 @@ function mevent1(){
 	
 }
 /* ----------------------- 비밀번호 -----------------------*/
-function mevent2(){
-	let mpassword = document.querySelector("#mpassword").value
-	let mpasswordj = /^[a-zA-Z0-9]{8,20}$/
 	
-	if( mpasswordj.test(mpassword) ){
-		col3[1].innerHTML = sicon; mevent3();
-	}else{ col3[1].innerHTML = bicon+'영대소문자/숫자 조합 8~20글자' }
-}	
-
 function mevent3(){
 	let mpasswordconfirm = document.querySelector("#mpasswordconfirm").value
 	let mpassword = document.querySelector("#mpassword").value 
@@ -69,6 +64,15 @@ function mevent3(){
 	if( mpasswordconfirm != mpassword ){						// 두 비밀번호가 다르면
 		col3[1].innerHTML = bicon+'비밀번호가 서로 다릅니다.'
 	}else{ col3[1].innerHTML = sicon; mevent2(); }								// 정규표현식 맞고 두 비밀번호가 맞으면
+}
+
+function mevent2(){
+	let mpassword = document.querySelector("#mpassword").value
+	let mpasswordj = /^[a-zA-Z0-9]{8,20}$/
+	
+	if( mpasswordj.test(mpassword) ){
+		col3[1].innerHTML = sicon; mevent3();
+	}else{ col3[1].innerHTML = bicon+'영대소문자/숫자 조합 8~20글자' }
 }
 /* ----------------------- 이름 -----------------------*/
 function mevent4(){
@@ -84,7 +88,7 @@ function mevent5(){
 	if( mphonj.test(mphon) ){ col3[4].innerHTML = sicon; }			
 	else{ col3[4].innerHTML = bicon +'지역번호-xxxx-xxxx 형식' }
 }
-/* ----------------------- 이메일 -----------------------*/				// 계속 이메일 형식으로 입력하라 나옴★★★
+/* ----------------------- 이메일 -----------------------*/				// 계속 이메일 형식으로 입력하라 나옴★★★ 그랬는데 마찬가지로 학원컴에서 하니까 잘만됨
 function mevent6(){
 	let memail = document.querySelector("#memail").value
 	let memailj = /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+$/
@@ -112,11 +116,11 @@ function mevent6(){
 	
 	function addresscheck( re ){	// e : 아무거나 써도 됨 이벤트..
 		let value = re.currentTarget.value;
-		if( value.indexOf(',') != -1 ){ col3[6].innerHTML = bicon+'주소에 ,[쉼표] 입력 불가능' }
-	else{ col3[6].innerHTML = sicon; }
+		if( value.indexOf(',') !== -1 ){ col3[5].innerHTML = bicon+'주소에 ,[쉼표] 입력 불가능' }
+	else{ col3[5].innerHTML = sicon; }
 		
 	sample4_postcode.addEventListener( 'change' , addresscheck )	// change(이벤트)가 된 객체의 정보를 addresscheck 함수
-	sample4_roadAddress.addEventListener( 'change' , addresscheck )
+	sample4_roadAddress.addEventListener( 'change' , addresscheck )								// 2번째 계속 null 나옴 어째서?
 	sample4_jibunAddress.addEventListener( 'change' , addresscheck )
 	sample4_detailAddress.addEventListener( 'change' , addresscheck )
 
@@ -129,8 +133,8 @@ function mevent6(){
 	*/
 /* ----------------------- 회원가입 전송확인 -----------------------*/
 
-function formsubmit(){
-	alert("클릿");
+function formsubmit(){			// 호출하는데 어째서 노란불이지? sicon이 아직 다섯개여서 그런가?																// 작동안함. 그냥 엔터만 쳐도 디비로 넘어감..
+	alert("왜 안들어와~");
 	// 1.아이디 ~ 주소 모두 유효성검사 검토 
 	for( let i = 0 ; i <= 5 ; i++ ){	//  col3[0] : 아이디  , col3[1] : 비밀번호  ~~~    col3[5] : 주소
 		if( col3[i].innerHTML !== sicon ){ alert('입력이 안된 정보가 있습니다.'); return false; }
@@ -203,4 +207,4 @@ function sample4_execDaumPostcode() {
     }).open();
 }
 }
-/* 카카오 우편 api end */
+	/* 카카오 우편 api end */

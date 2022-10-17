@@ -34,13 +34,15 @@
 	</div>
 	<div>
 		<h3 onclick="gettext()">글 목록</h3><br>
-		<h6>int bno</h6><br>
-		<h6>btitle</h6><br>
-	    <h6>bcontent</h6><br>
-	    <h6>bwriter</h6><br>
-	    <h6>bpassword</h6><br>
-	    <h6>bdate</h6><br>
-	    <h6>bview</h6><br>
+		<h6 name="bbno">int bbno</h6><br>
+		<h6 name="bbtitle">bbtitle</h6><br>
+	    <h6 name="bbcontent">bbcontent</h6><br>
+	    <h6 name="bbwriter">bbwriter</h6><br>
+	    <h6 name="bbpassword">bbpassword</h6><br>
+	    <h6 name="bbdate">bbdate</h6><br>
+	    <h6 name="bbview">bbview</h6><br>
 	</div>
 </body>
 </html>
+
+<script src="../js/board.js"  type="text/javascript"></script>

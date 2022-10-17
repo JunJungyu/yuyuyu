@@ -28,6 +28,7 @@ public class emailcheck extends HttpServlet {
 		
 		response.getWriter().print(result);
 		
+		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 

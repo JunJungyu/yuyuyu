@@ -132,25 +132,22 @@
 				<td class="col3"> </td>
 			</tr>			
 			<tr>
-				<td class="col1"> 주소 </td>
-				<td class="col2">
+				<td rowspan="2" class="col1" > 주소  </td>
+				<td colspan="2" class="col2"> 
 					<span>
-						<input type="text" id="sample4_postcode" placeholder="우편번호" name="maddress1">
-						<input class="findaddr" type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" name="maddress2">
+						<input type="text" id="sample4_postcode" placeholder="우편번호" name="maddress1" onkeyup="addresscheck()">
+						<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
 					</span>
 					<span>
-						<input type="text" id="sample4_roadAddress" placeholder="도로명주소" name="maddress3">
-						<input type="text" id="sample4_jibunAddress" placeholder="지번주소" name="maddress4">
+						<input type="text" id="sample4_roadAddress" placeholder="도로명주소" name="maddress2" onkeyup="addresscheck()">
+						<input type="text" id="sample4_jibunAddress" placeholder="지번주소" name="maddress3" onkeyup="addresscheck()">
 					</span>
-					<span id="guide" style="color:#999;display:none" name="maddress5"></span>
 				</td>
-				<td>
-					<input type="text" id="sample4_detailAddress" placeholder="상세주소" name="maddress6">
-				</td>
-				<td class="col3"> </td>				
-			</tr>				
-
-
+			</tr>
+			<tr>
+				<td class="col2"> <input type="text" id="sample4_detailAddress" placeholder="상세주소" name="maddress4" onkeyup="addresscheck()"> </td>
+				<td class="col3"> 라타타</td>
+			</tr>
 		</table>
 		
 		<h3 class="parttitle">이용약관</h3>
