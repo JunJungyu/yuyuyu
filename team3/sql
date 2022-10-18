@@ -2,15 +2,17 @@ drop database if exists team3;
 create database team3;
 use team3;
 
+drop table if exists member;
 create table member(
 	mno int auto_increment primary key,			-- 회원번호
     mid varchar(20) ,							-- 아이디
     mpassword varchar(50) ,						-- 비밀번호
-    mnickname varchar(15) ,						-- 닉네임
-    mfriendsno int 								-- 고유 mno 연결..
+    mnickname varchar(15) not null ,						-- 닉네임
+    mfriendsno int default 0					-- 고유 mno 연결..
 );
 select * from member;
 
+drop table if exists board;
 create table board(
 	bno int auto_increment primary key ,		-- 게시물 식별번호
     btitle varchar(50) ,						-- 게시물 제목
@@ -21,6 +23,7 @@ create table board(
 );
 select * from board;
 
+drop table if exists coment;
 create table coment(
 	bno int ,									-- 어떤 글인지 식별
     bcoment varchar(100) ,						-- 댓글 / a가 쓴 1번글이랑 b가 쓴 1번 글이랑 구별이 가능한가? 뭔가 추가해주어야하나?
@@ -35,5 +38,3 @@ create table music(
     mufile longtext								-- 노래파일 저장
 );
 select * from music
-
-

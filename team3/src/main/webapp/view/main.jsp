@@ -10,6 +10,7 @@
 <body>
 	<h3>개인페이지</h3>
 	<span></span><h5>님 페이지</h5>
+	<a href="http://localhost:8080/team3/view/signup.jsp"><button>회원가입 페이지</button></a>
 	
 </body>
 </html>

@@ -2,33 +2,44 @@ let check = document.querySelectorAll('.check')
 
 function idchack(){
 	let id = document.querySelector('#id').value;
-	let idcheck = /^[a-zA-Z0-9]{5,20}%/
-	//console.log( id )
+	let idcheck = /^[a-zA-Z0-9]{5,20}$/
+	
 	if( idcheck.test(id) ){
-		
-		$.ajax({
-		url : "http://localhost:8080/team3/idcheck" ,
-		data : { "id" : id } ,
-		success : function ( re ){
-		alert( mid );
-		alert( "rere" );
-		if( re === 'true' ){
-			check[0].innerHTML = "굿";
-		}else if( re == 'false' ){
-			check[0].innerHTML = "밷";
-		}
-		}		
-		
-	})
-	}else{check[0].innerHTML = "안맞아";}	
+		check[0].innerHTML = "정상";
+	}
+	if( !idcheck.test(id) ){check[0].innerHTML = "비정상 아이디";}	
 
 	
 }
 
 function pscheck(){
-	// alert("2");
+	let ps = document.querySelector('#password').value;
+	let pscheck = /^[a-zA-Z0-9]{5,20}$/
+	
+	if( pscheck.test(ps) ){					
+		check[1].innerHTML = '정상';
+	}
+	if( !pscheck.test(ps) ){ check[1].innerHTML = '비정상 비밀번호'; }
+	
 }
 
 function nncheck(){
-	// alert("3");
+	let nn = document.querySelector('#nickname').value
+	let nncheck = /^[a-zA-Z0-9가-힣]{1,20}$/
+	
+	if( nncheck.test(nn) ){
+		check[2].innerHTML = '정상';
+	}
+	if( !nncheck.test(nn) ){ check[2].innerHTML = '비정상 닉네임'; }
+}
+
+function signup(){
+	for( let i = 0; i < check.length ; i++ ){
+		if( check[i].innerHTML === '정상' ){
+			return true;
+		}
+		if( check[i].innerHTML !== '정상' ){
+			return false;					// false면 뭐..?
+		}
+	}
 }

@@ -12,9 +12,9 @@
 		<form action="http://localhost:8080/team3/signup" method="get">
 		<h3>회원 가입</h3>
 		Id : <input type="text" id="id" name="id" onkeyup="idchack()"><h2 class="check">1</h2><br>
-		Password : <input type="text" id="id" name="password" onkeyup="pscheck()" ><h2 class="check">2</h2><br>
-		NickName : <input type="text" name="name" name="nickname" onkeyup="nncheck()"><h2 class="check">3</h2>
-		<button>가입하기</button>
+		Password : <input type="text" id="password" name="password" onkeyup="pscheck()" ><h2 class="check">2</h2><br>
+		NickName : <input type="text" id="nickname" name="name" name="nickname" onkeyup="nncheck()"><h2 class="check">3</h2>
+		<button onclick="signup()">가입하기</button><a href="/main"><button>메인페이지</button></a>
 		</form>
 	</div>
 
