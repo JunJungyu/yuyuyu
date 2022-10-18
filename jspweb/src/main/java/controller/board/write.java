@@ -31,8 +31,8 @@ public class write extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
- 		String mid = (String)request.getSession().getAttribute("mid");		// 1. 로그인 세션 [ 로그인한 사람의 아이디 ]가져오기
-		int mno = MemberDao.getInstance().getMno(mid);						// 2. 회원 아이디 --> 회원번호
+ 		//String mid = (String)request.getSession().getAttribute("mid");		// 1. 로그인 세션 [ 로그인한 사람의 아이디 ]가져오기
+		//int mno = MemberDao.getInstance().getMno(mid);						// 2. 회원 아이디 --> 회원번호
 //																			// fk는 pk에 있는 데이터만 저장가능 [ 무결성 ]
 //		String btitle = request.getParameter("btitle");						// 3. 입력받은 데이터1 요청
 //		String bcontent = request.getParameter("bcontent");					// 3. 입력받은 데이터2 요청
@@ -60,8 +60,16 @@ public class write extends HttpServlet {
 			// new MultipartRequest( 1. 요청방식 2. 파일저장경로 3. 인코딩타입 4. 기타(보안기능) )
 					// 1비트 ( 0 , 1 ) --> 1바이트 ( 01010101 : 8비트 ) -> 1kb ( 1024b ) -> 1mb ( 1024kb ) -> 1G ( 1024MB )
 		// 1. 저장경로 [ 프로젝트 저장 ]
-		String uploadpath = "C:\\Users\\504\\git\\yuyuyu\\jspweb\\src\\main\\webapp\\upload\\";
+		// String uploadpath = "C:\\Users\\504\\git\\yuyuyu\\jspweb\\src\\main\\webapp\\upload\\";
+		// 1. 저장경로 [ 배포된 프로젝트의 (서버) 폴더 저장 ]
+			// 1. 현재 배포된 프로젝트의 경로 찾기
+		// String uploadpath =  request.getSession().getServletContext().getRealPath("/"); // 최상위경로
+		String uploadpath =  request.getSession().getServletContext().getRealPath("/upload"); // jspweb/upload
+		System.out.println( uploadpath );
 		
+		
+		
+		// 2. Multipart 객체 생성
 		MultipartRequest multy = new MultipartRequest(
 					request , 						// 1. 요청방식
 					uploadpath ,					// 2. 저장 경로
@@ -71,17 +79,17 @@ public class write extends HttpServlet {
 				);
 		
 		// 3. 해당 저장경로에 첨부파일 업로드가 된다.
-		
 		// 4. 나머지 데이터를 직접 요청
 		String btitle = multy.getParameter("btitle");	// request -> multy
-			// System.out.println( btitle );
-		String bcontent = multy.getParameter("bcontent");
-			// System.out.println( bcontent );
+			 System.out.println( btitle );
+		String bcontent = multy.getParameter("bcontent");					// <p></p> 가 같이옴★★ 왜..?
+			 System.out.println( bcontent );
 			// *어떤 파일을 업로드 했는지 DB에 저장할 첨부파일 경로/이름
-		String bfile = multy.getFilesystemName("bfile");
-			// System.out.println( bfile );
+		String bfile = multy.getFilesystemName("bfile");	// 첨부파일된 이름 호출시 : getFilesystemName
+				System.out.println( bfile );								// 제대로 가져옴★★
 			// * 회원아이디 --> 회원번호
 		int mno = MemberDao.getInstance().getMno( (String)request.getSession().getAttribute("mid"));
+			System.out.println( mno );										// 제대로 가져옴
 		
 		// 5. DB처리
 		boolean result = BoardDao.getinstance().bwrite(btitle, bcontent, mno , bfile);

@@ -33,12 +33,14 @@
 	--> 	
 	<!-- 2.  -->
 		<form>
-				제목 : <input type="text" name="btitle"><br>
+				제목 : <input type="text" name="btitle">
+				<button type="button" style="float: right;"><a style="text-decoration: none;" href="http://localhost:8080/jspweb/board/list.jsp">글목록</a></button>
 				<textarea id="summernote" name="bcontent"></textarea><br>
 				첨부파일 : <input type="file" name="bfile">
 				<!-- form 태그 안에서 button 사용시에는 type 필수 넣기 -->
 				<!-- js에 있는걸 가져오는거 -->
-				<button type="button" onclick="bwrite()">쓰기</button>		
+				<button type="button" onclick="bwrite()">쓰기</button>
+						
 		</form>
 	</div>
 

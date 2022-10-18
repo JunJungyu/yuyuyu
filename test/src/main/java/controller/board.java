@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.text.Document;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -46,7 +47,14 @@ public class board extends HttpServlet {
 			object.put("bbdate", dto.getBdate());
 			object.put("bbview", dto.getBview());
 			array.add(object);
+			System.out.println( dto.getBtitle() );
 		}
+		
+		
+		
+		ArrayList<BoardDto> dd = ddao.getInstance().gettext();
+		System.out.println( dd );
+		
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().print( array );
 		

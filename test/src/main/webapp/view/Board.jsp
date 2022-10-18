@@ -33,8 +33,9 @@
 		</form>
 	</div>
 	<div>
+		
 		<h3 onclick="gettext()">글 목록</h3><br>
-		<h6 name="bbno">int bbno</h6><br>
+		<h6 name="bbno" class="bbno">no</h6><br>
 		<h6 name="bbtitle">bbtitle</h6><br>
 	    <h6 name="bbcontent">bbcontent</h6><br>
 	    <h6 name="bbwriter">bbwriter</h6><br>

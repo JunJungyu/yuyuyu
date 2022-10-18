@@ -18,7 +18,8 @@ function bwrite(){
 
 	let formdata = new FormData ( form )		// 2. 객체화된 form 정보 [ form 정보 호출 ]
 												// [ form안에 입력받은 데이터 input ]
-	
+	console.log( formdata );
+	console.log( form );
 	$.ajax({									// ajax 통신 : 전송타입 : 문자열
 		url : "http://localhost:8080/jspweb/board/write" ,		// 서블릿주소 주소가 없어도 된다...?
 		data : formdata ,						// ajax 기본값으로 form 전송 불가능
@@ -35,6 +36,7 @@ function bwrite(){
 			if( re === 'true' ){ location.href="http://localhost:8080/jspweb/board/list.jsp" }else{alert('글등록실패~');}
 		}
 	})
+	
 }
 
 

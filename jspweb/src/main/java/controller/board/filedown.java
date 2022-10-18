@@ -19,7 +19,7 @@ import org.apache.coyote.http11.filters.BufferedInputFilter;
 /**
  * Servlet implementation class filedown
  */
-@WebServlet("/filedown")
+@WebServlet("/board/filedown")
 public class filedown extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -40,37 +40,40 @@ public class filedown extends HttpServlet {
 		String bfile = request.getParameter("bfile");	// 다운로드할 파일명 요청
 		
 		// 2. 업로드가 된 경로 + 파일명으로 해당 파일 위치 찾기
-		String uploadpath = "C:\\Users\\504\\git\\yuyuyu\\jspweb\\src\\main\\webapp\\upload\\"+bfile;
+		// String uploadpath = "C:\\Users\\504\\git\\yuyuyu\\jspweb\\src\\main\\webapp\\upload\\"+bfile;
+		
+		String uploadpath = request.getSession().getServletContext().getRealPath("/upload/"+bfile);
+		
 		// 3. 해당 경로의 파일을 객체화 [ java 에서 파일클래스 = file ]
 		File file = new File(uploadpath);	// 해당 경로에 존재하는 파일을 객체화 불러오기 [ 해당 파일을 조작/메소드 ]
 		
 		// 4. HTTP에서 지원하는 다운로드형식 메소드 [ response ]
 		response.setHeader( 
 				"Content-Disposition" , 					// 다운로드 형식 HTML에서 지원 [ 브라우저마다 차이 있음 ]
-				"attachment;filename="+ URLEncoder.encode( bfile , "UTF-8" ) );		// 파일 다운로드 시 명시된 파일명
+				"attachment;filename="+ URLEncoder.encode(bfile,"UTF-8") );		// 파일 다운로드 시 명시된 파일명
 		// URL 경로에 한글이 있을 경우 URLEncoder.encode( 데이터 , "인코딩타입" )
 		
 		// 5. 파일 전송 [ 외부와 데이터를 전송하고 통신하는 단위 = (스트림)바이트단위 전송(스트림) 바이트 ]
 			// 1. 파일의 내용물의 바이트로 모두 읽어온다.
-				// 
+				// 1. [ 입력스트림 객체 생성 ]
 		BufferedInputStream fin = new BufferedInputStream( new FileInputStream(file) );
 		
-			// 2. 파이르이 바이트길이만큼 배열선언		 file.length() : 해당 파일의 바이트길이 메소드
+			// 2. 파일의 바이트길이만큼 배열선언		 file.length() : 해당 파일의 바이트길이 메소드
 		byte[] bytes = new byte[ (int)file.length() ];
 		
 			// 3. 파일의 내용 [바이트] 읽어오기
 		fin.read( bytes );									// 읽어온 바이트를 바이트배열에 저장
 		
 		// * 읽어온 바이트배열을 출력한다
-			// 4. [ 출력 스트림 객페 생성 ] // http로 출력하기 위한 response.getOutputStream()							
-		BufferedOutputStream fount = new BufferedOutputStream( response.getOutputStream() );
+			// 4. [ 출력 스트림 객체 생성 ] // http로 출력하기 위한 response.getOutputStream()							
+		BufferedOutputStream fout = new BufferedOutputStream( response.getOutputStream() );
 			// 5. 배열에 존재하는 바이트 출력하기
-		fount.write(bytes);			  // 바이트배열에 저장된 바이트를 모두 내보내기
+		fout.write(bytes);			  // 바이트배열에 저장된 바이트를 모두 내보내기
 		
 			// 스트림은 버퍼 ( 전송시 사용되는 메모리 공간 = 대용량에서 꼭 모두 전송 후 초기화 )
-		fount.flush();				// 출력 스츠림 버퍼 초기화
+		fout.flush();				// 출력 스츠림 버퍼 초기화
 		fin.close();				// 입력 스트림 닫기
-		fount.close();				// 출력 스트림 닫기 [ close하면 초기화 ]
+		fout.close();				// 출력 스트림 닫기 [ close하면 초기화 ]
 			
 		
 		/*

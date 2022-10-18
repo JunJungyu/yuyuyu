@@ -29,15 +29,16 @@ public class view extends HttpServlet {
 		BoardDto dto = 
 				BoardDao.getinstance().getboard(bno);
 		
-		// 3. DTO --> JSON 형변환
+		// 3. DTO --> JSON 형변환  					여기서 파일을 안가지고 왔었음..
 		JSONObject object = new JSONObject();
 		object.put( "bno" , dto.getBno() );
 		object.put( "btitle" , dto.getBtitle() );
 		object.put( "bcontent" , dto.getBcontent() );
+		object.put( "bdate" , dto.getBdate() );
 		object.put( "mid" , dto.getMid() );
+		object.put( "bfile" , dto.getBfile() );
 		//object.put( "bfile" , dto.getBfile() );
 		
-		System.out.println("으이2");
 		System.out.println( object );
 		
 		// * 삭제 , 수정 버튼 활성화를 위한 식별변수 선언 [ 본인글 판단 ]

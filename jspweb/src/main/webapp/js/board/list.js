@@ -1,18 +1,36 @@
-list()				// 2. 실행 - 스크립트 실행 시 자동 실행 뭐 onclick에 넣으면 클릭 했을때 실행되는거고~
 
-function list(){	// 1. 정의하고
+let pageinfo = {	// js 객체 선언
+	listsize : 2 ,			// 한페이지당 게시물 표시 개수
+	page : 1 				// 현재 페이지 정보
 	
+}
+
+list( 1 )				// 2. 실행 - 스크립트 실행 시 자동 실행 뭐 onclick에 넣으면 클릭 했을때 실행되는거고~
+
+function list( page ){	// 1. 정의하고
+	
+	pageinfo.page = page;	// 객체 정보 변경
+
 	$.ajax({
 		
 		url : "http://localhost:8080/jspweb/board/list" , 
+		data : pageinfo ,		// 페이지 정보 객체 전달
 		success : function(re){
-			let boardlist = JSON.parse( re )
+			
+			let boards = JSON.parse(re)
+			console.log( boards );
+
+			// 1. Object 내 게시물 리스트 먼저 호출
+			let boardlist = boards.data
+			
 			console.log( boardlist )					// 출력을 하려면 객체가 있어야됨
 			let html = ""
 			
 			for( let i = 0; i < boardlist.length ; i++ ){
 				// 1. i번째 객체 호출
 				let board = boardlist[i]
+				let b = boardlist[i]
+				console.log( b )
 				// 2. i번째 객체의 정보를 html 형식으로 변환해서 문자열에 저장
 				html += 
 						'<tr>'+
@@ -26,7 +44,31 @@ function list(){	// 1. 정의하고
 			}//FOR END	
 				console.log( html )						// 중간중간 console.log 찍어서 확인해보기
 				
-			document.querySelector('.btable').innerHTML += html	// 누적더하기 안하면 헤더 사라지나봄?	
+			document.querySelector('.btable').innerHTML = html	// 누적더하기 안하면 헤더 사라지나봄?	
+			
+			
+			// 1. 페이징 html 구성
+			let pagehtml = '';
+			
+				// 2. 이전 버튼
+				if( page <= 1 ){
+					pagehtml += '<button onclick="list('+(page)+')">이잔</button>';
+				}else{pagehtml += '<button onclick="list('+(page-1)+')">이전</button>';}
+				
+				
+				// 4. 페이지번호 버튼
+				for( let page = boards.startbtn ; page <= boards.endbtn; page++ ){
+					pagehtml += '<button type="button" onclick="list('+page+')">'+page+'</button>';
+				}
+				
+				// 3. 다음 버튼
+				if( page >= boards.totalpage ){
+					pagehtml += '<button onclick="list('+page+')">다음</button>'
+				}else{pagehtml += '<button onclick="list('+(page+1)+')">다음</button>';}
+				
+				
+				
+				document.querySelector('.pagebox').innerHTML = pagehtml
 		}
 		
 	})

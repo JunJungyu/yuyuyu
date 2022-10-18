@@ -12,16 +12,16 @@ import model.dao.BoardDao;
 import model.dto.BoardDto;
 
 /**
- * Servlet implementation class bdelete
+ * Servlet implementation class bfiledelete
  */
-@WebServlet("/board/bdelete")
-public class bdelete extends HttpServlet {
+@WebServlet("/board/bfiledelete")
+public class bfiledelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public bdelete() {
+    public bfiledelete() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,29 +30,25 @@ public class bdelete extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 1. 삭제할 번호 요청
-		int bno = Integer.parseInt(request.getParameter("bno"));
-		// 2. DAO 처리
-		boolean result = 
-				BoardDao.getinstance().delete( bno );
 		
-		BoardDto dto = BoardDao.getinstance().getboard(bno);		// 게시물 정보 호출
+		// 1. 삭제할 게시물번호 = 현재 보고 있는 게시물 번호 = 세션 ( Object -> 형변환 )
+		int bno = (Integer)request.getSession().getAttribute("bno");
 		
+		// 삭제할 게시물 정보 호출
+		BoardDto dto = BoardDao.getinstance().getboard(bno);
+		
+		// 2. DAO 처리 [ 업데이트 ]
+		boolean result = BoardDao.getinstance().bfilrdelete( bno );
+		
+		// 3. 실제 파일 삭제 처리
 		if( result ) {
-			File file = new File( request.getSession().getServletContext().getRealPath("/upload/"+dto.getBfile()) );
+			String deletepath = request.getSession().getServletContext().getRealPath("/upload/"+dto.getBfile());
+			File file = new File(deletepath);
 			if( file.exists() ) {
 				file.delete();
-				// file 클래스
-					//  자바 외부에 존재하는 파일 조작/제어 메소드 제공하는 클래스
-					// 1. 객체명.length() : 해당 파일의 바이트 길이
-					// 2. 객체명.delete() : 해당 파일의 삭제
-					// 3. 객체명.exists() : 해당 파일이 존재하면 true 아니면 false
 			}
-			file.delete();			//  해당경로에 
 		}
-		// 3. 결과응답
-		response.getWriter().print(result);
-		
+	
 		
 		
 		response.getWriter().append("Served at: ").append(request.getContextPath());

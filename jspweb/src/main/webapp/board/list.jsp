@@ -50,8 +50,10 @@
 		<tr>
 			<th>번호</th>		<th>제목</th>		<th>작성자</th>
 			<th>작성일</th>	<th>조회수</th>	
-		</tr>		
+		</tr>
+		<button type="button" style="float: right;"><a style="text-decoration: none;" href="http://localhost:8080/jspweb/board/write.jsp">글쓰기</a> </button>		
 	</table>
+	<div class="pagebox" ></div>
 	</div>
 	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
