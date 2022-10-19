@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+<link rel="stylesheet" href="https://unpkg.com/destyle.css@1.0.5/destyle.css">
 	*{
 		box-sizing: border-box;
 	}
@@ -33,6 +34,16 @@
 		width: 200px;
 	}
 	
+	.col1{
+		text-align: left;
+		padding-left: 70px;
+	}
+	
+	.button{
+		border: none;
+		background-color: blue;
+		color: white;
+	}
 </style>
 </head>
 <body>
@@ -43,18 +54,18 @@
 				<tr><th colspan="3"><h3>회원가입</h3></th>
 				
 				<tr>
-					<td>Id :</td> 
+					<td class="col1">Id :</td> 
 					<td><input type="text" id="id" name="id" onkeyup="idchack()"></td>
 					<td><h2 class="check">1</h2></td>
 				</tr>
 				<tr>
-					<td>Password : </td> 
+					<td class="col1">Password : </td> 
 					<td><input type="text" id="password" name="password" onkeyup="pscheck()" ></td>
 					<td><h2 class="check">2</h2></td>
 				</tr>
 				
 				<tr>
-					<td>NickName : </td>
+					<td class="col1">NickName : </td>
 					<td><input type="text" id="nickname" name="name" name="nickname" onkeyup="nncheck()"></td>
 					<td><h2 class="check">3</h2></td>
 				</tr>

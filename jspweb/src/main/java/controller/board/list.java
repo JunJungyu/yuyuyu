@@ -27,12 +27,20 @@ public class list extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
+		request.setCharacterEncoding("UTF-8");
+		// 검색처리
+		String key = request.getParameter("key");
+		String keyword = request.getParameter("keyword");
+		// System.out.println( key );
+		// System.out.println( keyword );
+		
 		// 1.  요청X
 			// 1. 페이징 처리에 필요한 변수 요청
 		int listsize = Integer.parseInt(request.getParameter("listsize"));
 			// System.out.println( listsize );
 		// 2. 전체 게시물 수
-		int totalsize = BoardDao.getinstance().gettotalsize();
+		int totalsize = BoardDao.getinstance().gettotalsize( key , keyword );
 		// 3. 전체 페이지 수 계산
 		int totalpage = 0;
 		if( totalsize % listsize == 0 ) { // 게시물수랑 페이지수 나눈게 딱 맞으면 3 /15 같은 경우
@@ -69,7 +77,7 @@ public class list extends HttpServlet {
 		JSONObject boards = new JSONObject();
 		
 		// 2. db
-		ArrayList<BoardDto> list = BoardDao.getinstance().getlist( startrow , listsize );
+		ArrayList<BoardDto> list = BoardDao.getinstance().getlist( startrow , listsize , key , keyword );
 			// ** arraylist ----> jsonarray 변환 [ js에서 쓰려고 ]
 			JSONArray array = new JSONArray();								// 자동완성이 안된다..!
 			for( int i = 0; i<list.size(); i++ ) {
@@ -82,10 +90,11 @@ public class list extends HttpServlet {
 					array.add(object);
 			}
 		// 4. 
-		boards.put("totalpage", totalpage );
-		boards.put("data", array);
-		boards.put("startbtn", startbtn);
-		boards.put("endbtn", endbtn);
+		boards.put("totalpage", totalpage );	// 1. 전체 페이지 수
+		boards.put("data", array);				// 2. 게시물 리스트
+		boards.put("startbtn", startbtn);		// 3. 버튼의 시작번호
+		boards.put("endbtn", endbtn);			// 4. 버튼의 끝번호
+		boards.put("totalsize", totalsize);		// 5. 게시물 수
 			
 		// 3. 응답o
 		response.setCharacterEncoding("UTF-8");

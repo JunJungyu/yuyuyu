@@ -1,15 +1,39 @@
-
 let pageinfo = {	// js 객체 선언
-	listsize : 2 ,			// 한페이지당 게시물 표시 개수
-	page : 1 				// 현재 페이지 정보
+	listsize : 5 ,			// 한페이지당 게시물 표시 개수
+	page : 1 , 				// 현재 페이지 정보
+	key : '' ,				// 검색 키 
+	keyword : '' ,			// 검색 키워드
 	
 }
+
+// 화면에 표시할 게시물 개수
+function blistsize(){
+	pageinfo.listsize = document.querySelector('.listsize').value
+	alert( pageinfo.listsize )
+	list( 1 )
+}
+
+// 4. 검색처리 함수
+function bsearch(){
+	
+	let key = document.querySelector('.key').value
+	let keyword = document.querySelector('.keyword').value
+	
+	pageinfo.key = key
+	pageinfo.keyword = keyword
+	list( 1 )
+	
+}
+
+
+
 
 list( 1 )				// 2. 실행 - 스크립트 실행 시 자동 실행 뭐 onclick에 넣으면 클릭 했을때 실행되는거고~
 
 function list( page ){	// 1. 정의하고
 	
 	pageinfo.page = page;	// 객체 정보 변경
+	console.log( pageinfo );
 
 	$.ajax({
 		
@@ -29,8 +53,6 @@ function list( page ){	// 1. 정의하고
 			for( let i = 0; i < boardlist.length ; i++ ){
 				// 1. i번째 객체 호출
 				let board = boardlist[i]
-				let b = boardlist[i]
-				console.log( b )
 				// 2. i번째 객체의 정보를 html 형식으로 변환해서 문자열에 저장
 				html += 
 						'<tr>'+
@@ -52,7 +74,7 @@ function list( page ){	// 1. 정의하고
 			
 				// 2. 이전 버튼
 				if( page <= 1 ){
-					pagehtml += '<button onclick="list('+(page)+')">이잔</button>';
+					pagehtml += '<button onclick="list('+(page)+')">이전</button>';
 				}else{pagehtml += '<button onclick="list('+(page-1)+')">이전</button>';}
 				
 				
@@ -69,13 +91,16 @@ function list( page ){	// 1. 정의하고
 				
 				
 				document.querySelector('.pagebox').innerHTML = pagehtml
+				
+				document.querySelector('.totalsoze').innerHTML = boards.totalsize;
 		}
 		
 	})
 	
 }
 
-function viewload( bno ){			// 상세페이지로 이동
+// 상세페이지로 이동
+function viewload( bno ){			
 	$.ajax({
 		url : "http://localhost:8080/jspweb/board/viewload" ,
 		data : { "bno" : bno },

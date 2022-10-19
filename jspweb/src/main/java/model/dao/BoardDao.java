@@ -29,12 +29,17 @@ public class BoardDao extends Dao{
 	
 	// 2. 글출력 [ JSP용  ]
 	
-	public ArrayList<BoardDto> getlist( int startrow , int listsize) {
+	public ArrayList<BoardDto> getlist( int startrow , int listsize , String key , String keyword ) {
 		ArrayList<BoardDto> list = new ArrayList<>(); 
+		String sql = "";
+		if( !key.equals("") && !keyword.equals("") ) {				// 검색이 있을 경우
+			sql = "select b.* , m.mid from member m , board b "
+				+ "where m.mno = b.mno and "+key+" like '%"+keyword+"%'"
+				+ "order by b.bdate desc limit "+startrow+" , "+listsize;		
+		}else {														// 검색이 없을 경우
+			sql = "select b.* , m.mid from member m , board b where m.mno = b.mno order by b.bdate desc limit "+startrow+" , "+listsize;				
+		}
 		
-		String sql = "select b.* , m.mid from member m , board b "
-				+ "where m.mno = b.mno "
-				+ "order by b.bdate desc limit "+startrow+" , "+listsize;
 		try {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -129,8 +134,14 @@ public class BoardDao extends Dao{
 	}	
 	
 	// 8. 전체 게시물 수
-	public int gettotalsize() {
-		String sql = "select count(*) from board";	// 레코드 수 세어줌
+	public int gettotalsize( String key , String keyword ) {
+		String sql = "";	// 경우에 따라 나뉘는데 따로쓰면 지역변수라 못가져오니까~~
+		if( !key.equals("") && !keyword.equals("") ) {// 검색이 있을 경우
+			sql = "select count(*) from member m , board b where m.mno = b.mno and "+key+" like '%"+keyword+"%' ";	
+		}else {//  검색이 없을 경우
+			sql = "select count(*) from member m , board b where m.mno = b.mno";	// 레코드 수 세어줌
+			// select count(*) from board b 로 해도 되지만 위랑 통일하기 위해..? m을 위에서 써서..? 이렇게 수정했음
+		}
 		try {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -141,8 +152,20 @@ public class BoardDao extends Dao{
 		return 0;
 	}
 	
-	// 9. 
-	
+	// 9. 댓글작성
+	public boolean rwrite( String rcoment , int mno , int bno ) {
+		String sql = "insert into reply ( rcontent , mno , bno ) values( ? , ? , ? )";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, rcoment);
+			ps.setInt(2, mno);
+			ps.setInt(3, bno);
+			ps.executeUpdate();
+			return true;
+		} catch (Exception e) {System.out.println(e);}
+		return false;
+	}
+
 	
 	
 }

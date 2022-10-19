@@ -51,9 +51,34 @@
 			<th>번호</th>		<th>제목</th>		<th>작성자</th>
 			<th>작성일</th>	<th>조회수</th>	
 		</tr>
-		<button type="button" style="float: right;"><a style="text-decoration: none;" href="http://localhost:8080/jspweb/board/write.jsp">글쓰기</a> </button>		
+		<a style="float: right;" style="text-decoration: none;" href="http://localhost:8080/jspweb/board/write.jsp">글쓰기</a>		
 	</table>
 	<div class="pagebox" ></div>
+	</div>
+	
+	<div><!-- 검색처리 -->
+	
+		<div>게시물 수 : <span class="totalsize"></span></div>
+		
+		<div>
+			<select class="listsize" onchange="blistsize()">
+				<option value="5" >5</option>
+				<option value="10" >10</option>
+				<option value="15" >15</option>
+				<option value="20" >20</option>
+				<option value="25" >25</option>
+			</select>
+		</div>	
+			
+	
+		<select class="key">
+			<option value="b.btitle">제목</option>	<!-- sql문에 들어갈 이름이기에 그냥 title같은거 안됨 -->
+			<option value="b.content">내용</option>
+			<option value="m.mid">작성자</option>
+		</select>
+		
+		<input class="keyword" type="text" placeholder="검색어"><button onclick="bsearch()" type="button">검색</button>
+	
 	</div>
 	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>

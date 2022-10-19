@@ -1,3 +1,49 @@
+/*
+	value : input , select , tectarea 등
+		<tag value 여기 >
+	innerHTML : div , table , span , tectare 등
+		<tag> 여기 </tag>
+*/
+
+function rwrite(){
+	let rcoment = document.querySelector('.rcoment').value;
+	
+	$.ajax({
+		url : "http://localhost:8080/jspweb/reply/rwrite" ,
+		data : { "rcoment" : rcoment } ,
+		type : "POST" ,					// http 메소드
+		success : function( re ){
+			if( re == 1 ){
+				alert("굿");
+			}else if( re == 0 ){
+				alert("로긴해")
+			}else{
+				alert("땡")
+			}
+		}
+	})
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 bview()
 
 function bview(){

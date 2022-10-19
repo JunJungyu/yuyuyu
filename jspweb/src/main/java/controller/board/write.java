@@ -89,7 +89,8 @@ public class write extends HttpServlet {
 				System.out.println( bfile );								// 제대로 가져옴★★
 			// * 회원아이디 --> 회원번호
 		int mno = MemberDao.getInstance().getMno( (String)request.getSession().getAttribute("mid"));
-			System.out.println( mno );										// 제대로 가져옴
+	
+		if( mno == 0 ){ response.getWriter().print("0"); return; }
 		
 		// 5. DB처리
 		boolean result = BoardDao.getinstance().bwrite(btitle, bcontent, mno , bfile);
