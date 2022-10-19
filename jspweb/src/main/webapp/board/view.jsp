@@ -35,9 +35,7 @@
 		</table> --%>
 		
 		<div class="webbox">
-		
 
-		
 		<table>
 			<tr>			
  				<td>번호</td>		<td class="bno"></td>
@@ -64,6 +62,10 @@
 		<div class="replybox">
 			<textarea class="rcoment" rows="" cols=""></textarea>
 			<button type="button" onclick="rwrite()">댓글작성</button>
+		</div>
+		
+		<div class="replylist">
+		
 		</div>
 	</div>
 

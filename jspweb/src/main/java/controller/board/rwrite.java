@@ -30,28 +30,30 @@ public class rwrite extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		// 1. 요청
+		// 1. 요청 [ 공통 ]
 		request.setCharacterEncoding("UTF-8");
-		String rcoment = request.getParameter("rcoment");
-		System.out.println(rcoment);
-		
-			// 왼쪽부터 읽는게 아니라 괄호순서대로 보기
-		
-		// 2. 세션에서 값 가져오기
+		// 타입 요청 [ 0:댓글 1:대댓글[답글] ]
+		String type = request.getParameter("type");
+		String rcontent = request.getParameter("rcontent");
+		// 왼쪽부터 읽는게 아니라 괄호순서대로 보기
 		int mno = MemberDao.getInstance().getMno((String)request.getSession().getAttribute("mid")) ;
+		
+		// 비로그인일 경우 반환
+		if( mno == 0 ){ response.getWriter().print("0"); return; }		
 		int bno = (Integer)request.getSession().getAttribute("bno");
-				
-		// 3. db 처리
-		boolean result = BoardDao.getinstance().rwrite( rcoment , mno , bno );
+		boolean result = false;
 		
-		// 4. 결과제어
-		if( result ) {
-			response.getWriter().print("1");
-		}else{								// DB 오류
-			response.getWriter().print("2");
+		// 2. db 처리
+		if( type.equals("reply") ) {		// 댓글일 경우
+			result = BoardDao.getinstance().rwrite( rcontent , mno , bno );
+		}else if( type.equals("rereply") ){ 	// 대댓글일 경우
+			int rindex = Integer.parseInt( request.getParameter("rno") );
+			result = BoardDao.getinstance().rrwrite(rcontent, mno, bno, rindex);
 		}
-		
-		doGet(request, response);
-	}
 
+		// 3. 결과 반환
+		if( result ) { response.getWriter().print("1"); }	// 성공
+		else { response.getWriter().print("2"); }			// db오류
+	}
+	
 }
