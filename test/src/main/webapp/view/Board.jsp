@@ -20,16 +20,13 @@
 <body>
 
 	<div class="box">
-		<h3>비동기 회원게시판</h3>
-		<form action="http://localhost:8080/test/w" method="get">
-			<H6>번호</H6>
-			제목 : <input type="text" name="btitle"><br>
+		<h3>비동기 비회원 회원게시판</h3>
+		<form>
+			제목 : <input onkeyup="write() " type="text" name="btitle"><br>
 			내용 : <input type="text" name="bcontent"><br>
 			작성자 : <input type="text" name="bwriter"><br>
 			비밀번호 : <input type="password" name="bpassword"><br>
-			<h6>작성일 :</h6>
-			<h6>조회수 :</h6>
-			<button type="submit">작성하기</button>
+			<button >작성하기</button>
 		</form>
 	</div>
 	<div>
@@ -46,4 +43,5 @@
 </body>
 </html>
 
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="../js/board.js"  type="text/javascript"></script>

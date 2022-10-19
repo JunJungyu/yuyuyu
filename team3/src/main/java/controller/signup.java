@@ -40,15 +40,16 @@ public class signup extends HttpServlet {
 				nickname, nickname);
 		
 		// Dao 리턴값
-		boolean result = MemberDao.getInstance().singup(dto);
+		int result = MemberDao.getInstance().singup(dto);
 		// System.out.println( result );
 		
-		if( result ) {
+		if( result == 0 ) {
 			System.out.println("성공");
 			response.sendRedirect("http://localhost:8080/team3/view/main.jsp");
 			response.getWriter().append("Served at: ").append(request.getContextPath());
 		}
 		
+		response.getWriter().print(result);
 		
 	}
 

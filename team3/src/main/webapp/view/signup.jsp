@@ -52,7 +52,6 @@
 		<form action="http://localhost:8080/team3/signup" method="get">
 			<table>
 				<tr><th colspan="3"><h3>회원가입</h3></th>
-				
 				<tr>
 					<td class="col1">Id :</td> 
 					<td><input type="text" id="id" name="id" onkeyup="idchack()"></td>
@@ -72,16 +71,12 @@
 				<tr>
 					<td><a href="/main"><button onclick="signup()">가입하기</button><button>메인페이지</button></a></td>
 				</tr>
-				
 			</table>
-		
-		
-		
-		
-		
 		</form>
 	</div>
-
+	
+	<!-- JQUERY 자바를 편하세 사용하기 위한 라이브러리 -->
+	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="../js/signup.js" type="text/javascript"></script>
 </body>
 </html>
