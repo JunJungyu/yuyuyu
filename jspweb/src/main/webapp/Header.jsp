@@ -45,6 +45,7 @@
 			<!-- 로그인 하던 안하던 공통메뉴 -->
 				<li><a href="http://localhost:8080/jspweb/member/info.jsp">마이쇼핑</a></li>
 				<li><a href="http://localhost:8080/jspweb/board/write.jsp">고객센터</a></li>
+				<li><a href="http://localhost:8080/jspweb/board/chatting.jsp">채팅방</a></li>
 			</ul>
 		</div>
 			<ul class="hd_menu">								<!-- 하단 헤더 -->
@@ -58,7 +59,7 @@
 				<li><a href="#">신발</a></li>
 				<li><a href="#">BIG SIZE</a></li>
 				<li><a href="#">1+1  이벤트</a></li>
-				<li><a href="#">파격세일</a></li>
+				
 				
 				<li class="sersh_box">
 					<span>
