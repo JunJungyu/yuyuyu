@@ -1,0 +1,5 @@
+function findid(){
+	$.ajax({
+		url : "" ,
+	})
+}

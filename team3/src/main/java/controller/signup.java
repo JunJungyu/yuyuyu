@@ -23,6 +23,13 @@ public class signup extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		
+	}
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		
 		// input값 가져오기
 		String id = request.getParameter("id");
@@ -50,13 +57,6 @@ public class signup extends HttpServlet {
 		}
 		
 		response.getWriter().print(result);
-		
-	}
-
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		doGet(request, response);
 	}
 
 }

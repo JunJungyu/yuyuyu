@@ -44,39 +44,33 @@
 		background-color: blue;
 		color: white;
 	}
+	
 </style>
 </head>
 <body>
-<%@include file="main.jsp" %>
-	<div>
-		<form action="http://localhost:8080/team3/signup" method="post">
+<%@include file="main.jsp" %>	
+		<div>
+		<form action="http://localhost:8080/team3/login" method="post">	
 			<table>
-				<tr><th colspan="3"><h3>회원가입</h3></th>
+				<tr><th colspan="3"><h3>로그인</h3></th>
 				<tr>
 					<td class="col1">Id :</td> 
-					<td><input type="text" id="id" name="id" onkeyup="idchack()"></td>
+					<td><input type="text" id="id" name="id"></td>
 					<td><h2 class="check">1</h2></td>
 				</tr>
 				<tr>
 					<td class="col1">Password : </td> 
-					<td><input type="text" id="password" name="password" onkeyup="pscheck()" ></td>
+					<td><input type="password" id="password" name="password"></td>
 					<td><h2 class="check">2</h2></td>
 				</tr>
-				
-				<tr>
-					<td class="col1">NickName : </td>
-					<td><input type="text" id="nickname" name="name" name="nickname" onkeyup="nncheck()"></td>
-					<td><h2 class="check">3</h2></td>
-				</tr>
-				<tr>
-					<td><button onclick="signup()">가입하기</button>
+					<td><button onclick="login()">로그인하기</button>
 					</td>
 				</tr>
 			</table>
 		</form>
 	</div>
 	
-
-<script src="../js/signup.js" type="text/javascript"></script>
+	<script src="../js/login.js" type="text/javascript"></script>
+	
 </body>
 </html>

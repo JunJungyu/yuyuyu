@@ -36,7 +36,7 @@ function pscheck(){
 
 function nncheck(){
 	let nn = document.querySelector('#nickname').value
-	let nncheck = /^[a-zA-Z0-9가-힣]{1,20}$/
+	let nncheck = /^[a-zA-Z0-9가-힣]{2,20}$/
 	
 		$.ajax({
 		url : "http://localhost:8080/team3/idcheck" ,
