@@ -20,7 +20,7 @@ public class findid extends HttpServlet {
 		
 		String nname = request.getParameter("nname");
 		
-		boolean result = MemberDao.getInstance().findid( nname );
+		String result = MemberDao.getInstance().findid( nname );
 		
 		response.getWriter().print(result);
 		

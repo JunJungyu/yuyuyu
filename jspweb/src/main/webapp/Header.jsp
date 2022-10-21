@@ -5,12 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>최유정 이젠 쇼핑몰</title>
+
 <!-- font Awesome -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
 <!-- view port -->
 <meta name="viewport" content="width=device-width , inital-scale = 1.0">
 <!-- 사용자 정의 css 호출 -->
 <link rel="stylesheet" href="/jspweb/CSS/Header.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body>
 
@@ -71,7 +73,8 @@
 			</ul>
 		
 	</div>
-	
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
 	<!-- JQUERY 자바를 편하세 사용하기 위한 라이브러리 -->
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 

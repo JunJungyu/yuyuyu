@@ -18,7 +18,7 @@ public class MemberDao extends Dao {
 			ps.setString( 2 , dto.getMpassword());
 			ps.setString( 3 , dto.getMnickname());
 			ps.executeUpdate(); return 0;
-		} catch (Exception e) {System.out.println(e + "회원가입 실패");}
+		} catch (Exception e) {System.out.println(e + "회원가입 오류");}
 		return 1;
 	}
 	
@@ -32,7 +32,7 @@ public class MemberDao extends Dao {
 			if( rs.next() ) {												// 레코드가 있으면 안되는거고 없으면 실행되야하는데.. 어떻게 하는거람~
 				return false;					
 			}
-		} catch (Exception e) {System.out.println(e + "아이디 체크 실패~!");}
+		} catch (Exception e) {System.out.println(e + "아이디 체크 오류~!");}
 		return true;
 	}
 	
@@ -46,7 +46,7 @@ public class MemberDao extends Dao {
 			if( rs.next() ) {												// 레코드가 있으면 안되는거고 없으면 실행되야하는데.. 어떻게 하는거람~
 				return false;					
 			}
-		} catch (Exception e) {System.out.println(e + "닉네임 체크 실패~!");}
+		} catch (Exception e) {System.out.println(e + "닉네임 체크 오류~!");}
 		return true;
 	}
 	
@@ -66,26 +66,25 @@ public class MemberDao extends Dao {
 				if( rs.next() ) { return 1; }												// 레코드가 존재하면 = 아이디도 비번도 존재하면 1 리턴 
 				return 2;																	// 비밀번호가 틀렸으면 2 리턴
 			}
-		} catch (Exception e) {System.out.println(e + "로그인 아이디 확인 메소드 실패"); return 3;}	// 다오자체가 안되면 3리턴
+		} catch (Exception e) {System.out.println(e + "로그인 아이디 확인 메소드 오류"); return 3;}	// 다오자체가 안되면 3리턴
 		return 0;																			// 아이디가 존재하지 않으면 0 리턴		
 	}
 	
 	// 닉네임 입력받아서 아이디 찾기
-	public boolean findid( String nname ) {
+	public String findid( String nname ) {
 		String sql = "select * from member where mnickname = ?";
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setString( 1 , nname );
 			rs = ps.executeQuery();
 			// 만일 동일한 정보가 있으면 찾은 레코드의 아이디 반환
-			if( rs.next() ) return ); 
-		}catch (Exception e) {System.out.println(e);}
-		return null;	// 동일한 정보가 없으면 null 
+			if( rs.next() ){
+				 return rs.getString(1); 
+			} 
+		}catch (Exception e) {System.out.println(e + "아이디 찾기 메소드 오류");}
+		return "false";	
 	}
-	
-	
-	
-	
+
 	
 	
 	

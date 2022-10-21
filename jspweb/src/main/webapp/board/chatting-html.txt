@@ -1,0 +1,52 @@
+	<%@include file="../Header.jsp" %>
+	
+	<!-- 채팅에 접속한 로그인 회원 아이디 숨기기 -->
+	<input type="hidden" class="mid" value="<%=loginid%>">
+	<div class="container">	<!-- 부트스트랩 css는 미리 만들어진 클래스 사용 -->
+	
+		<div class="col-sm-6 offset-3 chattingbox">
+		<div class="row">
+			<div class="com-sm-4">	<!-- 접속회원목록 -->
+				
+			</div>
+			<div class="com-sm-4">	<!-- 채팅창 -->
+				<div class="contaierbox my-3">	<!-- 채팅구역 s -->
+					<div class="secontent my-3">			<!-- 보낼때 메세지 -->
+						<span class="date">오전 11:08</span>	
+						<span class="content">안녕?</span>				
+					</div>
+<!-- 			<div class="alarm">						일림 메시지
+				<span> 알림입니다~~ </span>
+			</div> -->
+			
+			<div class="row g-0 my-3"> 					<!-- 받을때 메세지 -->
+				<!-- 프로필 -->
+				<div class="col-sm-1 mx-2">
+					<img width="100%"; class="rounded-circle" alt="프로필사진" src="../CSS/img/프사.png">
+				</div>	
+				<div class="col-sm-9">				<!-- 내용 -->
+					<div class="recontent">
+						<div class="name">강호동</div>
+						<span class="content">그래안녕</span>
+						<span class="date"> 오전 11:08 </span>
+					</div>
+				</div>
+			</div>	<!-- 채팅창 -->
+				</div>
+				<!-- 채팅입력창 -->
+				<textarea onkeyup="enterkey()" class="form-control msgbox"></textarea>
+				<!-- 이모티콘 , 보내기 -->
+				<div class="row">
+					<div class="col-sm-2">
+						<button>이모티콘</button>
+					</div>
+					<div class="col-sm-3 offset-7">
+						<button class="form-control" onclick="send()" type="button">보내기</button>
+					</div>
+				</div>
+								
+			</div>
+
+		</div>	<!-- 채팅구역 e -->
+		</div>	
+	</div>	<!-- container end -->
