@@ -65,11 +65,11 @@
 				
 				<tr>
 					<td class="col1">NickName : </td>
-					<td><input type="text" id="nickname" name="name" name="nickname" onkeyup="nncheck()"></td>
+					<td><input type="text" id="nickname"  name="nickname" onkeyup="nncheck3()"></td>
 					<td><h2 class="check">3</h2></td>
 				</tr>
 				<tr>
-					<td><button onclick="signup()">가입하기</button>
+					<td><button type="button" onclick="signup()">가입하기</button>
 					</td>
 				</tr>
 			</table>

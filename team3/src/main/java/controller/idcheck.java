@@ -25,8 +25,7 @@ public class idcheck extends HttpServlet {
 
 		String id = request.getParameter("id");						// 아이디 체크니까 아이디만 jsp에서 받아오고
 		boolean result = MemberDao.getInstance().idcheck( id );		// 매개변수로 입력받은 id 넣어주고 그게 만약 검색되면 result에 다오 리턴값 받아주고
-		
-		response.setCharacterEncoding("UTF-8");						// 한글..
+
 		response.getWriter().print(result);							// 다오 결과값을 js로 보내줌
 	}
 

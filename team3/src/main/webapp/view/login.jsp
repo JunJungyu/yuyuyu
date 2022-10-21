@@ -6,7 +6,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+
 <link rel="stylesheet" href="https://unpkg.com/destyle.css@1.0.5/destyle.css">
+
 	*{
 		box-sizing: border-box;
 	}
@@ -50,7 +52,7 @@
 <body>
 <%@include file="main.jsp" %>	
 		<div>
-		<form action="http://localhost:8080/team3/login" method="post">	
+		<form action="http://localhost:8080/team3/login" method="post">		<!-- 왜.. 잘 되다가 안되지?? --> 
 			<table>
 				<tr><th colspan="3"><h3>로그인</h3></th>
 				<tr>
@@ -63,8 +65,7 @@
 					<td><input type="password" id="password" name="password"></td>
 					<td><h2 class="check">2</h2></td>
 				</tr>
-					<td><button onclick="login()">로그인하기</button>
-					</td>
+					<td><button onclick="login()">로그인하기</button></td>
 				</tr>
 			</table>
 		</form>

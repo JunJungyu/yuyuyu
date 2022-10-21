@@ -6,49 +6,49 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import model.dao.MemberDao;
 
 /**
- * Servlet implementation class login
+ * Servlet implementation class findid
  */
-@WebServlet("/login")
-public class login extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+@WebServlet("/find")
 
-    public login() {
-        super();
+public class find extends HttpServlet {
+	private static final long serialVersionUID = 1L;
        
+
+    public find() {
+        super();
+        
     }
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		
+		String type = request.getParameter("type");
 		String id = request.getParameter("id");
-		String password = request.getParameter("password");
 		
-		int result = MemberDao.getInstance().loginid(id, password);
+		System.out.println( type );
+		System.out.println( id );
 		
-		if( result == 0 ) {
-			System.out.println("존재하지 않는 아이디");
-		}
-		if( result == 1 ) {
-			System.out.println("로그인 성공");
-			HttpSession session = request.getSession();
-			session.setAttribute( "id" , id );
-		}
-		if( result == 2 ) {
-			System.out.println("비밀번호가 틀렸습니다");
+		if( type == id ) {
+			
+			String nname = request.getParameter("nname");
+			String result = MemberDao.getInstance().findid( nname );
+			response.getWriter().print(result);
 		}
 		
-		response.setCharacterEncoding("UTF-8");
-		response.getWriter().print(result);
+
+		
+		
 	}
 
 }
