@@ -14,6 +14,7 @@
 	<a href="http://localhost:8080/team3/view/login.jsp">로그인페이지</a><br>
 	<a href="http://localhost:8080/team3/view/main.jsp">메인페이지</a><br>
 	<a href="http://localhost:8080/team3/view/findid.jsp">아이디찾기</a><br>
+	<a href="http://localhost:8080/team3/view/findps.jsp">비밀번호 찾기</a>
 	
 		<!-- JQUERY 자바를 편하rp  사용하기 위한 라이브러리 -->
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>

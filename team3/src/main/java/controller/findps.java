@@ -10,45 +10,33 @@ import javax.servlet.http.HttpServletResponse;
 import model.dao.MemberDao;
 
 /**
- * Servlet implementation class findid
+ * Servlet implementation class findps
  */
-@WebServlet("/find")
-
-public class find extends HttpServlet {
+@WebServlet("/findps")
+public class findps extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
-    public find() {
+    public findps() {
         super();
-        
+      
     }
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
 		
-		String type = request.getParameter("type");
+		String nname = request.getParameter("nname");
 		String id = request.getParameter("id");
 		
-		System.out.println( type );
-		System.out.println( id );
+		String result = MemberDao.getInstance().findps(id, nname);
 		
-		if( type == id ) {
-			
-			String nname = request.getParameter("nname");
-			String result = MemberDao.getInstance().findid( nname );
-			response.getWriter().print(result);
-		}
-		
-
-		
-		
+		request.setCharacterEncoding("UTF-8");
+		response.getWriter().print(result);
 	}
 
 }

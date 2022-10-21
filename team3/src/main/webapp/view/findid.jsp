@@ -8,14 +8,13 @@
 </head>
 <body>
 <%@include file="main.jsp" %>
-<h3 hidden="id"></h3>
 	<div>
-		<form action="http://localhost:8080/team3/find" method="post">	
+		<form action="http://localhost:8080/team3/findid" method="post">	
 			<table>
-				<tr><th colspan="3"><h3>아이디 찾기</h3></th>
+				<tr><th colspan="3"><h3>아 이디 찾기</h3></th>
 				<tr>
 					<td class="col1">Nickname :</td> 
-					<td><input type="text" name="nname"></td>
+					<td><input type="text" class="nname" name="nname"></td>
 				</tr>
 				<tr>
 					<td><button onclick="findid()">아이디 찾기</button></td>
@@ -24,6 +23,6 @@
 		</form>
 	</div>
 	
-	<script src="../js/find.js" type="text/javascript"></script>
+	<script src="../js/findid.js" type="text/javascript"></script>
 </body>
 </html>
