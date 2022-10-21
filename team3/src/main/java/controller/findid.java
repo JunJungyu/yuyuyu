@@ -21,7 +21,10 @@ public class findid extends HttpServlet {
 		String nname = request.getParameter("nname");
 		
 		String result = MemberDao.getInstance().findid( nname );
+		System.out.println("서블릿 들어오네");
+		System.out.println( result );
 		
+		response.setCharacterEncoding("UTF-8");
 		response.getWriter().print(result);
 		
 	}

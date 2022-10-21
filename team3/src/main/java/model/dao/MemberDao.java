@@ -79,10 +79,10 @@ public class MemberDao extends Dao {
 			rs = ps.executeQuery();
 			// 만일 동일한 정보가 있으면 찾은 레코드의 아이디 반환
 			if( rs.next() ){
-				 return rs.getString(1); 
+				 return "아이디 메소드 잘됨"; 
 			} 
 		}catch (Exception e) {System.out.println(e + "아이디 찾기 메소드 오류");}
-		return "false";	
+		return "아이디 찾기 메소드 안되는데?";	
 	}
 
 	
