@@ -11,7 +11,7 @@
 	<div>
 		<form action="http://localhost:8080/team3/findps" method="post">	
 			<table>
-				<tr><th colspan="3"><h3>비밀 번호 찾기</h3></th>
+				<tr><th colspan="3"><h3>비밀번호 찾기</h3></th>
 				<tr>
 					<td class="col1">Nickname :</td> 
 					<td><input type="text" class="nname" name="nname"></td>

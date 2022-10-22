@@ -29,13 +29,18 @@ public class findps extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		
 		String nname = request.getParameter("nname");
 		String id = request.getParameter("id");
 		
+		System.out.println(nname + id);
+		
 		String result = MemberDao.getInstance().findps(id, nname);
 		
-		request.setCharacterEncoding("UTF-8");
+		System.out.println(result);
+		
+		
 		response.getWriter().print(result);
 	}
 

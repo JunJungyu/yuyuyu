@@ -1,20 +1,17 @@
-function findps(){
-
-let findps = {
-	id : id ,
-	nname : nname
-}
-	
-	let password = document.querySelector('.password').value;
+function findps(){	
+	let nname = document.querySelector('.nname').value;
+	let id = document.querySelector('.id').value;
 	
 		$.ajax({
 		url : "http://localhost:8080/team3/findps" ,
 		type : "POST" ,
-		data : { "password" : password } ,
+		data : { "nname" : nname , "id" : id } ,
 		success : function( re ){
-			let findps = JSON.parse( re )		// 아닌가..? 왜 안되는거야.. 
-			
-			alert('입력하신 정보의 비밀번호는'+findps+'입니다.')
+			// result = JSON.stringify( re );
+			alert( result )
+			if( re !== 'null' ){
+				alert('입력하신 정보의 패스워드는 '+re+'입니다.');
+			}
 		}
 	})
 }

@@ -51,7 +51,7 @@ public class MemberDao extends Dao {
 	}
 	
 	// [ 로그인 ] 회원가입된 아이디가 있는지 체크 [ 0.아이디와 비밀번호 검사 ]
-	public int loginid( String id , String password ) {
+	public int login( String id , String password ) {
 		
 		// 1. 아이디 검색
 		String sql = "select * from member where mid = ?";									// 디비에 입력받은 아이디가 있으면
@@ -75,17 +75,16 @@ public class MemberDao extends Dao {
 	
 	// 닉네임 입력받아서 아이디 찾기
 	public String findid( String nname ) {
-		String sql = "select * from member where mnickname = ?";							// sql 조작할 문구를 string에 넣어줌
+		String sql = "select * from member where mnickname=?";							// sql 조작할 문구를 string에 넣어줌
 		try {
 			ps = con.prepareStatement(sql);													// sql에 string보내서 실행시킬건데
 			ps.setString( 1 , nname );														// 첫번째 물음표에 매개변수( 입력받은 닉네임 ) 넣어줌
 			rs = ps.executeQuery();															// 그리고 그 결과값을																			
 			if( rs.next() ){																// 만일 동일한 정보가 있으면 찾은 레코드의 아이디 반환
-				System.out.println(rs.getString(2));
 				 return rs.getString(2); 													// 두번째 열 = mid 를 리턴해줌
-			}else {return "존재하지 않는 닉네임ㅠㅠ";}	
+			}	
 		}catch (Exception e) {System.out.println(e + "아이디 찾기 메소드 오류");}
-		return "잘안됨";
+		return null;
 	}
 
 	// 아이디 , 닉네임 입력받아서 비밀번호 찾기
@@ -106,7 +105,7 @@ public class MemberDao extends Dao {
 					}
 				}
 		} catch (Exception e) {System.out.println( e + "비밀번호찾기 메소드 오류" );}
-		return "그런 닉네임 없대~";
+		return null;
 	}
 	
 	

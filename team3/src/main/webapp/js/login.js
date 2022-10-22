@@ -1,4 +1,6 @@
 function login(){
+	let id = document.querySelector('#id').value;
+	let password = document.querySelector('#password').value;
 	$.ajax({
 		url : "http://localhost:8080/team3/login" ,
 		type : "POST" ,

@@ -33,7 +33,7 @@ public class login extends HttpServlet {
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		
-		int result = MemberDao.getInstance().loginid(id, password);
+		int result = MemberDao.getInstance().login(id, password);
 		
 		if( result == 0 ) {
 			System.out.println("존재하지 않는 아이디");

@@ -1,21 +1,17 @@
 function findid(){
 
-	let nname = document.querySelector('.nname').value
-	alert( nname );
-
+	let nname = document.querySelector('#nname').value
 	$.ajax({
 		url : "http://localhost:8080/team3/findid" ,
 		type : "POST" ,
 		data : { "nname" : nname } ,
 		success : function( re ){
-			alert('흠내링');
-			nname = JSON.parse( re );
-			
-			
-			alert('입력하신 닉네임의 아이디는'+nname+'입니다.')
-			alert('입력하신 닉네임의 아이디는'+re+'입니다.')
+			// let n = JSON.parse( re );
+			// alert( n );
+			if( nname !== 'null' ){
+				alert('입력하신 닉네임의 아이디는 '+re+'입니다.')		// 여기서 다 깨진다!! 
+			}else{alert('없는 닉네임입니다.');}
 		}
 	})
-	alert( nname );
 }
 

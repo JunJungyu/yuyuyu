@@ -11,10 +11,10 @@
 	<div>
 		<form action="http://localhost:8080/team3/findid" method="post">	
 			<table>
-				<tr><th colspan="3"><h3>아 이디 찾기</h3></th>
+				<tr><th colspan="3"><h3>아이디 찾기</h3></th>
 				<tr>
 					<td class="col1">Nickname :</td> 
-					<td><input type="text" class="nname" name="nname"></td>
+					<td><input type="text" id="nname" name="nname"></td>
 				</tr>
 				<tr>
 					<td><button onclick="findid()">아이디 찾기</button></td>
