@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+	button {
+	
+	width: 50px;
+	height: 50px;
+	
+	}
+
+	#특별{
+		width: 150px;
+		height: 50px;
+		font-size: 15px;
+	}
+	
+	*{
+		text-align: center;
+		vertical-align: middle;
+		margin: 0 auto;
+		padding: 5px;
+	}
+	
+</style>
+</head>
+<body>
+
+	<button id="특별" onclick="버튼출력()">
+		로또 구매하기
+	</button>
+	
+	<div id="btnbox">
+	
+	</div>
+
+	<div>
+		<span> 현재 선택한 번호</span>
+		<span id="내박스" > : </span>
+	</div>
+	
+	<button id="특별"  onclick="당첨번호()">
+		로또 추첨하기
+	</button>
+	
+	<div>
+		<span> 추첨 번호 결과</span>
+		<span id="당첨번호"> : </span>
+	</div>
+
+	<script src="lotto.js"></script>
+	
+</body>
+</html>

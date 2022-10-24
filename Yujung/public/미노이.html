@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+#top{
+	display: flex;
+	position: absolute;
+	margin: 0 auto;
+	top: 30%;
+}
+
+body {
+	position: relative;
+	width: 100% ;
+}
+
+#main{
+	position: absolute;
+	width: 100%;
+	margin: 0 auto;
+	top: 10rem;
+	left: 600px;
+}
+
+#top{
+	position: relative;
+	top: 55px;
+	left: 600px;
+}
+
+#img1{
+	position: absolute;
+	top: 500px;
+	left: 400px;
+	z-index: 1;
+}
+
+</style>
+</head>
+<body>
+	
+	<section id="top">
+	<div>
+		<img src="이미지/미노이1.jpg" style="width: 91px; padding: 5px;" onclick="이미지1()">
+	</div>
+	<div>
+		<img src="이미지/미노이2.jpg" style="width: 91px; padding: 5px;" onclick="이미지2()">
+	</div>
+	<div>
+		<img src="이미지/미노이3.png" style="width: 91px; padding: 5px;" onclick="이미지3()" >
+	</div>
+	<div>
+		<img src="이미지/미노이4.png" style="width: 91px; padding: 5px;" onclick="이미지4()">
+	</div>
+	<div>
+		<img src="이미지/미노이5.png" style="width: 91px; padding: 5px;" onclick="이미지5()">
+	</div>
+	<div>
+		<img src="이미지/미노이6.jpg" style="width: 91px; padding: 5px;" onclick="이미지6()">
+	</div>
+	<div id="img1">
+		
+	</div>
+	</section>
+
+	<div id="main">
+		<img  src="이미지/미노이1.jpg" style="width: 600px">
+	</div>
+	
+	<button onclick="temachange()">테마변경</button>
+	<input type="file" accept="/file"></input>
+	
+<script type="text/javascript">
+
+function 이미지1() {
+	let 변환 = ''
+	변환 += `<img src="이미지/미노이1.jpg" style="width: 600px">`
+	document.getElementById('main').innerHTML = 변환;
+	
+	let 움짤 = ''
+		움짤 += `<img src="이미지/징징이.gif" style="width: 320px">`
+		document.getElementById('img1').innerHTML = 움짤;
+	
+ 	document.querySelector('body').style.backgroundColor="rgba(207, 223, 91)"; 
+}
+
+function 이미지2() {
+	let 변환 = ''
+	변환 += `<img src="이미지/미노이2.jpg" style="width: 600px">`
+	document.getElementById('main').innerHTML = 변환;
+	document.getElementById('img1').innerHTML = ''
+	document.querySelector('body').style.backgroundColor="rgba(230, 210, 100)"; 
+}
+
+function 이미지3() {
+	let 변환 = ''
+	변환 += `<img src="이미지/미노이3.png" style="width: 600px">`
+	document.getElementById('main').innerHTML = 변환;
+	document.getElementById('img1').innerHTML = ''
+	document.querySelector('body').style.backgroundColor="rgba(212, 141, 141)"; 
+}
+
+function 이미지4() {
+	let 변환 = ''
+	변환 += `<img src="이미지/미노이4.png" style="width: 600px">`
+	document.getElementById('main').innerHTML = 변환;
+	document.getElementById('img1').innerHTML = ''
+	document.querySelector('body').style.backgroundColor="rgba(48, 41, 45)"; 
+}
+
+function 이미지5() {
+	let 변환 = ''
+	변환 += `<img src="이미지/미노이5.png" style="width: 600px">`
+	document.getElementById('main').innerHTML = 변환;
+	document.getElementById('img1').innerHTML = ''
+	document.querySelector('body').style.backgroundColor="rgba(217, 230, 148)"; 
+}
+
+function 이미지6() {
+	let 변환 = ''
+	변환 += `<img src="이미지/미노이6.jpg" style="width: 600px">`
+	document.getElementById('main').innerHTML = 변환;
+	
+	let 움짤 = ''
+	움짤 += `<img src="이미지/씰룩토끼.gif" style="width: 250px">`
+	document.getElementById('img1').innerHTML = 움짤;
+	
+	document.querySelector('body').style.backgroundColor="rgba(241, 113, 95)"; 
+}
+
+function temachange() {
+	
+}
+
+</script>
+
+</body>
+</html>

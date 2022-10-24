@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+@font-face {
+    font-family: 'PyeongChangPeace-Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-02@1.0/PyeongChangPeace-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+
+p{
+	font-size: 3.1rem;
+}
+
+
+
+body{
+	background-image: url("이미지/시멘트.jpg"), linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) )
+}
+
+section{
+	padding: 20% 35% 0 35%;
+	text-align: center;
+}
+
+*{
+	font-family: 'PyeongChangPeace-Light';
+	
+}
+
+button{
+	border-radius: 50%;
+	width: 70px;
+	height: 70px;
+	padding: 5px;
+	background: linear-gradient(70deg, gray , #eeeeee);
+}
+
+
+</style>
+</head>
+<body>
+	
+	<section>
+		<p id="neon">이것은 네온사인 입니다.</p>
+
+		<button onclick="red()"><b>red</b></button>
+		<button  onclick="orange()"><b>orange</b></button>
+		<button onclick="yellow()"><b>yellow</b></button>
+		<button onclick="green()"><b>green</b></button>
+		<button onclick="blue()"><b>blue</b></button>
+		<button onclick="purple()"><b>purple</b></button>
+	</section>
+
+
+<script type="text/javascript">
+function red() {
+	document.getElementById('neon').style.color="white";
+	document.getElementById('neon').style.textShadow="0 0 15px red";
+}
+
+function orange() {
+	document.getElementById('neon').style.color="white";
+	document.getElementById('neon').style.textShadow="0 0 15px rgba(238 108 53)";
+}
+
+function yellow() {
+	document.getElementById('neon').style.color="white";
+	document.getElementById('neon').style.textShadow="0 0 15px yellow";	
+}
+	
+function green() {
+	document.getElementById('neon').style.color="white";
+	document.getElementById('neon').style.textShadow="0 0 15px green";	
+}
+
+function blue() {
+	document.getElementById('neon').style.color="white";
+	document.getElementById('neon').style.textShadow="0 0 15px blue";	
+}
+
+function purple() {
+	document.getElementById('neon').style.color="white";
+	document.getElementById('neon').style.textShadow="0 0 15px rgba(207 54 228)";		
+}
+
+</script>
+</body>
+</html>
