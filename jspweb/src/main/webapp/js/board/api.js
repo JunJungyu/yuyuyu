@@ -9,9 +9,9 @@ function getdata(){
 	$.ajax({
 		url : "/jspweb/board/api" , 
 		success: function( re ){
-			let json = JSON.parse(re)										 
-			datalist = json.data 							// datalist : 객체중에 data 속성[키,필드] 호출 // 약국 리스트 여기서 대입해주고														
-			dataprint()										// 검색이 없을 때 모든 약국 호출 json.data 약국 리스트
+			let json = json[i].parse(re)										 
+			datalist = json[i].data 							// datalist : 객체중에 data 속성[키,필드] 호출 // 약국 리스트 여기서 대입해주고														
+			dataprint()										// 검색이 없을 때 모든 약국 호출 json[i].data 약국 리스트
 		}
 	})
 }
@@ -59,7 +59,7 @@ function getdata2(){
 	$.ajax({
 		url : "/jspweb/api2" ,
 		success : function( re ){
-			let json = JSON.parse( re )						// 깨지지않게 바꿔주고?? 근데 re 그대로 호출해도 안깨지던데.. 과연 내가 이헤한게 맞는지?
+			let json = json[i].parse( re )						// 깨지지않게 바꿔주고?? 근데 re 그대로 호출해도 안깨지던데.. 과연 내가 이헤한게 맞는지?
 			let html = ''; 									// html 담을거 미리 선언해주고
 		 	html = '<tr>'+									// 넣어줌 여기서 선언해도 상관없음
 							'<th>시군구</th>'+
@@ -76,7 +76,7 @@ function getdata2(){
 							 '<th>거래유형</th>'+
 							 '<th>중개사소재지</th>'+
 						'</tr>';
-				for( let i = 0 ; i<json.length ; i++){		// 하나하나 넣어줄거니까 for문 사용			
+				for( let i = 0 ; i<json[i].length ; i++){		// 하나하나 넣어줄거니까 for문 사용			
 					html += '<tr>'+	
 								'<td>'+json[i].시군구+'</td><td>'+json[i].번지본번부번+'</td>'+													// Dao랑 이름 맞춰여됨~~
 								'<td>'+json[i].단지명+'</td><td>'+json[i].전용면적+'</td><td>'+json[i].계약년월+'</td><td>'+json[i].계약일+'</td>'+
@@ -148,3 +148,37 @@ function detailview( i ){
 	document.querySelector('.datailbox').innerHTML = html;
 }
 
+///////////////////////////////////////////////////////////////////////
+
+getdata2()
+function getdata2(){
+		let html = '<tr>'+
+                     '<th> 시군구 </th> '+
+                     '<th> 번지 / 본번 / 부번 </th>'+
+                     '<th> 단지명 </th>'+
+                     '<th> 전용면적 </th>'+
+                     '<th> 계약년월 </th>'+
+                     '<th> 계약일 </th>'+
+                     '<th> 계약금액(만원) </th>'+
+                     '<th> 층 </th>'+
+                     '<th> 건축년도 </th>'+
+                     '<th> 도로명 </th>'+
+                     '<th> 해제사유발생일 </th>'+
+                     '<th> 거래유형 </th>'+
+                     '<th> 중개사소재지 </th>'+
+				'</tr>';
+
+	$.ajax({
+		url : "/jspweb/board/api2",
+		success : function( re ){ 
+			let json = json[i].parse( re )
+			for( let i = 0 ; i < json[i].length ; i++ ){
+		
+				html += '<tr><td>'+json[i].시군구+'</td><td>'+json[i].번지본번부번+'</td><td>'+json[i].단지명+'</td><td>'+json[i].전용면적+'</td><td>'+json[i].계약년월+'</td><td>'+json[i].계약일+'</td>'+
+				'<td>'+json[i].계약금액+'</td><td>'+json[i].층+'</td><td>'+json[i].건축년도+'</td><td>'+json[i].도로명+'</td><td>'+json[i].해제사유발생일+'</td><td>'+json[i].거래유형+'</td><td>'+json[i].중개사소재지+'</td></tr>';
+							
+				document.querySelector('.table2').innerHTML;
+			}
+		 }
+	})
+}
