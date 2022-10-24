@@ -51,7 +51,7 @@
 		</div>
 			<ul class="hd_menu">								<!-- 하단 헤더 -->
 				<li><a href="http://localhost:8080/jspweb/board/chatting.jsp">채팅방</a></li>
-				<li><a href="#">가을준비</a></li>
+				<li><a href="/jspweb/board/api.jsp">공공데이터</a></li>
 				<li><a href="#">아우터</a></li>
 				<li><a href="#">상의</a></li>
 				<li><a href="#">하의</a></li>
@@ -81,6 +81,11 @@
 </body>
 </html>
 	<!--
+			헤더파일 [ 모든 페이지에서 호출되는 파일 ]
+				경로 : 
+						/ : 최상위 경로 = localhost:8080
+			
+
 
 		 <div> :  block [한줄차지] 기능없는 레이아웃 잡는 박스권 
 	 		vs
