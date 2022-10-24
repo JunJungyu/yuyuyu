@@ -1,25 +1,15 @@
 
 function write(){
 	alert("1");
-	let btitle = document.querySelector('#btitle');
-	let bcontent = document.querySelector('#bcontent');
-	let bwriter = document.querySelector('#bwriter');
-	let bpassword = document.querySelector('#bpassword');
+	let inputs = document.querySelector('input');
+
 	alert("2");
 	alert( btitle + bcontent + bwriter + bpassword )
 		$.ajax({
 			url : "http://localhost:8080/tetest/board/write" , 
-			data : { "btitle" : btitle,
-					 "bcontent" : bcontent ,
-					 "bwriter" : bwriter ,
-					 "bpassword" : bpassword
-					 } ,
-			success : function( re ){
-				if( re ){
-					alert("글 작성 완료");
-				}
-				
-					
+			data : { inputs } ,
+			success : function( re ){				
+					alert('2-2');
 			}
 		})
 	alert("3"); 
