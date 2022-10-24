@@ -22,7 +22,7 @@ public class BoardDao extends Dao{
 		} catch (Exception e) {System.out.println(e); return false;}
 	}// 글쓰기 끝
 	
-	public ArrayList<BoardDto> gettext() {
+	public ArrayList<BoardDto> getlist() {
 		ArrayList<BoardDto> list = new ArrayList<>();
 		String sql = "select * from board";
 		try {

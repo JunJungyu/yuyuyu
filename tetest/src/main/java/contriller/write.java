@@ -31,15 +31,7 @@ public class write extends HttpServlet {
 		String bwriter = request.getParameter("bwriter");
 		String bpassword = request.getParameter("bpassword");
 		
-		System.out.println( btitle );
-		System.out.println( bcontent );
-		System.out.println( bwriter );
-		System.out.println( bpassword );
-		
-		boolean result = BoardDao.getInstance().write( btitle , bcontent , bwriter , bpassword);
-		
-		System.out.println("서블릿 됩니다");
-		System.out.println( result );
+		boolean result = BoardDao.getInstance().write( btitle , bcontent , bwriter , bpassword);;
 		
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().print(result);
