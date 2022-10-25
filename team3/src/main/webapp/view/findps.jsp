@@ -9,7 +9,6 @@
 <body>
 <%@include file="main.jsp" %>
 	<div>
-		<form action="http://localhost:8080/team3/findps" method="post">	
 			<table>
 				<tr><th colspan="3"><h3>비밀번호 찾기</h3></th>
 				<tr>
@@ -24,7 +23,6 @@
 					<td><button onclick="findps()">비밀번호 찾기</button></td>
 				</tr>
 			</table>
-		</form>
 	</div>
 	
 	<script src="../js/findps.js" type="text/javascript"></script>

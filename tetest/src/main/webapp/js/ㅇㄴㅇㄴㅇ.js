@@ -1,11 +1,14 @@
+alert('당신');
 getlist()
 function getlist(){
+	alert('안녕');
 	$.ajax({
-		url : "/tetest/board/list" ,
+		url : "http://localhost:8080/tetest/board/list" ,
 		success : function( re ){
 			let boards = JSON.parse(re)
-			alert('보드0')
-			alert( boards[0] )			
+			// 1. Object 내 게시물 리스트 먼저 호출
+			let boardlist = boards.data	
+			alert( boardlist )			
 			let html =  '<tr>'+	
 							'<th name="bno">no</td>'+
 							'<th name="btitle">title</td>'+
@@ -17,7 +20,9 @@ function getlist(){
                          '</tr>';
 			
 			for( let i = 0; i < boardlist.length ; i++ ){
+				// 1. i번째 객체 호출
 				let board = boardlist[i]
+				// 2. i번째 객체의 정보를 html 형식으로 변환해서 문자열에 저장
 				html += 
 						'<tr>'+
 							'<td>'+board.bno+'</td>'+								
@@ -28,9 +33,9 @@ function getlist(){
 							'<td>'+board.bdate+'</td>'+
 							'<td>'+board.bview+'</td>'+
 						'</tr>'
-			}
-			alert('하세요');
-			document.querySelector('#table').innerHTML += html	
+			}//FOR END
+			alert(html);
+			document.querySelector('table').innerHTML += html	
 		}
 	})
 }

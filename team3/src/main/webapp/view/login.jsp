@@ -52,7 +52,6 @@
 <body>
 <%@include file="main.jsp" %>	
 		<div>
-		<form action="http://localhost:8080/team3/login" method="post">		<!-- 왜.. 잘 되다가 안되지?? --> 
 			<table>
 				<tr><th colspan="3"><h3>로그인</h3></th>
 				<tr>
@@ -68,7 +67,6 @@
 					<td><button onclick="login()">로그인하기</button></td>
 				</tr>
 			</table>
-		</form>
 	</div>
 	
 	<script src="../js/login.js" type="text/javascript"></script>

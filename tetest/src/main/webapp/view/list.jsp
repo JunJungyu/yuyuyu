@@ -8,12 +8,13 @@
 </head>
 <body>
 
-	<table>
+
+	<table id="table">
+	
 	</table>	
 	
 	<!-- ajax 사용할려면 제이쿼리가 꼭 필요!! -->
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script src="../js/list.js"  type="text/javascript"></script>
-
+	<script src="../js/list.js" type="text/javascript"></script>
 </body>
 </html>

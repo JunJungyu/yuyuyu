@@ -11,12 +11,10 @@
 	<%@include file="main.jsp" %>
 
 	<div>
-		<form action="" method="get">
 			제목 : <input type="text" id="btitle" name="btitle"><br>
 			내용 : <input type="text" id="bcontent" name="bcontent"><br>
 			작성자 : <input type="text" id="bwriter" name="bwriter"><br>
 			<button type="button" onclick="postwriter()">작성하기</button>
-		</form>
 	</div>
 	<script src="../js/writer.js" type="text/javascript"></script>
 </body>

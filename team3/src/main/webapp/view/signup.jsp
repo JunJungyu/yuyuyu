@@ -49,7 +49,6 @@
 <body>
 <%@include file="main.jsp" %>
 	<div>
-		<form action="http://localhost:8080/team3/signup" method="post">
 			<table>
 				<tr><th colspan="3"><h3>회원가입</h3></th>
 				<tr>
@@ -73,7 +72,6 @@
 					</td>
 				</tr>
 			</table>
-		</form>
 	</div>
 	
 

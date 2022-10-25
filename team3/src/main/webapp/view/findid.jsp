@@ -9,7 +9,6 @@
 <body>
 <%@include file="main.jsp" %>
 	<div>
-		<form>	
 			<table>
 				<tr><th colspan="3"><h3>아이디 찾기</h3></th>
 				<tr>
@@ -20,7 +19,6 @@
 					<td><button type="button" onclick="findid()">아이디 찾기</button></td>
 				</tr>
 			</table>
-		</form>
 	</div>
 	
 	<script src="../js/findid.js" type="text/javascript"></script>

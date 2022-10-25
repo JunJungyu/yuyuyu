@@ -31,7 +31,11 @@ public class list extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		JSONObject boards = new JSONObject();
-		ArrayList<BoardDto> list = BoardDao.getInstance().getlist( );
+		ArrayList<BoardDto> list = BoardDao.getInstance().getlist();
+		
+		System.out.println( boards );
+		System.out.println(list);
+		
 		// ** arraylist ----> jsonarray 변환 [ js에서 쓰려고 ]
 		JSONArray array = new JSONArray();								
 		for( int i = 0; i<list.size(); i++ ) {
