@@ -9,13 +9,11 @@
 <body>
 
 	<div>
-		<form action="http://localhost:8080/tetest/board/write" method="get">
 			제목 : <input type="text" id="btitle" name="btitle"><br>
 			내용 : <input type="text" id="bcontent" name="bcontent"><br>
 			작성자 : <input type="text" id="bwriter" name="bwriter"><br>
 			비밀번호 : <input type="password" id="bpassword" name="bpassword"><br>
 			<button type="button" onclick="bwrite()">작성하기</button>
-		</form>
 	</div>
 	
 	<!-- ajax 사용할려면 제이쿼리가 꼭 필요!! -->

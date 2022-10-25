@@ -47,7 +47,7 @@ public class list extends HttpServlet {
 		}
 		
 		
-		System.out.println( boards );
+		System.out.println( array );
 		
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().print( boards );

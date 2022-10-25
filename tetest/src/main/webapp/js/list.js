@@ -1,16 +1,14 @@
+alert('당신');
 getlist()
 function getlist(){
-	alert('1');
+	alert('안녕');
 	$.ajax({
 		url : "http://localhost:8080/tetest/board/list" ,
 		success : function( re ){
 			let boards = JSON.parse(re)
-			console.log( boards );
-
 			// 1. Object 내 게시물 리스트 먼저 호출
-			let boardlist = boards.data
-			
-			console.log( boardlist )					// 출력을 하려면 객체가 있어야됨
+			let boardlist = boards.data	
+			alert( boardlist )			
 			let html =  '<tr>'+	
 							'<th name="bno">no</td>'+
 							'<th name="btitle">title</td>'+
@@ -37,8 +35,7 @@ function getlist(){
 						'</tr>'
 			}//FOR END
 			alert(html);
-			document.querySelector('table').innerHTML += html	// 누적더하기 안하면 헤더 사라지나봄?	
+			document.querySelector('table').innerHTML += html	
 		}
 	})
-	alert('2');
 }
