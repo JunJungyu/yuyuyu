@@ -7,10 +7,9 @@ function findps(){
 		type : "POST" ,
 		data : { "nname" : nname , "id" : id } ,
 		success : function( re ){
-			// result = JSON.stringify( re );
-			alert( result )
-			if( re !== 'null' ){
-				alert('입력하신 정보의 패스워드는 '+re+'입니다.');
+			result = JSON.parse( re )
+			if( result !== 'null' ){
+				alert('입력하신 정보의 패스워드는 '+result+'입니다.');
 			}
 		}
 	})

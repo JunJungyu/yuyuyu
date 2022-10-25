@@ -6,10 +6,9 @@ function findid(){
 		type : "POST" ,
 		data : { "nname" : nname } ,
 		success : function( re ){
-			// let n = JSON.parse( re );
-			// alert( n );
-			if( nname !== 'null' ){
-				alert('입력하신 닉네임의 아이디는 '+re+'입니다.')		// 여기서 다 깨진다!! 
+			let id = JSON.parse( re );
+			if( id !== 'null' ){
+				alert('입력하신 닉네임의 아이디는 '+id+'입니다.')		// 여기서 다 깨진다!! 
 			}else{alert('없는 닉네임입니다.');}
 		}
 	})

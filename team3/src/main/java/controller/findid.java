@@ -29,10 +29,7 @@ public class findid extends HttpServlet {
 			String nname = (String)request.getParameter("nname");
 			String result = (String)MemberDao.getInstance().findid( nname );
 			
-			System.out.println( "닉네임1 : "+ nname );	// 여기서 제대로 나오다가..? 다시 이게 나오더니 깨져서 나오고 js에서도 깨져서 물음표로 나옴 흑흑 뭔데
-			System.out.println("다오 리턴값1 :" + result);
-			
-			
+			response.setCharacterEncoding("UTF-8");
 			response.getWriter().print(result);
 	}
 }

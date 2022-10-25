@@ -34,12 +34,7 @@ public class findps extends HttpServlet {
 		String nname = request.getParameter("nname");
 		String id = request.getParameter("id");
 		
-		System.out.println(nname + id);
-		
 		String result = MemberDao.getInstance().findps(id, nname);
-		
-		System.out.println(result);
-		
 		
 		response.getWriter().print(result);
 	}

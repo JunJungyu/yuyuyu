@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+*{							/* 여백 기본값 제거 */
+	padding: 0px;
+	margin:  0px;
+}
+
+.sidebar{					/* 사이드바 */
+	background-color: black;
+	color: white;
+	width: 200px;
+	position: absolute;
+	top: 0;					/* 상위요소(body)에서 top에서 0만큼 떨어짐 */
+	bottom: 0;				/* bottom에서 0만큼 떨어짐  => 위아래 풀사이즈로 들어감*/
+	left: -170px;			/* 살짝 보였다가 나중에 조작해서 보이게 하려고 숨기기 */
+	transition : 1s;		/* [애니메이션 효과] 트래지션 적은 초만큼 애미네이션 진행 */			
+}
+
+/* 사이드바 목록 */
+.side_menu{padding: 50px;}
+
+.side_item{margin: 30px 0px;}	
+
+.side_menu li{list-style: none;}
+
+.side_item a{color: white; text-decoration: none;}
+
+.sidebar h1{ margin: 20px; }
