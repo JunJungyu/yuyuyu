@@ -38,16 +38,17 @@ public class login extends HttpServlet {
 		if( result == 0 ) {
 			System.out.println("존재하지 않는 아이디");
 		}
+		
 		if( result == 1 ) {
 			System.out.println("로그인 성공");
 			HttpSession session = request.getSession();
 			session.setAttribute( "id" , id );
 		}
+		
 		if( result == 2 ) {
 			System.out.println("비밀번호가 틀렸습니다");
 		}
 		
-		response.setCharacterEncoding("UTF-8");
 		response.getWriter().print(result);
 	}
 

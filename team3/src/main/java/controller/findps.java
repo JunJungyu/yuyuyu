@@ -29,14 +29,20 @@ public class findps extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		request.setCharacterEncoding("UTF-8");
 		
 		String nname = request.getParameter("nname");
 		String id = request.getParameter("id");
 		
+		System.out.println("입력받은 닉네임 : "+nname);
+		System.out.println("입력받은 아이디 : "+id);
+		
 		String result = MemberDao.getInstance().findps(id, nname);
 		
-		response.getWriter().print(result);
+		System.out.println( result );								// 잘 들어오는데??
+		// response.setCharacterEncoding("UTF-8");					// 잉? 이걸 쓰니까 dao 오류남
+		response.getWriter().print( result );
 	}
 
 }

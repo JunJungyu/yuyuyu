@@ -8,7 +8,7 @@ function regist(){
 		url : "/jspweb/admin/regist" ,
 		data: formdata ,
 		/* form 전송이 첨부파일 경우 [ 아래 3가지 필수 ] write.js 참고 */
-		type : "post" ,
+		type : "POST" ,
 		processData : false ,
 		contetnType : false ,
 		success : function( re ){
@@ -33,3 +33,84 @@ pimg.addEventListener( 'change' , function(e){ // e : 첨부파일 change 이벤
 		document.querySelector('#pimgpre').src = e.target.result	// 서버는 [사용자의 c드라이브 경로 요청X] 서버와 관련없음
 	}
 })
+
+// 3. 카테고리 추가 버튼을 눌렀을때 이벤트
+function pcategoryview(){
+
+	document.querySelector('.pcategoryaddbox').innerHTML
+	= '<input type="text" id="pcname">'+
+			'<button type="button" onclick="setpcategoryadd()">카테고리 등록</button>';
+}
+
+// 4. 
+function setpcategoryadd(){
+
+	$.ajax({
+		url : "/jspweb/admin/pcategory" ,
+		type : "post" ,
+		data : { "pcname" : document.querySelector('#pcname').value } ,
+		success : function(re){
+			if( re == 'true' ){
+				alert('카테고리 등록')
+				document.querySelector('.pcategoryaddbox').innerHTML = '';
+				getpcategory();	// 카테고리 호출 메소드 재실행
+			}else{
+				alert('카테고리 실패')	
+			}
+		}
+	})
+}
+
+// pcategorybox
+// 5. 카테고리 호출 메소드 [ 실행조건 : 페이지 열렸을때 ]
+getpcategory()
+function getpcategory(){
+	
+	$.ajax({
+		url : "/jspweb/admin/pcategory" ,
+		type : "get" ,
+		success : function(re){
+			let json = JSON.parse( re )
+			let html = ''
+			for( let i = 0; i<json.length; i++ ){
+				let category = json[i];
+				html += '<input type="radio" name="pcno" value='+category.pcno+'>'+category.pcname;
+			}
+			
+			document.querySelector('.pcategorybox').innerHTML = html;
+		}
+	})
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

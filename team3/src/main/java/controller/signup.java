@@ -56,6 +56,7 @@ public class signup extends HttpServlet {
 			response.getWriter().append("Served at: ").append(request.getContextPath());
 		}
 		
+		response.setCharacterEncoding("UTF-8");
 		response.getWriter().print(result);
 	}
 

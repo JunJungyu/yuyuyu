@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import model.dto.ProductDto;
+
 /**
  * Servlet implementation class regist
  */
@@ -41,10 +43,17 @@ public class regist extends HttpServlet {
 				new DefaultFileRenamePolicy() );
 		String pname = multi.getParameter("pname");				
 		String pcoment = multi.getParameter("pcomment");
+		int pprice = Integer.parseInt(multi.getParameter("pprice")); 
 		String pdiscount = multi.getParameter("pdiscount");
 		String pimg = multi.getParameter("pimg");
 		
-		System.out.println( pname + pcoment + pdiscount + pimg );
+		ProductDto dto = new ProductDto( 
+				pprice, pname, 
+				pcoment, pprice, 
+				pprice, (byte)0, 
+				pimg, null, pprice);
+		
+		System.out.println( dto.toString() );
 	}
 
 }

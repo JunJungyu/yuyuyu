@@ -52,7 +52,8 @@ public class MemberDao extends Dao {
 	
 	// [ 로그인 ] 회원가입된 아이디가 있는지 체크 [ 0.아이디와 비밀번호 검사 ]
 	public int login( String id , String password ) {
-		
+		System.out.println( id );
+		System.out.println( password );
 		// 1. 아이디 검색
 		String sql = "select * from member where mid = ?";									// 디비에 입력받은 아이디가 있으면
 		try {
