@@ -1,6 +1,5 @@
 // 1. 등록버튼을 눌렀을때
 function regist(){ 
-	alert('js들어왔어요')
 	/* 첨부파일이 포함되어 있을 경우 */
 	let form = document.querySelector('form')
 	let formdata = new FormData( form )
@@ -11,7 +10,7 @@ function regist(){
 		/* form 전송이 첨부파일 경우 [ 아래 3가지 필수 ] write.js 참고 */
 		type : "POST" ,
 		processData : false ,
-		contetnType : false ,
+		contentType : false ,
 		success : function( re ){
 			if( re == 'true' ){
 				alert('제품 등록 성공');

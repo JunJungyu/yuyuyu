@@ -38,7 +38,7 @@ public class ProductDao extends Dao{
 	// 3. 제품 등록 [ c ]
 	public boolean setproduct( ProductDto dto ) {
 		
-		String sql = "insert into produst ( pname , pcoment , pprice , pdiscount , pimg , pcno )"
+		String sql = "insert into product ( pname , pcoment , pprice , pdiscount , pimg , pcno )"
 				+ " values(?,?,?,?,?,?)";
 		try {
 			ps = con.prepareStatement(sql);
@@ -48,7 +48,7 @@ public class ProductDao extends Dao{
 			ps.setFloat(4, dto.getPdiscount());
 			ps.setString(5, dto.getPimg());
 			ps.setInt(6, dto.getPcno());
-			ps.executeQuery();
+			ps.executeUpdate();
 			return true;
 		} catch (Exception e) {System.out.println(e + "제품등록 메소드 오류");}
 		return false;

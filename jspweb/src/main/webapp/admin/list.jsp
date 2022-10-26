@@ -8,16 +8,24 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+	<style type="text/css">
+	table tr th{
+		width: 200px;
+		border: solid 1px #eeeeee;
+		margin: 0 auto;
+	}
+	
+	table{
+		border: solid 2px gray;
+	}
+	
+	</style>
 </head>
 <body>
 
 	<div class="container">
 		<table>
-			<tr>
-				<th>번호</th><th>상품명</th><th>설명</th><th>제품가격</th>
-				<th>할인율</th><th>상태</th><th>이미지</th><th>날짜</th>
-				<th>카테고리</th>
-			</tr>
+
 		
 		</table>
 	</div>	
