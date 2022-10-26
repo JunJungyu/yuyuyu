@@ -42,15 +42,15 @@
 						간단한 자기소개 글
 					</h4>
 					<div class="c_btnbox">
-						<div>친구추가</div> <div>뭐더라</div>
+						<div>친구추가</div> <div><a href="bwriter.jsp">글쓰기</a></div>
 					</div>
 				</div>
 			</div>
 			</td>
 			
-			<td class="c_postbox"  colspan="2" rowspan="2" style="width: 90%;">
+			<td class="c_postbox"  colspan="2" rowspan="2" style="width: 87%;">
 					<div class="c_post_img_list">	<!-- 최신글 미리보기 이미지 출력할 박스 -->
-						미리보기 이미지 9개 출력
+						미리보기 테이블로 이미지 9개 출력할 공간
 					</div>
 			</td>
 		</tr>
@@ -60,7 +60,6 @@
 				<div class="c_visitbox">
 					<div class="c_today c_visit">
 						<h3>today : 0</h3>	<!-- 왜 div안에 안들어오지 -->
-							
 					</div>
 					<div class="c_total c_visit">
 						<h3>total : 0</h3>		
@@ -69,8 +68,11 @@
 			</td>
 		</tr>
 		
-		<tr>
-		</tr>
+		<td colspan="3">
+			<marquee class="c_friends_box" >
+				친구목록박스 친구목록 누구 아무개 홍길동 짱많음 클릭하 면친구 블로그 로이동 함구현
+			</marquee>
+		</td>
 	</table>
 
 	

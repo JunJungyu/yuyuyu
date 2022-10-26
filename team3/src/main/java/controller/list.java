@@ -30,6 +30,7 @@ public class list extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
+		
 		ArrayList<BoardDto> list = new ArrayList<>();		// dto를 담는 list를 생성하고?
 		JSONArray array = new JSONArray();					// 위에걸 담을 JSONarray를 선언
 		for( int i = 0 ; i < 9 ; i++ ) {					// 9개만 할거니까...
@@ -37,6 +38,9 @@ public class list extends HttpServlet {
 			object.put("bfile", list.get(i).getBfile() );
 			array.add( object );							// 제이슨 오브젝트 형식의 사진파일을 어레이에 담고
 		}
+		
+		System.out.println("리스트 서블릿임둥");
+		System.out.println( array );
 		
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().print(array);					// 최종적으론 array를 넘김
