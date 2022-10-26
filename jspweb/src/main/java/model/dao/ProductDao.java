@@ -36,13 +36,43 @@ public class ProductDao extends Dao{
 	}	
 	
 	// 3. 제품 등록 [ c ]
-	public boolean setproduct( PcategoryDto dto ) {
+	public boolean setproduct( ProductDto dto ) {
+		
+		String sql = "insert into produst ( pname , pcoment , pprice , pdiscount , pimg , pcno )"
+				+ " values(?,?,?,?,?,?)";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, dto.getPname());
+			ps.setString(2, dto.getPcomment());
+			ps.setInt(3, dto.getPprice());
+			ps.setFloat(4, dto.getPdiscount());
+			ps.setString(5, dto.getPimg());
+			ps.setInt(6, dto.getPcno());
+			ps.executeQuery();
+			return true;
+		} catch (Exception e) {System.out.println(e + "제품등록 메소드 오류");}
 		return false;
 	}
 	
 	// 4. 제품 관리 [ r ]
-	public ArrayList<PcategoryDto> getprProductList() {
-		return null;
+	public ArrayList<ProductDto> getprProductList() {
+		ArrayList<ProductDto> list = new ArrayList<>();
+		String sql = "select * from product";
+		
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while ( rs.next() ) {
+				ProductDto dto = new ProductDto(
+						rs.getInt(1) , rs.getString(2),
+						rs.getString(3) , rs.getInt(4),
+						rs.getFloat(5) , rs.getByte(6),
+						rs.getString(7) , rs.getString(8),
+						rs.getInt(9)
+						);
+				list.add(dto);
+			}
+		} catch (Exception e) {System.out.println(e + "제품 관리 메소드 오류");}
+		return list;
 	}
-	
 }
