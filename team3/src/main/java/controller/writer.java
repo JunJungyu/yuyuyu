@@ -28,9 +28,6 @@ public class writer extends HttpServlet {
 		String bcontent = request.getParameter("bcontent");
 		String bfile = request.getParameter("bfile");
 		
-		// 이게 왜 널이지? 애초에 어디서 가져오는거더라..? 아 애초에 요청할 필요가 없나?! 여기서 null값이니까 DB에도 널만 들어가는데..
-		System.out.println( btitle + bcontent + bfile );
-		
 		boolean result = BoardDao.getInstance().writeboard(btitle, bcontent, bfile);
 		
 		response.setCharacterEncoding("UTF-8");

@@ -10,8 +10,7 @@
 	<link href="../css/main.css" rel="stylesheet">
 </head>
 <body>
-	<%String mid = (String)session.getAttribute("mid"); %>	
-	<h5><%=mid %>님 페이지</h5>
+	<%String mid = (String)session.getAttribute("mid"); %>
 	<table>
 		<tr>
 			<th colspan="3">		<!-- 첫줄 -->
@@ -69,8 +68,8 @@
 		</tr>
 		
 		<td colspan="3">
-			<marquee class="c_friends_box" >
-				친구목록박스 친구목록 누구 아무개 홍길동 짱많음 클릭하 면친구 블로그 로이동 함구현
+			<marquee class="c_friends_box" direction="right" scrollamount="8" >
+				친구목록박스 친구목록 누구 아무개 홍길동 짱많음 클릭하 면친구 블로그 로이동 함구현 근데친 구가많 아야볼 만하겠 구만요
 			</marquee>
 		</td>
 	</table>

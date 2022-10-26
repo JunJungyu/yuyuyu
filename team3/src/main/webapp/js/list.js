@@ -3,13 +3,14 @@ function getlistimg(){
 	$.ajax({
 		url : "http://localhost:8080/team3/list" ,
 		success : function( re ){
-			alert('왜 안들어오나요');
-			let json = parse( re );
+			let json = JSON.parse( re )
 			
 			let html = '<table><tr>'
 			
+			let i = 0;
+			
 			for( int = 0 ; i < 3 ; i++ ){								// 3*3형식으로 호출할거니까 맨 윗줄 3번 반복 총 0~8반복
-				html += '<th id="imgbox">'+json[i].bfile+'</th>';
+				html += '<th id="imgbox">'+json[i].bfile+'</th>';		// 음 근데 이렇게하면 최신글이 아니라 처음~9번 글인데...
 			}
 			html += '</tr><tr>'
 			
@@ -23,6 +24,7 @@ function getlistimg(){
 			}
 			html += '</tr></table>'						
 			document.querySelector('.c_post_img_list').innerHTML = html
+			
 		}
 	})
 }

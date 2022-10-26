@@ -34,17 +34,26 @@ public class BoardDao extends Dao {
 		JSONArray array = new JSONArray();
 		ArrayList<BoardDto> list = new ArrayList<>();
 		String sql = "select bfile from board;";
-		
 		try {
 			ps = con.prepareStatement(sql);
-			ps.executeQuery();
-			while( rs.next() ) {							// 근데 어떻게 최신글 9개만 가져오지? sql문을 하나 더 쓰거나 다른 메소드를 더 만들어서 제어하나?
+			rs = ps.executeQuery();
+			while( rs.next() ) {							
 				JSONObject object = new JSONObject();
-				object.put( "bfile" , rs.getInt(4) );
+				object.put( "bfile" , rs.getString(1) );
 				array.add(object);
 			}
 		} catch (Exception e) {System.out.println( e + "글 목록 메소드 오류");}
-		return list;
+		return array;
+	}
+	
+	// 메인화면에서 글 미리보기 이미지 누르면 글 상세페이지로 이동하는 메소드 / 글 번호 보내주기 이 방법이 맞나 근데??
+	public int detailpost( int bno ) {
+		
+		String sql = "select * from board where bno=?";
+		try {
+			
+		} catch (Exception e) {System.out.println( e + "글 번호 가져오기 메소드 오류");}
+		return 1;
 	}
 	
 }

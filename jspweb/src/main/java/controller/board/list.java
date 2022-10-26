@@ -78,7 +78,7 @@ public class list extends HttpServlet {
 		
 		// 2. db
 		ArrayList<BoardDto> list = BoardDao.getinstance().getlist( startrow , listsize , key , keyword );
-			// ** arraylist ----> jsonarray 변환 [ js에서 쓰려고 ]
+			// ** arraylist ----> jsonObject 변환 [ js에서 쓰려고 ]
 			JSONArray array = new JSONArray();								// 자동완성이 안된다..!
 			for( int i = 0; i<list.size(); i++ ) {
 					JSONObject object = new JSONObject();

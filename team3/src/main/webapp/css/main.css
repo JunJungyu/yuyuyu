@@ -131,20 +131,19 @@ body{
 }
 
 .c_post_img_list th{
-	width: 300px;
-	height: 300px;
+	width: 33%;
+	height: 50vh;
 	background-color: orange;
 }
 .c_post_img_list td{
-	width: 300px;
-	height: 300px;
+	width: 33%;
+	height: 50vh;
 	background-color: orange;
 }
 
 /* 미리보기 이미지 */
 #imgbox{				
-	width: 300px;
-	padding: 300px;
+	background-color: #FF99FF;
 }
 
 
