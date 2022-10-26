@@ -35,7 +35,7 @@
 		
 				<div class="c_prfile">
 					<img class="proimg" alt="프로필 이미지" src="../img/프로필.jpg">
-					<h3>닉네임</h3>
+					<h3 onclick="changepage()">닉네임</h3>
 					<h4>간단한 자기소개 글
 						간단한 자기소개 글
 						간단한 자기소개 글

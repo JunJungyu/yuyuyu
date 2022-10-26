@@ -28,3 +28,9 @@ function getlistimg(){
 		}
 	})
 }
+
+// 사진 누르면 상세페이지로 이동
+function changepage(){
+	alert('닉네임 클릭')
+	location.href="../view/login.jsp";		// 근데 글 페이지는 다 jsp를 만들진 않을거고.. 매개변수 i로 받는게 안되지 그럼..?
+}
