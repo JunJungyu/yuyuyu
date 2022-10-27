@@ -5,30 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>	
-	<!-- css 초기화 -->
-	<link rel="stylesheet" href="https://unpkg.com/destyle.css@1.0.5/destyle.css">
-	<link href="../css/main.css" rel="stylesheet">
+
 </head>
 <body>
-	<%String mid = (String)session.getAttribute("mid"); %>
+
+
+<%@include file="mainhead.jsp" %>
 	<table>
-		<tr>
-			<th colspan="3">		<!-- 첫줄 -->
-				<ul class="c_편의">	<!-- 제작동안 편의를 위해 남겨둠 -->
-					<li> <a href="/team3/view/signup.jsp">회원가입페이지</a></li>
-					<li> <a href="/team3/view/login.jsp">로그인페이지</a></li>
-					<li> <a href="/team3/view/main.jsp">메인페이지</a></li>
-					<li> <a href="/team3/view/findid.jsp">아이디찾기</a></li>
-					<li> <a href="/team3/view/findps.jsp">비밀번호 찾기</a></li>
-					<li> <a href="/team3/view/writer.jsp">글쓰기</a></li>
-				</ul>
-				<div class="c_header">
-					<h3><%=mid %>개인페이지</h3>
-				</div>
-			</th>
-		</tr>
-		
-		
 		<tr>						<!-- 두번째 줄 -->
 			<td>
 			<div>
@@ -66,13 +49,13 @@
 				</div>
 			</td>
 		</tr>
-		
-		<td colspan="3">
-			<marquee class="c_friends_box" direction="right" scrollamount="8" >
-				친구목록박스 친구목록 누구 아무개 홍길동 짱많음 클릭하 면친구 블로그 로이동 함구현 근데친 구가많 아야볼 만하겠 구만요
-			</marquee>
-		</td>
 	</table>
+	
+	
+	<marquee class="c_friends_box" direction="right" scrollamount="8" >
+		친구목록박스 친구목록 누구 아무개 홍길동 짱많음 클릭하 면친구 블로그 로이동 함구현 근데친 구가많 아야볼 만하겠
+	</marquee>	
+
 
 	
 	

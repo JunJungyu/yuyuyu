@@ -8,9 +8,7 @@ function bview(){
 		success : function( re ){
 			let board = JSON.parse( re )
 			console.log(board)
-			
-
-			
+		
 			document.querySelector('.btitle').vlaue = board.btitle;
 			// 썸머노트는 내용 저장시 html 형식으로 저장하기 때문에
 			document.querySelector('.bcontent').innerHTML = board.bcontent;
@@ -83,7 +81,7 @@ function bupdate(){
 		// 첨부파일시
 		type : "POST" ,
 		contentType : false ,
-		processDAta : false ,
+		processData : false ,
 		
 		// 성공시
 		success : function( re ){ 

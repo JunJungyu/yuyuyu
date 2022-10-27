@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<%@include file="main.jsp" %>
+	<%@include file="mainhead.jsp" %>
 
 	<div>
 			제목 : <input type="text" id="btitle" name="btitle"><br>

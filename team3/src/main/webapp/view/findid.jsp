@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@include file="main.jsp" %>
+<%@include file="mainhead.jsp" %>
 	<div>
 			<table>
 				<tr><th colspan="3"><h3>아이디 찾기</h3></th>

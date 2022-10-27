@@ -12,7 +12,6 @@
 	}
 	
 	div{
-		width: 1200px;
 		margin: 0 auto;
 		
 	}
@@ -47,7 +46,7 @@
 </style>
 </head>
 <body>
-<%@include file="main.jsp" %>
+<%@include file="mainhead.jsp" %>
 	<div>
 			<table>
 				<tr><th colspan="3"><h3>회원가입</h3></th>

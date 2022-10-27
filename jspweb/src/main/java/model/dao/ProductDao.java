@@ -56,7 +56,7 @@ public class ProductDao extends Dao{
 	}
 	
 	// 4. 제품 관리 [ r ]
-	public ArrayList<ProductDto> getprProductList() {
+	public ArrayList<ProductDto> getProductList() {
 		ArrayList<ProductDto> list = new ArrayList<>();
 		String sql = "select * from product";
 		
@@ -91,21 +91,40 @@ public class ProductDao extends Dao{
 	return false;
 	}
 	
-	// 6. 제품 개별출력
-	public ProductDto getproduct( pno ) {
+	// 6. 제품 개별출력 
+	public ProductDto getProduct( int pno ) {
 		String sql = "select * from product where pno = "+pno;
 		try {
 			ps = con.prepareStatement(sql);
-			if( rs.next() ) {
+			rs = ps.executeQuery();
+			if( rs.next() ) { // 1개 --> if -> next() 1번실행
 				ProductDto dto = new ProductDto(
-						rs.getInt(1) , rs.getString(2),
-						rs.getString(3) , rs.getInt(4),
-						rs.getFloat(5) , rs.getByte(6),
-						rs.getString(7) , rs.getString(8),
-						rs.getInt(9)
-						);
+						rs.getInt(1), rs.getString(2),
+						rs.getString(3), rs.getInt(4), 
+						rs.getFloat(5), rs.getByte(6), 
+						rs.getString(7), rs.getString(8), rs.getInt(9) );
+				return dto;
 			}
-			
-		} catch (Exception e) {System.out.println( e + "제품 개별호출 메소드 오류");}
+		}catch (Exception e) {System.out.println(e);} return null;
+	}
+	
+	// 7. 제품 상세정보 수정
+	public boolean UpdateProduct( ProductDto dto ) { // 매개변수 하나하나 쓰기 번거로우니까 Dto로 통으로 가져옴
+		String sql = "update product set pimg=? ,  pname =? , pcoment =? , pprice =? ,"
+				+ " pdiscount =?, pcno =? , pactive=? where pno =?";
+		try {
+				ps = con.prepareStatement(sql);	
+				ps.setString(1, dto.getPimg());		// dto에서 pimg 가져옴
+				ps.setString(2, dto.getPname());
+				ps.setString(3, dto.getPcomment() );
+				ps.setInt(4, dto.getPprice());
+				ps.setFloat(5, dto.getPdiscount());
+				ps.setInt(6, dto.getPcno() );
+				ps.setInt(7, dto.getPactive() );
+				ps.setInt(8, dto.getPno() );
+				ps.executeUpdate();
+				return true;
+		} catch (Exception e) {System.out.println(e+"제품 상세정보 수정 메소드 오류");}
+	return false;
 	}
 }

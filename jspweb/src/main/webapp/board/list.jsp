@@ -44,7 +44,7 @@
 			<th>번호</th>		<th>제목</th>		<th>작성자</th>
 			<th>작성일</th>	<th>조회수</th>	
 		</tr>
-		<a style="float: right;" style="text-decoration: none;" href="http://localhost:8080/jspweb/board/write.jsp">글쓰기</a>		
+		<a style="float: right;" style="text-decoration: none;" href="/jspweb/board/write.jsp">글쓰기</a>		
 	</table>
 	<div class="pagebox" ></div>
 	</div>

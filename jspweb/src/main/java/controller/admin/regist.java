@@ -65,12 +65,12 @@ public class regist extends HttpServlet { // HttpServlet 서블릿 클래스 [ h
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// 공통 변수
-		
-		
 		String type = request.getParameter("type");
+		response.setCharacterEncoding("UTF-8");
+		
 		if( type.equals("1") ){	// 모든 제품 출력
 			// list->JSON
-			ArrayList<ProductDto> list = new ProductDao().getprProductList();
+			ArrayList<ProductDto> list = new ProductDao().getProductList();
 			// js를 위해 list를 json으로 형젼환
 			JSONArray array = new JSONArray();
 			for( int i = 0; i<list.size(); i++ ) {
@@ -86,17 +86,17 @@ public class regist extends HttpServlet { // HttpServlet 서블릿 클래스 [ h
 				object.put("pcno" , list.get(i).getPcno());
 				array.add( object );
 			}
-			// ↑js에서 꺼내올 수 있는 값이 됨 jason.pno이런 식으로 접근
-			response.setCharacterEncoding("UTF-8");
+			// ↑js에서 꺼내올 수 있는 값이 됨 jason.pno이런 식으로 접근			
+		
 			response.getWriter().print(array);
 			
-		
 		}else if( type.equals("2") ) {
+			
 			// 1. 호출할 제품번호 요청
 			int pno = Integer.parseInt(request.getParameter("pno"));
 			
 			// 2. db처리
-			ProductDto dto = new ProductDto();
+			ProductDto dto = new ProductDao().getProduct( pno );
 			
 			// 3. dto -> json 형변환 [ 로직 ]
 			JSONObject object = new JSONObject();
@@ -114,21 +114,43 @@ public class regist extends HttpServlet { // HttpServlet 서블릿 클래스 [ h
 			response.getWriter().print(object);
 		}
 	}
-		
-		
-		
-		
 
-	
 	
 	// 3. 제품 수정 메소드 [ put ] --------------------------------------------------------
 	// 자동완성하면 됨
 	@Override
 		protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			
-			
+		System.out.println("들어오니?");
 		
-			super.doPut(request, response);
+		
+		/* 첨부파일이 있을 경우 [ 업로드용 ] */
+ 		MultipartRequest multi = new MultipartRequest(
+ 				request,
+ 				request.getSession().getServletContext().getRealPath("/admin/pimg") ,
+ 				1024*1024*10 ,
+ 				"UTF-8" , 
+ 				new DefaultFileRenamePolicy() );
+		
+ 			int pno = Integer.parseInt(multi.getParameter("pno"));
+			String pimg = multi.getFilesystemName("pimg"); // 파일명 호출시 .getFilesystemName
+			String pname = multi.getParameter("pname");
+			String pcoment = multi.getParameter("pcomment");
+			float pdiscount = Float.parseFloat(multi.getParameter("pdiscount"));
+			int pcno = Integer.parseInt(multi.getParameter("pcno")) ;
+			int pprice = Integer.parseInt(multi.getParameter("pprice")); 
+			byte pactive = Byte.parseByte(multi.getParameter("pactive"));
+			
+			// Dto 형태의 변수 dto에 하나하나 담아주고 
+	 		ProductDto dto = new ProductDto(pno, pname, pcoment, pprice, pdiscount, pactive , pimg, null , pcno);
+	 		
+	 		// Dao에서 하나하나 안쓰고 dto변수로 퉁 넣어둠
+			boolean result = new ProductDao().UpdateProduct( dto );
+					
+ 			//System.out.println("다오 리턴값 : " + result);
+ 			
+ 			response.getWriter().print(result);
+ 		
 		}
 	
 	

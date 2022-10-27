@@ -22,12 +22,10 @@ import model.dao.MemberDao;
 public class write extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-
     public write() {
         super();
 
     }
-
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -66,8 +64,6 @@ public class write extends HttpServlet {
 		// String uploadpath =  request.getSession().getServletContext().getRealPath("/"); // 최상위경로
 		String uploadpath =  request.getSession().getServletContext().getRealPath("/upload"); // jspweb/upload
 		System.out.println( uploadpath );
-		
-		
 		
 		// 2. Multipart 객체 생성
 		MultipartRequest multy = new MultipartRequest(

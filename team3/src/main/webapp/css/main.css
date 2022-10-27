@@ -8,28 +8,23 @@
 table{
 	width : 100%;
 	border: solid red 1px;
+	
 }
 
-table tr{
+table tr th td{
 	border: solid red 3px;
 }
 
-table th{
-	border: solid red 3px;
-}
-
-table td{
-	border: solid red 3px;
-}
-
-/*    */
 body{
 	margin : 0 auto;
 	padding : 0;
 	width: 100%;
 	height: 140vh;
 	background-color: #eeeeee;
+	
 }
+
+/* 헤더 */
 
 .c_header{
 	height : 35vh;
@@ -93,22 +88,15 @@ body{
 	background-color: navy;
 }
 
-.c_today {
+.c_today , .c_visit{
 	height: 40px;
 	background-color: green;
 	border-radius: 15px;
 	margin: 10px;
 }
 
-.c_visit {
-	height: 40px;
-	background-color: green;
-	border-radius: 15px;
-	margin: 10px;
-}	
-
 .c_visit h3{
-	padding-top: 10px;
+	padding-top: 5%;
 	height: 80px;
 	text-align: center;
 	vertical-align: middle;
@@ -130,11 +118,7 @@ body{
 	height: 100%;
 }
 
-.c_post_img_list th{
-	width: 33%;
-	background-color: orange;
-}
-.c_post_img_list td{
+.c_post_img_list th td{
 	width: 33%;
 	background-color: orange;
 }
@@ -143,12 +127,15 @@ body{
 #imgbox{				
 	background-color: #FF99FF;
 	padding-bottom: 33%;		/* 정사각으로 만들기 위해 */
+	border: solid 1px red;; 
 }
-
 
 .c_friends_box{
 	height: 10vh;
-	vertical-align: middle;
+	vertical-align: middle; /* 왜 안돼? */
+	position: absolute;
+	bottom: 0px;
+	background-color: yellow;
 }
 
 

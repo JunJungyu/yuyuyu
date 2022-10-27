@@ -60,15 +60,11 @@ public class bupdate extends HttpServlet {
 		String bfile = multy.getFilesystemName("bfile");		// 새로운 첨부파일
 		
 			// 1. 수정시 새로운 첨부파일 등록시 [ 기존 첨부파일 삭제 ]
-			
 		// * 수정할 게시물의 번호
 		int bno = (Integer)request.getSession().getAttribute("bno");
-		
 		BoardDto dto = BoardDao.getinstance().getboard(bno);	// 수정 되기전 게시물정보 호출
-		
 		// * 기존첨부파일 변경 여부 판단
 		boolean bfilechange = true;
-		
 		// 2. 수정 시 첨부파일 등록 없을 경우 [ 기존 첨부파일 호출 ] 
 		if( bfile == null ) { bfile = dto.getBfile(); }
 		
@@ -79,8 +75,6 @@ public class bupdate extends HttpServlet {
 				}
 		// 5. 결과반환
 		response.getWriter().print(result);
-		
-		doGet(request, response);
 	}
 
 }

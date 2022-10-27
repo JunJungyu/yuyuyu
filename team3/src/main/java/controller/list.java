@@ -29,8 +29,9 @@ public class list extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		ArrayList<BoardDto> dto = BoardDao.getInstance().getlistimg();	
-		System.out.println( dto.get(1) );															
+		ArrayList<BoardDto> dto = BoardDao.getInstance().getlistimg();																
+		
+		System.out.println("리스트 서블릿");
 		
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().print( dto );				

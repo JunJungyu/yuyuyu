@@ -27,34 +27,38 @@ public class writer extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		 //String uploadpath =  request.getSession().getServletContext().getRealPath("/upload"); 
-		 //System.out.println( uploadpath );
-				
-		// 2. Multipart 객체 생성
-		//MultipartRequest multy = new MultipartRequest(
-		// 			request , 						// 1. 요청방식
-		//			uploadpath ,					// 2. 저장 경로
-		//			1024 * 1024 * 10 ,				// 3. 10MB
-		//			"UTF-8" ,						// 4. 인코딩
-		//			new DefaultFileRenamePolicy()	// 5. 업로드된 파일의 이름이 중복일 경우 자동이름 변경
-		//		);
-		
-		//String bfile = multy.getParameter("bfile");	// request -> multy
-		// System.out.println( bfile );
-		
-		String btitle = request.getParameter("btitle");
-		String bcontent = request.getParameter("bcontent");
-		String bfile = request.getParameter("bfile");
-		
-		boolean result = BoardDao.getInstance().writeboard(btitle, bcontent, bfile);
-		
-		response.setCharacterEncoding("UTF-8");
-		response.getWriter().print(result);
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		doGet(request, response);
+		System.out.println("글 작성 서블릿 들어오나요?");
+		String uploadpath =  request.getSession().getServletContext().getRealPath("/upload"); 	// 폴더가 없고 썸머노트인데도 이걸 써야하나?
+		// 2. Multipart 객체 생성
+		MultipartRequest multy = new MultipartRequest(
+					request , 						// 1. 요청방식
+					uploadpath  ,					// 2. 저장 경로
+					1024 * 1024 * 10 ,				// 3. 10MB
+					"UTF-8" ,						// 4. 인코딩
+					new DefaultFileRenamePolicy()	// 5. 업로드된 파일의 이름이 중복일 경우 자동이름 변경
+				);
+		
+		// 3. 해당 저장경로에 첨부파일 업로드가 된다.
+		// 4. 나머지 데이터를 직접 요청
+		String btitle = multy.getParameter("btitle");	
+			 System.out.println( btitle );
+		String bcontent = multy.getParameter("bcontent");					
+			 System.out.println( bcontent );
+			// *어떤 파일을 업로드 했는지 DB에 저장할 첨부파일 경로/이름
+		String bfile = multy.getFilesystemName("bfile");	
+				System.out.println( bfile );								
+		
+		boolean result = BoardDao.getInstance().writeboard(btitle, bcontent, bfile);
+		
+		System.out.println( "답 : "+result );
+		
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().print(result);
 	}
 
 }

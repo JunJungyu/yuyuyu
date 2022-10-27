@@ -22,6 +22,7 @@ function regist(){
 // 2. 첨부파일 등록(변경)했을때 [사진]미리보기
 let pimg = document.querySelector('#pimg')
 pimg.addEventListener( 'change' , function(e){ // e : 첨부파일 change 이벤트 e : event 객체 ( 이벤트정보[ target , data 등 ] )
+	alert( pimg )
 	// 1. js 파일 클래스 [ FileReader() ]
 	let file = new FileReader()				// 객체 생성
 		//console.log( file )					// 이벤트 발생 
