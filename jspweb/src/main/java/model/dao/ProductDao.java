@@ -1,6 +1,7 @@
 package model.dao;
 
 import java.util.ArrayList;
+import java.util.function.Function;
 
 import controller.admin.pcategory;
 import controller.admin.regist;
@@ -74,5 +75,37 @@ public class ProductDao extends Dao{
 			}
 		} catch (Exception e) {System.out.println(e + "제품 관리 메소드 오류");}
 		return list;
+	}
+	
+	// 5. 제품 삭제
+	public boolean deleteproduct( int pno ){
+		String sql = "delete from product where pno ="+pno;
+		try {
+			ps = con.prepareStatement(sql);
+			// 삭제된 레코드 수로 삭제성공 유무 판단 ( 삭제를 안해도 메소드는 성공이니 )
+			int count = ps.executeUpdate();
+			if( count == 1 ) {	// 해당 번호의 레코드가 0 = 삭제 됨 잉 아닌가?
+				return true;
+			}
+		} catch (Exception e) {System.out.println(e+"제품 삭제 메소드 오류");}
+	return false;
+	}
+	
+	// 6. 제품 개별출력
+	public ProductDto getproduct( pno ) {
+		String sql = "select * from product where pno = "+pno;
+		try {
+			ps = con.prepareStatement(sql);
+			if( rs.next() ) {
+				ProductDto dto = new ProductDto(
+						rs.getInt(1) , rs.getString(2),
+						rs.getString(3) , rs.getInt(4),
+						rs.getFloat(5) , rs.getByte(6),
+						rs.getString(7) , rs.getString(8),
+						rs.getInt(9)
+						);
+			}
+			
+		} catch (Exception e) {System.out.println( e + "제품 개별호출 메소드 오류");}
 	}
 }

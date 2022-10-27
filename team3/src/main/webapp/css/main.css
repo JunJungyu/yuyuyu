@@ -132,18 +132,17 @@ body{
 
 .c_post_img_list th{
 	width: 33%;
-	height: 50vh;
 	background-color: orange;
 }
 .c_post_img_list td{
 	width: 33%;
-	height: 50vh;
 	background-color: orange;
 }
 
 /* 미리보기 이미지 */
 #imgbox{				
 	background-color: #FF99FF;
+	padding-bottom: 33%;		/* 정사각으로 만들기 위해 */
 }
 
 

@@ -22,7 +22,7 @@ import model.dto.ProductDto;
  * Servlet implementation class regist
  */
 @WebServlet("/admin/regist")
-public class regist extends HttpServlet {
+public class regist extends HttpServlet { // HttpServlet 서블릿 클래스 [ http 구현 ]
 	private static final long serialVersionUID = 1L;
        
 
@@ -31,11 +31,8 @@ public class regist extends HttpServlet {
 
     }
 
- // 2. 제품 등록 메소드 [ post ]
+ // 2. 제품 등록 메소드 [ post ] - post는 보통 등록할때 사용함 ---------------------------------------------
  	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
- 		
- 		
- 		System.out.println("들어오고계시나요1");
  		
  		/* 첨부파일이 있을 경우 [ 업로드용 ] */
  		MultipartRequest multi = new MultipartRequest(
@@ -51,47 +48,103 @@ public class regist extends HttpServlet {
  		float pdiscount = Float.parseFloat( multi.getParameter("pdiscount") );
  		String pimg = multi.getFilesystemName("pimg");
  		int pcno = Integer.parseInt(multi.getParameter("pcno"));
- 				
+ 		
+ 		// 이게 생성자인데.. 다 담아야됨?? 아 위에서 변수에 저장한 값을 dto에 담아야한다		
  		ProductDto dto = new ProductDto( 
- 				0 , pname, 
+ 				0 , pname, 					// default면 null auto면 0인가?
  				pcoment, pprice, 
  				pdiscount, (byte) 0, 
- 				pimg, null, pcno);
+ 				pimg, null, pcno );
  		
- 		// 싱글톤 안씀
+ 		// 싱글톤 안씀 - getinstance 안쓰나봄?
  		boolean result = new ProductDao().setproduct(dto);
- 		
- 		response.getWriter().print(result);	}
-
- 
-    
- // 2. 제품 출력 메소드 [ get ]
+ 		response.getWriter().print(result);		
+ 	}
+ 	
+ // 2. 제품 출력 메소드 [ get ] 출력은 겟 ---------------------------------------------
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// list->JSON
-		ArrayList<ProductDto> list = new ProductDao().getprProductList();
-		// js를 위해 list를 json으로 형젼환
-		JSONArray array = new JSONArray();
-		for( int i = 0; i<list.size(); i++ ) {
+		
+		// 공통 변수
+		
+		
+		String type = request.getParameter("type");
+		if( type.equals("1") ){	// 모든 제품 출력
+			// list->JSON
+			ArrayList<ProductDto> list = new ProductDao().getprProductList();
+			// js를 위해 list를 json으로 형젼환
+			JSONArray array = new JSONArray();
+			for( int i = 0; i<list.size(); i++ ) {
+				JSONObject object = new JSONObject();
+				object.put("pno" , list.get(i).getPno());
+				object.put("pname" , list.get(i).getPname());
+				object.put("pcoment" , list.get(i).getPcomment());
+				object.put("pprice" , list.get(i).getPprice());
+				object.put("pdiscount" , list.get(i).getPdiscount());
+				object.put("pactive" , list.get(i).getPactive());
+				object.put("pimg" , list.get(i).getPimg());
+				object.put("pdate" , list.get(i).getPdate());
+				object.put("pcno" , list.get(i).getPcno());
+				array.add( object );
+			}
+			// ↑js에서 꺼내올 수 있는 값이 됨 jason.pno이런 식으로 접근
+			response.setCharacterEncoding("UTF-8");
+			response.getWriter().print(array);
+			
+		
+		}else if( type.equals("2") ) {
+			// 1. 호출할 제품번호 요청
+			int pno = Integer.parseInt(request.getParameter("pno"));
+			
+			// 2. db처리
+			ProductDto dto = new ProductDto();
+			
+			// 3. dto -> json 형변환 [ 로직 ]
 			JSONObject object = new JSONObject();
-			object.put("pno" , list.get(i).getPno());
-			object.put("pname" , list.get(i).getPname());
-			object.put("pcoment" , list.get(i).getPcomment());
-			object.put("pprice" , list.get(i).getPprice());
-			object.put("pdiscount" , list.get(i).getPdiscount());
-			object.put("pactive" , list.get(i).getPactive());
-			object.put("pimg" , list.get(i).getPimg());
-			object.put("pdate" , list.get(i).getPdate());
-			object.put("pcno" , list.get(i).getPcno());
-			array.add( object );
+			object.put("pno" , dto.getPno());
+			object.put("pname" , dto.getPname());
+			object.put("pcoment" , dto.getPcomment());
+			object.put("pprice" , dto.getPprice());
+			object.put("pdiscount" , dto.getPdiscount());
+			object.put("pactive" , dto.getPactive());
+			object.put("pimg" , dto.getPimg());
+			object.put("pdate" , dto.getPdate());
+			object.put("pcno" , dto.getPcno());
+			
+			// 4. 응답
+			response.getWriter().print(object);
 		}
-		
-		// list.js에서 가져오기 위해 작성..  여기서 가져오는게 아닌가? 여기는 맞는데 위에 다 있음
-		//int pdate =  Integer.parseInt(multi.getParameter("pdate"));
-		
-		
-		response.setCharacterEncoding("UTF-8");
-		response.getWriter().print(array);
-		
 	}
+		
+		
+		
+		
 
+	
+	
+	// 3. 제품 수정 메소드 [ put ] --------------------------------------------------------
+	// 자동완성하면 됨
+	@Override
+		protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			
+			
+		
+			super.doPut(request, response);
+		}
+	
+	
+	// 4. 재품 삭제 메소드 [ delete ] -------------------------------------------------------
+		
+	@Override
+		protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		// 1. 요청
+		int pno = Integer.parseInt(request.getParameter("pno"));
+		
+		// 2. dao
+		boolean result = new ProductDao().deleteproduct( pno );
+		
+		// 3. 응답
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().print(result);
+		}
 }	

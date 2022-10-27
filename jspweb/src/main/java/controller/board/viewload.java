@@ -27,11 +27,6 @@ public class viewload extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-
-
-
-
-		
 		// 1. 요청 [ 클릭한 게시물의 번호 저장 = backeand ]
 		int bno = Integer.parseInt(request.getParameter("bno") );
 			// 1. 요청 [ 클릭한 게시물의 번호 저장 = backend ]
