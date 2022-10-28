@@ -9,8 +9,6 @@
 	<!-- include libraries(jQuery, bootstrap) -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-
-
 <title>Insert title here</title>
 </head>
 <body>
@@ -18,7 +16,7 @@
 	<form>
 		제목 : <input class="btitle" type="text" name="btitle"><br>
 		<!-- 썸머노트 -->
-	  	<textarea class="bcontent bfile" id="summernote" name="editordata"></textarea>	<!-- 사진이랑 텍스트를 어떻게 구별하고 디비에 넣어주지?! -->
+	  	<textarea class="bcontent bfile" id="summernote" name="bcontent"></textarea>	<!-- 사진이랑 텍스트를 어떻게 구별하고 디비에 넣어주지?! -->
 	</form>
 	<div style="background-color: red; width: 100px; height: 40px;" onclick="bwriter()">글 작성하기</div>	
 	

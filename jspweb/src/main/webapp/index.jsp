@@ -34,37 +34,19 @@
 	    <span class="visually-hidden">Next</span>
 	  </button>
 	</div>
+	
 	<!-- 제품 출력 -->
 	<div class="container">							<!-- 전체 박스권 -->
 		<h6 class="box_title"> BEST ITEM </h6>
 		<div class="itemlist">										<!-- 일정 구역 -->
-			<div class="item">									<!-- 1개의 제품[아이템] -->
-				<a href="*">
-					<img alt="제품이미지" src="/jspweb/admin/pimg/pro_img_1.jpg">
-				</a>
-				<div class="item_info">								<!-- 제품 정보 -->
-					<div class="item_title"> 트랜디한 사이즈의 링 귀걸이 </div>
-					<div class="item_size"> 배송비 무료 </div>
-				</div>
-				
-				<div class="item_price"> 200,000원 </div>				<!-- 원가 -->
-				<div>								<!-- 할인된 가격 , 할인율 -->
-					<span class="item_sale"> 20,000원 </span>			<!-- 할인된 가격 -->
-					<span class="item_discount"> 90% </span>				<!-- 할인율 -->
-				</div>
-				<div class="item_review"> 찜32 리뷰수 128 </div>
-				<div>									<!-- 강조 배지 구역 -->
-					<span class="badge text-bg-warning">주문폭주</span>
-					<span class="badge text-bg-danger">1+1</span>			
-				</div>				
-				
-			</div>	
+	
 		</div>
-		
 	</div>
-
-
-	<!--  -->
+	
+	<!-- JQUERY 자바를 편하세 사용하기 위한 라이브러리 -->
+	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="/jspweb/js/admin/index.js" type="text/javascript"></script>
+	
 </body>
 </html>
 

@@ -14,13 +14,12 @@ public class BoardDao extends Dao {
 	public static BoardDao getInstance() { return bdao; }
 	
 	// 게시물 작성 메소드
-	public boolean writeboard( String btitle , String bcontent , String editordata ){
-		String sql = "insert into board ( btitle , bcontent , bfile ) values( ? , ? , ? )";
+	public boolean writeboard( String btitle , String bcontent ){
+		String sql = "insert into board ( btitle , bcontent ) values( ? , ?  )";
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setString( 1 , btitle );
 			ps.setString( 2 , bcontent );
-			ps.setString( 3 , editordata );							// rs.getString(4) 이게 여기서 되나?
 			ps.executeUpdate();
 			System.out.println("글 작성 메소드 성공");
 			return true;
@@ -33,13 +32,13 @@ public class BoardDao extends Dao {
 	public ArrayList<BoardDto> getlistimg(){
 		JSONArray array = new JSONArray();
 		ArrayList<BoardDto> list = new ArrayList<>();
-		String sql = "select bfile from board order by bno desc";		// 최신글이니까 bno가 큰 숫자대로 출력
+		String sql = "select bcontent from board order by bno desc";		// 최신글이니까 bno가 큰 숫자대로 출력
 		try {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while( rs.next() ) {							
 				JSONObject object = new JSONObject();
-				object.put( "bfile" , rs.getString(1) );
+				object.put( "bcontent" , rs.getString(1) );
 				array.add(object);
 			}
 		} catch (Exception e) {System.out.println( e + "글 목록 메소드 오류");}

@@ -2,7 +2,7 @@ getproduct()
 function getproduct(){
 	$.ajax({
 		url : "/jspweb/admin/regist" ,
-		data : { "type" : 1 } ,			// type이 1이면 모든 제품 호출
+		data : { "type" : 1  , "option" : "all" } ,			// type이 1이면 모든 제품 호출
 		type : "get" ,
 		success : function( re ){
 			
