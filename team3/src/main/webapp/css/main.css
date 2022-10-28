@@ -8,11 +8,7 @@
 table{
 	width : 100%;
 	border: solid red 1px;
-	
-}
-
-table tr th td{
-	border: solid red 3px;
+	padding-bottom: 33%;		/* 정사각으로 만들기 위해 */
 }
 
 body{
@@ -22,7 +18,6 @@ body{
 	height: 140vh;
 	background-color: #eeeeee;
 	position: relative;					/* 왜 안되지? */
-	
 }
 
 /* 헤더 */
@@ -106,6 +101,10 @@ body{
 
 
 /* 글 미리보기 이미지 박스 테이블 */
+.c_post_img_list{
+	widows: 100%;
+}
+
 .c_postbox{
 	position: relative;
 }
@@ -119,16 +118,23 @@ body{
 	height: 100%;
 }
 
-.c_post_img_list th td{
+.c_post_img_list tr{
 	width: 33%;
-	background-color: orange;
+	height: auto;;
+	flex-wrap: wrap;
+}
+
+.c_post_img_list th{
+	width: 33%;
+	flex-wrap: wrap;
 }
 
 /* 미리보기 이미지 */
 #imgbox{				
 	background-color: #FF99FF;
-	padding-bottom: 33%;		/* 정사각으로 만들기 위해 */
-	border: solid 1px red;; 
+	background-size: cover; 
+	width: 100%;
+	height: 100%;
 }
 
 .c_friends_box{

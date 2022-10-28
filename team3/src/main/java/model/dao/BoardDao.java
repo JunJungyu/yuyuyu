@@ -45,14 +45,19 @@ public class BoardDao extends Dao {
 		return array;
 	}
 	
-	// 메인화면에서 글 미리보기 이미지 누르면 글 상세페이지로 이동하는 메소드 / 글 번호 보내주기 이 방법이 맞나 근데?? [ 미완 ]
-	public int detailpost( int bno ) {
-		
+	// 메인화면에서 글 미리보기 이미지 누르면 글 상세페이지로 이동하는 메소드 [ 미완 ]
+	public ArrayList<BoardDto> detailpost( BoardDto dto ) {							// 이게 맞나~
+		JSONArray array = new JSONArray();
 		String sql = "select * from board where bno=?";
 		try {
-			
+			ps = con.prepareStatement(sql);
+			if( rs.next() ) {
+				JSONObject object = new JSONObject();
+						object.put( "btitle" , rs.getString(2) );
+						object.put( "bcontent" , rs.getString(3) );
+						array.add(object);
+			}
 		} catch (Exception e) {System.out.println( e + "글 번호 가져오기 메소드 오류");}
-		return 1;
+		return array;
 	}
-	
 }

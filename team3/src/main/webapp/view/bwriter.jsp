@@ -14,7 +14,13 @@
 <body>
 	<h3>게시물 작성 페이지</h3>
 	<form>
-		제목 : <input class="btitle" type="text" name="btitle"><br>
+		제목 : <input class="btitle" type="text" name="btitle">
+		<select>							<!-- 와 이럼 다 수정해야되네~~ -->
+			<option>카테고리1</option>
+			<option>카테고리2</option>
+			<option>카테고리3</option>
+			<option>카테고리4</option>
+		</select>	
 		<!-- 썸머노트 -->
 	  	<textarea class="bcontent bfile" id="summernote" name="bcontent"></textarea>	<!-- 사진이랑 텍스트를 어떻게 구별하고 디비에 넣어주지?! -->
 	</form>

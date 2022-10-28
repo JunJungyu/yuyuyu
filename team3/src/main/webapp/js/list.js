@@ -30,6 +30,12 @@ function getlistimg(){
 
 function detaleboard(){ // 어떻게 연결해야 여기가 아닌 js에서 getlistimg()랑 연결하지? js를 두개 연결하기에는 list가 자동실행이라 지저분하다
 	alert('글 클릭 근데 번호를 어떻게 받아오나')
-	
+	$.ajax({
+		url : "" ,
+		type : "POST" ,
+		success : function( re ){
+			alert( re )
+		}  
+	})
 	
 }
