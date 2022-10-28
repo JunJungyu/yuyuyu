@@ -61,10 +61,16 @@
 }
 
 .item_discount{
+	float: right;
 	font-size: 20px;
 	font-family: 'Happiness-Sans-Title';
 	color: red;
 }
+
+.badge{
+	float: right;
+}
+
 
 .item_review{
 	text-align: right;

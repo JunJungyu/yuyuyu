@@ -10,6 +10,9 @@
 	<link href="../css/main.css" rel="stylesheet">
 </head>
 <body>
+
+	<!-- 이게 테이블로 짜서 다 깨짐.. 일단은 제이쿼리때매 냅두고 나중에 수정하기~ -->
+
 	<table>
 		<tr>
 			<th colspan="3">		<!-- 첫줄 -->

@@ -21,6 +21,7 @@ body{
 	width: 100%;
 	height: 140vh;
 	background-color: #eeeeee;
+	position: relative;					/* 왜 안되지? */
 	
 }
 
@@ -131,14 +132,17 @@ body{
 }
 
 .c_friends_box{
-	height: 10vh;
-	vertical-align: middle; /* 왜 안돼? */
 	position: absolute;
 	bottom: 0px;
 	background-color: yellow;
 }
 
-
+marquee{
+	position : absolute;	/* 왜 안되지? */
+	top: 0;
+	height: 10vh;			
+	vertical-align: middle; /* 왜 안돼? */
+}
 
 
 

@@ -4,35 +4,32 @@ function getlistimg(){
 		url : "http://localhost:8080/team3/list" ,
 		success : function( re ){
 			let json = JSON.parse( re )
-			
 			let html = '<table><tr>';
 			
 			let i = 0;
 			
-			// alert( json.length )
-			
-			for( int = 0 ; i < 3 ; i++ ){								// 3*3형식으로 호출할거니까 맨 윗줄 3번 반복 총 0~8반복
-				html += '<th id="imgbox">'+json[i].bfile+'</th>';		// 음 근데 이렇게하면 최신글이 아니라 처음~9번 글인데...
-			}
-			html += '</tr><tr>'
-			
-			for( int = 3 ; i < 6 ; i++ ){								// 3번씩 반복하는데 반복할때마다 <tr>을 닫아버리면 행이 3개씩 만들어지니까
-				html += '<td id="imgbox">'+json[i].bfile+'</td>';
-			}
-			html += '</tr><tr>'
-			
-			for( int = 6 ; i < 9 ; i++ ){				
-				html += '<td id="imgbox">'+json[i].bfile+'</td>';
-			}
-			html += '</tr></table>'						
-			document.querySelector('.c_post_img_list').innerHTML = html
+				for( int = 0 ; i < 3 ; i++ ){										// 3*3형식으로 호출할거니까 맨 윗줄 3번 반복 총 0~8반복
+					html += '<th onclick="detaleboard()" id="imgbox"><h3>'+json[i].bcontent+'</h3></th>';		
+				}
+				html += '</tr><tr>'
+				
+				for( int = 3 ; i < 6 ; i++ ){										// 3번씩 반복하는데 반복할때마다 <tr>을 닫아버리면 행이 3개씩 만들어지니까
+					html += '<td onclick="detaleboard()" id="imgbox">'+json[i].bcontent+'</td>';
+				}
+				html += '</tr><tr>'
+				
+				for( int = 6 ; i < 9 ; i++ ){				
+					html += '<td onclick="detaleboard()" id="imgbox">'+json[i].bcontent+'</td>';
+				}
+				html += '</tr></table>'						
+				document.querySelector('.c_post_img_list').innerHTML = html				
 			
 		}
 	})
 }
 
-// 사진 누르면 상세페이지로 이동
-function changepage(){
-	alert('닉네임 클릭')
-	location.href="../view/login.jsp";		// 근데 글 페이지는 다 jsp를 만들진 않을거고.. 매개변수 i로 받는게 안되지 그럼..?
+function detaleboard(){ // 어떻게 연결해야 여기가 아닌 js에서 getlistimg()랑 연결하지? js를 두개 연결하기에는 list가 자동실행이라 지저분하다
+	alert('글 클릭 근데 번호를 어떻게 받아오나')
+	
+	
 }

@@ -71,12 +71,12 @@ public class regist extends HttpServlet { // HttpServlet 서블릿 클래스 [ h
 		if( type.equals("1") ){	// 모든 제품 출력
 			// 1. 전체출력 이면서 2. 판매중 출력
 			String option = request.getParameter("option");
-
+			
 			// list->JSON
 			ArrayList<ProductDto> list = new ProductDao().getProductList( option );	// DAO처리
 			// js를 위해 list를 json으로 형젼환
 			JSONArray array = new JSONArray();
-			for( int i = 0; i<list.size(); i++ ) {
+			for( int i = 0; i< list.size(); i++ ) {
 				JSONObject object = new JSONObject();
 				object.put("pno" , list.get(i).getPno());
 				object.put("pname" , list.get(i).getPname());
@@ -91,7 +91,6 @@ public class regist extends HttpServlet { // HttpServlet 서블릿 클래스 [ h
 			}
 			// ↑js에서 꺼내올 수 있는 값이 됨 jason.pno이런 식으로 접근			
 		
-			System.out.println( array );
 			response.getWriter().print(array);
 			
 		}else if( type.equals("2") ) {

@@ -17,7 +17,7 @@
 			<div>
 		
 				<div class="c_prfile">
-					<img class="proimg" alt="프로필 이미지" src="../img/프로필.jpg">
+					<img class="proimg" alt="프로필 이미지" src="/team3/img/프로필.jpg">
 					<h3 onclick="changepage()">닉네임</h3>
 					<h4>간단한 자기소개 글
 						간단한 자기소개 글
@@ -52,17 +52,12 @@
 	</table>
 	
 	
-	<marquee class="c_friends_box" direction="right" scrollamount="8" >
-		친구목록박스 친구목록 누구 아무개 홍길동 짱많음 클릭하 면친구 블로그 로이동 함구현 근데친 구가많 아야볼 만하겠
-	</marquee>	
-
-
-	
 	
 	<!-- JQUERY 자바를 편하게  사용하기 위한 라이브러리 -->
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<!-- 내 js 연결 -->
 	<script src="../js/list.js" type="text/javascript"></script>
+
 	
 </body>
 </html>

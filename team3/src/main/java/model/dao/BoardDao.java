@@ -15,7 +15,7 @@ public class BoardDao extends Dao {
 	
 	// 게시물 작성 메소드
 	public boolean writeboard( String btitle , String bcontent ){
-		String sql = "insert into board ( btitle , bcontent ) values( ? , ?  )";
+		String sql = "insert into board ( btitle , bcontent ) values( ? , ? )";
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setString( 1 , btitle );
@@ -32,7 +32,7 @@ public class BoardDao extends Dao {
 	public ArrayList<BoardDto> getlistimg(){
 		JSONArray array = new JSONArray();
 		ArrayList<BoardDto> list = new ArrayList<>();
-		String sql = "select bcontent from board order by bno desc";		// 최신글이니까 bno가 큰 숫자대로 출력
+		String sql = "select bcontent from board where bcontent is not null order by bno desc";		// 최신글이면서 bcontent가 비어있지 않은 글만 / 근데 디비 자채를 낫널로 해도 될듯
 		try {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -45,7 +45,7 @@ public class BoardDao extends Dao {
 		return array;
 	}
 	
-	// 메인화면에서 글 미리보기 이미지 누르면 글 상세페이지로 이동하는 메소드 / 글 번호 보내주기 이 방법이 맞나 근데??
+	// 메인화면에서 글 미리보기 이미지 누르면 글 상세페이지로 이동하는 메소드 / 글 번호 보내주기 이 방법이 맞나 근데?? [ 미완 ]
 	public int detailpost( int bno ) {
 		
 		String sql = "select * from board where bno=?";

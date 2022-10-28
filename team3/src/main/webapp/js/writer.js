@@ -3,8 +3,6 @@ $(document).ready(function() {
   $('#summernote').summernote();
 });
 
-
-
 function bwriter(){
 	alert('작성 클릭')
 	let info = {

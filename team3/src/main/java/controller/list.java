@@ -31,8 +31,6 @@ public class list extends HttpServlet {
 	
 		ArrayList<BoardDto> dto = BoardDao.getInstance().getlistimg();																
 		
-		System.out.println("리스트 서블릿");
-		
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().print( dto );				
 	}
