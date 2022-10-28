@@ -32,6 +32,8 @@
 			<li class="side_item"><a href="#">회원목록</a></li>
 			<li class="side_item"><a href="#">베송관리</a></li>
 			<li class="side_item"><a href="http://localhost:8080/jspweb/index.jsp">로그아웃</a></li>
+			<li><a class="nav-link" href="/jspweb/member/finid.jsp">아이디 찾기</a></li>
+			<li><a class="nav-link" href="member/findpassword.jsp">비밀번호 찾기</a></li>
 		</ul>
 	</div>
 	

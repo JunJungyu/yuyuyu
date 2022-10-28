@@ -21,7 +21,7 @@
 */
 
 /* 기본값 제거 - CSS 초기화하면 인풋박스 사라져서 이렇게 해야됨*/
-*{
+*{													/* 지금은 부트스트랩때매 안먹힘 */
 	margin: 0;
 	padding: 0;
 	text-decoration: none;	

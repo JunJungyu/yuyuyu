@@ -21,7 +21,7 @@
 		<div class="hd_top">					<!-- 상단 헤더 -->
 			<div> <!-- 로고 -->
 				<span class="hd_title">
-					<a href="/jspweb/index.jsp">Ezen Shop</a>
+					<a class="nav-link" href="/jspweb/index.jsp">Ezen Shop</a>
 				</span>
 			</div>
 			
@@ -38,8 +38,8 @@
 			<ul class="hd_sub">	<!-- 상단메뉴 -->
 			<% 	if( loginid == null ){// 세션이 없다 --> 로그인 안했음 %>		<!-- java end -->
 				<!-- 비로그인 메뉴 -->
-				<li><a href="/jspweb/member/login.jsp">로그인</a></li>
-				<li><a href="/jspweb/member/signup.jsp">회원가입</a></li>
+				<li><a class="nav-link" href="/jspweb/member/login.jsp">로그인</a></li>
+				<li><a class="nav-link" href="/jspweb/member/signup.jsp">회원가입</a></li>
 				<!-- 로그인 메뉴 -->
 			<% }else if( loginid.equals("admin") ){%>
 				 <li><a href="http://localhost:8080/jspweb/admin/dashboard.jsp">관리자모드</a></li>;
@@ -48,22 +48,22 @@
 				<li><a href="/jspweb/member/logout.jsp">로그아웃</a></li>		
 			<%}%>
 			<!-- 로그인 하던 안하던 공통메뉴 -->
-				<li><a href="http://localhost:8080/jspweb/member/info.jsp">마이쇼핑</a></li>
-				<li><a href="http://localhost:8080/jspweb/board/write.jsp">고객센터</a></li>
+				<li><a class="nav-link" href="http://localhost:8080/jspweb/member/info.jsp">마이쇼핑</a></li>
+				<li><a class="nav-link" href="http://localhost:8080/jspweb/board/write.jsp">고객센터</a></li>
 			</ul>
 		</div>
 			<ul class="hd_menu">								<!-- 하단 헤더 -->
-				<li><a href="http://localhost:8080/jspweb/board/chatting.jsp">채팅방</a></li>
-				<li><a href="/jspweb/board/api.jsp">공공데이터</a></li>
-				<li><a href="#">아우터</a></li>
-				<li><a href="#">상의</a></li>
-				<li><a href="#">하의</a></li>
-				<li><a href="#">원피스</a></li>
-				<li><a href="#">세트코디</a></li>
-				<li><a href="#">악세사리</a></li>
-				<li><a href="#">신발</a></li>
-				<li><a href="#">BIG SIZE</a></li>
-				<li><a href="#">1+1  이벤트</a></li>
+				<li><a class="nav-link" href="http://localhost:8080/jspweb/board/chatting.jsp">채팅방</a></li>
+				<li><a class="nav-link" href="/jspweb/board/api.jsp">공공데이터</a></li>
+				<li><a class="nav-link" href="#">아우터</a></li>
+				<li><a class="nav-link" href="#">상의</a></li>
+				<li><a class="nav-link" href="#">하의</a></li>
+				<li><a class="nav-link" href="#">원피스</a></li>
+				<li><a class="nav-link" href="#">세트코디</a></li>
+				<li><a class="nav-link" href="#">악세사리</a></li>
+				<li><a class="nav-link" href="#">신발</a></li>
+				<li><a class="nav-link" href="#">BIG SIZE</a></li>
+				<li><a class="nav-link" href="#">1+1  이벤트</a></li>
 				
 				
 				<li class="sersh_box">

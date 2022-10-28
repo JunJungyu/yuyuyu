@@ -4,20 +4,67 @@
 <html>
 <head>
 <meta charset="UTF-8">
+	<link href="/jspweb/CSS/main.css" rel="stylesheet">
 <title>Insert title here</title>
 </head>
 	<%@include file="Header.jsp"%>
 <body>
 
-	<img alt="메인이미지" src="..src/mine/webapp/CSS/img/메인이미지.jpg" width="100%">
-
-	<div class="webbox">
-		<h3>메인 페이지</h3>	
-		<h5><a href="/jspweb/member/finid.jsp">아이디 찾기</a></h5>
-		<h5><a href="member/findpassword.jsp">비밀번호 찾기</a></h5>
+	<!-- 대문 [ 이미지 슬라이드 - 캐러샐 ] -->				<!-- carousel-fade : 덮어씌우기 -->						<!-- data-bs-interval="1000" : 자동 넘기기 -->
+<div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="1000">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="/jspweb/admin/pimg/m1.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="/jspweb/admin/pimg/m2.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="/jspweb/admin/pimg/m3.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+	  <!-- 왼쪽 버튼 -->
+	  <button class="carousel-control-prev" type="button" data-bs-target="#maincarousel" data-bs-slide="prev">
+	    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+	    <span class="visually-hidden">Previous</span>
+	  </button>
+	  <!-- 오른쪽 버튼 -->
+	  <button class="carousel-control-next" type="button" data-bs-target="#maincarousel" data-bs-slide="next">
+	    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+	    <span class="visually-hidden">Next</span>
+	  </button>
+	</div>
+	<!-- 제품 출력 -->
+	<div class="container">							<!-- 전체 박스권 -->
+		<h6 class="box_title"> BEST ITEM </h6>
+		<div class="itemlist">										<!-- 일정 구역 -->
+			<div class="item">									<!-- 1개의 제품[아이템] -->
+				<a href="*">
+					<img alt="제품이미지" src="/jspweb/admin/pimg/pro_img_1.jpg">
+				</a>
+				<div class="item_info">								<!-- 제품 정보 -->
+					<div class="item_title"> 트랜디한 사이즈의 링 귀걸이 </div>
+					<div class="item_size"> 배송비 무료 </div>
+				</div>
+				
+				<div class="item_price"> 200,000원 </div>				<!-- 원가 -->
+				<div>								<!-- 할인된 가격 , 할인율 -->
+					<span class="item_sale"> 20,000원 </span>			<!-- 할인된 가격 -->
+					<span class="item_discount"> 90% </span>				<!-- 할인율 -->
+				</div>
+				<div class="item_review"> 찜32 리뷰수 128 </div>
+				<div>									<!-- 강조 배지 구역 -->
+					<span class="badge text-bg-warning">주문폭주</span>
+					<span class="badge text-bg-danger">1+1</span>			
+				</div>				
+				
+			</div>	
+		</div>
+		
 	</div>
 
 
+	<!--  -->
 </body>
 </html>
 
