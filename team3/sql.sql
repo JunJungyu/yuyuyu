@@ -2,6 +2,32 @@ drop database if exists team3;
 create database team3;
 use team3;
 
+drop table if exists emotion;
+create table emotion(
+	emo_no int auto_increment primary key,
+    emotion varchar(20) , 
+    emo_img longtext
+);
+select * from emotion;
+
+drop table if exists diary;
+create table diary(
+	di_no int auto_increment ,
+    di_date date default now() ,
+    di_content text ,
+    emo_no int ,
+    foreign key (emo_no) references emotion (emo_no)
+);
+select * from diary;
+
+drop table if exists calendar;
+create table calendar(
+	cal_no int auto_increment primary key ,
+    emo_no int ,
+    foreign key (emo_no) references calendar (emo_no)
+);
+
+
 drop table if exists member;
 create table member(
 	mno int auto_increment primary key,			-- 회원번호
@@ -11,19 +37,18 @@ create table member(
     mfriendsno int default 0					-- 고유 mno 연결..
 );
 select * from member;
-insert into member values ( null , '아이디임둥' , '비밀번호임둥' , '닉네임임둥' , null );
-select * from member where mnickname = mnickname;
+
 drop table if exists board;
 create table board(
 	bno int auto_increment primary key ,		-- 게시물 식별번호
     btitle varchar(50) ,						-- 게시물 제목
-    bcontent longtext ,					-- 게시물 내용
+    bcontent varchar(1000) ,					-- 게시물 내용
+    bfile longtext , 							-- 게시물 첨부파일
     bdate datetime default now() ,				-- 게시물 작성일
     bview int default 0
 );
+select * from board;
 
-select * from board order by bno desc;
-select bcontent from board order by bno desc;
 drop table if exists coment;
 create table coment(
 	bno int ,									-- 어떤 글인지 식별
@@ -32,7 +57,6 @@ create table coment(
 );
 select * from coment;
 
-
 create table music(
 	muno int auto_increment primary key ,		-- 노래 식별번호
     muname varchar (30)	,						-- 노래 몇개 넣어두고 사용자는 넘버만 받아서 사용..
@@ -40,12 +64,3 @@ create table music(
     mufile longtext								-- 노래파일 저장
 );
 select * from music;
-
-
-insert into board ( btitle , bcontent , bfile ) values( '제목' , '내용' , '첨부파일' );
-select * from board;
-
-select * from board;
-select bcontent from board order by bno desc;
-insert into board (btitle , bcontent) values( '제목' , '콘텐츠9' );
-
