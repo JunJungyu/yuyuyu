@@ -26,7 +26,7 @@
 		<ul class="side_menu">
 			<li class="side_item"><a onclick="pagechange('regist.jsp')">제품등록</a></li>
 			<li class="side_item"><a onclick="pagechange('list.jsp')">제품목록</a></li>
-			<li class="side_item"><a href="#">재고관리</a></li>
+			<li class="side_item"><a onclick="pagechange('stock.jsp')"href="#">재고관리</a></li>
 			<li class="side_item"><a href="#">주문관리</a></li>
 			<li class="side_item"><a href="#">매출관리</a></li>
 			<li class="side_item"><a href="#">회원목록</a></li>

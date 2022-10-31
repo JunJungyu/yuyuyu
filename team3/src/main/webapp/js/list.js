@@ -1,7 +1,7 @@
 getlistimg()			// 글 출력 함수 자동 실행
 function getlistimg(){
 	$.ajax({
-		url : "http://localhost:8080/team3/list" ,
+		url : "/team3/list" ,
 		success : function( re ){
 			let json = JSON.parse( re )
 			let html = '<table><tr>';
@@ -23,7 +23,6 @@ function getlistimg(){
 				}
 				html += '</tr></table>'						
 				document.querySelector('.c_post_img_list').innerHTML = html				
-			
 		}
 	})
 }
