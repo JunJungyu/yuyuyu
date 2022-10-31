@@ -27,21 +27,20 @@ let rows = document.querySelectorAll('.rows')		// 재고등록 td 행 목록
 
 // 카테고리목록에서 선택을 클릭했를때 제품출력 메소드 호출
 // jsp에 onclick을 넣으면 매개변수를 받기 편해서 addEvent를 쓰나봄?
-cselect.addEventListener( 'click' , e => {
+cselect.addEventListener( 'change' , e => {
 	let pcno = e.currentTarget.value	// 선택된 카테고리 번호
 	getproduct( pcno );					// 선택된 카테고리 번호 인수로 전달
 })
 
 // 제품목록에서 선택을 클릭했을때 재고 등록 html 구성
- pselect.addEventListener( 'click' , e => {
+ pselect.addEventListener( 'change' , e => {
 	let pno = e.currentTarget.value	// 선택된 카테고리 번호
 	productlist.forEach( p => {
-		console.log( e )
-		console.log( 'p.pno 제품번호 :' + p.pno + '  클릭된번호 :' + pno )	// 이게 왜 일치하지? 카테고리 번호끼리 일치해야하는거 안니가?
 		if( p.pno == pno ){			// 해당 제품의 번호와 선택된 제품의 번호가 같으면
 			rows[0].innerHTML = p.pcno
 			rows[1].innerHTML = p.pno
 			rows[2].innerHTML = p.pname
+			stockinfo();	// 제품을 클릭했을때 제품재고 메소드 호출
 		}
 	})
 })
@@ -54,7 +53,6 @@ function getcategory(){
 		type : "get" ,
 		success : function( re ){
 			let json = JSON.parse( re )
-			
 			// 배열 혹은 리스트[객체].ForEach( 반복변수명 아무거나 , 인덱스 , 배열객체명 => { 실행코드 } )
 			let html = '<option> 카테고리 선택 </option>'
 			json.forEach( c => {
@@ -79,11 +77,111 @@ function getproduct( pcno ){
 				if( p.pcno == pcno ){	// 해당제품의 카테고리번호와 선택된 카테고리 번호
 					html += `<option value=${p.pno}>${p.pname}</option>`
 				}
-				
 			})
 			pselect.innerHTML = html
 		}
 	})
 }
+
+// 3. 재고 등록 버틀을 눌렀을때
+function setstock(){
+	alert('재고등록 버튼 눌림')
+	// 1. 등록할 데이터를 구상[ 객체화 ]한다. vs form [ *첨부파일 있을경우 ]
+	let info = {
+		psize : document.querySelector('.psize').value ,
+		pcolor : document.querySelector('.pcolor').value , 
+		pstock : document.querySelector('.pstock').value ,
+		pno :  rows[1].innerHTML
+	}
+	
+	// 2. 통신
+	$.ajax({
+		url : "/jspweb/admin/stock" ,
+		type : "post" ,
+		data : info ,
+		success : re => {
+			if( re == 'true' ){
+				alert('재고 등록 성공');
+				stockinfo();
+			}else{
+				alert('재고 등록 실패')
+			}
+		}
+	})
+}
+
+// 4. 제품별 재고 출력
+function getstock(){
+	$.ajax({
+		url : "/jspweb/admin/stock" ,
+		type : "get" ,				// get method
+		data : { "pno" : rows[1].innerHTML } ,
+		success : function ( re ){
+			let json = JSON.parse( re )
+		}
+	})
+}
+
+
+// 5. 개인과제 목록 출력
+function stockinfo(){
+	alert('개인과제1')
+	let html = '<tr> <th> 사이즈 </th> <th> 색상 </th> <th> 재고 </th> </tr>';
+	
+	$.ajax({
+		url : "/jspweb/admin/stock" ,
+		type : "get" ,
+		data  : { "pno" : rows[1].innerHTML } ,
+		success : function( re ){
+			let json = JSON.parse( re )
+			
+			console.log( json )
+			
+			for( let i = 0; i<json.length; i++ ){
+				html += '<tr><td>'+json[i].psize+'</td><td>'+json[i].pcolor+'</td><td>'+json[i].pstock+'</td></tr>'
+			}
+			document.querySelector('.infotable').innerHTML = html;
+		
+			alert( html )
+			alert('개인과제2')
+		}
+	})
+	alert(html)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

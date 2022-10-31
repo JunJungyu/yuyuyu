@@ -42,7 +42,7 @@
 				<li><a class="nav-link" href="/jspweb/member/signup.jsp">회원가입</a></li>
 				<!-- 로그인 메뉴 -->
 			<% }else if( loginid.equals("admin") ){%>
-				 <li><a href="http://localhost:8080/jspweb/admin/dashboard.jsp">관리자모드</a></li>;
+				 <li><a href="/jspweb/admin/dashboard.jsp">관리자모드</a></li>;
 			<% }else{%> <!-- 세션이 존재한다. -> 로그인 했다 --> 
 				<li> <%=loginid %>님 안녕하세요 </li>
 				<li><a href="/jspweb/member/logout.jsp">로그아웃</a></li>		

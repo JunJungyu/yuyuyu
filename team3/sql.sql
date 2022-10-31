@@ -12,11 +12,11 @@ select * from emotion;
 
 drop table if exists diary;
 create table diary(
-	di_no int auto_increment ,
-    di_date date default now() ,
+	di_no int auto_increment primary key,	-- 이게 왜 안되지??
+    di_date datetime default now() ,
     di_content text ,
     emo_no int ,
-    foreign key (emo_no) references emotion (emo_no)
+    constraint emo_no_fk foreign key (emo_no) references emotion (emo_no)
 );
 select * from diary;
 
@@ -24,9 +24,9 @@ drop table if exists calendar;
 create table calendar(
 	cal_no int auto_increment primary key ,
     emo_no int ,
-    foreign key (emo_no) references calendar (emo_no)
+    foreign key (emo_no) references emotion (emo_no)
 );
-
+select * from calendar;
 
 drop table if exists member;
 create table member(
@@ -64,3 +64,4 @@ create table music(
     mufile longtext								-- 노래파일 저장
 );
 select * from music;
+

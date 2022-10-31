@@ -41,7 +41,6 @@
 			background-position: top; 
 			font-size: 5%;
 			overflow: hidden;
-			
 		}
 		
 	</style>
@@ -49,12 +48,24 @@
 <body>
 
 	<table class="mainbox">
-		<th id="calendar"> 달력 </th>	<th rowspan="2" class="diary"> <textarea></textarea> </th>	<th rowspan="2" class="pencil"> 연필 </th>
+		<th id="calendar"> 달력 
+			<h5>2022.10.31</h5>
+			<div class="calendar_day">
+			</div>
+		</th>
+		
+		<th rowspan="2" class="diary"> 
+			<textarea class="content"></textarea>
+		</th>
+		
+		<th onclick="writediary()" rowspan="2" class="pencil"> 연필 </th>
+		
+		
 		<tr> <td> <!-- 감정박스 -->
 			
 			<table>
-				<th class=""> 감정컬러 </th> <th> 감정 이름 </th>
-				<tr> <td onclick="버튼클릭()"> 감정컬러 </td> <td> 감정 이름 </td> </tr>
+				<th onclick="버튼클릭()"> 감정컬러 </th> <th> 감정 이름 </th>
+				<tr> <td> 감정컬러 </td> <td> 감정 이름 </td> </tr>
 				<tr> <td class="emo_img"> 감정컬러 </td> <td> 감정 이름 </td> </tr>
 				<tr> <td class="emo_img"> 감정컬러 </td> <td> 감정 이름 </td> </tr>
 				<tr> <td class="emo_img"> 감정컬러 </td> <td> 감정 이름 </td> </tr>
@@ -63,7 +74,9 @@
 		 </td> </tr> 
 		
 	</table>
-
+	
+	<!-- JQUERY 자바를 편하게  사용하기 위한 라이브러리 -->
+	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="/team3/js/Diary2.js" type="text/javascript"></script>
 </body>
 </html>
