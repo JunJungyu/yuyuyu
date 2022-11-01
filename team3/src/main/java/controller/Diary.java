@@ -1,11 +1,15 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.json.simple.JSONObject;
 
 import model.dao.Dao;
 import model.dao.DiaryDao;
@@ -40,7 +44,13 @@ public class Diary extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		DiaryDto dto = DiaryDao.getInstance().getdiary( date );
+		String date = request.getParameter("date");
+		System.out.println("date : " + date);
+		
+		String di_content = DiaryDao.getInstance().getdiary( date );
+		
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().print(di_content);
 		
 	}
 

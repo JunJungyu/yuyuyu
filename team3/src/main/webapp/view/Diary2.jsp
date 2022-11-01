@@ -5,10 +5,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://unpkg.com/destyle.css@1.0.5/destyle.css">
 	<style type="text/css">
+		@font-face {
+	    font-family: 'Humanbumsuk';
+	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Humanbumsuk.woff2') format('woff2');
+	    font-weight: normal;
+	    font-style: normal;
+		}
 		
 		*{
-			border: solid 1px olive;
+			box-sizing: border-box; 
 		}
 		
 		.mainbox{
@@ -21,26 +28,85 @@
 		}
 		
 		.diary{
-			width: 65%;
+			width: 60%;
+			position: relative;
 		}
 		
-		.pencil{
-			width: 5%;
-		}
 		
-		textarea{
-			width: auto;
-			height: auto;
+		textarea{	/* textarea에 안쪽 여백 padding왜 안돼?! */
+			z-index: 2;
+			position: absolute;
+			top: 20%;
+			left: 10.2%;
+		
+			width: 80%;
+			height: 70%;
+												/* 텍스트 넘어가면 줄 넘어가게 */
 			resize: none;
-			text-align: center;
-			padding: 10%;
-			background-image: url("/team3/img/일기장임시배경.jpg");	/* 늘려도 자연스러운 이미지로 바꾸거나 딱 맞게 늘리는 방법 찾기 */
-			background-repeat: no-repeat;
+			
 			line-height: 1.8;
-			background-size: cover;
-			background-position: top; 
-			font-size: 5%;
-			overflow: hidden;
+			font-family: 'Humanbumsuk'; 
+			font-size: 30px;
+												
+			color: #3D3C39;
+			flex-wrap: wrap;
+			border: none;
+			text-align: center;
+			
+			overflow: hidden;									/* 스크롤 숨기기 */
+		}
+		
+		.diary_img{
+			z-index: 1;
+			position: absolute;
+			top: 0px;
+			
+			width: 100%;
+			height: 100%;
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: top;
+		}
+		
+		.todaydate{
+			z-index: 2;
+			position: absolute;
+			top: 70px;
+			right: 100px;
+			font-family: 'Humanbumsuk'; 
+			font-size: 35px;
+		}
+		
+		.clickbtn{
+			resize: none;
+			background-repeat: no-repeat;
+			width: 70%;										
+			float: right;
+			margin-top: 30%;
+			font-family: 'Humanbumsuk';
+		}
+				
+		.c_emotion_t{
+			position: relative;
+		}		
+				
+		.c_emotion_t tr{
+			width: 100%;
+		}
+		
+		.c_emotion_t table{
+			width: 100%;
+			position: absolute;
+			bottom: 5px;
+		}
+
+		.c_emotion_t td:nth-child(1) {
+			width: 30%;
+			text-align: center;
+		}
+		
+		.c_emotion_t td:nth-child(2) {
+			width: 70%;
 		}
 		
 	</style>
@@ -48,27 +114,30 @@
 <body>
 
 	<table class="mainbox">
-		<th id="calendar"> 달력 
-			<h5>2022.10.31</h5>
+		<th id="calendar">
+			<input id="date" type="date" onchange="load_diary()">
 			<div class="calendar_day">
 			</div>
+			
 		</th>
 		
-		<th rowspan="2" class="diary"> 
-			<textarea class="content"></textarea>
+		<th rowspan="2" class="diary">
+			<img class="diary_img" src="/team3/img/일기장.png">
+			<h3 class="todaydate">2022년 11월 1일</h3>
+			<textarea id="content"></textarea> 
 		</th>
 		
-		<th onclick="writediary()" rowspan="2" class="pencil"> 연필 </th>
+		<th rowspan="2" class="pencil"> <img onclick="writediary()" class="clickbtn" src="/team3/img/연필.png"> </th>
 		
 		
-		<tr> <td> <!-- 감정박스 -->
+		<tr> <td class="c_emotion_t"> <!-- 감정박스 -->
 			
 			<table>
-				<th onclick="버튼클릭()"> 감정컬러 </th> <th> 감정 이름 </th>
-				<tr> <td> 감정컬러 </td> <td> 감정 이름 </td> </tr>
-				<tr> <td class="emo_img"> 감정컬러 </td> <td> 감정 이름 </td> </tr>
-				<tr> <td class="emo_img"> 감정컬러 </td> <td> 감정 이름 </td> </tr>
-				<tr> <td class="emo_img"> 감정컬러 </td> <td> 감정 이름 </td> </tr>
+				<tr> <td onclick="버튼클릭()" class="emo_img"><img src="/team3/img/사랑.png" style="width: 40px"></td> <td> 감정 이름 </td> </tr>
+				<tr> <td class="emo_img"><img src="/team3/img/슬픔.png" style="width: 40px"></td> <td> 감정 이름 </td> </tr>
+				<tr> <td class="emo_img"><img src="/team3/img/슬픔.png" style="width: 40px"></td> <td> 감정 이름 </td> </tr>
+				<tr> <td class="emo_img"><img src="/team3/img/슬픔.png" style="width: 40px"></td> <td> 감정 이름 </td> </tr>
+				<tr> <td class="emo_img"><img src="/team3/img/슬픔.png" style="width: 40px"></td> <td> 감정 이름 </td> </tr>
 			</table>
 		
 		 </td> </tr> 

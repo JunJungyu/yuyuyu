@@ -1,15 +1,7 @@
-function 버튼클릭(){				// [ 미완 ]
-	alert("감정선택")
-	let 꾸미기 = '';
-	꾸미기 += '<img id="day21" src="/team3/img/사랑.png" style="z-index: 2; width: 40px">';
-	document.getElementById('day21').innerHTML += 꾸미기;
-	// 왜 안될까??? console보면 변경은 되는데? 왜? 안
-	// 해당 날짜로 가게 연결... 그리고 감정마다 만들기 번거로우니 이름을 숫자로 맞춰서 반복문을 하던 매개변수를 하던 바꾸기~
-}
+alert('하루에 한번만 작성 가능한 일기장입니다. 모두 작성한 후에는 연필을 클릭해주세요.')
 
-function writediary(){			// 다이어리 작성 함수 [ 완 ]
-	
-	let content = document.querySelector('.content').value
+function writediary(){			// 다이어리 작성 함수 [ 완 ] - 근데 감정도 data로 보내게 수정해야될듯?
+	let content = document.querySelector('#content').value
 	$.ajax({
 		url : "/team3/Diary" ,
 		data : { "content" : content } ,
@@ -22,8 +14,29 @@ function writediary(){			// 다이어리 작성 함수 [ 완 ]
 	})
 }
 
-calendar_day()
-function calendar_day(){
+function load_diary(){			// [ 완 ] - 선택한 날짜의 일기 불러오기
+	
+	let date = document.getElementById('date').value
+	alert( date )
+	
+	$.ajax({
+		url : "/team3/Diary" ,
+		type : "post" ,
+		data : { "date" : date } ,
+		success : function(re){
+			if( re != 'null' ){
+				let html = re ;
+				document.getElementById('content').value = html	
+			}else{alert('일기를 작성하지 않은 날이에요')}
+			
+
+		}
+	})
+	
+}
+
+//calendar_day()
+function calendar_day(){				// [ 미완 ] - 어차피 이 방법으론 안쓸듯
 	let html = '';
 	for( let i = 0; i<31; i++ ){
 		if( i % 7 == 0 ){
@@ -34,14 +47,11 @@ function calendar_day(){
 	document.querySelector('.calendar_day').innerHTML = html
 }
 
-let year = date.getFullYear;
-alert( year )
+function 버튼클릭(){				// [ 미완 ] - 어차피 이 방법으론 안쓸듯
+	alert("감정선택")
+	document.getElementById('day21').src='/team3/img/사랑.png'
+}
 
-function loaddiary(){
-	$.ajax({
-		url : "" ,
-		success : function( re ){
-			alert( re )
-		}
-	})
+function 감정테이블입력(){
+	
 }

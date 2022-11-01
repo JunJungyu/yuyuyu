@@ -13,12 +13,13 @@ select * from emotion;
 drop table if exists diary;
 create table diary(
 	di_no int auto_increment primary key,	-- 이게 왜 안되지??
-    di_date datetime default now() ,
+    di_date date default (current_date) ,
     di_content text ,
     emo_no int ,
     constraint emo_no_fk foreign key (emo_no) references emotion (emo_no)
 );
 select * from diary;
+insert into diary ( di_content ) value( '오늘의 일기~' );
 
 drop table if exists calendar;
 create table calendar(
@@ -64,4 +65,6 @@ create table music(
     mufile longtext								-- 노래파일 저장
 );
 select * from music;
+
+select di_content from diary where di_date = '2022-10-31 18:15:26';
 

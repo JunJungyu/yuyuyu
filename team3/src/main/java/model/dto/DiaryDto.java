@@ -2,10 +2,10 @@ package model.dto;
 
 public class DiaryDto {
 
-	int di_no ;
-	String di_date ;
-	String di_content ;
-	int emo_no ;
+	private int di_no ;
+	private String di_date ;
+	private String di_content ;
+	private int emo_no ;
 	
 	public DiaryDto() {}
 

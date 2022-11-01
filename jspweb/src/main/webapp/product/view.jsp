@@ -23,7 +23,7 @@
 						
 		<div class="row"> 	
 			<div class="col-md-6">	<!-- 대표이미지 - 12그리드중 반 근데 이미지가 삐져나온다~ -->
-				<img alt="대표이미지" src="/jspweb/admin/pimg/mainimg.png">
+				<img class="pimg" alt="대표이미지" src="/jspweb/admin/pimg/mainimg.png">
 			</div>
 			
 			<div class="col-md-6">											<!-- 상품 정보 - 12그리드중 반-->
@@ -36,10 +36,10 @@
 						<span class="psale"> 16,000원 </span>								<!-- 할인이 적용된 가격 -->
 					</div>
 					<div class="pricebox">									<!-- 할인율이 없을 경우 -->
-						<span> 30,000원 </span>								<!-- 할인율 -->
+													<!-- 할인율 -->
 					</div>
 					<div class="sizebox">									<!-- 사이즈 박스 -->
-						<span> [ free , s , m , l ] </span>
+						
 					</div>
 					<table class="table infotable">									<!-- 제품 옵션 -->
 						<tr> <td>배송비</td><td>2,500원 ( 70,000원 이상 구매시 무료) </td> </tr>
@@ -48,11 +48,7 @@
 						<tr> <td>색상</td>
 						
 						<td>
-							<select>
-								<option>[필수] 색상선택</option>
-								<option>골드</option>
-								<option>실버</option>
-								<option>로즈골드</option>
+							<select class="cselect">
 							</select>
 						</td> 
 						
@@ -61,11 +57,8 @@
 						
 						<tr> <td>사이즈</td>
 							 <td>
-							 	<select>
-							 		<option>[필수] 사이즈 선택</option>
-							 		<option>9호</option>
-							 		<option>10호</option>
-							 		<option>11호</option>
+							 	<select class="sselect">
+							 		<option>[필수] 색상 우선 선택</option>
 							 	</select>
 							 </td> 
 						</tr>
