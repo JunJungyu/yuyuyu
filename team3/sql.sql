@@ -10,6 +10,10 @@ create table emotion(
 );
 select * from emotion;
 
+insert into emotion value( null , '패닉' , '채닉.png');
+
+select emo_img , emotion from emotion;
+
 drop table if exists diary;
 create table diary(
 	di_no int auto_increment primary key,	-- 이게 왜 안되지??
@@ -66,5 +70,5 @@ create table music(
 );
 select * from music;
 
-select di_content from diary where di_date = '2022-10-31 18:15:26';
-
+select di_content from diary where di_date = '2022-11-01';
+select di_content from diary;
