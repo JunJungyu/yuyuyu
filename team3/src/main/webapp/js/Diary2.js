@@ -54,7 +54,7 @@ function getemotiontable(){		// [ 완 ] 감정 테이블 나타내기
 	})
 }
 
-function choiceemono(){				// [ 완 ] 감정 선택하기
+function choiceemono(){				// [ 미완 ] 감정 선택하기 - 왜 자꾸 6만 넘어오지?
 	let html = '';
 	$.ajax({
 		url : "/team3/emotion" ,
@@ -64,6 +64,7 @@ function choiceemono(){				// [ 완 ] 감정 선택하기
 				html += '<input class="emono" value="'+json[i].emo_no+'" type="hidden">'
 				document.querySelector('.emo'+i+'no').innerHTML = html
 			}
+			
 		}
 	})
 }
@@ -71,7 +72,7 @@ function choiceemono(){				// [ 완 ] 감정 선택하기
 function writediary(){			// 다이어리 작성 함수 [ 완 ] - 근데 감정도 data로 보내게 수정해야될듯?
 	let content = document.querySelector('#content').value
 	let emono = document.querySelector('.emono').value
-
+console.log( emono )
 	$.ajax({
 		url : "/team3/Diary" ,
 		data : { "content" : content  , "emono" : emono } ,
