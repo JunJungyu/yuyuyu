@@ -109,6 +109,18 @@
 			width: 70%;
 		}
 		
+		.emoji{
+			width: 45px;
+			height: 45px;
+		}
+		
+		.c_emobox td{
+			border: solid 1px olive;
+			width: 100%;
+			vertical-align: middle;
+			text-align: center;
+		}
+		
 	</style>
 </head>
 <body>
@@ -133,6 +145,7 @@
 		<tr> <td class="c_emotion_t"> <!-- 감정박스 -->
 			
 			<table class="c_emobox">
+			
 			</table>
 			<button onclick="updateemotion()">감정 수정하기</button>
 		 </td> </tr> 

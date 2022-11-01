@@ -37,14 +37,11 @@ public class emotion extends HttpServlet {
 		JSONArray array = new JSONArray();
 		for( EmotionDto dto : list ) {
 			JSONObject object = new JSONObject();
-			object.put("emono", dto.getEmo_no());
+			object.put("emo_no", dto.getEmo_no());
 			object.put("emotion", dto.getEmotion());
-			object.put("emoing", dto.getEmo_img());
+			object.put("emo_img", dto.getEmo_img());
 			array.add(object);
 		}
-	
-		System.out.println("두겟들어옴");
-		System.out.println(array);
 		
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().print(array);

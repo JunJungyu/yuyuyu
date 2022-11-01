@@ -31,10 +31,11 @@ public class Diary extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		String content = request.getParameter("content");
-		
+		int emono = Integer.parseInt(request.getParameter("emono"));
+		System.out.println(emono);
 		System.out.println(content);
 		
-		boolean result = DiaryDao.getInstance().dwrite(content);
+		boolean result = DiaryDao.getInstance().dwrite(content, emono);
 		
 		System.out.println(result);
 		

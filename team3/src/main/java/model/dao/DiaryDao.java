@@ -16,11 +16,12 @@ public class DiaryDao extends Dao{
 	private static DiaryDao ddao = new DiaryDao();
 	public static DiaryDao getInstance() { return ddao; }
 	
-	public boolean dwrite( String content ) {
-		String sql = "insert into diary ( di_content ) value( ? )";
+	public boolean dwrite( String content , int emono ) {
+		String sql = "insert into diary ( di_content , emo_no ) values( ? , ? )";
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, content);
+			ps.setInt(2, emono );
 			ps.executeUpdate();
 			return true;
 		} catch (Exception e) {System.out.println("다이어리 작성 메소드 오류" + e);}
@@ -56,19 +57,17 @@ public class DiaryDao extends Dao{
 	
 	public ArrayList<EmotionDto> getemotion() {					// 전체 감정 가져오기 테이블 출력용
 		String sql = "select * from emotion";
-		JSONArray array = new JSONArray();
 		ArrayList<EmotionDto> list = new ArrayList<>();
 		try {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
-			while( rs.next() ) {						// while인에 왜 한번만 돌지?
-				JSONObject object = new JSONObject();
-				object.put("emo_no", rs.getInt(1));
-				object.put("emotion", rs.getString(2));
-				object.put("emo_img", rs.getString(3));
-				array.add(object);
+			while( rs.next() ) {						
+				EmotionDto dto = new EmotionDto(
+						rs.getInt(1), rs.getString(2), rs.getString(3)
+						);
+				list.add(dto);
 			}
 		} catch (Exception e) {System.out.println( e + "전체 감정 가져오기 메소드 오류");}
-		return array;
+		return list;
 	}
 }
