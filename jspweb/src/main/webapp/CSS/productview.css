@@ -1,0 +1,136 @@
+@charset "UTF-8";
+
+img{ width: 100%; }	/* 상위태그의 사이즈만큼 비율 */
+
+img:hover{
+	opacity: 0.8;		/* 투명도 */
+}
+
+.infobox{			/* 상품정보 박스권 위쪽테두리 , 왼쪽여백 */
+	border-top: 1px solid gray;
+	margin-left: 3%;
+}
+
+.pname{				/* 제품명 */
+	margin-top: 5%;
+	font-family: 'Happiness-Sans-Title';
+}
+
+.pcomment{			/* 제품 설명 */
+	font-size: 8px;
+	margin: 5% 0%;
+}
+
+.pricebox{			
+	margin: 2% 0%;
+}
+
+.pdixcount{			/* 할인율 */
+	font-family: 'Happiness-Sans-Title';
+	color: #E22B2B;
+	padding-right: 3%;
+}
+
+.pprice{
+	text-decoration: line-through;	/* 중간 실선 */
+	color: #999999;
+	padding-right: 3%;
+}
+
+.psale{				/* 판매가 */
+	font-family: 'Happiness-Sans-Title';
+	padding-right: 3%;
+	color: #DBB700;	
+	font-size: 20px;
+}
+
+.infotable{
+	margin: 5% 0%;
+	font-size: 15px;
+}
+
+select{
+	width: 60%;
+	height: 30px;
+	border: none;
+}
+
+.select_t{
+	margin: 5% 0%;	
+}
+
+input{ 
+	width: 50%; 
+}
+
+form-control{
+	width: 100%;
+}
+
+.amount_btn{
+	display: block;
+	background-color: transparent;	/* 투명색 */
+	border: none;
+	padding: 0px 10px;
+}
+
+.cancel_btn{
+	background-color: white;
+	font-size: 15px;
+	border: none;
+	padding: 16px 2px;
+	font-family: 'Happiness-Sans-Title';
+}
+
+.pointbox{
+	font-size: 8px;
+	color: #999999;
+}
+
+.totalprice{
+	text-align: right;
+	font-family: 'Happiness-Sans-Title';
+	font-size: 20px;
+}
+
+/* 버튼목록 */
+.btnbox{
+	margin: 7% 0%;
+	font-size: 15px;
+}
+
+.btnbox button{
+	background-color: transparent;
+	border: 1px solid #999999;
+	width: 30%;					
+	padding: 20px 10px;					/* 버튼 내 안쪽여백 */
+	border-radius: 15px;
+	margin-left: 2.5%;					/* 왼쪽 바깥여백 = 버튼들의 사이 간격 */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

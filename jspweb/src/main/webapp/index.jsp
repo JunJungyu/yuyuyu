@@ -33,7 +33,7 @@
 	    <span class="carousel-control-next-icon" aria-hidden="true"></span>
 	    <span class="visually-hidden">Next</span>
 	  </button>
-	</div>
+</div>
 	
 	<!-- 제품 출력 -->
 	<div class="container">							<!-- 전체 박스권 -->

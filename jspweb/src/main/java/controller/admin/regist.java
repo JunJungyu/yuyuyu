@@ -69,7 +69,7 @@ public class regist extends HttpServlet { // HttpServlet 서블릿 클래스 [ h
 		response.setCharacterEncoding("UTF-8");
 		
 		if( type.equals("1") ){	// 모든 제품 출력
-			// 1. 전체출력 이면서 2. 판매중 출력
+			// 1. 전체출력 이면서 2. 판매중 출력 
 			String option = request.getParameter("option");
 			
 			// list->JSON

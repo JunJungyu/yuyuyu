@@ -12,7 +12,7 @@ function getactive1(){
 				dis_price = json[i].pprice-(json[i].pprice*json[i].pdiscount)
 				
 				html +=  '<div class="item">'+
-							'<a href="*">'+
+							'<a href="/jspweb/product/view.jsp?pno='+json[i].pno+'">'+
 								'<img alt="제품이미지" src="/jspweb/admin/pimg/'+json[i].pimg+'">'+
 							'</a>'+
 							'<div class="item_info">'+
@@ -29,7 +29,7 @@ function getactive1(){
 										'<span class="badge text-bg-warning">주문폭주</span>'+
 										'<span class="badge text-bg-danger">1+1</span>'+
 									'</div>'+
-							'</div>';
+						'</div>';
 							}
 		document.querySelector('.itemlist').innerHTML += html
 		}
