@@ -7,7 +7,9 @@ import org.eclipse.jdt.internal.compiler.ast.ReturnStatement;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import controller.emotion;
 import model.dto.DiaryDto;
+import model.dto.EmotionDto;
 
 public class DiaryDao extends Dao{
 
@@ -52,16 +54,21 @@ public class DiaryDao extends Dao{
 		return -1;
 	}
 	
-	public DiaryDao getemotion() {					// 전체 감정 가져오기 테이블 출력용
+	public ArrayList<EmotionDto> getemotion() {					// 전체 감정 가져오기 테이블 출력용
 		String sql = "select * from emotion";
+		JSONArray array = new JSONArray();
+		ArrayList<EmotionDto> list = new ArrayList<>();
 		try {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
-			while( rs.next() ) {
-				DiaryDto dto = new DiaryDto( 
-						rs.getInt(""), sql, 
-						sql, getemotionno())
+			while( rs.next() ) {						// while인에 왜 한번만 돌지?
+				JSONObject object = new JSONObject();
+				object.put("emo_no", rs.getInt(1));
+				object.put("emotion", rs.getString(2));
+				object.put("emo_img", rs.getString(3));
+				array.add(object);
 			}
 		} catch (Exception e) {System.out.println( e + "전체 감정 가져오기 메소드 오류");}
+		return array;
 	}
 }

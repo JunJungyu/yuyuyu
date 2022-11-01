@@ -123,7 +123,7 @@
 		
 		<th rowspan="2" class="diary">
 			<img class="diary_img" src="/team3/img/일기장.png">
-			<h3 class="todaydate">2022년 11월 1일</h3>
+			<h3 class="todaydate"></h3>
 			<textarea id="content"></textarea> 
 		</th>
 		
@@ -132,14 +132,9 @@
 		
 		<tr> <td class="c_emotion_t"> <!-- 감정박스 -->
 			
-			<table>
-				<tr> <td onclick="버튼클릭()" class="emo_img"><img src="/team3/img/사랑.png" style="width: 40px"></td> <td> 감정 이름 </td> </tr>
-				<tr> <td class="emo_img"><img src="/team3/img/슬픔.png" style="width: 40px"></td> <td> 감정 이름 </td> </tr>
-				<tr> <td class="emo_img"><img src="/team3/img/슬픔.png" style="width: 40px"></td> <td> 감정 이름 </td> </tr>
-				<tr> <td class="emo_img"><img src="/team3/img/슬픔.png" style="width: 40px"></td> <td> 감정 이름 </td> </tr>
-				<tr> <td class="emo_img"><img src="/team3/img/슬픔.png" style="width: 40px"></td> <td> 감정 이름 </td> </tr>
+			<table class="c_emobox">
 			</table>
-		
+			<button onclick="updateemotion()">감정 수정하기</button>
 		 </td> </tr> 
 		
 	</table>
