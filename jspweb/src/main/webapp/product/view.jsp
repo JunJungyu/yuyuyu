@@ -16,9 +16,15 @@
 		// 2. 만약에 요청변수가 없을 경우					// ↓페이지 이동
 		if( request.getParameter("pno") == null ){ response.sendRedirect("/jspweb/index.jsp"); }
 		int pno = Integer.parseInt( request.getParameter("pno") );
-		
+		// 2. 로그인된 회원정보 호출
+		Object object = session.getAttribute("mid");
+		String mid = null;
+		if( object != null ){	// 로그인 했다.
+			mid = (String)object;
+		}
 	%>
 	<input type="hidden" value="<%=pno%>" class="pno">	
+	<input type="text" value="<%=mid%>" class="mid">	
 	<div class="container">		<!-- b: container -->
 						
 		<div class="row"> 	
@@ -102,7 +108,7 @@
 					<div class="btnbox">														<!-- 버튼 -->
 						<button class="btn">바로 구매</button>
 						<button class="btn">장바구니</button>
-						<button class="btn">찜하기♡</button>	<!-- 로그인된 회원이 찜하기 X -->
+						<button onclick="" id="btn3" class="btn btnlike">찜하기♡</button>	<!-- 로그인된 회원이 찜하기 X -->
 						<!-- <button>찜하기♥</button>	 로그인된 회원이 찜하기 O -->
 					</div>
 				</div>

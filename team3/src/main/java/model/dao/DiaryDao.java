@@ -42,7 +42,7 @@ public class DiaryDao extends Dao{
 			return null;
 	}
 	
-	public int getemotionno() {				// 감정 번호 가져오기 메소드
+	public int getemotionno() {				// 감정 번호 가져오기 메소드 - 아직 사용 안하고 있음
 		String sql = "select emo_no from emotion";
 		try {
 			ps = con.prepareStatement(sql);

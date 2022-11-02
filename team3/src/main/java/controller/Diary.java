@@ -31,7 +31,7 @@ public class Diary extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		String content = request.getParameter("content");
-		int emono = Integer.parseInt(request.getParameter("emono"));
+		int emono = Integer.parseInt(request.getParameter("emono")); // 만들어둔 다오 여기서 써야하나?
 		System.out.println(emono);
 		System.out.println(content);
 		
