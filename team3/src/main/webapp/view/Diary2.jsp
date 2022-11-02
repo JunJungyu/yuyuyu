@@ -68,6 +68,18 @@
 			background-position: top;
 		}
 		
+		.emotableimg{
+			z-index: 0;
+			position: absolute;
+			top: 0px;
+			
+			width: 100%;
+			height: 100%;
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: top;
+		}
+		
 		.todaydate{
 			z-index: 2;
 			position: absolute;
@@ -76,6 +88,8 @@
 			font-family: 'Humanbumsuk'; 
 			font-size: 35px;
 		}
+		
+		
 		
 		.clickbtn{
 			resize: none;
@@ -116,10 +130,10 @@
 		
 		.c_emobox td{
 			border: solid 1px olive;
-			width: 100%;
 			vertical-align: middle;
 			text-align: center;
-		}
+			z-index: 1;
+		}		
 		
 	</style>
 </head>
@@ -143,7 +157,7 @@
 		
 		
 		<tr> <td class="c_emotion_t"> <!-- 감정박스 -->
-			
+			<img class="emotableimg" alt="감정테이블배경" src="/team3/img/포스트잇개별.png">	<!-- 사이즈 조절하기 -->
 			<table class="c_emobox">
 			
 			</table>

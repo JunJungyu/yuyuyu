@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import model.dao.Dao;
@@ -48,10 +49,25 @@ public class Diary extends HttpServlet {
 		String date = request.getParameter("date");
 		System.out.println("date : " + date);
 		
-		String di_content = DiaryDao.getInstance().getdiary( date );
+		ArrayList<DiaryDto> list = DiaryDao.getInstance().getdiary(date);
+
+		// 리스트가 존재하지 않을때 일기가 없을떄  아예 'null'을 ajax로 보냄
+		if( list == null ) { response.getWriter().print("null"); return; }
+		
+		JSONArray array = new JSONArray();
+		for( DiaryDto dto : list ) {
+			JSONObject object = new JSONObject();
+			object.put("di_no", dto.getDi_no());
+			object.put("di_date", dto.getDi_date());
+			object.put("di_content", dto.getDi_content());
+			object.put("em_no", dto.getEmo_no());
+			array.add(object);
+		}
+		
+		System.out.println(array);
 		
 		response.setCharacterEncoding("UTF-8");
-		response.getWriter().print(di_content);
+		response.getWriter().print(array);
 		
 	}
 

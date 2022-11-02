@@ -31,11 +31,12 @@ document.querySelector('.class명')
 
 
 // 공통변수 // 전역변수 [ 여러 함수에서 공유해서 사용하기 위한 목적 ]
-let stock = null // 재고목록
-let shtml = null; // 제품 
-let product = null; // 선택된 색상
-let productlist = []; // 선택된 제품옵션 [색상,사이즈,개수] 리스트/목록 선언
-let psale = 0;			// 실제 할인율이 들어간 판매가
+let stock = null				 // 재고목록
+let shtml = null; 				 // 제품 
+let product = null;				 // 선택된 색상
+let productlist = []; 			 // 선택된 제품옵션 [색상,사이즈,개수] 리스트/목록 선언
+let psale = 0;					 // 실제 할인율이 들어간 판매가
+
 // 1. 현재 페이지 내 제품번호[ a href="링크?pno=제품번호" ]를 가지고 와서 ajax로 해당 제품번호의 모든 제품정보를 가져오자
 let pno = document.querySelector('.pno').value
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -53,7 +54,7 @@ document.querySelector('.cselect').addEventListener( 'change' , (e)=>{
 	document.querySelector('.sselect').innerHTML = shtml
 } )
 
-// 사이즈 select 박스를 change
+// 사이즈 select 박스를 change 했을때 이벤트
 document.querySelector('.sselect').addEventListener( 'change' , (e) => {
 	let size = e.currentTarget.value
 	
@@ -63,8 +64,9 @@ document.querySelector('.sselect').addEventListener( 'change' , (e) => {
 	// 2. 이미 존재한 옵션을 클릭했을때 해당 옵션의 수량 재고만 1증가한다.
 	for( p of productlist ){
 		if( p.pcolor == color && 
-			p.size == size ){
-			p.amount++;
+			p.psize == size ){
+			p.amount++;	
+			alert("중복! 현재 선택한 수량 :"+p.amount)	// 엥? 값은 제대로 들어옴.. 
 			print();
 			return;	
 		}	
@@ -74,7 +76,7 @@ document.querySelector('.sselect').addEventListener( 'change' , (e) => {
 	let sproduct = {
 		pcolor : color ,	// 색상
 		psize : size ,		// 사이즈
-		amount : 1			// 수량
+		amount : 1			// 수량	있는데 왜이러지??
 	}
 	// 리스트에 담는다.
 	productlist.push( sproduct ) // 리스트에 담는다.
@@ -82,16 +84,31 @@ document.querySelector('.sselect').addEventListener( 'change' , (e) => {
 	print()
 } )
 
+let btnlike = document.querySelector('.btnlike');
 document.querySelector('.btnlike').addEventListener( 'click' , (e)=>{
 	// 1. 로그인 유무 판단 [ 1. ajax 통신해서 세션 유무 확인한다. 2. jsp에서 가져온다. ]
-	document.querySelector('.mid').value
+	let mid = document.querySelector('.mid').value
 	if( mid == 'null' ){
 		alert('로그인후 이용가능한 기능입니다.')
 		return;
 	}
-	
-	// 2. 찜하기 등록 혹은 삭제
-
+	// 2. 찜하기 등록 혹은 취소 처리
+	$.ajax({
+		url : "/jspweb/product/plike" ,
+		type : "post" ,
+		data : { "pno" : pno } ,
+		success : function(re){
+			if( re == "1" ){
+				alert('찜하기 취소')
+				btnlike.innerHTML = '찜하기 ♡'
+			}else if( re == "2" ){
+				alert('찜하기 성공♥')
+				btnlike.innerHTML = '찜하기 ♥'
+			}else{
+				alert('db오류 [ 관리자 문의 ]')
+			}
+		}
+	})
 } )
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -115,17 +132,16 @@ $.ajax({				// 결과와 상관없이 다음코드가 진행 [ async : true 결�
 	
 // 2. 해당 제품의 전보를 HTML 대입 메소드
 function sethtmlprint(){
-	// 1. 제품사진 대입
-	document.querySelector('.pimg').src='/jspweb/admin/pimg/'+product.pimg
-	// 2. 제품명 대입
-	document.querySelector('.pname').innerHTML = product.pname
-	// 3. 세품설명 대입
-	document.querySelector('.pcomment').innerHTML = product.pcoment
-	// 4. 가격 대입 
-	let phtml = ''
+	document.querySelector('.pimg').src='/jspweb/admin/pimg/'+product.pimg// 1. 제품사진 대입
+	document.querySelector('.pname').innerHTML = product.pname			  // 2. 제품명 대입
+	document.querySelector('.pcomment').innerHTML = product.pcoment       // 3. 제품설명 대입 과연 내가 여기서 m을 하나했을까 두개 했을까
+	let phtml = ''														  // 4. 가격 대입 
 	if( product.pdiscount == 0 ){	// 2. 할인이 없을 때
-		phtml += '<span class="psale">'+p.sale.toLocaleString()+'원</span>	'
+		
+		psale = product.pprice
+		phtml += '<span class="psale">'+psale.toLocaleString()+'원</span>	'
 	}else{						// 1. 할인이 있을 때
+		psale = product.pprice - ( product.pprice*product.pdiscount )
 		phtml = '<span class="pdiscount">'+ Math.round( product.pdiscount * 100 )+'%</span>'+
 				'<span class="pprice">'+( product.pprice.toLocaleString() )+'원</span>'+
 				'<span class="psale">'+ psale.toLocaleString() +'원</span>'	
@@ -160,7 +176,7 @@ function sethtmlprint(){
 }
 		
 // 3. 재고 가져오는 함수 메소	
-function getstock( pno ){
+function getstock( pno ){ // 5. 현재 제품의 재고목록 호출 [ ajax ]
 	$.ajax({
 		url : "/jspweb/admin/stock" ,
 		type : "get" , 
@@ -170,23 +186,24 @@ function getstock( pno ){
 	});
 }
 
-// 4. 선택된 제품옵션 리스트를 출력하는 함수 [ 1. 사이즈를 선택 했을때 2. 옵션 제거했을 때 마다 실행 ]
+// 4. 선택된 제품옵션 리스트를 출력하는 함수 [ 1. 사이즈를 선택 했을때 2. 옵션 제거했을때 마다 실행 ]
 function print(){
-	let tsale = psale*p.amount	// 왜?! 서블릿에도 없고 어디서 가져오는거지?
-	let tpoint = Math.round(tsale*0.01) 	// 할인이 적용된 가격의 포인트
 	let ohtml = '<tr>'+
-                    '<th width="55%"> 상품명/옵 션 </th>'+
+                    '<th width="55%"> 상품명/옵션 </th>'+
                     '<th width="30%">수량</th>'+
-                    '<th width="15%">'+tsale+'</th>'+
+                    '<th width="15%">가격</th>'+
                  '</tr>';
-    let totalprice = 0 			// 선택한 옵션제품 목록 총판매가 변수
-	let totalamount = 0   		// 선택한 옵션제품 목록 총수량 변수
-                 
-    totalprice += tsale			// 각 옵션별 판매가를 전체판매가에 누적 더하기
-    totalamount += p.amount     // 각 옵션별 수량을 전체 수량에 누적 더하기   	 
-     
-      
+	
+	let totalprice = 0;
+	let totalamount = 0;
+	
 	productlist.forEach( ( p , i )=> {	
+		let tsale = psale*p.amount	// 왜?! 서블릿에도 없고 어디서 가져오는거지?
+		let tpoint = Math.round(tsale*0.01) 	// 할인이 적용된 가격의 포인트
+	
+		totalprice += tsale;
+		totalamount += p.amount;
+	
 		ohtml +=  '<tr>'+
                                  '<td>'+
                                  '	<span>'+product.pname+'</span><br>'+
@@ -207,28 +224,27 @@ function print(){
                                  '	</div>'+
                                  '</td>'+
                                  '<td>'+
-                                 '	<span>'+totalprice+'</span><br>'+
+                                 '	<span>'+tsale.toLocaleString()+'원</span><br>'+
                                  '	<span class="pointbox"> (포인트)'+tpoint.toLocaleString()+'</span>'+
                                  '</td>'+
 					'</tr>';
-	})	// 반복문이 끝났을때
-	
+	})	// 반복문이 끝났을때	
 	document.querySelector('.select_t').innerHTML = ohtml
-	let tohtml = totalprice.toLocaleString()+"원 ("+totalamount+"개)";
-	document.querySelector('.totalprice').innerHTML = ohtml
+	
+	let thtml = totalprice.toLocaleString()+"원 ( "+totalamount+"개)";
+	document.querySelector(".totalprice").innerHTML = thtml;
 }
 
 // 5. 수량 증가 버튼을 눌렀을때	[ 현재 옵션의 재고 ]
 function amountup( i ){
-	
 	// 선택한 옵션의 재고 찾기
 	let maxstock = 0;
 	stock.forEach( s => {
 		if( s.pcolor == productlist[i].pcolor &&
-			s.psize == productlist[i].psizw ){	// 재고목록에서 선택한 옵션과 일치하면
+			s.psize == productlist[i].psize ){	// 재고목록에서 선택한 옵션과 일치하면
+			maxstock = s.pstock					// 재고 대입
 		}
 	})
-	
 	if( productlist[i].amount >= maxstock ){
 		alert('재고가 부족합니다')
 		return;

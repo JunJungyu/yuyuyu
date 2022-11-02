@@ -186,22 +186,58 @@ public class ProductDao extends Dao{
 		} catch (Exception e) {System.out.println(e+"제품별 재고 출력 메소드 오류");}
 		return list;
 	}
-	
-	// 10. 전체 제품 상태 출력
-	public StockDto getallproduct() {
-		String sql = "select  psize , pcolor , pstock from productstock , productsize";
+
+	// 10. 제품 찜하기 
+	public int setPlike( int pno , int mno ) {
+		String sql = "select * from plike where pno = ? and mno = ?";	// 검색
 		try {
 			ps = con.prepareStatement(sql);
+			ps.setInt(1, pno);	ps.setInt(2, mno);
 			rs = ps.executeQuery();
-			while( rs.next() ) { 
-				StockDto dto = new StockDto(
-						0, rs.getString(1),
-						rs.getInt(3), rs.getString(2),
-						0);
-				return dto;
+			
+			if( rs.next() ) {	// 이미 찜하기가 되어 있는 경우 - 검색 결과가 있으면 취소
+				sql = "delete from plike where pno = ? and mno = ?";	// slq에서도 안된다..
+				ps = con.prepareStatement(sql);
+				ps.setInt(1, pno);	ps.setInt(2, mno);
+				ps.executeUpdate();	return 1;
+			}else {				// 찜하기가 없는 경우 - 검색 결과 없으면 등록
+				sql = "insert into plike ( pno , mno ) values( ? , ? )";
+				ps = con.prepareStatement(sql);
+				ps.setInt(1, pno);	ps.setInt(2, mno);
+				ps.executeUpdate(); return 2;
 			}
-		} catch (Exception e) {System.out.println( e + "전체 제품 상태 출력 메소드 오류");}
-		return null;
+		} catch (Exception e) {System.out.println(e + "찜하기 메소드 오류");}
+		return 3;
 	}
-
+	
+	// * 해당 sql에서 insert 된 pk 값 가져오기
+		// 1. con.prepareStatement( sql , Statement.RETURN_GENERATED_KEYS )
+			// !: Statement [ java.sql 패키지 ]
+		// 2. ps.getGeneratedKeys() : pk값 호출 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

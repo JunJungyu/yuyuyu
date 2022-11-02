@@ -24,7 +24,8 @@
 		}
 	%>
 	<input type="hidden" value="<%=pno%>" class="pno">	
-	<input type="text" value="<%=mid%>" class="mid">	
+	<input type="hidden" value="<%=mid%>" class="mid">
+	
 	<div class="container">		<!-- b: container -->
 						
 		<div class="row"> 	
@@ -78,8 +79,8 @@
 						
 						<tr>
 							<td>
-								<span>PETIT CD 팔찌</span><br>
-								<span> - 골드 / 9호</span>
+								<span> </span><br>
+								<span> </span>
 							</td>
 							<td>	<!-- 옵션 수량 구역 -->
 								<div class="row g-0">	<!-- b : g-0 -->
@@ -96,19 +97,19 @@
 								</div>
 							</td>
 							<td>
-								<span> 20,000원 </span><br>
-								<span class="pointbox"> (포인트)2000 </span>
+								<span> 0원 </span><br>
+								<span class="pointbox"> (포인트)0 </span>
 							</td>
 						</tr>
 					</table>
 					<div class="row">														<!-- 선택된 제품들의 총 가격 -->
 						<div class="col-md-6"> 총 상품금액 </div>
-						<div class="col-md-6 totalprice"> 40,000원 </div>
+						<div class="col-md-6 totalprice"> 0원(0개) </div>
 					</div>
 					<div class="btnbox">														<!-- 버튼 -->
 						<button class="btn">바로 구매</button>
 						<button class="btn">장바구니</button>
-						<button onclick="" id="btn3" class="btn btnlike">찜하기♡</button>	<!-- 로그인된 회원이 찜하기 X -->
+						<button onclick="" id="btn3" class="btn btnlike">찜하기></button>	<!-- 로그인된 회원이 찜하기 X -->
 						<!-- <button>찜하기♥</button>	 로그인된 회원이 찜하기 O -->
 					</div>
 				</div>

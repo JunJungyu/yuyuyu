@@ -28,19 +28,24 @@ public class DiaryDao extends Dao{
 		return false;
 	}
 	
-	public String getdiary( String date ) {	// 선택한 날짜 일기 가져오기 메소드
-		String sql = "select di_content from diary where di_date =?";
+	public ArrayList<DiaryDto> getdiary ( String date ) {	// 선택한 날짜 일기 가져오기 메소드
+		String sql = "select * from diary where di_date =?";
+			ArrayList<DiaryDto> list = new ArrayList<>();
 			try {
 				ps = con.prepareStatement(sql);
 				ps.setString(1, date);
 				rs = ps.executeQuery();
 				if( rs.next() ) {
-					String di_content = rs.getString(1);
-					return di_content;
-				}
+					DiaryDto dto = new DiaryDto(
+							rs.getInt(1), rs.getString(2), 
+							rs.getString(3), rs.getInt(4));
+					list.add(dto);
+					System.out.println("다오 들어왔어요");
+					return list;
+					}
 			} catch (Exception e) {System.out.println( e +"다이어리 출력 메소드 오류" );}
 			return null;
-	}
+		}
 	
 	public int getemotionno() {				// 감정 번호 가져오기 메소드 - 아직 사용 안하고 있음
 		String sql = "select emo_no from emotion";
