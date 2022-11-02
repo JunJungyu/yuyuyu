@@ -76,42 +76,85 @@ function getemotiontable(){		// [ 완 ] 감정 테이블 나타내기
 		success : function(re){
 			let json = JSON.parse(re)
 			for( let i = 0 ; i <json.length; i++ ){
-				html += '<tr><td onclick="choiceemono('+json[i].emo_no+')" class=" emo_img'+i+'"><img class="emoji" src="/team3/img/'+json[i].emo_img+'"></td> <td>'+json[i].emotion+'</td></tr>'
+				html += '<tr><td onclick="choiceemono('+json[i].emo_no+'); emojiclick('+i+');" class="emo_img'+i+'"><img class="emoji emoji'+json[i].emo_no+'" src="/team3/img/'+json[i].emo_img+'"></td> <td><input ondblclick="updateemotion('+i+')" class="emotioninput" readonly type="text" value="'+json[i].emotion+'"></td></tr>'
 			}
 			document.querySelector('.c_emobox').innerHTML = html
 		}
 	})
+	
+	
 }
 
-function choiceemono(no){				// [ 미완 ] 감정 선택하기 - 왜 자꾸 첫번째값만 넘어오고 다른걸 눌러도 적용이 안되지?
+function choiceemono(no){				// [ 미완 ] 
 	emo_no = no;
+	let emo = sessionStorage.setItem("emono" , no );	// 선택한 감정의 db 번호를 가져옴
 }
 
 let emo_no = -1;
 
-function writediary(){			// 다이어리 작성 함수 [ 완 ] - 근데 감정도 data로 보내게 수정해야될듯?
+function emojiclick(no){
+	emo = sessionStorage.getItem("emono")
+	for(let i = 1; i<6; i++){
+		document.querySelector('.emoji'+i+'').style.transform="scale(1.0)";
+		if( emo == no ){						// 만약 가져온 번호가 일치하면 ( 클릭한 번호에 )
+		document.querySelector('.emoji'+no+'').style.transform="scale(1.2)";	// 왜 이건 for문에만 넣으면 안되지?
+		document.querySelector('.emoji'+no+'').style.transition="transform .2s";		
+		emo = sessionStorage.removeItem("emono");	// 비워줌
+		}
+	}
+}
+
+
+
+function writediary(){			// 다이어리 작성 함수 [ 완 ] 
 	let content = document.querySelector('#content').value
-	
-	if( emo_no == -1 ){ alert('이모티콘 선택해'); return; }
+
+	if( emo_no == -1 ){ alert('이모티콘을 선택해주세요'); return; }
 	
 	$.ajax({
 		url : "/team3/Diary" ,
 		data : { "content" : content  , "emono" : emo_no  } ,
 		success : function( re ){
 			if( re == 'true' ){
-				alert('다이어리 작성 완료')
+				alert('다이어리 작성 완료🤗')
 			}else if( re == null ){
 				alert('다이어리 내용을 입력해주세요')
-			}else if( emono == undefined ){
-				alert('감정을 선택한 후 눌러주세요.')		// 이걸 뜨게 하고싶다
 			}else{
-				alert('다이어리 작성 실패 [관리자 문의]')
+				alert('다이어리 작성 실패😅 \n [관리자 문의]')
 			}
 		}
 	})
 }
 
-
+function updateemotion(i){	// 더블클릭하면 감정설명 수정하게 해주는 메소드
+	let emonolist = document.querySelectorAll('.emotioninput')	
+	let emotionlist = document.querySelectorAll('.emotioninput')
+	
+	emotionlist[i].readOnly=false;
+	emotionlist[i].style.color="#656565";	
+	emotionlist[i].value = '';
+	alert('글 수정 가능✍️')
+	document.addEventListener("keyup", function(e) {
+	    if (e.keyCode === 13) {
+			emotionlist[i].readOnly=true;
+			emotionlist[i].style.color="black";
+			let emotion = emotionlist[i].value;
+			let emono = 6;	// 클릭한 emo_no로 가져오기
+	        	$.ajax({
+					url : "/team3/emotion" ,
+					type : "post" ,
+					data : { "emono" : emono , "emotion" : emotion } ,
+					success : function(re){
+			    		if( re == 'true' ){
+							alert('감정 수정 완료🤗')
+						}else{
+							alert('감정 수정 실패😅 \n [관리자 문의]')
+						}
+			   		 }
+			});
+		}
+	})
+}
 
 
 

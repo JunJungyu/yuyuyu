@@ -75,4 +75,16 @@ public class DiaryDao extends Dao{
 		} catch (Exception e) {System.out.println( e + "전체 감정 가져오기 메소드 오류");}
 		return list;
 	}
+	
+	public boolean updateemtion( String emotion , int emono ) { // 감정 설명 수정 왜~??
+		String sql = "update emotion set emotion = ? where emo_no = ?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString( 1 ,emotion );
+			ps.setInt( 2, emono );
+			ps.executeUpdate();
+			return true;
+		} catch (Exception e) {System.out.println(e+"감정 설명 수정 메소드 오류");}
+		return false;
+	}
 }

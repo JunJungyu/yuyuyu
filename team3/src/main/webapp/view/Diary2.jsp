@@ -15,7 +15,8 @@
 		}
 		
 		*{
-			box-sizing: border-box; 
+			box-sizing: border-box;
+			font-family: 'Humanbumsuk'; 
 		}
 		
 		.mainbox{
@@ -45,7 +46,7 @@
 			resize: none;
 			
 			line-height: 1.8;
-			font-family: 'Humanbumsuk'; 
+			 
 			font-size: 30px;
 												
 			color: #3D3C39;
@@ -71,13 +72,13 @@
 		.emotableimg{
 			z-index: 0;
 			position: absolute;
-			top: 0px;
-			
-			width: 100%;
-			height: 100%;
+			bottom: 0px;
+			margin: 0% 5%;
+			width: 90%;
 			background-repeat: no-repeat;
 			background-size: contain;
 			background-position: top;
+			
 		}
 		
 		.todaydate{
@@ -85,11 +86,8 @@
 			position: absolute;
 			top: 70px;
 			right: 100px;
-			font-family: 'Humanbumsuk'; 
 			font-size: 35px;
 		}
-		
-		
 		
 		.clickbtn{
 			resize: none;
@@ -97,11 +95,12 @@
 			width: 70%;										
 			float: right;
 			margin-top: 30%;
-			font-family: 'Humanbumsuk';
+			
 		}
 				
 		.c_emotion_t{
 			position: relative;
+			background-color: red; // 왜 작아졌지..?
 		}		
 				
 		.c_emotion_t tr{
@@ -109,9 +108,10 @@
 		}
 		
 		.c_emotion_t table{
-			width: 100%;
+			width: 70%;
 			position: absolute;
-			bottom: 5px;
+			left: 15%;
+			bottom: 8%;
 		}
 
 		.c_emotion_t td:nth-child(1) {
@@ -129,11 +129,20 @@
 		}
 		
 		.c_emobox td{
-			border: solid 1px olive;
+			font-size: 25px;
 			vertical-align: middle;
 			text-align: center;
 			z-index: 1;
 		}		
+		
+		.emoji:hover{
+			transform: rotate( -20deg );
+			transition: all ease 0.3s;
+		}
+		
+		.emotioninput{
+			margin-left: 5%;
+		}
 		
 	</style>
 </head>
@@ -157,11 +166,9 @@
 		
 		
 		<tr> <td class="c_emotion_t"> <!-- 감정박스 -->
-			<img class="emotableimg" alt="감정테이블배경" src="/team3/img/포스트잇개별.png">	<!-- 사이즈 조절하기 -->
+			<img class="emotableimg" alt="감정테이블배경" src="/team3/img/체크박스.png">	<!-- 사이즈 조절하기 -->
 			<table class="c_emobox">
-			
 			</table>
-			<button onclick="updateemotion()">감정 수정하기</button>
 		 </td> </tr> 
 		
 	</table>

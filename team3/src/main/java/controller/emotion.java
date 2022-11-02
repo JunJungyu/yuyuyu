@@ -50,7 +50,18 @@ public class emotion extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		doGet(request, response);
+		int emono = Integer.parseInt(request.getParameter("emono"));
+		System.out.println(emono);
+		
+		String emotion = request.getParameter("emotion");
+		System.out.println(emotion);
+		
+		boolean result = DiaryDao.getInstance().updateemtion(emotion, emono);
+		
+		
+		
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().print(result);
 	}
 
 }
