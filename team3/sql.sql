@@ -2,28 +2,33 @@ drop database if exists team3;
 create database team3;
 use team3;
 
+--  다이어리 관련 --
 drop table if exists emotion;
 create table emotion(
 	emo_no int auto_increment primary key,
     emotion varchar(20) , 
     emo_img longtext
 );
-select * from emotion;
-
-insert into emotion value( null , '패닉' , '채닉.png');
-
-select emo_img , emotion from emotion;
+select * from diary limit 1;
+update emotion set emotion='왜안돼' where emo_no = 1;
+insert into emotion value( null , '슬픈 날' , '하트1.png');
+insert into emotion value( null , '즐거운 날' , '하트2.png');
+insert into emotion value( null , '우울한 날' , '하트3.png');
+insert into emotion value( null , '화나는 날' , '하트4.png');
+insert into emotion value( null , '행복한 날' , '하트5.png');
 
 drop table if exists diary;
 create table diary(
-	di_no int auto_increment primary key,	-- 이게 왜 안되지??
+	di_no int auto_increment primary key,	
     di_date date default (current_date) ,
-    di_content text ,
+    di_content text not null, 
     emo_no int ,
     constraint emo_no_fk foreign key (emo_no) references emotion (emo_no)
 );
 select * from diary;
-insert into diary ( di_content ) value( '오늘의 일기~' );
+-- select di_content from diary order by di_no asc where di_date = '2022-11-03' limit 1;
+
+-- 안쓰는 테이블 --
 
 drop table if exists calendar;
 create table calendar(
@@ -38,7 +43,7 @@ create table member(
 	mno int auto_increment primary key,			-- 회원번호
     mid varchar(20) ,							-- 아이디
     mpassword varchar(50) ,						-- 비밀번호
-    mnickname varchar(15) not null ,						-- 닉네임
+    mnickname varchar(15) not null ,			-- 닉네임
     mfriendsno int default 0					-- 고유 mno 연결..
 );
 select * from member;
@@ -69,6 +74,3 @@ create table music(
     mufile longtext								-- 노래파일 저장
 );
 select * from music;
-
-select di_content from diary where di_date = '2022-11-01';
-select di_content from diary;

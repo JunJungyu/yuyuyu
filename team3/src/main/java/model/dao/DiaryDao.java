@@ -16,7 +16,7 @@ public class DiaryDao extends Dao{
 	private static DiaryDao ddao = new DiaryDao();
 	public static DiaryDao getInstance() { return ddao; }
 	
-	public boolean dwrite( String content , int emono ) {
+	public boolean dwrite( String content , int emono ) {									// 다이어리 작성 메소드
 		String sql = "insert into diary ( di_content , emo_no ) values( ? , ? )";
 		try {
 			ps = con.prepareStatement(sql);
@@ -26,9 +26,9 @@ public class DiaryDao extends Dao{
 			return true;
 		} catch (Exception e) {System.out.println("다이어리 작성 메소드 오류" + e);}
 		return false;
-	}
+	}	
 	
-	public ArrayList<DiaryDto> getdiary ( String date ) {	// 선택한 날짜 일기 가져오기 메소드
+	public ArrayList<DiaryDto> getdiary ( String date ) {									// 선택한 날짜 일기 가져오기 메소드
 		String sql = "select * from diary where di_date =?";
 			ArrayList<DiaryDto> list = new ArrayList<>();
 			try {
@@ -47,20 +47,7 @@ public class DiaryDao extends Dao{
 			return null;
 		}
 	
-	public int getemotionno() {				// 감정 번호 가져오기 메소드 - 아직 사용 안하고 있음
-		String sql = "select emo_no from emotion";
-		try {
-			ps = con.prepareStatement(sql);
-			rs = ps.executeQuery();
-			if( rs.next() ) {
-				int emo_no = rs.getInt(1);
-				return emo_no;
-			}
-		} catch (Exception e) {System.out.println( e + "감정 번호 가져오기 메소드 오류" );}
-		return -1;
-	}
-	
-	public ArrayList<EmotionDto> getemotion() {					// 전체 감정 가져오기 테이블 출력용
+	public ArrayList<EmotionDto> getemotion() {												// 전체 감정 가져오기 테이블 출력용
 		String sql = "select * from emotion";
 		ArrayList<EmotionDto> list = new ArrayList<>();
 		try {
@@ -76,7 +63,7 @@ public class DiaryDao extends Dao{
 		return list;
 	}
 	
-	public boolean updateemtion( String emotion , int emono ) { // 감정 설명 수정 왜~??
+	public boolean updateemtion( String emotion , int emono ) { 							// 감정 설명 수정 메소드
 		String sql = "update emotion set emotion = ? where emo_no = ?";
 		try {
 			ps = con.prepareStatement(sql);
@@ -86,5 +73,18 @@ public class DiaryDao extends Dao{
 			return true;
 		} catch (Exception e) {System.out.println(e+"감정 설명 수정 메소드 오류");}
 		return false;
+	}
+	
+	public int getemotionno() {																// 감정 번호 가져오기 메소드 - 아직 사용 안하고 있음
+		String sql = "select emo_no from emotion";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if( rs.next() ) {
+				int emo_no = rs.getInt(1);
+				return emo_no;
+			}
+		} catch (Exception e) {System.out.println( e + "감정 번호 가져오기 메소드 오류" );}
+		return -1;
 	}
 }

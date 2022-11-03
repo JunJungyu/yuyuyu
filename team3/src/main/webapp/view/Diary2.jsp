@@ -20,18 +20,21 @@
 		}
 		
 		.mainbox{
-			width: 70%;
+			width: 900px;
 		}
 		
 		#calendar{
 			width: 30%;
 		}
 		
+		#date{
+			font-size: 3vh;
+		}
+		
 		.diary{
 			width: 60%;
 			position: relative;
 		}
-		
 		
 		textarea{	/* textarea에 안쪽 여백 padding왜 안돼?! */
 			z-index: 2;
@@ -190,11 +193,9 @@
 		
 		<tr> <td class="c_emotion_t"> <!-- 감정박스 -->
 			<img class="emotableimg" alt="감정테이블배경" src="/team3/img/체크박스.png">	<!-- 사이즈 조절하기 -->
-			
 			<table class="c_emobox">
 			</table>
 		 </td> </tr> 
-		
 	</table>
 	
 	<!-- JQUERY 자바를 편하게  사용하기 위한 라이브러리 -->
