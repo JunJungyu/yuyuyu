@@ -108,7 +108,7 @@
 					</div>
 					<div class="btnbox">														<!-- 버튼 -->
 						<button class="btn">바로 구매</button>
-						<button class="btn">장바구니</button>
+						<button class="btncart">장바구니</button>
 						<button onclick="" id="btn3" class="btn btnlike">찜하기></button>	<!-- 로그인된 회원이 찜하기 X -->
 						<!-- <button>찜하기♥</button>	 로그인된 회원이 찜하기 O -->
 					</div>

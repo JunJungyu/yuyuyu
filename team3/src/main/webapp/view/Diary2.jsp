@@ -99,8 +99,7 @@
 		}
 				
 		.c_emotion_t{
-			position: relative;
-			background-color: red; // 왜 작아졌지..?
+			position: relative;	// 왜 작아졌지..?
 		}		
 				
 		.c_emotion_t tr{
@@ -135,13 +134,20 @@
 			z-index: 1;
 		}		
 		
-		.emoji:hover{
-			transform: rotate( -20deg );
-			transition: all ease 0.3s;
-		}
-		
 		.emotioninput{
 			margin-left: 5%;
+		}
+		
+		/* tr을 선택하면 두개가 같이 적용되게 함수로 만들고 싶은데 왜 함수에선 적용안됨? 적용되는게 제한적인가? */
+		
+		.emotioninput:hover {
+			-webkit-text-stroke-width: 1px;
+			-webkit-text-stroke-color: black;
+		}
+		
+		.emoji:hover {
+			transform: rotate( -20deg );
+			transition: all ease 0.3s;
 		}
 		
 	</style>

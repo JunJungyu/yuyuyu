@@ -36,14 +36,25 @@ getToday()
 		success : function(re){
 			let json = JSON.parse( re )	
 			if( re != 'null' ){
-					if( json[0].di_date == today ){ // today 전역변수로 어떻게 설정하지?
+					if( json[0].di_date == today ){
+						if(confirm("오늘은 이미 작성한 일기가 있어요\n수정할까요?")){
+							loadtoday()
+							document.getElementById('content').value = json[0].di_content;			// 이전 내용 불러오기
+						}else{
+							document.getElementById('content').value = json[0].di_content;			// 이전 내용 불러오기
+							document.getElementById('content').readOnly=true;						// 글 수정 불가
+							document.querySelector('.diary_img').src = "/team3/img/일기장완료.png"		// 완료 이미지로 보여주기
+						}
+						
+						
+						
 						loadtoday();
 						}else{
 								document.querySelector('.todaydate').value = date					// 선택한 날짜 보이도록
 								document.getElementById('content').value = '';							// 일기장 비워주기
 								document.getElementById('content').value = json[0].di_content;			// 이전 내용 불러오기
 								document.getElementById('content').readOnly=true;						// 글 수정 불가
-								document.querySelector('.diary_img').src = "/team3/img/일기장완료.png"		// 기존 이미지로 보여주기
+								document.querySelector('.diary_img').src = "/team3/img/일기장완료.png"		// 완료 이미지로 보여주기
 						}
 			}else if(  re == 'null'  ){alert('일기를 쓰지 않은 날이에요')	// 만약 일기가 존재하지 않는다면 오늘로 이동
 				loadtoday()	
@@ -76,7 +87,7 @@ function getemotiontable(){		// [ 완 ] 감정 테이블 나타내기
 		success : function(re){
 			let json = JSON.parse(re)
 			for( let i = 0 ; i <json.length; i++ ){
-				html += '<tr><td onclick="choiceemono('+json[i].emo_no+'); emojiclick('+i+');" class="emo_img'+i+'"><img class="emoji emoji'+json[i].emo_no+'" src="/team3/img/'+json[i].emo_img+'"></td> <td><input ondblclick="updateemotion('+i+')" class="emotioninput" readonly type="text" value="'+json[i].emotion+'"></td></tr>'
+				html += '<tr onmouseover="hovercss('+i+')"><td onclick="choiceemono('+json[i].emo_no+'); emojiclick('+i+');" class="emo_img'+i+'"><img class="emoji emoji'+json[i].emo_no+'" src="/team3/img/'+json[i].emo_img+'"></td> <td><input ondblclick="updateemotion('+i+')" class="emotioninput" readonly type="text" value="'+json[i].emotion+'"></td></tr>'
 			}
 			document.querySelector('.c_emobox').innerHTML = html
 		}
@@ -139,7 +150,8 @@ function updateemotion(i){	// 더블클릭하면 감정설명 수정하게 해�
 			emotionlist[i].readOnly=true;
 			emotionlist[i].style.color="black";
 			let emotion = emotionlist[i].value;
-			let emono = 6;	// 클릭한 emo_no로 가져오기
+			let emono = i+1;		// DB 번호 수정되면 안됨!
+			alert(emono)
 	        	$.ajax({
 					url : "/team3/emotion" ,
 					type : "post" ,
@@ -156,7 +168,15 @@ function updateemotion(i){	// 더블클릭하면 감정설명 수정하게 해�
 	})
 }
 
+function hovercss(i){
+	let emoimglist = document.querySelectorAll('.emoji')
+	let emotextlist = document.querySelectorAll('.emotioninput')
+	
+	let emoimg = emoimglist[i];
+	let emotext = emotextlist[i];
+	
 
+}
 
 
 
