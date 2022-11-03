@@ -2,6 +2,7 @@ alert('하루에 한번만 작성 가능한 일기장입니다.☝️ \n모두 �
 
 let date = null;
 let today = null;
+let choice_emo = document.querySelector('.choice_emo')
 
 getToday()
 function getToday(){		// 오늘 날짜 가져오는 함수
@@ -18,16 +19,17 @@ function loadtoday(){
 	document.getElementById('content').value = ''						// 일기장 비워주기
 	document.getElementById('content').readOnly=false;						// 글 수정 가능
 	document.querySelector('.diary_img').src = "/team3/img/일기장.png"		// 다른 이미지로 보여주기
+	choice_emo.src='/잘못된경로';
 }
 
 
 function load_diary(){			// [ 미완 ] - 선택한 날짜의 일기 불러오기
 
 getToday()
-	document.getElementById('content').value = '';						// 일기장 비워주기
 	date = document.getElementById('date').value
 	document.getElementById('date').innerText = date;
 	document.querySelector('.todaydate').innerText = date
+	let choice_emo = document.querySelector('.choice_emo') 
 	
 	$.ajax({
 		url : "/team3/Diary" ,
@@ -37,31 +39,19 @@ getToday()
 			let json = JSON.parse( re )	
 			if( re != 'null' ){
 					if( json[0].di_date == today ){
-						if(confirm("오늘은 이미 작성한 일기가 있어요\n수정할까요?")){ // 왜 적용이 안될까?
-							document.getElementById('content').value = json[0].di_content;			// 이전 내용 불러오기
-							document.getElementById('content').readOnly=false;						// 글 수정 가능
-							document.querySelector('.diary_img').src = "/team3/img/일기장.png"		// 다른 이미지로 보여주기
-							
-							// 아~ 이미 날짜를 선택해서 오늘 일기를 못불러오는구나 맞나? 왜??
-						}else{
-							alert('아니요') // 오늘 일기 열람만 가능
-								document.getElementById('content').value = json[0].di_content;			// 이전 내용 불러오기
-								document.getElementById('content').readOnly=true;						// 글 수정 불가
-								document.querySelector('.diary_img').src = "/team3/img/일기장완료.png"		// 완료 이미지로 보여주기
-						}
-						
-						
-						
 						loadtoday();
 						}else{
 								document.querySelector('.todaydate').value = date						// 선택한 날짜 보이도록
 								document.getElementById('content').value = '';							// 일기장 비워주기
 								document.getElementById('content').value = json[0].di_content;			// 이전 내용 불러오기
 								document.getElementById('content').readOnly=true;						// 글 수정 불가
-								document.querySelector('.diary_img').src = "/team3/img/일기장완료.png"		// 완료 이미지로 보여주기
+								document.querySelector('.diary_img').src = "/team3/img/일기장완료.png";	// 완료 이미지로 보여주기					
+								let html = '/team3/img/하트'+json[0].em_no+'.png'
+								choice_emo.src=html;
+							
 						}
 			}else if(  re == 'null'  ){alert('일기를 쓰지 않은 날이에요')	// 만약 일기가 존재하지 않는다면 오늘로 이동
-				loadtoday()	
+				loadtoday()	// 날짜 왜 안바뀜?
 			}
 		
 			}
@@ -172,18 +162,36 @@ function updateemotion(i){	// 더블클릭하면 감정설명 수정하게 해�
 	})
 }
 
-function hovercss(i){
+hovercss()
+function hovercss(){
 	let emoimglist = document.querySelectorAll('.emoji')
 	let emotextlist = document.querySelectorAll('.emotioninput')
 	
 	let emoimg = emoimglist[i];
 	let emotext = emotextlist[i];
 	
-
+	
 }
 
+/*
+function choice_emo(i){
 
-
+	let choice_emo = document.querySelector('.choice_emo')
+	let emoimglist = document.querySelectorAll('.emoji')
+	
+	let emojino =  i+1;
+	
+	let html = '';
+	$.ajax({
+		url : "/team3/emotion" ,
+		success : function(re){
+			let json = JSON.parse(re)
+				for( let i = 0 ; i <json.length; i++ ){
+					choice_emo.src="/team3/img/'+json[i].emo_img+'.png";
+				}
+		}
+}
+*/
 
 
 

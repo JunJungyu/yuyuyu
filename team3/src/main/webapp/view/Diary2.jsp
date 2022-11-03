@@ -20,8 +20,7 @@
 		}
 		
 		.mainbox{
-			width: 1200px;
-			height: 600px;
+			width: 70%;
 		}
 		
 		#calendar{
@@ -69,18 +68,6 @@
 			background-position: top;
 		}
 		
-		.emotableimg{
-			z-index: 0;
-			position: absolute;
-			bottom: 0px;
-			margin: 0% 5%;
-			width: 90%;
-			background-repeat: no-repeat;
-			background-size: contain;
-			background-position: top;
-			
-		}
-		
 		.todaydate{
 			z-index: 2;
 			position: absolute;
@@ -98,9 +85,40 @@
 			
 		}
 				
-		.c_emotion_t{
-			position: relative;	// 왜 작아졌지..?
+		.c_emotion_t{	/* 감정 테이블 포함한 박스 */
+			height: 700px;
+			position: relative;
 		}		
+				
+		.emotableimg {	/*감정 테이블 배경*/
+			z-index: 0;
+			width: 95%;
+			padding-left: 2.5%;
+			height: 46%;
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: top;
+			position: absolute;
+			bottom: 0%;
+		}
+		
+		.c_emobox{		/* 감정테이블 */
+			z-index: 1;
+			width: 90%;
+			height: 40%;
+			position: absolute;
+			bottom: 2%;
+			left: 13%;
+		}
+				
+		.choice_emo{	/* 선택한 감정 */
+			position: absolute;
+			z-index: 2;
+			width: 10%;
+			height: 10%;
+			top: 8%;
+			left: 87%;
+		}
 				
 		.c_emotion_t tr{
 			width: 100%;
@@ -108,9 +126,7 @@
 		
 		.c_emotion_t table{
 			width: 70%;
-			position: absolute;
-			left: 15%;
-			bottom: 8%;
+
 		}
 
 		.c_emotion_t td:nth-child(1) {
@@ -165,6 +181,7 @@
 		<th rowspan="2" class="diary">
 			<img class="diary_img" src="/team3/img/일기장.png">
 			<h3 class="todaydate"></h3>
+			<img class="choice_emo" src="">
 			<textarea id="content"></textarea> 
 		</th>
 		
@@ -173,6 +190,7 @@
 		
 		<tr> <td class="c_emotion_t"> <!-- 감정박스 -->
 			<img class="emotableimg" alt="감정테이블배경" src="/team3/img/체크박스.png">	<!-- 사이즈 조절하기 -->
+			
 			<table class="c_emobox">
 			</table>
 		 </td> </tr> 
