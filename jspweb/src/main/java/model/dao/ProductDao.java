@@ -7,8 +7,10 @@ import java.util.function.Function;
 import controller.admin.pcategory;
 import controller.admin.regist;
 import controller.admin.stock;
+import controller.product.cart;
 import model.dto.ProductDto;
 import model.dto.StockDto;
+import model.dto.CartDto;
 import model.dto.PcategoryDto;
 
 public class ProductDao extends Dao{
@@ -188,7 +190,7 @@ public class ProductDao extends Dao{
 	}
 
 	// 10. 제품 찜하기 
-	public int setPlike( int pno , int mno ) {
+	  int setPlike( int pno , int mno ) {
 		String sql = "select * from plike where pno = ? and mno = ?";	// 검색
 		try {
 			ps = con.prepareStatement(sql);
@@ -215,26 +217,49 @@ public class ProductDao extends Dao{
 			// !: Statement [ java.sql 패키지 ]
 		// 2. ps.getGeneratedKeys() : pk값 호출 
 	
+	// 11. 장바구니에 선택한 제품
+		public boolean setcart( int pno , String psize , int amount , String pcolor , int mno  ) {
+		String sql = " insert into cart( amount , pstno , mno )"
+	    		+ " values (  "
+	    		+ "	"+amount+" ,"
+	    		+ "    (select pstno "
+	    		+ "	from productstock pst , (select psno from productsize where pno = "+pno+" and psize = '"+psize+"') sub"
+	    		+ "	where pst.psno = sub.psno and pcolor = '"+pcolor+"') ,"
+	    		+ "  "+mno+""
+	    		+ " );";
+		try {
+			ps = con.prepareStatement(sql); 	ps.executeUpdate(); 	return true;
+		} catch (Exception e) {System.out.println(e+"장바구니 선택한 제품 메소드 오류");}
+		return false;
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		// 12. 회원번호에 해당하는 장바구니 호출
+		public ArrayList<CartDto> get( int mno ) {
+			ArrayList<CartDto> list = new ArrayList<>();
+			String sql = "select"
+					+ "	c.cartno ,c.pstno ,"
+					+ "    p.pname , p.pimg ,"
+					+ "    p.pprice , p.pdiscount ,"
+					+ "    pst.pcolor , ps.psize , c.amount"
+					+ "from"
+					+ "	cart c natural join productstock pst natural join"
+					+ "	productsize ps natural join product p"
+					+ "where c.mno = "+mno;
+			try {
+				ps = con.prepareStatement(sql);
+				while( rs.next() ) {
+					CartDto cartdto = new CartDto(
+							rs.getInt(1), rs.getInt(2),
+							rs.getString(3), rs.getString(4),
+							rs.getInt(5), rs.getFloat(6),
+							rs.getString(7), rs.getString(8),
+							rs.getInt(9));
+					list.add(cartdto);
+				}
+			} catch (Exception e) {System.out.println(e+"장바구니 호출 메소드 오류");}
+			return list;
+		}
+		
 	
 	
 	

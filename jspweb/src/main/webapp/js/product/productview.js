@@ -122,9 +122,10 @@ document.querySelector('.btncart').addEventListener('click' , (e)=>{
 	$.ajax({ // 전송타입은 문자열객체 형식 // 첨부파일
 		url : "/jspweb/product/cart" ,
 		type : "post" ,
-		data : { "data" : JSON.stringify(productlist) } , //JSON.stringify(제이슨) - 제이슨을 문자열로 변환
-		success : function(re){
-			alert(re)
+		data : { "data" : JSON.stringify(productlist) , "pno" : pno } ,
+		//JSON.stringify(제이슨) - 제이슨을 문자열로 변환 객체 타입 -> 문자열 타입
+		success : re => {
+			alert( re )	
 		}
 	})
 })

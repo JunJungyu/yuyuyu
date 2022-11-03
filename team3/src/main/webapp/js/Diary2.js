@@ -37,20 +37,24 @@ getToday()
 			let json = JSON.parse( re )	
 			if( re != 'null' ){
 					if( json[0].di_date == today ){
-						if(confirm("오늘은 이미 작성한 일기가 있어요\n수정할까요?")){
-							loadtoday()
+						if(confirm("오늘은 이미 작성한 일기가 있어요\n수정할까요?")){ // 왜 적용이 안될까?
 							document.getElementById('content').value = json[0].di_content;			// 이전 내용 불러오기
+							document.getElementById('content').readOnly=false;						// 글 수정 가능
+							document.querySelector('.diary_img').src = "/team3/img/일기장.png"		// 다른 이미지로 보여주기
+							
+							// 아~ 이미 날짜를 선택해서 오늘 일기를 못불러오는구나 맞나? 왜??
 						}else{
-							document.getElementById('content').value = json[0].di_content;			// 이전 내용 불러오기
-							document.getElementById('content').readOnly=true;						// 글 수정 불가
-							document.querySelector('.diary_img').src = "/team3/img/일기장완료.png"		// 완료 이미지로 보여주기
+							alert('아니요') // 오늘 일기 열람만 가능
+								document.getElementById('content').value = json[0].di_content;			// 이전 내용 불러오기
+								document.getElementById('content').readOnly=true;						// 글 수정 불가
+								document.querySelector('.diary_img').src = "/team3/img/일기장완료.png"		// 완료 이미지로 보여주기
 						}
 						
 						
 						
 						loadtoday();
 						}else{
-								document.querySelector('.todaydate').value = date					// 선택한 날짜 보이도록
+								document.querySelector('.todaydate').value = date						// 선택한 날짜 보이도록
 								document.getElementById('content').value = '';							// 일기장 비워주기
 								document.getElementById('content').value = json[0].di_content;			// 이전 내용 불러오기
 								document.getElementById('content').readOnly=true;						// 글 수정 불가
