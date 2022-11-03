@@ -1,3 +1,17 @@
+//////////////////// 부트스트랩
+/*
+let myModal = document.getElementById('myModal')
+let myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', () => {
+  myInput.focus()
+})
+*/
+
+$('.diary_img').click(function(e){
+			e.preventDefault();
+			$('#testModal').modal("show");
+
 alert('하루에 한번만 작성 가능한 일기장입니다.☝️\n모두 작성한 후에는 연필을 클릭해주세요.✍️')
 
 let date = null;
@@ -22,9 +36,9 @@ function getToday(){		// 오늘 날짜 가져오는 함수
 function loadtoday(){		// 선택한 날짜의 일기 불러오기 [ 완 ]
 	document.querySelector('.todaydate').value = today					// 오늘 날짜 보이도록
 	document.getElementById('content').value = ''						// 일기장 비워주기
-	document.getElementById('content').readOnly=false;						// 글 수정 가능
-	document.querySelector('.diary_img').src = "/team3/img/일기장.png"		// 다른 이미지로 보여주기
-	choice_emo.src='/잘못된경로';
+	document.getElementById('content').readOnly=false;					// 글 수정 가능
+	document.querySelector('.stamp').src = "/team3/img/투명.png"			// 도장 없애기
+	choice_emo.src='/team3/img/투명.png';
 }
 
 //////////////////////////////////////////////// 다이어리 관련 함수 ////////////////////////////////////////////////
@@ -51,12 +65,13 @@ getToday()
 								document.getElementById('content').value = '';							// 일기장 비워주기
 								document.getElementById('content').value = json[0].di_content;			// 이전 내용 불러오기
 								document.getElementById('content').readOnly=true;						// 글 수정 불가
-								document.querySelector('.diary_img').src = "/team3/img/일기장완료.png";	// 완료 이미지로 보여주기					
+								document.querySelector('.stamp').src = "/team3/img/도장.png";				// 도장 찍어주기					
 								
 								if( emo_no == -1 ){
 									emosrc = '/team3/img/투명.png'
 								}else{
 									emosrc = '/team3/img/입체하트'+json[0].em_no+'.png'
+									alert('왜 또 안보여ㅠㅠ')
 								}
 								
 								choice_emo.src=emosrc;
@@ -158,7 +173,14 @@ function updateemotion(i){	// 더블클릭하면 감정설명 수정하게 해�
 	4. 하트가 일기장이랑 겹쳐서 잘 안보이니까 효과주기 1-gif로 광택효과 2-흰테두리 그린 이미지로 대체 
 	5. 일기 하루에 한번만 쓸 수 있게 - 당일 수정 가능으로 막거나 / 오늘 선택하면 수정여부 물어보고 수정하게 해주기
 	
-*/
+
+
+function change_backimg(){
+	if(confirm('배경 이미지를 수정할까요?')){
+		alert('수정할 이미지를 선택해주세요')
+		
+	}
+}
 
 function hovercss(){
 	let emoimglist = document.querySelectorAll('.emoji')
@@ -194,7 +216,7 @@ function calendar_day(){				// [ 미완 ] - 어차피 이 방법으론 안쓸듯
 	document.querySelector('.calendar_day').innerHTML = html
 }
 
-
+*/
 
 
 

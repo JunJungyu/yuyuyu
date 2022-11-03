@@ -3,8 +3,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <link rel="stylesheet" href="https://unpkg.com/destyle.css@1.0.5/destyle.css">
 	<style type="text/css">
 		@font-face {
@@ -16,11 +19,12 @@
 		
 		*{
 			box-sizing: border-box;
-			font-family: 'Humanbumsuk'; 
+			font-family: 'Humanbumsuk';
 		}
 		
 		.mainbox{
 			width: 900px;
+			height: auto;
 		}
 		
 		#calendar{
@@ -36,34 +40,34 @@
 			position: relative;
 		}
 		
-		textarea{	/* textarea에 안쪽 여백 padding왜 안돼?! */
-			z-index: 2;
+		.emotableimg {	/*감정 테이블 배경*/
+			z-index: 0;
+			width: 95%;
+			padding-left: 2.5%;
+			height: 46%;
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: top;
 			position: absolute;
-			top: 20%;
-			left: 10.2%;
-		
-			width: 80%;
-			height: 70%;
-												/* 텍스트 넘어가면 줄 넘어가게 */
-			resize: none;
-			
-			line-height: 1.8;
-			 
-			font-size: 30px;
-												
-			color: #3D3C39;
-			flex-wrap: wrap;
-			border: none;
-			text-align: center;
-			
-			overflow: hidden;									/* 스크롤 숨기기 */
+			bottom: 0%;
 		}
 		
-		.diary_img{
+		.emotabletextbox{
 			z-index: 1;
+			width: 85%;
+			padding-left: 12%;
+			height: 36%;
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: top;
+			position: absolute;
+			bottom: 5%;
+		}
+		
+		.diary_img{		/* 다이어리 배경 */
+			z-index: 0;
 			position: absolute;
 			top: 0px;
-			
 			width: 100%;
 			height: 100%;
 			background-repeat: no-repeat;
@@ -71,8 +75,44 @@
 			background-position: top;
 		}
 		
-		.todaydate{
+		.diatytextbox{	/* 흰색박스 */
 			z-index: 2;
+			position: absolute;
+			top: 10%;
+			left: 5%;
+			width: 90%;
+			height: 80%;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			position: absolute;
+			bottom: 10%;
+		}
+		
+		#content{	
+			z-index: 3;
+			position: absolute;
+			top: 20%;
+			left: 12.5%;
+			width: 75%;
+			height: 65%;
+									
+			resize: none;
+			
+			line-height: 1.8;
+			 
+			font-size: 30px;
+												
+			color: #3D3C39;
+			flex-wrap: wrap;							/* 텍스트 넘어가면 줄 넘어가게 */
+			border: none;
+			text-align: center;
+			
+			overflow: hidden;									/* 스크롤 숨기기 */
+		}
+		
+		.todaydate{
+			z-index: 3;
 			position: absolute;
 			top: 70px;
 			right: 100px;
@@ -93,18 +133,6 @@
 			position: relative;
 		}		
 				
-		.emotableimg {	/*감정 테이블 배경*/
-			z-index: 0;
-			width: 95%;
-			padding-left: 2.5%;
-			height: 46%;
-			background-repeat: no-repeat;
-			background-size: contain;
-			background-position: top;
-			position: absolute;
-			bottom: 0%;
-		}
-		
 		.c_emobox{		/* 감정테이블 */
 			z-index: 1;
 			width: 90%;
@@ -116,7 +144,7 @@
 				
 		.choice_emo{	/* 선택한 감정 */
 			position: absolute;
-			z-index: 2;
+			z-index: 5;
 			width: 10%;
 			height: 10%;
 			top: 8%;
@@ -169,6 +197,13 @@
 			transition: all ease 0.3s;
 		}
 		
+		.stamp{
+			z-index: 3;
+			position: absolute;
+			right: 10%;
+			bottom: 8%;
+		}
+		
 	</style>
 </head>
 <body>
@@ -182,9 +217,11 @@
 		</th>
 		
 		<th rowspan="2" class="diary">
-			<img class="diary_img" src="/team3/img/일기장.png">
+			<img class="stamp" src="/team3/img/투명.png">
+			<img class="diatytextbox" src="/team3/img/레이스종이.png">
+			<img class="diary_img" src="/team3/img/배경1.png">
 			<h3 class="todaydate"></h3>
-			<img class="choice_emo" src="">
+			<img class="choice_emo" src="/team3/img/투명.png">
 			<textarea id="content"></textarea> 
 		</th>
 		
@@ -192,14 +229,36 @@
 		
 		
 		<tr> <td class="c_emotion_t"> <!-- 감정박스 -->
-			<img class="emotableimg" alt="감정테이블배경" src="/team3/img/체크박스.png">	<!-- 사이즈 조절하기 -->
+			<img class="emotableimg" alt="감정테이블배경" src="/team3/img/체.png">	<!-- 사이즈 조절하기 -->
+			<img class="emotabletextbox" src="/team3/img/레이스종이.png">
 			<table class="c_emobox">
 			</table>
 		 </td> </tr> 
 	</table>
 	
+	<div class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+	
 	<!-- JQUERY 자바를 편하게  사용하기 위한 라이브러리 -->
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<!-- 부트스트랩 -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+	<!-- 내 js -->
 	<script src="/team3/js/Diary2.js" type="text/javascript"></script>
 </body>
 </html>
