@@ -234,6 +234,7 @@ public class BoardDao extends Dao{
 	
 	// 11. 아파트실거래가 테이블 호출
 	public JSONArray getapi() {
+		System.out.println("아파트 다오 들어오지도않니");
 		JSONArray array = new JSONArray();
 		String sql = "SELECT * FROM 아파트실거래가 where 시군구 like '%경기도 안산%'";
 		try {
@@ -255,6 +256,7 @@ public class BoardDao extends Dao{
 				object.put("거래유형",  rs.getString( 14 ) );
 				object.put("중개사소재지",  rs.getString( 15 ) );
 				array.add(object);
+				System.out.println("아파트 다오에요 어레이 아예 여길 안들어오는구나!:"+array);
 			}
 		}catch (Exception e) { System.out.println(); } 
 		return array;

@@ -24,7 +24,7 @@
 		
 		.mainbox{
 			width: 900px;
-			height: auto;
+			height: 40vh;
 		}
 		
 		#calendar{
@@ -154,11 +154,6 @@
 		.c_emotion_t tr{
 			width: 100%;
 		}
-		
-		.c_emotion_t table{
-			width: 70%;
-
-		}
 
 		.c_emotion_t td:nth-child(1) {
 			width: 30%;
@@ -185,17 +180,24 @@
 			margin-left: 5%;
 		}
 		
-		/* tr을 선택하면 두개가 같이 적용되게 함수로 만들고 싶은데 왜 함수에선 적용안됨? 적용되는게 제한적인가? */
+		/* tr을 선택하면 두개가 같이 적용되게 함수로 만들고 싶은데 왜 함수에선 적용안됨? 적용되는게 제한적인가? 
 		
-		.emotioninput:hover {
+		.c_emobox tr > .emotioninput , .emoji{
+			opacity: 0.8;
+			background-color: red;
+			color: red;
+		}
+		*/
+		/*
+		{
+		
 			-webkit-text-stroke-width: 1px;
 			-webkit-text-stroke-color: black;
-		}
-		
-		.emoji:hover {
 			transform: rotate( -20deg );
 			transition: all ease 0.3s;
 		}
+		*/
+		 
 		
 		.stamp{
 			z-index: 3;
@@ -219,7 +221,7 @@
 		<th rowspan="2" class="diary">
 			<img class="stamp" src="/team3/img/투명.png">
 			<img class="diatytextbox" src="/team3/img/레이스종이.png">
-			<img class="diary_img" src="/team3/img/배경1.png">
+			<img ondblclick="change_back_img()" class="diary_img" src="/team3/img/배경1.png">
 			<h3 class="todaydate"></h3>
 			<img class="choice_emo" src="/team3/img/투명.png">
 			<textarea id="content"></textarea> 
