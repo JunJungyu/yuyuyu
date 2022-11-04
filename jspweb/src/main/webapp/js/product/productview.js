@@ -125,7 +125,15 @@ document.querySelector('.btncart').addEventListener('click' , (e)=>{
 		data : { "data" : JSON.stringify(productlist) , "pno" : pno } ,
 		//JSON.stringify(제이슨) - 제이슨을 문자열로 변환 객체 타입 -> 문자열 타입
 		success : re => {
-			alert( re )	
+			
+			if( re == 'true' ){
+				
+				if(confirm('장바구니에 담았습니다. 장바구니 페이지로 이동할까요?')){
+					location.href='/jspweb/admin/cart.jsp';
+				}
+			}else{
+				alert('장바구니 담기 실패 [관리자 문의]')
+			}
 		}
 	})
 })

@@ -218,8 +218,13 @@ public class ProductDao extends Dao{
 		// 2. ps.getGeneratedKeys() : pk값 호출 
 	
 	// 11. 장바구니에 선택한 제품
-		public boolean setcart( int pno , String psize , int amount , String pcolor , int mno  ) {
-		String sql = " insert into cart( amount , pstno , mno )"
+	
+	  // ! 만약에 동일한 제품 옵션이 존재했을때 수량만 증가하는 업데이트 처리 [ 미구현 ] 지금은 따로 insert됨
+	  
+	  
+	  public boolean setcart( int pno , String psize , int amount , String pcolor , int mno  ) {
+		  // 동일한 제품 옵션이 없을때
+		  String sql = " insert into cart( amount , pstno , mno )"
 	    		+ " values (  "
 	    		+ "	"+amount+" ,"
 	    		+ "    (select pstno "
@@ -228,25 +233,32 @@ public class ProductDao extends Dao{
 	    		+ "  "+mno+""
 	    		+ " );";
 		try {
-			ps = con.prepareStatement(sql); 	ps.executeUpdate(); 	return true;
+			ps = con.prepareStatement(sql); 	ps.executeUpdate();
+			System.out.println("담기" + amount + pno + pcolor + mno);
+			return true;
 		} catch (Exception e) {System.out.println(e+"장바구니 선택한 제품 메소드 오류");}
 		return false;
 	}
 	
 		// 12. 회원번호에 해당하는 장바구니 호출
-		public ArrayList<CartDto> get( int mno ) {
+		public ArrayList<CartDto> getCart( int mno ) {
 			ArrayList<CartDto> list = new ArrayList<>();
-			String sql = "select"
-					+ "	c.cartno ,c.pstno ,"
-					+ "    p.pname , p.pimg ,"
-					+ "    p.pprice , p.pdiscount ,"
-					+ "    pst.pcolor , ps.psize , c.amount"
-					+ "from"
-					+ "	cart c natural join productstock pst natural join"
-					+ "	productsize ps natural join product p"
-					+ "where c.mno = "+mno;
+			String sql = "select "
+					+ "	   c.cartno ,  c.pstno , "
+					+ "    p.pname , p.pimg  , "
+					+ "    p.pprice   ,   p.pdiscount  , "
+					+ "	   pst.pcolor  , ps.psize  , "
+					+ "    c.amount  "
+					+ " from "
+					+ "	   cart c natural join "
+					+ "    productstock pst natural join "
+					+ "    productsize ps natural join "
+					+ "    product p "
+					+ " where "
+					+ "	c.mno = "+mno;
 			try {
 				ps = con.prepareStatement(sql);
+				rs = ps.executeQuery();
 				while( rs.next() ) {
 					CartDto cartdto = new CartDto(
 							rs.getInt(1), rs.getInt(2),
@@ -254,6 +266,7 @@ public class ProductDao extends Dao{
 							rs.getInt(5), rs.getFloat(6),
 							rs.getString(7), rs.getString(8),
 							rs.getInt(9));
+					System.out.println("장바구니 호출 메소드" + list);
 					list.add(cartdto);
 				}
 			} catch (Exception e) {System.out.println(e+"장바구니 호출 메소드 오류");}

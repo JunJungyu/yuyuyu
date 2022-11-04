@@ -1,6 +1,8 @@
 package controller.product;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,6 +15,7 @@ import org.json.simple.parser.JSONParser;
 
 import model.dao.MemberDao;
 import model.dao.ProductDao;
+import model.dto.CartDto;
 
 /**
  * Servlet implementation class cart
@@ -29,7 +32,38 @@ public class cart extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		// 1. 요청
+		
+		int mno = MemberDao.getInstance().getMno((String)request.getSession().getAttribute("mid")) ;
+		System.out.println("카트 두겟 들어옵니다");
+		System.out.println("mno : "+mno);
+		
+		// 2. db처리
+		ArrayList<CartDto> list = new ProductDao().getCart(mno);
+		
+		System.out.println("list : "+list);
+		
+		JSONArray array = new JSONArray();
+		// 형변환
+		for( CartDto dto : list ) {		// 향산된 포문으로 리스트에  dto를 하나씩 넣어주고 그걸 오브젝트에 넣어주고 그걸 제이슨어레이에 저장?
+			JSONObject object = new JSONObject();
+			object.put("cartno", dto.getCartno());
+			object.put("pstno", dto.getPstno());
+			object.put("pname", dto.getPname());
+			object.put("pimg", dto.getPimg());
+			object.put("pprice", dto.getPprice());
+			object.put("pdiscount", dto.getPdiscount());
+			object.put("pcolor", dto.getPcolor());
+			object.put("psize", dto.getPsize());
+			object.put("amount", dto.getAmount());
+			array.add(object);
+		}
+		
+		System.out.println("array : "+array);
+		
+		// 3. 응답
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().print(array);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -58,6 +92,7 @@ public class cart extends HttpServlet {
 				int amount = Integer.parseInt(String.valueOf(object.get("amount")))  ;	// String.valueOf() 
 				String pcolor = (String)object.get("pcolor");
 				
+				System.out.println("setCart 다오 결과입니다");
 				System.out.println("psize : "+ psize);
 				System.out.println("amount : "+amount);
 				System.out.println("pcolor : "+pcolor);
@@ -71,7 +106,8 @@ public class cart extends HttpServlet {
 		} catch (Exception e) {System.out.println(e+"json으로 변환 실패");}
 
 		response.setCharacterEncoding("UTF-8"); 		// 항상 넣어두기~
-		response.getWriter().print("true");				// 옵션들을 모두 저장했을 경우
+		response.getWriter().print("true");
+						// 옵션들을 모두 저장했을 경우
 	}
 
 }

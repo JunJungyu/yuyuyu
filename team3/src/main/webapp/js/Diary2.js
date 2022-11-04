@@ -10,7 +10,7 @@ myModal.addEventListener('shown.bs.modal', () => {
 
 $('.diary_img').click(function(e){
 			e.preventDefault();
-			$('#testModal').modal("show");
+			$('.modal').modal("show");
 
 alert('하루에 한번만 작성 가능한 일기장입니다.☝️\n모두 작성한 후에는 연필을 클릭해주세요.✍️')
 

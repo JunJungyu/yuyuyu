@@ -236,6 +236,7 @@
 		 </td> </tr> 
 	</table>
 	
+	<!-- 부트스트랩 -->
 	<div class="modal" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">

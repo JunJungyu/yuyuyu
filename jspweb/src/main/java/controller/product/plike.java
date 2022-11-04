@@ -35,10 +35,10 @@ public class plike extends HttpServlet {
 		int mno = MemberDao.getInstance().getMno( (String)request.getSession().getAttribute("mid") ) ;
 		
 		// 2. db 처리
-		int result = new ProductDao().setPlike( pno , mno );
+		// int result = new ProductDao().setPlike( pno , mno );
 		
 		// 3. 응답
-		response.getWriter().print(result);	// 1- 찜 취소 2- 찜 등록 3- 오류
+		// response.getWriter().print(result);	// 1- 찜 취소 2- 찜 등록 3- 오류
 
 	}
 
