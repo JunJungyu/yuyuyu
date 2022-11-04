@@ -24,9 +24,6 @@ function bsearch(){
 	
 }
 
-
-
-
 list( 1 )				// 2. 실행 - 스크립트 실행 시 자동 실행 뭐 onclick에 넣으면 클릭 했을때 실행되는거고~
 
 function list( page ){	// 1. 정의하고

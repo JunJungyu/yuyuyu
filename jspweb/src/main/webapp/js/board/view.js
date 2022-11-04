@@ -72,17 +72,19 @@ function bdelete( bno ){// 삭제 버튼 클릭 시 삭제할 번호를 인수 [
 
 // 3. 댓글 작성함수
 function rwrite(){
+	alert('댓글쓰기 버튼 클릭')
 	let rcontent = document.querySelector('.rcoment').value;
+	alert( rcontent );
 	
 	$.ajax({
-		url : "http://localhost:8080/jspweb/reply/rwrite" ,
+		url : "/jspweb/reply/rwrite" ,
 		data : { "rcontent" : rcontent , "type" : "reply" } ,					// 맞고
 		type : "POST" ,															// http 메소드
 		success : function( re ){
 			alert( re )														
-			if( re == 1 ){														// 성공
+			if( re == "1" ){														// 성공
 				location.reload();
-			}else if( re == 0 ){												// DB 오류
+			}else if( re == "0" ){												// DB 오류
 				rlist()
 			}else{											
 				location.href = '../member/login.jsp'

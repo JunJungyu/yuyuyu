@@ -229,36 +229,15 @@
 		
 		
 		<tr> <td class="c_emotion_t"> <!-- 감정박스 -->
-			<img class="emotableimg" alt="감정테이블배경" src="/team3/img/체.png">	<!-- 사이즈 조절하기 -->
+			<img class="emotableimg" alt="감정테이블배경" src="/team3/img/배경1.png">	<!-- 사이즈 조절하기 -->
 			<img class="emotabletextbox" src="/team3/img/레이스종이.png">
 			<table class="c_emobox">
 			</table>
 		 </td> </tr> 
 	</table>
-	
-	<!-- 부트스트랩 -->
-	<div class="modal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Modal body text goes here.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-	
+
 	<!-- JQUERY 자바를 편하게  사용하기 위한 라이브러리 -->
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<!-- 부트스트랩 -->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 	<!-- 내 js -->
 	<script src="/team3/js/Diary2.js" type="text/javascript"></script>
 </body>

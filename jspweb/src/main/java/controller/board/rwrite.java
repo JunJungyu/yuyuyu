@@ -42,6 +42,10 @@ public class rwrite extends HttpServlet {
 		if( mno == 0 ){ response.getWriter().print("0"); return; }		
 		int bno = (Integer)request.getSession().getAttribute("bno");
 		boolean result = false;
+	
+		System.out.println("1 : " + rcontent  );
+		System.out.println("2 : " + mno  );
+		System.out.println("3 : " + bno  );
 		
 		// 2. db 처리
 		if( type.equals("reply") ) {		// 댓글일 경우

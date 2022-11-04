@@ -1,17 +1,4 @@
-//////////////////// 부트스트랩
-/*
-let myModal = document.getElementById('myModal')
-let myInput = document.getElementById('myInput')
-
-myModal.addEventListener('shown.bs.modal', () => {
-  myInput.focus()
-})
-*/
-
-$('.diary_img').click(function(e){
-			e.preventDefault();
-			$('.modal').modal("show");
-
+alert('연결이 안되고있네요~ 왜~')
 alert('하루에 한번만 작성 가능한 일기장입니다.☝️\n모두 작성한 후에는 연필을 클릭해주세요.✍️')
 
 let date = null;
@@ -33,7 +20,7 @@ function getToday(){		// 오늘 날짜 가져오는 함수
     return year + "-" + month + "-" + day;
 }
 
-function loadtoday(){		// 선택한 날짜의 일기 불러오기 [ 완 ]
+function loadtoday(){		// 오늘일기장으로 전환 [ 완 ]
 	document.querySelector('.todaydate').value = today					// 오늘 날짜 보이도록
 	document.getElementById('content').value = ''						// 일기장 비워주기
 	document.getElementById('content').readOnly=false;					// 글 수정 가능
@@ -172,6 +159,7 @@ function updateemotion(i){	// 더블클릭하면 감정설명 수정하게 해�
 	3. 달력에 그날 선택한 색상 or 하트 이미지 출력하기
 	4. 하트가 일기장이랑 겹쳐서 잘 안보이니까 효과주기 1-gif로 광택효과 2-흰테두리 그린 이미지로 대체 
 	5. 일기 하루에 한번만 쓸 수 있게 - 당일 수정 가능으로 막거나 / 오늘 선택하면 수정여부 물어보고 수정하게 해주기
+	6. 일기배경 더블클릭하면 바꿔주기 / 테이블 새로 만들기
 	
 
 
@@ -217,29 +205,6 @@ function calendar_day(){				// [ 미완 ] - 어차피 이 방법으론 안쓸듯
 }
 
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

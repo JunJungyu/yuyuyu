@@ -256,10 +256,9 @@ public class BoardDao extends Dao{
 				object.put("중개사소재지",  rs.getString( 15 ) );
 				array.add(object);
 			}
-		}catch (Exception e) { System.out.println(); } return array;
-		
+		}catch (Exception e) { System.out.println(); } 
+		return array;
 	}
-	
 }
 	
 

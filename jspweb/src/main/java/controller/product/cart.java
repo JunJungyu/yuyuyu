@@ -33,15 +33,10 @@ public class cart extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		// 1. 요청
-		
 		int mno = MemberDao.getInstance().getMno((String)request.getSession().getAttribute("mid")) ;
-		System.out.println("카트 두겟 들어옵니다");
-		System.out.println("mno : "+mno);
 		
 		// 2. db처리
 		ArrayList<CartDto> list = new ProductDao().getCart(mno);
-		
-		System.out.println("list : "+list);
 		
 		JSONArray array = new JSONArray();
 		// 형변환
@@ -58,9 +53,7 @@ public class cart extends HttpServlet {
 			object.put("amount", dto.getAmount());
 			array.add(object);
 		}
-		
-		System.out.println("array : "+array);
-		
+
 		// 3. 응답
 		response.setCharacterEncoding("UTF-8");
 		response.getWriter().print(array);
@@ -84,19 +77,12 @@ public class cart extends HttpServlet {
 			// 3. 반복문
 			for( int i = 0; i<array.size() ; i++ ) {
 				JSONObject object = (JSONObject) array.get(i); 	// 순서대로 객체 꺼내기
-				
-				System.out.println(object.get("psize")); 		
-				
+						
 				// 2. db 처리 // json리스트객체.get(인덱스) => 해당 json객체.get("키") => 값 호출
 				String psize = (String)object.get("psize");				// (String) 강제 형변환
 				int amount = Integer.parseInt(String.valueOf(object.get("amount")))  ;	// String.valueOf() 
 				String pcolor = (String)object.get("pcolor");
-				
-				System.out.println("setCart 다오 결과입니다");
-				System.out.println("psize : "+ psize);
-				System.out.println("amount : "+amount);
-				System.out.println("pcolor : "+pcolor);
-				
+
 				boolean result = new ProductDao().setcart( pno , psize , amount , pcolor , mno );
 				
 				// 3. 응답 [ 만약에 옵션들 중에 하나라도 실패하면 false 반환 ]
