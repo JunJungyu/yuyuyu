@@ -19,7 +19,7 @@
 		<button type="button">쇼핑하기</button>
 		
 		<!-- 1. 아임포트 결제 버튼 -->
-		<button onclick="requestPay()" type="button">결제하기</button>		
+		<button onclick="payload()" type="button">결제하기</button>		
 	</div>
 	
 	

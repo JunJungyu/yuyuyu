@@ -29,7 +29,6 @@ document.querySelector('.class명')
 	배열.splice( 인덱스 , 1 )
 */
 
-
 // 공통변수 // 전역변수 [ 여러 함수에서 공유해서 사용하기 위한 목적 ]
 let stock = null				 // 재고목록
 let shtml = null; 				 // 제품 
@@ -129,7 +128,7 @@ document.querySelector('.btncart').addEventListener('click' , (e)=>{
 			if( re == 'true' ){
 				
 				if(confirm('장바구니에 담았습니다. 장바구니 페이지로 이동할까요?')){
-					location.href='/jspweb/admin/cart.jsp';
+					location.href='/jspweb/product/cart.jsp'; // 왜 자꾸 어드민이래~
 				}
 			}else{
 				alert('장바구니 담기 실패 [관리자 문의]')
